@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:background="@drawable/gray_line" android:layout_width="fill_parent" android:layout_height="@dimen/grey_line_height" android:layout_marginTop="10.0dip" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/ll_select_card" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="76.66998dip">
+        <ImageView android:id="@id/icon_bank" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="17.0dip" android:src="@drawable/icon_no_default_card" android:contentDescription="@null" />
+        <LinearLayout android:gravity="left" android:orientation="vertical" android:id="@id/has_default_card" android:visibility="gone" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:layout_weight="1.0">
+            <TextView android:id="@id/bank_name" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/customStyle.Black_22" />
+            <TextView android:id="@id/card_num" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="13.0dip" style="@style/customStyle.Grey_22" />
+        </LinearLayout>
+        <TextView android:id="@id/no_default_card" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginLeft="30.0dip" android:text="@string/plz_select_cash_card" android:layout_weight="1.0" style="@style/customStyle.LightBlack_48" />
+        <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="17.0dip" android:src="@drawable/right_arrow" android:contentDescription="@null" />
+    </LinearLayout>
+    <View android:background="@drawable/gray_line" android:layout_width="fill_parent" android:layout_height="@dimen/grey_line_height" />
+    <View android:background="@drawable/gray_line" android:layout_width="fill_parent" android:layout_height="@dimen/grey_line_height" android:layout_marginTop="10.0dip" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:background="@color/white" android:paddingLeft="17.0dip" android:paddingRight="17.0dip" android:layout_width="fill_parent" android:layout_height="@dimen/simple_list_height">
+        <TextView android:gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginRight="10.0dip" android:text="@string/cash_amount" style="@style/customStyle.LightBlack_42" />
+        <EditText android:textColorHint="@color/hint_color" android:ellipsize="end" android:gravity="center_vertical" android:id="@id/edtCashAmount" android:background="@null" android:layout_width="0.0dip" android:layout_height="fill_parent" android:hint="@string/toast_no_cash_amount" android:layout_weight="1.0" style="@style/customStyle.LightBlack_42" />
+        <TextView android:gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginLeft="10.0dip" android:text="@string/rmb_unit" style="@style/customStyle.LightBlack_42" />
+    </LinearLayout>
+    <View android:background="@drawable/gray_line" android:layout_width="fill_parent" android:layout_height="@dimen/grey_line_height" android:layout_marginLeft="17.0dip" android:layout_marginRight="17.0dip" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:background="@color/white" android:paddingLeft="17.0dip" android:paddingRight="17.0dip" android:layout_width="fill_parent" android:layout_height="@dimen/simple_list_height">
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="10.0dip" android:text="@string/cash_fee_amount" style="@style/customStyle.LightBlack_42" />
+        <TextView android:gravity="right" android:id="@id/fee_cost" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" style="@style/customStyle.LightBlack_42" />
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:text="@string/rmb_unit" style="@style/customStyle.LightBlack_42" />
+    </LinearLayout>
+    <ImageView android:background="@color/white" android:paddingLeft="17.0dip" android:paddingRight="17.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:src="@drawable/dash_line_horizontal" />
+    <TextView android:gravity="right|center" android:id="@id/actual_cost" android:background="@color/white" android:paddingLeft="17.0dip" android:paddingRight="17.0dip" android:layout_width="fill_parent" android:layout_height="@dimen/simple_list_height" android:text="@string/actual_cost_str" style="@style/customStyle.Orange_48" />
+    <View android:background="@drawable/gray_line" android:layout_width="fill_parent" android:layout_height="@dimen/grey_line_height" />
+    <TextView android:gravity="right" android:id="@id/available_amount" android:paddingLeft="17.0dip" android:paddingTop="8.0dip" android:paddingRight="17.0dip" android:paddingBottom="8.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/notice_available_amount" style="@style/customStyle.MidGrey_38" />
+    <TextView android:textSize="13.0sp" android:gravity="center_horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="17.0dip" android:layout_marginTop="20.0dip" android:layout_marginRight="17.0dip" android:layout_marginBottom="6.0dip" android:text="@string/cash_page_bottom_notice" style="@style/customStyle.DarkGrey_42" />
+    <Button android:gravity="center" android:id="@id/btn_commit" android:background="@drawable/button_blue_bg_selector" android:layout_width="fill_parent" android:layout_height="@dimen/button_height" android:layout_marginLeft="17.0dip" android:layout_marginRight="17.0dip" android:text="@string/sure_to_cash" style="@style/customStyle.White_26" />
+</LinearLayout>

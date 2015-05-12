@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/ll_parent" android:background="@color/common_bg" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:background="@drawable/gray_line" android:layout_width="fill_parent" android:layout_height="@dimen/grey_line_height" android:layout_marginTop="15.0dip" />
+    <LinearLayout android:gravity="center_vertical" android:id="@id/ll_avatar" android:background="@color/white" android:paddingLeft="17.0dip" android:paddingRight="17.0dip" android:layout_width="fill_parent" android:layout_height="90.0dip">
+        <TextView android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/avatar" android:layout_weight="1.0" style="@style/customStyle.DarkGreen_48" />
+        <com.renrendai.finance.ui.CircleImageView android:id="@id/iv_avatar" android:layout_width="60.0dip" android:layout_height="60.0dip" android:src="@drawable/head_default" android:scaleType="centerCrop" android:contentDescription="@null" />
+        <ImageView android:id="@id/right_arrow" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:src="@drawable/right_arrow" android:contentDescription="@null" />
+    </LinearLayout>
+    <View android:background="@drawable/gray_line" android:layout_width="fill_parent" android:layout_height="@dimen/grey_line_height" />
+    <View android:background="@drawable/gray_line" android:layout_width="fill_parent" android:layout_height="@dimen/grey_line_height" android:layout_marginTop="15.0dip" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:background="@color/white" android:paddingLeft="17.0dip" android:paddingRight="17.0dip" android:layout_width="fill_parent" android:layout_height="@dimen/simple_list_height">
+        <TextView android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/account_name" android:layout_weight="1.0" style="@style/customStyle.DarkGreen_48" />
+        <TextView android:id="@id/tv_username" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/test" style="@style/customStyle.DarkGrey_48" />
+    </LinearLayout>
+    <ImageView android:background="@color/white" android:paddingLeft="17.0dip" android:paddingRight="17.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:src="@drawable/dash_line_horizontal" android:contentDescription="@null" />
+    <RelativeLayout android:background="@color/white" android:paddingLeft="17.0dip" android:paddingRight="17.0dip" android:layout_width="fill_parent" android:layout_height="@dimen/simple_list_height">
+        <TextView android:id="@id/tv_nickname" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true" android:layout_centerVertical="true" style="@style/customStyle.DarkGrey_48" />
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/nickName" android:layout_toLeftOf="@id/tv_nickname" android:layout_alignParentLeft="true" android:layout_centerVertical="true" style="@style/customStyle.DarkGreen_48" />
+    </RelativeLayout>
+    <ImageView android:background="@color/white" android:paddingLeft="17.0dip" android:paddingRight="17.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:src="@drawable/dash_line_horizontal" android:contentDescription="@null" />
+    <RelativeLayout android:background="@color/white" android:paddingLeft="17.0dip" android:paddingRight="17.0dip" android:layout_width="fill_parent" android:layout_height="@dimen/simple_list_height">
+        <TextView android:id="@id/tv_gender" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true" android:layout_centerVertical="true" style="@style/customStyle.DarkGrey_48" />
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/gender" android:layout_toLeftOf="@id/tv_gender" android:layout_alignParentLeft="true" android:layout_centerVertical="true" style="@style/customStyle.DarkGreen_48" />
+    </RelativeLayout>
+    <ImageView android:background="@color/white" android:paddingLeft="17.0dip" android:paddingRight="17.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:src="@drawable/dash_line_horizontal" android:contentDescription="@null" />
+    <RelativeLayout android:background="@color/white" android:paddingLeft="17.0dip" android:paddingRight="17.0dip" android:layout_width="fill_parent" android:layout_height="@dimen/simple_list_height">
+        <TextView android:id="@id/tv_birthday" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true" android:layout_centerVertical="true" style="@style/customStyle.DarkGrey_48" />
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/birthday" android:layout_toLeftOf="@id/tv_birthday" android:layout_alignParentLeft="true" android:layout_centerVertical="true" style="@style/customStyle.DarkGreen_48" />
+    </RelativeLayout>
+    <View android:background="@drawable/gray_line" android:layout_width="fill_parent" android:layout_height="@dimen/grey_line_height" />
+    <Button android:id="@id/btn_logout" android:layout_width="fill_parent" android:layout_height="@dimen/button_height" android:layout_marginLeft="17.0dip" android:layout_marginTop="26.669983dip" android:layout_marginRight="17.0dip" android:text="@string/exit" style="@style/commonBlueButton" />
+</LinearLayout>

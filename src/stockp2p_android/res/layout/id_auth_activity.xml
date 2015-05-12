@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/common_bg" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:background="@drawable/gray_line" android:layout_width="fill_parent" android:layout_height="@dimen/grey_line_height" android:layout_marginTop="40.0dip" />
+    <EditText android:textColorHint="@color/hint_color" android:id="@id/ciet_name" android:background="@color/white" android:paddingLeft="17.0dip" android:paddingRight="17.0dip" android:layout_width="fill_parent" android:layout_height="@dimen/simple_edit_height" android:hint="@string/real_name" android:singleLine="true" android:drawableLeft="@drawable/user_login_icon" android:drawablePadding="10.0dip" />
+    <View android:background="@drawable/gray_line" android:layout_width="fill_parent" android:layout_height="@dimen/grey_line_height" android:layout_marginLeft="17.0dip" />
+    <EditText android:textColorHint="@color/hint_color" android:id="@id/ciet_idcard" android:background="@color/white" android:paddingLeft="17.0dip" android:paddingRight="17.0dip" android:layout_width="fill_parent" android:layout_height="@dimen/simple_edit_height" android:hint="@string/idcard" android:singleLine="true" android:drawableLeft="@drawable/icon_idcard_unfocus" android:drawablePadding="10.0dip" />
+    <View android:background="@drawable/gray_line" android:layout_width="fill_parent" android:layout_height="@dimen/grey_line_height" />
+    <Button android:id="@id/btn_submit" android:layout_width="fill_parent" android:layout_height="@dimen/button_height" android:layout_marginLeft="17.0dip" android:layout_marginTop="40.0dip" android:layout_marginRight="17.0dip" android:text="@string/submit" style="@style/commonBlueButton" />
+</LinearLayout>

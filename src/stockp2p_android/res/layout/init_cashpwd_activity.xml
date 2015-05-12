@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/common_bg" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:background="@drawable/gray_line" android:layout_width="fill_parent" android:layout_height="@dimen/grey_line_height" android:layout_marginTop="17.0dip" />
+    <EditText android:textColorHint="@color/hint_color" android:id="@id/ciet_cash_pwd" android:background="@color/white" android:paddingLeft="17.0dip" android:paddingRight="17.0dip" android:longClickable="false" android:layout_width="fill_parent" android:layout_height="@dimen/simple_list_height" android:hint="@string/cash_pwd_hint" android:maxLength="30" android:drawableLeft="@drawable/icon_psw_selector" android:drawablePadding="13.329987dip" android:inputType="textPassword" style="@style/customStyle.LightBlack_42" />
+    <View android:background="@drawable/gray_line" android:layout_width="fill_parent" android:layout_height="@dimen/grey_line_height" android:layout_marginLeft="17.0dip" />
+    <EditText android:textColorHint="@color/hint_color" android:id="@id/ciet_cash_pwd_confirm" android:background="@color/white" android:paddingLeft="17.0dip" android:paddingRight="17.0dip" android:longClickable="false" android:layout_width="fill_parent" android:layout_height="@dimen/simple_list_height" android:hint="@string/cash_pwd_confirm_hint" android:maxLength="30" android:drawableLeft="@drawable/icon_psw_selector" android:drawablePadding="13.329987dip" android:inputType="textPassword" style="@style/customStyle.LightBlack_42" />
+    <View android:background="@drawable/gray_line" android:layout_width="fill_parent" android:layout_height="@dimen/grey_line_height" />
+    <Button android:id="@id/btn_confirm" android:layout_width="fill_parent" android:layout_height="@dimen/button_height" android:layout_marginLeft="17.0dip" android:layout_marginTop="30.0dip" android:layout_marginRight="17.0dip" android:text="@string/confirm" style="@style/commonBlueButton" />
+</LinearLayout>

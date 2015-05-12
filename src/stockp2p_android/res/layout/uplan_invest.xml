@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <Button android:layout_gravity="center_horizontal" android:id="@id/action" android:background="@drawable/button_blue_bg_selector" android:layout_width="fill_parent" android:layout_height="@dimen/button_height" android:layout_margin="9.0dip" android:layout_alignParentBottom="true" style="@style/customStyle.White_26" />
+    <ScrollView android:id="@id/topLayout" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_above="@id/action" android:layout_alignParentTop="true">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <include android:id="@id/invest_top" layout="@layout/invest_layout_top" />
+            <TextView android:id="@id/single_max_hint" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="20.0dip" android:layout_marginTop="10.0dip" android:layout_marginBottom="10.0dip" android:text="@string/single_max_hint" style="@style/customStyle.MidGrey_22" />
+            <include layout="@layout/separator_no_margin" />
+            <include android:id="@id/invest_input" layout="@layout/invest_input_layout" />
+            <include android:id="@id/input_assistant" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/invest_layout_padding_left" android:layout_marginRight="@dimen/invest_layout_padding_left" android:layout_marginBottom="13.0dip" layout="@layout/input_assistant_layout" />
+            <include layout="@layout/invest_layout_bottom" />
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

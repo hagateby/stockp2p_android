@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/common_bg"
+    android:orientation="vertical" >
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/grey_line_height"
+        android:layout_marginTop="17.0dip"
+        android:background="@drawable/gray_line" />
+
+    <EditText
+        android:id="@id/ciet_new_cash_pwd"
+        style="@style/customStyle.LightBlack_42"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/simple_list_height"
+        android:background="@color/white"
+        android:drawableLeft="@drawable/icon_psw_selector"
+        android:drawablePadding="13.329987dip"
+        android:hint="@string/reset_cash_pw_new"
+        android:inputType="textPassword"
+        android:longClickable="false"
+        android:maxLength="30"
+        android:paddingLeft="17.0dip"
+        android:paddingRight="17.0dip"
+        android:textColorHint="@color/hint_color" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/grey_line_height"
+        android:layout_marginLeft="17.0dip"
+        android:background="@drawable/gray_line" />
+
+    <EditText
+        android:id="@id/ciet_new_cash_pwd_confirm"
+        style="@style/customStyle.LightBlack_42"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/simple_list_height"
+        android:background="@color/white"
+        android:drawableLeft="@drawable/icon_psw_selector"
+        android:drawablePadding="13.329987dip"
+        android:hint="@string/reset_cash_pw_confirm"
+        android:inputType="textPassword"
+        android:longClickable="false"
+        android:maxLength="30"
+        android:paddingLeft="17.0dip"
+        android:paddingRight="17.0dip"
+        android:textColorHint="@color/hint_color" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/grey_line_height"
+        android:background="@drawable/gray_line" />
+
+    <Button
+        android:id="@id/btn_confirm"
+        
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/button_height"
+        android:layout_marginLeft="17.0dip"
+        android:layout_marginRight="17.0dip"
+        android:layout_marginTop="30.0dip"
+        android:text="确认" />
+
+</LinearLayout>

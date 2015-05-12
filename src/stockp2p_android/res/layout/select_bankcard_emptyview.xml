@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/common_bg" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include layout="@layout/mycard_emptyview" />
+    <View android:background="@drawable/gray_line" android:layout_width="fill_parent" android:layout_height="@dimen/grey_line_height" />
+    <include layout="@layout/entry_add_bankcard" />
+</LinearLayout>

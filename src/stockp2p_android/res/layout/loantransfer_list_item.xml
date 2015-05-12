@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/list_selector" android:paddingLeft="17.0dip" android:paddingTop="15.0dip" android:paddingRight="20.0dip" android:paddingBottom="17.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/status_indicator" android:background="@drawable/blue_ring" android:layout_width="@dimen/list_item_circle_diameter" android:layout_height="@dimen/list_item_circle_diameter" android:layout_alignParentRight="true" android:layout_centerVertical="true">
+        <TextView android:id="@id/share" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2份" style="@style/customStyle.list_item_info" />
+        <View android:background="@color/blue_common" android:layout_width="fill_parent" android:layout_height="@dimen/grey_line_height" android:layout_marginLeft="3.0dip" android:layout_marginRight="3.0dip" />
+        <TextView android:textSize="@dimen/list_item_normal_text_size" android:textStyle="bold" android:textColor="@color/blue_common" android:gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/buy_now" />
+    </LinearLayout>
+    <include android:id="@id/header" layout="@layout/loan_list_item_header" />
+    <include android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_toLeftOf="@id/status_indicator" android:layout_below="@id/header" layout="@layout/list_item_infos_layout" />
+</RelativeLayout>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="#ffefeff4" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:renrendai="http://schemas.android.com/apk/res-auto">
+    <ScrollView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_above="@id/footer" android:layout_alignParentTop="true">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <LinearLayout android:orientation="vertical" android:id="@id/header" android:background="@color/white" android:paddingLeft="@dimen/detail_title_left_padding" android:paddingTop="@dimen/detail_title_left_padding" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="20.0dip" android:layout_marginBottom="20.0dip">
+                <TextView android:id="@id/plan_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="资金周转" android:layout_alignParentLeft="true" style="@style/customStyle.Black_22" />
+                <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="20.0dip" android:baselineAligned="false">
+                    <com.renrendai.finance.ui.DetailItemView android:id="@id/plan_period" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" renrendai:iconSrc="@drawable/lock_period" renrendai:title="@string/plan_period_title" renrendai:valueColor="@color/detail_info_green_color" />
+                    <com.renrendai.finance.ui.DetailItemView android:id="@id/plan_rate" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" renrendai:iconSrc="@drawable/plan_rate_icon" renrendai:title="@string/plan_rate_title" renrendai:valueColor="@color/detail_info_red_color" />
+                </LinearLayout>
+                <com.renrendai.finance.ui.DetailItemView android:id="@id/invest_day" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="27.0dip" renrendai:iconSrc="@drawable/invest_day_icon" renrendai:title="@string/invest_day_title" renrendai:valueColor="@color/detail_info_blue_color" />
+                <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/plan_progress" android:paddingRight="@dimen/detail_title_left_padding" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="27.0dip" android:layout_marginBottom="27.0dip">
+                    <ProgressBar android:id="@id/finishRatio_pb" android:layout_width="0.0dip" android:layout_height="5.0dip" android:max="100" android:progress="10" android:progressDrawable="@drawable/detail_progress_style" android:layout_weight="1.0" style="?android:attr/progressBarStyleHorizontal" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:text="已加入人数" style="@style/customStyle.detail_info_title" />
+                    <TextView android:textSize="13.0sp" android:textColor="@color/progress_blue_color" android:id="@id/finishRatio_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="70%" />
+                </LinearLayout>
+            </LinearLayout>
+            <RelativeLayout android:id="@id/periods" android:background="@android:color/white" android:layout_width="fill_parent" android:layout_height="149.0dip" android:layout_marginBottom="20.0dip">
+                <RelativeLayout android:id="@id/line_connector" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="30.0dip">
+                    <ImageView android:id="@id/point_1" android:layout_width="@dimen/plan_time_point_size" android:layout_height="@dimen/plan_time_point_size" android:layout_marginTop="@dimen/plan_time_line_connector_margin" android:src="@drawable/gray_round" android:contentDescription="@null" />
+                    <ImageView android:id="@id/point_2" android:layout_width="@dimen/plan_time_point_size" android:layout_height="@dimen/plan_time_point_size" android:layout_marginTop="@dimen/plan_time_line_connector_margin" android:src="@drawable/gray_round" android:layout_below="@id/point_1" android:contentDescription="@null" />
+                    <ImageView android:id="@id/point_3" android:layout_width="@dimen/plan_time_point_size" android:layout_height="@dimen/plan_time_point_size" android:layout_marginTop="@dimen/plan_time_line_connector_margin" android:layout_marginBottom="@dimen/plan_time_line_connector_margin" android:src="@drawable/gray_round" android:layout_below="@id/point_2" android:contentDescription="@null" />
+                    <View android:background="@color/date_connector_color" android:layout_width="1.0dip" android:layout_height="fill_parent" android:layout_alignTop="@id/point_1" android:layout_alignBottom="@id/point_3" android:layout_centerHorizontal="true" />
+                </RelativeLayout>
+                <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginLeft="23.0dip" android:layout_marginTop="@dimen/plan_time_line_connector_half_margin" android:layout_marginRight="17.0dip" android:layout_marginBottom="@dimen/plan_time_line_connector_half_margin" android:layout_toRightOf="@id/line_connector">
+                    <RelativeLayout android:gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="加入薪计划" style="@style/customStyle.list_item_info" />
+                        <TextView android:id="@id/join_plan_date" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="11-28 10:00" android:layout_alignParentRight="true" style="@style/customStyle.list_item_info" />
+                    </RelativeLayout>
+                    <RelativeLayout android:gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="按月投资" style="@style/customStyle.list_item_info" />
+                        <TextView android:id="@id/invest_date_info" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="11-28 10:00" android:layout_alignParentRight="true" style="@style/customStyle.list_item_info" />
+                    </RelativeLayout>
+                    <RelativeLayout android:gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="到期退出" style="@style/customStyle.list_item_info" />
+                        <TextView android:id="@id/quit_time" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="11-28 10:00" android:layout_alignParentRight="true" style="@style/customStyle.list_item_info" />
+                    </RelativeLayout>
+                </LinearLayout>
+            </RelativeLayout>
+            <LinearLayout android:orientation="vertical" android:id="@id/introduce_area" android:background="@android:color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="20.0dip">
+                <com.renrendai.finance.activity.financeplan.ExpandableViewWrapper android:id="@id/introduce" android:layout_width="fill_parent" android:layout_height="wrap_content" renrendai:icon="@drawable/introduce_icon" renrendai:titleText="@string/introduce_title" />
+                <include layout="@layout/separator" />
+                <include android:layout_width="fill_parent" android:layout_height="@dimen/common_item_height" layout="@layout/contract_in_detail" />
+            </LinearLayout>
+            <com.renrendai.finance.activity.financeplan.ExpandableViewWrapper android:id="@id/pay_way" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="20.0dip" renrendai:icon="@drawable/pay_way_icon" renrendai:titleText="@string/pay_way_title" renrendai:starterText="@string/pay_way_starter" />
+            <com.renrendai.finance.activity.financeplan.ExpandableViewWrapper android:id="@id/fee_explain" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="20.0dip" renrendai:icon="@drawable/fee_explain_icon" renrendai:titleText="@string/fee_explain_title" />
+            <com.renrendai.finance.activity.financeplan.ExpandableViewWrapper android:id="@id/plan_introduction" android:layout_width="fill_parent" android:layout_height="wrap_content" renrendai:icon="@drawable/introduce_icon" renrendai:expandable="true" renrendai:titleText="@string/plan_introduction" />
+        </LinearLayout>
+    </ScrollView>
+    <include layout="@layout/detail_footer" />
+</RelativeLayout>

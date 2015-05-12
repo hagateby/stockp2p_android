@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@id/tv_notice_security_info"
+        style="@style/customStyle.DarkGrey_42"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8.0dip"
+        android:layout_marginLeft="15.0dip"
+        android:layout_marginTop="12.0dip"
+        android:gravity="center_vertical"
+        android:text="您的账户安全等级为" />
+
+    <LinearLayout
+        android:id="@id/ll_nickname"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/simple_list_height"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="vertical" >
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/grey_line_height"
+            android:background="@drawable/gray_line" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="17.0dip"
+            android:paddingRight="17.0dip" >
+
+            <TextView
+                style="@style/customStyle.LightBlack_42"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/user_safe_icon_selector"
+                android:drawablePadding="10.0dip"
+                android:text="昵称" />
+
+            <TextView
+                android:id="@id/iv_nickname_hint"
+                style="@style/customStyle.DarkGrey_42"
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15.0dip"
+                android:layout_weight="1.0"
+                android:gravity="right"
+                android:text="请填写昵称" />
+
+            <ImageView
+                android:id="@id/entry_nickname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.0"
+                android:contentDescription="@null"
+                android:src="@drawable/right_arrow" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/grey_line_height"
+        android:background="@drawable/gray_line" />
+
+    <LinearLayout
+        android:id="@id/ll_certification"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/simple_list_height"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:paddingLeft="17.0dip"
+        android:paddingRight="17.0dip" >
+
+        <TextView
+            android:id="@id/id_auth"
+            style="@style/customStyle.LightBlack_42"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/user_safe_icon_selector"
+            android:drawablePadding="10.0dip"
+            android:text="认证" />
+
+        <TextView
+            android:id="@id/tv_idCard_content"
+            style="@style/customStyle.DarkGrey_42"
+            android:layout_width="0.0dip"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15.0dip"
+            android:layout_weight="1.0"
+            android:gravity="right"
+            android:text="未认证" />
+
+        <ImageView
+            android:id="@id/entry_idcard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.0"
+            android:contentDescription="@null"
+            android:src="@drawable/right_arrow" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/grey_line_height"
+        android:layout_marginLeft="17.0dip"
+        android:background="@drawable/gray_line" />
+
+    <LinearLayout
+        android:id="@id/ll_bind_phone"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/simple_list_height"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:paddingLeft="17.0dip"
+        android:paddingRight="17.0dip" >
+
+        <TextView
+            android:id="@id/bind_mobile"
+            style="@style/customStyle.LightBlack_42"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/user_safe_icon_selector"
+            android:drawablePadding="10.0dip"
+            android:text="绑定手机" />
+
+        <TextView
+            android:id="@id/tv_bind_phone_content"
+            style="@style/customStyle.DarkGrey_42"
+            android:layout_width="0.0dip"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15.0dip"
+            android:layout_weight="1.0"
+            android:gravity="right"
+            android:text="未绑定" />
+
+        <ImageView
+            android:id="@id/entry_mobile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.0"
+            android:contentDescription="@null"
+            android:src="@drawable/right_arrow" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/grey_line_height"
+        android:layout_marginLeft="17.0dip"
+        android:background="@drawable/gray_line" />
+
+    <LinearLayout
+        android:id="@id/ll_cash_password"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/simple_list_height"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:paddingLeft="17.0dip"
+        android:paddingRight="17.0dip" >
+
+        <TextView
+            android:id="@id/cash_password"
+            style="@style/customStyle.LightBlack_42"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/user_safe_icon_selector"
+            android:drawablePadding="10.0dip"
+            android:text="交易密码" />
+
+        <TextView
+            android:id="@id/tv_cash_password"
+            style="@style/customStyle.DarkGrey_42"
+            android:layout_width="0.0dip"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15.0dip"
+            android:layout_weight="1.0"
+            android:gravity="right"
+            android:text="未设置" />
+
+        <ImageView
+            android:id="@id/entry_cash_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.0"
+            android:contentDescription="@null"
+            android:src="@drawable/right_arrow" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/grey_line_height"
+        android:background="@drawable/gray_line" />
+
+</LinearLayout>

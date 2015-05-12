@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 底栏 -->
+
+<RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/base_activity_rg_bottombar"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+    android:background="@drawable/framework_menu_bk"
+    android:gravity="center_vertical"
+    android:orientation="horizontal" >
+
+    <RadioButton
+        android:id="@+id/base_activity_rb_taba"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@drawable/framework_tab_icon_1"
+        android:layout_weight="1"
+        android:button="@null"
+        android:checked="true"
+        android:tag="radio_button0" />
+
+    <RadioButton
+        android:id="@+id/base_activity_rb_tabb"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@drawable/framework_tab_icon_2"
+        android:layout_weight="1"
+        android:button="@null" />
+
+    <RadioButton
+        android:id="@+id/base_activity_rb_tabc"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@drawable/framework_tab_icon_3"
+        android:layout_weight="1"
+        android:button="@null" />
+
+    <RadioButton
+        android:id="@+id/base_activity_rb_tabd"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@drawable/framework_tab_icon_4"
+        android:layout_weight="1"
+        android:button="@null" />
+
+</RadioGroup>
