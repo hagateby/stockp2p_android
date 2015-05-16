@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/invest_input_area_background" android:layout_width="fill_parent" android:layout_height="60.0dip" android:layout_margin="@dimen/invest_layout_padding_left"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:id="@id/join_money_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="17.0dip" android:text="加入金额" android:layout_centerVertical="true" style="@style/customStyle.Black_26" />
+    <TextView android:id="@id/big_unit" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="17.0dip" android:text="@string/rmb_unit" android:layout_alignParentRight="true" android:layout_centerVertical="true" style="@style/customStyle.Black_26" />
+    <EditText android:textSize="@dimen/invest_money_hint_size" android:textColor="@color/black" android:textColorHint="@color/hint_color" android:ellipsize="end" android:gravity="bottom|left|center" android:id="@id/join_money" android:background="@null" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:layout_marginRight="5.0dip" android:hint="@string/single_max_hint" android:scrollHorizontally="true" android:singleLine="true" android:maxLength="10" android:layout_toLeftOf="@id/big_unit" android:layout_toRightOf="@id/join_money_title" android:layout_centerVertical="true" android:inputType="number" android:isScrollContainer="true" />
+</RelativeLayout>

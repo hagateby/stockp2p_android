@@ -31,11 +31,11 @@
     <!-- 浅蓝色 -->
     <color name="wathet_blue">#ff6396d6</color>
     <!-- 橙色 -->
-    <color name="yellow">#fff5911e</color>
+    
     <!-- 深灰色 -->
     <color name="dark_gray">#ff8e8d8d</color>
     <!-- 灰色 -->
-    <color name="gray">#ff555555</color>
+    
     <!-- 浅灰色 -->
     <color name="light_gray">#ffb5b5b5</color>
 
@@ -53,13 +53,13 @@
     <color name="red_gray">#ff7b6e75</color>
 
     <!-- 深蓝 -->
-    <color name="dark_blue">#004476</color>
+    
     <!-- 标题用de深蓝紫色 -->
     <color name="dark_blue_purple">#ff1b1c80</color>
     <!-- 白色 -->
     <!-- <color name="white">#ffffff</color> -->
     <!-- 黑色 -->
-    <color name="black">#000000</color>
+  
     <!-- iphone -->
 
 
@@ -165,7 +165,7 @@
     <color name="oldlace">#FDF5E6</color> <!-- 老花色 -->
     <color name="olive">#808000</color> <!-- 橄榄色 -->
     <color name="olivedrab">#6B8E23</color> <!-- 深绿褐色 -->
-    <color name="orange">#FFA500</color> <!-- 橙色 -->
+   
     <color name="orangered">#FF4500</color> <!-- 红橙色 -->
     <color name="orchid">#DA70D6</color> <!-- 淡紫色 -->
     <color name="palegoldenrod">#EEE8AA</color> <!-- 苍麒麟色 -->
@@ -230,7 +230,7 @@
     <color name="gray_bg">#ffefeff4</color>
     <color name="gray_progress">#ffdfe0e1</color>
     <color name="gray_text">#ff8e8e93</color>
-    <color name="green">#ff91c41f</color>
+    
     <color name="hint_color">#ffcad7e3</color>
     <color name="light_black">#ff314355</color>
     <color name="light_grey">#ffc7c7cc</color>
@@ -251,9 +251,7 @@
     <color name="white">#ffffffff</color>
     <color name="yellow">#fffffcd1</color>
 
-    <color name="button_text_white_blue_selector" >#7f06002b</color>
-    <color name="button_white_txt_color_selector" >#7f06002c"</color>
-    <color name="common_btn_text_color_selector" >#7f06002d" </color>
-    <color name="extra_line_text_color_selector" >#7f06002e"</color>
+
+   
     
 </resources>

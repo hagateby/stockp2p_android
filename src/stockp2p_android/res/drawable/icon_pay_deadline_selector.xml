@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_enabled="false" android:drawable="@drawable/compeleted_invest" />
+    <item android:drawable="@drawable/icon_pay_deadline_disable" android:state_activated="false" />
+    <item android:drawable="@drawable/icon_pay_deadline" />
+</selector>

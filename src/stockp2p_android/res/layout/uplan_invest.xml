@@ -8,7 +8,7 @@
             <TextView android:id="@id/single_max_hint" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="20.0dip" android:layout_marginTop="10.0dip" android:layout_marginBottom="10.0dip" android:text="@string/single_max_hint" style="@style/customStyle.MidGrey_22" />
             <include layout="@layout/separator_no_margin" />
             <include android:id="@id/invest_input" layout="@layout/invest_input_layout" />
-            <include android:id="@id/input_assistant" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/invest_layout_padding_left" android:layout_marginRight="@dimen/invest_layout_padding_left" android:layout_marginBottom="13.0dip" layout="@layout/input_assistant_layout" />
+           
             <include layout="@layout/invest_layout_bottom" />
         </LinearLayout>
     </ScrollView>

@@ -1,0 +1,49 @@
+10
+
+dir
+15931
+http://10.1.2.15/svn/P037%E6%8E%8C%E4%B8%8A%E6%96%B0%E5%8D%8E%E4%BA%8C%E6%9C%9F/05%E5%BC%80%E5%8F%91%E7%BC%96%E7%A0%81/051Android%E6%89%8B%E6%9C%BA%E6%BA%90%E7%A0%81/newFramework/NCIHAndroidPhone/src/com/pactera/nci/common
+http://10.1.2.15/svn/P037%E6%8E%8C%E4%B8%8A%E6%96%B0%E5%8D%8E%E4%BA%8C%E6%9C%9F
+
+
+
+2015-04-14T01:31:23.734375Z
+15842
+denghx_wb
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+7775e71c-bdce-ac4e-aaca-9853628c6d2f
+
+service
+dir
+
+serviceengin
+dir
+
+cache
+dir
+
+db
+dir
+
+data
+dir
+
+view
+dir
+
+util
+dir
+

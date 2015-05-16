@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/header"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/rate_area" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="25.0dip">
+        <TextView android:id="@id/rate" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="7%" style="@style/customStyle.list_item_special" />
+        <TextView android:id="@id/rate_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="15.0dip" android:text="@string/plan_rate_title" style="@style/customStyle.list_item_info" />
+    </LinearLayout>
+    <TextView android:id="@id/info2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="20.0dip" android:text="金额800万元" android:layout_alignBottom="@id/rate_area" android:layout_alignParentRight="true" style="@style/customStyle.list_item_info" />
+    <TextView android:id="@id/info1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="17.0dip" android:text="锁定期3个月" android:layout_above="@id/info2" android:layout_alignRight="@id/info2" style="@style/customStyle.list_item_info" />
+</RelativeLayout>

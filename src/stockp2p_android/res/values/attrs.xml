@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="functionName" format="reference|string" />
+    <attr name="functionIcon" format="reference" />
+    <attr name="hint" format="reference|string" />
+    <attr name="border_width" format="dimension" />
+    <attr name="border_color" format="color" />
+    <attr name="guidelines">
+        <enum name="on" value="2" />
+        <enum name="onTouch" value="1" />
+        <enum name="off" value="0" />
+    </attr>
+    <attr name="fixAspectRatio" format="boolean" />
+    <attr name="aspectRatioX" format="integer" />
+    <attr name="aspectRatioY" format="integer" />
+    <attr name="imageResource" format="reference" />
+    <attr name="contentType">
+        <enum name="defaultType" value="0" />
+        <enum name="password" value="1" />
+        <enum name="mobileNo" value="2" />
+        <enum name="money" value="3" />
+        <enum name="cardNo" value="4" />
+    </attr>
+    <attr name="maxValue" format="integer" />
+    <attr name="cietText" format="string" />
+    <attr name="cietHint" format="string" />
+    <attr name="cietIcon" format="reference" />
+    <attr name="cietTextColor" format="color" />
+    <attr name="cietTextSize" format="dimension" />
+    <attr name="cietLeftUnderlineWidth" format="dimension" />
+    <attr name="cietPassword" format="boolean" />
+    <attr name="cietSystemCursor" format="boolean" />
+    <attr name="iconSrc" format="reference" />
+    <attr name="title" format="reference|string" />
+    <attr name="value" format="reference|string" />
+    <attr name="valueColor" format="reference" />
+    <attr name="icon" format="reference" />
+    <attr name="expandable" format="boolean" />
+    <attr name="titleText" format="reference" />
+    <attr name="starterText" format="reference" />
+    <attr name="itemTitle" format="reference|string" />
+    <attr name="topSeparator" format="boolean" />
+    <attr name="information" format="reference|string" />
+    <attr name="aspect" format="string" />
+    <attr name="mode">
+        <enum name="normal" value="0" />
+        <enum name="demo" value="1" />
+    </attr>
+    <attr name="demoDrawableNormal" format="reference" />
+    <attr name="demoDrawableTouched" format="reference" />
+    <attr name="slideable" format="boolean" />
+    <attr name="slideMode">
+        <flag name="disabled" value="0x00000000" />
+        <flag name="left" value="0x00000001" />
+        <flag name="right" value="0x00000002" />
+        <flag name="both" value="0x00000003" />
+    </attr>
+    <attr name="ptrRefreshableViewBackground" format="reference|color" />
+    <attr name="ptrHeaderBackground" format="reference|color" />
+    <attr name="ptrHeaderTextColor" format="reference|color" />
+    <attr name="ptrHeaderSubTextColor" format="reference|color" />
+    <attr name="ptrMode">
+        <flag name="disabled" value="0x00000000" />
+        <flag name="both" value="0x00000003" />
+        <flag name="pullFromStart" value="0x00000001" />
+        <flag name="pullFromEnd" value="0x00000002" />
+        <flag name="manualOnly" value="0x00000004" />
+    </attr>
+    <attr name="ptrShowIndicator" format="reference|boolean" />
+    <attr name="ptrDrawable" format="reference" />
+    <attr name="ptrDrawableStart" format="reference" />
+    <attr name="ptrDrawableEnd" format="reference" />
+    <attr name="ptrOverScroll" format="reference|boolean" />
+    <attr name="ptrHeaderTextAppearance" format="reference" />
+    <attr name="ptrSubHeaderTextAppearance" format="reference" />
+    <attr name="ptrAnimationStyle">
+        <flag name="rotate" value="0x00000000" />
+        <flag name="flip" value="0x00000001" />
+        <flag name="animDrawable" value="0x00000002" />
+    </attr>
+    <attr name="ptrScrollingWhileRefreshingEnabled" format="reference|boolean" />
+    <attr name="ptrListViewExtrasEnabled" format="reference|boolean" />
+    <attr name="ptrRotateDrawableWhilePulling" format="reference|boolean" />
+    <attr name="circleCount" format="integer" />
+    <attr name="circleRadius" format="dimension" />
+    <attr name="lineWidth" format="dimension" />
+    <attr name="circleColor" format="color" />
+    <attr name="lineColor" format="color" />
+</resources>

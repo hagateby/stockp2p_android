@@ -22,7 +22,7 @@
     <string name="alreadyPayCount">还清借款</string>
     <string name="amount">金额</string>
     <string name="and">和</string>
-    <string name="app_name">人人贷理财</string>
+    
     <string name="assets_manage">资金管理</string>
     <string name="authenticate_action">立即认证</string>
     <string name="authenticate_hint">为保证资金安全，投资前需完成安全认证</string>
@@ -545,4 +545,5 @@
     <string name="xin_plan_title">薪计划</string>
     <string name="xyrz_certificate_type">信用认证标</string>
     <string name="yesterday">昨天</string>
+    <string name="action_settings">Settings</string>
 </resources>

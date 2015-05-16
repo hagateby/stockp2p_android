@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/invest_layout_padding_left" android:layout_marginRight="@dimen/invest_layout_padding_left"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="right" android:orientation="horizontal" android:id="@id/available_money_area" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:id="@id/available_money_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="可用金额" style="@style/customStyle.info_key" />
+        <TextView android:id="@id/available_money" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/customStyle.info_key" />
+    </LinearLayout>
+    <RelativeLayout android:id="@id/contract_area" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="13.0dip">
+        <ToggleButton android:id="@id/contract_accept_indicator" android:background="@null" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="5.0dip" android:checked="true" android:textOn="" android:textOff="" android:drawableLeft="@drawable/contract_selector" android:layout_alignParentLeft="true" />
+        <TextView android:id="@id/contracts" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toRightOf="@id/contract_accept_indicator" android:layout_alignTop="@id/contract_accept_indicator" style="@style/customStyle.DarkGrey_20" />
+    </RelativeLayout>
+</LinearLayout>

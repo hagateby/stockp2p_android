@@ -58,73 +58,19 @@
     <public type="attr" name="lineWidth" id="0x7f010037" />
     <public type="attr" name="circleColor" id="0x7f010038" />
     <public type="attr" name="lineColor" id="0x7f010039" />
-    <public type="drawable" name="advertise_index_indicator" id="0x7f020002" />
-    <public type="drawable" name="back_selector" id="0x7f020008" />
-    <public type="drawable" name="black_ring" id="0x7f020031" />
-    <public type="drawable" name="blue_ring" id="0x7f020035" />
+   
     <public type="drawable" name="button_blue_bg_selector" id="0x7f020037" />
-    <public type="drawable" name="button_bluewhite_bg_selector" id="0x7f020038" />
-    <public type="drawable" name="button_textcolor_select_black_white" id="0x7f020039" />
-    <public type="drawable" name="button_white_bg_selector" id="0x7f02003a" />
-    <public type="drawable" name="clickable_loan_status_background" id="0x7f020043" />
-    <public type="drawable" name="commonbg_rectangle_background" id="0x7f020045" />
-    <public type="drawable" name="contract_selector" id="0x7f020048" />
-    <public type="drawable" name="custom_cursor" id="0x7f020050" />
-    <public type="drawable" name="dash_line_horizontal" id="0x7f020051" />
-    <public type="drawable" name="dash_line_white" id="0x7f020052" />
-    <public type="drawable" name="delete_btn_selector" id="0x7f020053" />
-    <public type="drawable" name="detail_progress_style" id="0x7f020057" />
+   
     <public type="drawable" name="dialog_bg" id="0x7f020058" />
-    <public type="drawable" name="dialog_button_area_bg" id="0x7f020059" />
-    <public type="drawable" name="dialog_loading_bg" id="0x7f02005a" />
-    <public type="drawable" name="edittext_single_selector" id="0x7f02005d" />
-    <public type="drawable" name="empty_list_selector" id="0x7f02005f" />
-    <public type="drawable" name="fastjoin_btn_bg_selector" id="0x7f020061" />
-    <public type="drawable" name="gray_round" id="0x7f02006f" />
-    <public type="drawable" name="gray_round_background" id="0x7f020070" />
-    <public type="drawable" name="icon_pay_deadline_selector" id="0x7f020089" />
+   
     <public type="drawable" name="icon_psw_selector" id="0x7f02008b" />
     <public type="drawable" name="icon_user_selector" id="0x7f020098" />
-    <public type="drawable" name="input_assistant_bg_checked" id="0x7f0200a3" />
-    <public type="drawable" name="input_assistant_bg_unchecked" id="0x7f0200a4" />
-    <public type="drawable" name="invest_input_area_background" id="0x7f0200a7" />
-    <public type="drawable" name="invest_top_background_color" id="0x7f0200a9" />
-    <public type="drawable" name="list_choice_indicator_single" id="0x7f0200ac" />
-    <public type="drawable" name="list_selector" id="0x7f0200af" />
-    <public type="drawable" name="loading" id="0x7f0200b1" />
-    <public type="drawable" name="notice_bg_bottom" id="0x7f0200d1" />
-    <public type="drawable" name="notice_bg_total" id="0x7f0200d2" />
-    <public type="drawable" name="ptr_indicator_bg_bottom" id="0x7f0200e3" />
-    <public type="drawable" name="ptr_indicator_bg_top" id="0x7f0200e4" />
-    <public type="drawable" name="round_corner_rectangle_blue_background" id="0x7f0200f0" />
-    <public type="drawable" name="round_corner_rectangle_blue_stroke_white_bg" id="0x7f0200f1" />
-    <public type="drawable" name="round_corner_rectangle_blue_stroke_white_bg_checked" id="0x7f0200f2" />
-    <public type="drawable" name="round_corner_rectangle_blue_stroke_white_bg_unchecked" id="0x7f0200f3" />
-    <public type="drawable" name="round_corner_rectangle_common_bg_background" id="0x7f0200f4" />
-    <public type="drawable" name="round_corner_rectangle_white_background" id="0x7f0200f5" />
-    <public type="drawable" name="seekbar_progress_drawable" id="0x7f0200f7" />
-    <public type="drawable" name="send_to_friends_selector" id="0x7f0200fb" />
-    <public type="drawable" name="shape_black_bg" id="0x7f0200fd" />
+ 
     <public type="drawable" name="shape_blue_border_button" id="0x7f0200fe" />
     <public type="drawable" name="shape_blue_button" id="0x7f0200ff" />
     <public type="drawable" name="shape_blue_button_disabled" id="0x7f020100" />
     <public type="drawable" name="shape_blue_button_pressed" id="0x7f020101" />
-    <public type="drawable" name="shape_corner_rect_gray_border" id="0x7f020102" />
-    <public type="drawable" name="shape_orange_bg" id="0x7f020103" />
-    <public type="drawable" name="shape_orange_bg_selector" id="0x7f020104" />
-    <public type="drawable" name="shape_orange_pressed_bg" id="0x7f020105" />
-    <public type="drawable" name="shape_picker_emptyview" id="0x7f020106" />
-    <public type="drawable" name="shape_picker_list" id="0x7f020107" />
-    <public type="drawable" name="shape_picker_title" id="0x7f020108" />
-    <public type="drawable" name="share_on_moments_selector" id="0x7f02010d" />
-    <public type="drawable" name="state_show_hidden_selector" id="0x7f020114" />
-    <public type="drawable" name="tab_bg_color_selector" id="0x7f020115" />
-    <public type="drawable" name="tab_home_page_icon" id="0x7f020116" />
-    <public type="drawable" name="tab_more_icon" id="0x7f020119" />
-    <public type="drawable" name="tab_my_account_icon" id="0x7f02011c" />
-    <public type="drawable" name="u_plan_tab_background" id="0x7f02011f" />
-    <public type="drawable" name="unclickable_loan_status_background" id="0x7f020120" />
-    <public type="drawable" name="user_safe_icon_selector" id="0x7f020128" />
+   
     <public type="drawable" name="ic_launcher" id="0x7f020074" />
     <public type="drawable" name="add_bankcard" id="0x7f020000" />
     <public type="drawable" name="add_card_success" id="0x7f020001" />
@@ -356,200 +302,18 @@
     <public type="drawable" name="compeleted_invest" id="0x7f020046" />
     <public type="drawable" name="income_title" id="0x7f020099" />
     <public type="drawable" name="logo_with_copyright" id="0x7f0200cf" />
-    <public type="layout" name="about" id="0x7f030000" />
-    <public type="layout" name="account_function_item" id="0x7f030001" />
+    
     <public type="layout" name="accountsafe_activity" id="0x7f030002" />
-    <public type="layout" name="activity_base" id="0x7f030003" />
-    <public type="layout" name="activity_benifit_process" id="0x7f030004" />
+   
     <public type="layout" name="activity_cash_addcard" id="0x7f030005" />
     <public type="layout" name="activity_cashpage" id="0x7f030006" />
     <public type="layout" name="activity_charge_comfirm_info_kq" id="0x7f030007" />
     <public type="layout" name="activity_charge_kq" id="0x7f030008" />
-    <public type="layout" name="activity_crop_avatar" id="0x7f030009" />
-    <public type="layout" name="activity_income_detail" id="0x7f03000a" />
-    <public type="layout" name="activity_kq_smscode" id="0x7f03000b" />
-    <public type="layout" name="activity_newbie_guide" id="0x7f03000c" />
-    <public type="layout" name="activity_register" id="0x7f03000d" />
-    <public type="layout" name="activity_register_success" id="0x7f03000e" />
+   
     <public type="layout" name="activity_reset_cash_pw" id="0x7f03000f" />
-    <public type="layout" name="activity_retrive_cash_pw" id="0x7f030010" />
-    <public type="layout" name="activity_select_city" id="0x7f030011" />
-    <public type="layout" name="activity_select_opening_bank" id="0x7f030012" />
-    <public type="layout" name="activity_select_tag" id="0x7f030013" />
-    <public type="layout" name="activity_splash" id="0x7f030014" />
-    <public type="layout" name="activity_url" id="0x7f030015" />
-    <public type="layout" name="activity_user_salary_plan_detail" id="0x7f030016" />
-    <public type="layout" name="activity_user_salary_plan_pay" id="0x7f030017" />
-    <public type="layout" name="activity_xin_plan_list" id="0x7f030018" />
-    <public type="layout" name="advertise_layout" id="0x7f030019" />
-    <public type="layout" name="advertisement_index_indicator" id="0x7f03001a" />
-    <public type="layout" name="advertisement_item_layout" id="0x7f03001b" />
-    <public type="layout" name="assets_item" id="0x7f03001c" />
+    
     <public type="layout" name="assets_manage_activity" id="0x7f03001d" />
-    <public type="layout" name="backaccount_footview" id="0x7f03001e" />
-    <public type="layout" name="backaccount_headview" id="0x7f03001f" />
-    <public type="layout" name="backaccount_item" id="0x7f030020" />
-    <public type="layout" name="bank_picker" id="0x7f030021" />
-    <public type="layout" name="bank_picker_emptyview" id="0x7f030022" />
-    <public type="layout" name="bank_picker_item" id="0x7f030023" />
-    <public type="layout" name="bank_picker_title" id="0x7f030024" />
-    <public type="layout" name="base_tabs_layout" id="0x7f030025" />
-    <public type="layout" name="bid_loan" id="0x7f030026" />
-    <public type="layout" name="bid_loan_confirm_dialog_body" id="0x7f030027" />
-    <public type="layout" name="bid_loan_landing_page" id="0x7f030028" />
-    <public type="layout" name="blank_page_layout" id="0x7f030029" />
-    <public type="layout" name="blank_white_view" id="0x7f03002a" />
-    <public type="layout" name="buy_loan_transfer_confirm_dialog_body" id="0x7f03002b" />
-    <public type="layout" name="buy_loan_transfer_landing_page" id="0x7f03002c" />
-    <public type="layout" name="buy_salary_plan_confirm_dialog_body" id="0x7f03002d" />
-    <public type="layout" name="choose_if_use_coupon" id="0x7f03002e" />
-    <public type="layout" name="choose_lock_pattern" id="0x7f03002f" />
-    <public type="layout" name="common_dialog_doublebtn" id="0x7f030030" />
-    <public type="layout" name="common_dialog_doublebtn_without_title" id="0x7f030031" />
-    <public type="layout" name="common_dialog_loading" id="0x7f030032" />
-    <public type="layout" name="common_dialog_notitle" id="0x7f030033" />
-    <public type="layout" name="common_dialog_singlebtn" id="0x7f030034" />
-    <public type="layout" name="common_dialog_with_edittext" id="0x7f030035" />
-    <public type="layout" name="confirm_lock_pattern" id="0x7f030036" />
-    <public type="layout" name="contract_in_detail" id="0x7f030037" />
-    <public type="layout" name="coupon" id="0x7f030038" />
-    <public type="layout" name="coupon_item" id="0x7f030039" />
-    <public type="layout" name="coupon_pick" id="0x7f03003a" />
-    <public type="layout" name="coupon_pick_footer" id="0x7f03003b" />
-    <public type="layout" name="crop_image_view" id="0x7f03003c" />
-    <public type="layout" name="custom_icon_edittext" id="0x7f03003d" />
-    <public type="layout" name="custom_icon_edittext_for_openingbank" id="0x7f03003e" />
-    <public type="layout" name="dash_separator_no_margin" id="0x7f03003f" />
-    <public type="layout" name="dash_separator_with_margin" id="0x7f030040" />
-    <public type="layout" name="delete_card_dialog" id="0x7f030041" />
-    <public type="layout" name="detail_footer" id="0x7f030042" />
-    <public type="layout" name="detail_item_view" id="0x7f030043" />
-    <public type="layout" name="dialog_auth_card" id="0x7f030044" />
-    <public type="layout" name="dialog_cash_pw" id="0x7f030045" />
-    <public type="layout" name="dialog_share_thirdparty" id="0x7f030046" />
-    <public type="layout" name="dialog_ticket_used_or_not" id="0x7f030047" />
-    <public type="layout" name="discount_profit_info_layout" id="0x7f030048" />
-    <public type="layout" name="empty_loan" id="0x7f030049" />
-    <public type="layout" name="empty_loan_transfer" id="0x7f03004a" />
-    <public type="layout" name="empty_salary_plan" id="0x7f03004b" />
-    <public type="layout" name="entry_add_bankcard" id="0x7f03004c" />
-    <public type="layout" name="expandable_view_container" id="0x7f03004d" />
-    <public type="layout" name="finance_plan_detail" id="0x7f03004e" />
-    <public type="layout" name="finance_plan_list" id="0x7f03004f" />
-    <public type="layout" name="fragment_password" id="0x7f030050" />
-    <public type="layout" name="fragment_phone" id="0x7f030051" />
-    <public type="layout" name="fragment_validatecode" id="0x7f030052" />
-    <public type="layout" name="function_entry" id="0x7f030053" />
-    <public type="layout" name="home_page_layout" id="0x7f030054" />
-    <public type="layout" name="id_auth_activity" id="0x7f030055" />
-    <public type="layout" name="init_cashpwd_activity" id="0x7f030056" />
-    <public type="layout" name="input_assistant_layout" id="0x7f030057" />
-    <public type="layout" name="invest_confirm_dialog_container" id="0x7f030058" />
-    <public type="layout" name="invest_input_layout" id="0x7f030059" />
-    <public type="layout" name="invest_layout_bottom" id="0x7f03005a" />
-    <public type="layout" name="invest_layout_top" id="0x7f03005b" />
-    <public type="layout" name="invest_record_item" id="0x7f03005c" />
-    <public type="layout" name="invest_record_list_header" id="0x7f03005d" />
-    <public type="layout" name="item_city" id="0x7f03005e" />
-    <public type="layout" name="item_click_load" id="0x7f03005f" />
-    <public type="layout" name="item_failed" id="0x7f030060" />
-    <public type="layout" name="item_loading" id="0x7f030061" />
-    <public type="layout" name="item_none" id="0x7f030062" />
-    <public type="layout" name="item_overdue_case" id="0x7f030063" />
-    <public type="layout" name="item_tag" id="0x7f030064" />
-    <public type="layout" name="join_salary_plan_landing_page" id="0x7f030065" />
-    <public type="layout" name="join_uplan_confirm_dialog_body" id="0x7f030066" />
-    <public type="layout" name="join_uplan_landing_page" id="0x7f030067" />
-    <public type="layout" name="landing_page_item" id="0x7f030068" />
-    <public type="layout" name="landing_page_top" id="0x7f030069" />
-    <public type="layout" name="layout_income_footer" id="0x7f03006a" />
-    <public type="layout" name="layout_income_item" id="0x7f03006b" />
-    <public type="layout" name="layout_income_negative_item" id="0x7f03006c" />
-    <public type="layout" name="list_item_infos_layout" id="0x7f03006d" />
-    <public type="layout" name="loan_detail" id="0x7f03006e" />
-    <public type="layout" name="loan_list_item" id="0x7f03006f" />
-    <public type="layout" name="loan_list_item_header" id="0x7f030070" />
-    <public type="layout" name="loan_transfer_detail" id="0x7f030071" />
-    <public type="layout" name="loan_transferable_list_empty_layout" id="0x7f030072" />
-    <public type="layout" name="loantransfer_list_item" id="0x7f030073" />
-    <public type="layout" name="lock_pattern_guide" id="0x7f030074" />
-    <public type="layout" name="login_layout" id="0x7f030075" />
-    <public type="layout" name="main_tab_title" id="0x7f030076" />
-    <public type="layout" name="main_tabs_pager" id="0x7f030077" />
-    <public type="layout" name="more_layout" id="0x7f030078" />
-    <public type="layout" name="my_account_layout" id="0x7f030079" />
-    <public type="layout" name="mycard_emptyview" id="0x7f03007a" />
-    <public type="layout" name="mycard_footerview" id="0x7f03007b" />
-    <public type="layout" name="mycard_headerview" id="0x7f03007c" />
-    <public type="layout" name="mycard_item" id="0x7f03007d" />
-    <public type="layout" name="newbie_guide_page" id="0x7f03007e" />
-    <public type="layout" name="no_coupon" id="0x7f03007f" />
-    <public type="layout" name="notice_dialog" id="0x7f030080" />
-    <public type="layout" name="openning_bank_item" id="0x7f030081" />
-    <public type="layout" name="order_uplan_confirm_dialog_body" id="0x7f030082" />
-    <public type="layout" name="order_uplan_landing_page" id="0x7f030083" />
-    <public type="layout" name="pay_balance_activity" id="0x7f030084" />
-    <public type="layout" name="pointlog_footview" id="0x7f030085" />
-    <public type="layout" name="pointlog_item" id="0x7f030086" />
-    <public type="layout" name="product_list" id="0x7f030087" />
-    <public type="layout" name="profit_handle_way_list_item" id="0x7f030088" />
-    <public type="layout" name="profit_handle_way_pick" id="0x7f030089" />
-    <public type="layout" name="ptr_header_horizontal" id="0x7f03008a" />
-    <public type="layout" name="ptr_header_vertical" id="0x7f03008b" />
-    <public type="layout" name="record_tab_title" id="0x7f03008c" />
-    <public type="layout" name="reset_login_password_layout" id="0x7f03008d" />
-    <public type="layout" name="resize_textview_layout" id="0x7f03008e" />
-    <public type="layout" name="retrieve_login_password" id="0x7f03008f" />
-    <public type="layout" name="salary_plan_detail" id="0x7f030090" />
-    <public type="layout" name="salary_plan_first_invest" id="0x7f030091" />
-    <public type="layout" name="salaryplan_pay_footer" id="0x7f030092" />
-    <public type="layout" name="select_bankcard_emptyview" id="0x7f030093" />
-    <public type="layout" name="select_bankcard_footerview" id="0x7f030094" />
-    <public type="layout" name="select_bankcard_headerview" id="0x7f030095" />
-    <public type="layout" name="separator" id="0x7f030096" />
-    <public type="layout" name="separator_no_margin" id="0x7f030097" />
-    <public type="layout" name="separator_with_margin" id="0x7f030098" />
-    <public type="layout" name="set_bindphone_activity" id="0x7f030099" />
-    <public type="layout" name="set_nickname_activity" id="0x7f03009a" />
-    <public type="layout" name="simple_table_row" id="0x7f03009b" />
-    <public type="layout" name="simple_text" id="0x7f03009c" />
-    <public type="layout" name="single_text_list_blank" id="0x7f03009d" />
-    <public type="layout" name="sold_out_layout" id="0x7f03009e" />
-    <public type="layout" name="table_row" id="0x7f03009f" />
-    <public type="layout" name="toast_add_card_succ" id="0x7f0300a0" />
-    <public type="layout" name="transfer_loan_layout" id="0x7f0300a1" />
-    <public type="layout" name="u_plan_tab_indicator" id="0x7f0300a2" />
-    <public type="layout" name="update_avatar_dialog" id="0x7f0300a3" />
-    <public type="layout" name="update_cash_pwd_activity" id="0x7f0300a4" />
-    <public type="layout" name="update_mobile_activity" id="0x7f0300a5" />
-    <public type="layout" name="uplan_invest" id="0x7f0300a6" />
-    <public type="layout" name="uplan_list_item" id="0x7f0300a7" />
-    <public type="layout" name="user_feedback" id="0x7f0300a8" />
-    <public type="layout" name="user_finance_plan_item" id="0x7f0300a9" />
-    <public type="layout" name="user_finance_plan_reserve_header" id="0x7f0300aa" />
-    <public type="layout" name="user_fullinfo_activity" id="0x7f0300ab" />
-    <public type="layout" name="user_loan_item" id="0x7f0300ac" />
-    <public type="layout" name="user_salary_plan_item" id="0x7f0300ad" />
-    <public type="layout" name="web_layout" id="0x7f0300ae" />
-    <public type="anim" name="dialog_enter_anim" id="0x7f040000" />
-    <public type="anim" name="dialog_enter_bottom" id="0x7f040001" />
-    <public type="anim" name="dialog_exit_anim" id="0x7f040002" />
-    <public type="anim" name="dialog_exit_bottom" id="0x7f040003" />
-    <public type="anim" name="dialog_loading" id="0x7f040004" />
-    <public type="anim" name="gesture_notice_text_shake" id="0x7f040005" />
-    <public type="anim" name="linear_interpolator" id="0x7f040006" />
-    <public type="anim" name="ptr_slide_in_from_bottom" id="0x7f040007" />
-    <public type="anim" name="ptr_slide_in_from_top" id="0x7f040008" />
-    <public type="anim" name="ptr_slide_out_to_bottom" id="0x7f040009" />
-    <public type="anim" name="ptr_slide_out_to_top" id="0x7f04000a" />
-    <public type="anim" name="roated_smile_face" id="0x7f04000b" />
-    <public type="array" name="loan_conditions" id="0x7f050000" />
-    <public type="array" name="loan_transfer_order_bys" id="0x7f050001" />
-    <public type="array" name="profit_handle_way" id="0x7f050002" />
-    <public type="array" name="profit_handle_way_symbol" id="0x7f050003" />
-    <public type="array" name="u_plan_conditions" id="0x7f050004" />
-    <public type="array" name="useds" id="0x7f050005" />
-    <public type="array" name="user_guide_drawable_list" id="0x7f050006" />
+  
     <public type="color" name="alpha20_white" id="0x7f060000" />
     <public type="color" name="alpha80_white" id="0x7f060001" />
     <public type="color" name="black" id="0x7f060002" />
@@ -593,18 +357,20 @@
     <public type="color" name="transparent" id="0x7f060028" />
     <public type="color" name="white" id="0x7f060029" />
     <public type="color" name="yellow" id="0x7f06002a" />
-    <public type="color" name="button_text_white_blue_selector" id="0x7f06002b" />
+   
     <public type="color" name="button_white_txt_color_selector" id="0x7f06002c" />
     <public type="color" name="common_btn_text_color_selector" id="0x7f06002d" />
     <public type="color" name="extra_line_text_color_selector" id="0x7f06002e" />
-    <public type="color" name="record_name_color" id="0x7f06002f" />
-    <public type="color" name="tab_textcolor_selector" id="0x7f060030" />
-    <public type="color" name="tab_title_color" id="0x7f060031" />
-    <public type="color" name="textcolor_selector_blue" id="0x7f060032" />
     <public type="color" name="textcolor_selector_darkgreen" id="0x7f060033" />
-    <public type="color" name="textcolor_selector_lightblack" id="0x7f060034" />
-    <public type="color" name="textcolor_selector_orange" id="0x7f060035" />
-    <public type="color" name="u_plan_tab_indicator_color" id="0x7f060036" />
+    <public type="color" name="button_text_white_blue_selector" id="0x7f06002b" />
+    
+    
+    
+    
+    
+    
+    
+    
     <public type="id" name="on" id="0x7f070000" />
     <public type="id" name="onTouch" id="0x7f070001" />
     <public type="id" name="off" id="0x7f070002" />
@@ -1147,6 +913,8 @@
     <public type="id" name="field4" id="0x7f07021b" />
     <public type="id" name="user_salary_plan_extra_line" id="0x7f07021c" />
     <public type="id" name="web_view" id="0x7f07021d" />
+    
+
     <public type="dimen" name="button_height" id="0x7f080000" />
     <public type="dimen" name="common_item_height" id="0x7f080001" />
     <public type="dimen" name="common_top_blank_height" id="0x7f080002" />
@@ -1189,7 +957,7 @@
     <public type="dimen" name="titlebar_height" id="0x7f080027" />
     <public type="dimen" name="titlebar_image_text_margin" id="0x7f080028" />
     <public type="dimen" name="titlebar_left_margin" id="0x7f080029" />
-    <public type="dimen" name="lock_pattern_max_size" id="0x7f08002a" />
+    
     <public type="string" name="about" id="0x7f090000" />
     <public type="string" name="account_info" id="0x7f090001" />
     <public type="string" name="account_name" id="0x7f090002" />
@@ -1727,7 +1495,7 @@
     <public type="style" name="commonBlueButton" id="0x7f0a0003" />
     <public type="style" name="common_dialog_btn" id="0x7f0a0004" />
     <public type="style" name="common_dialog_title" id="0x7f0a0005" />
-    <public type="style" name="common_edit" id="0x7f0a0006" />
+    
     <public type="style" name="customStyle" id="0x7f0a0007" />
     <public type="style" name="customStyle.Black_19sp" id="0x7f0a0008" />
     <public type="style" name="customStyle.Black_22" id="0x7f0a0009" />

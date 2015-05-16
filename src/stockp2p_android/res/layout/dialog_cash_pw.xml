@@ -1,6 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="vertical" android:id="@id/llDialog" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="wrap_content"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <Button android:textColor="@drawable/button_textcolor_select_black_white" android:id="@id/btnModify" android:background="@drawable/button_bluewhite_bg_selector" android:layout_width="fill_parent" android:layout_height="@dimen/button_height" android:layout_marginLeft="15.0dip" android:layout_marginTop="10.0dip" android:layout_marginRight="15.0dip" android:text="@string/cash_pw_modify" style="@style/customStyle.White_26" />
-    <Button android:textColor="@drawable/button_textcolor_select_black_white" android:id="@id/btnRetrievel" android:background="@drawable/button_bluewhite_bg_selector" android:layout_width="fill_parent" android:layout_height="@dimen/button_height" android:layout_marginLeft="15.0dip" android:layout_marginTop="10.0dip" android:layout_marginRight="15.0dip" android:layout_marginBottom="10.0dip" android:text="@string/cash_pw_retrieve" style="@style/customStyle.White_26" />
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@id/llDialog"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <Button
+        android:id="@id/btnModify"
+        style="@style/customStyle.White_26"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/button_height"
+        android:layout_marginLeft="15.0dip"
+        android:layout_marginRight="15.0dip"
+        android:layout_marginTop="10.0dip"
+        android:background="@drawable/button_bluewhite_bg_selector"
+        android:text="@string/cash_pw_modify"
+        android:textColor="@drawable/button_textcolor_select_black_white" />
+
+    <Button
+        android:id="@id/btnRetrievel"
+        style="@style/customStyle.White_26"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/button_height"
+        android:layout_marginBottom="10.0dip"
+        android:layout_marginLeft="15.0dip"
+        android:layout_marginRight="15.0dip"
+        android:layout_marginTop="10.0dip"
+        android:background="@drawable/button_bluewhite_bg_selector"
+        android:text="@string/cash_pw_retrieve"
+        android:textColor="@drawable/button_textcolor_select_black_white" />
+
 </LinearLayout>

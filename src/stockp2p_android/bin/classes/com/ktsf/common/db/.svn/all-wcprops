@@ -1,0 +1,113 @@
+K 25
+svn:wc:ra_dav:version-url
+V 224
+/svn/P037%E6%8E%8C%E4%B8%8A%E6%96%B0%E5%8D%8E%E4%BA%8C%E6%9C%9F/!svn/ver/14866/05%E5%BC%80%E5%8F%91%E7%BC%96%E7%A0%81/051Android%E6%89%8B%E6%9C%BA%E6%BA%90%E7%A0%81/newFramework/NCIHAndroidPhone/src/com/pactera/nci/common/db
+END
+DBDestory.java
+K 25
+svn:wc:ra_dav:version-url
+V 238
+/svn/P037%E6%8E%8C%E4%B8%8A%E6%96%B0%E5%8D%8E%E4%BA%8C%E6%9C%9F/!svn/ver/8849/05%E5%BC%80%E5%8F%91%E7%BC%96%E7%A0%81/051Android%E6%89%8B%E6%9C%BA%E6%BA%90%E7%A0%81/newFramework/NCIHAndroidPhone/src/com/pactera/nci/common/db/DBDestory.java
+END
+UpdateRequestXMLBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 249
+/svn/P037%E6%8E%8C%E4%B8%8A%E6%96%B0%E5%8D%8E%E4%BA%8C%E6%9C%9F/!svn/ver/8849/05%E5%BC%80%E5%8F%91%E7%BC%96%E7%A0%81/051Android%E6%89%8B%E6%9C%BA%E6%BA%90%E7%A0%81/newFramework/NCIHAndroidPhone/src/com/pactera/nci/common/db/UpdateRequestXMLBean.java
+END
+DBOpenHelper.java
+K 25
+svn:wc:ra_dav:version-url
+V 241
+/svn/P037%E6%8E%8C%E4%B8%8A%E6%96%B0%E5%8D%8E%E4%BA%8C%E6%9C%9F/!svn/ver/8849/05%E5%BC%80%E5%8F%91%E7%BC%96%E7%A0%81/051Android%E6%89%8B%E6%9C%BA%E6%BA%90%E7%A0%81/newFramework/NCIHAndroidPhone/src/com/pactera/nci/common/db/DBOpenHelper.java
+END
+Channel.java
+K 25
+svn:wc:ra_dav:version-url
+V 237
+/svn/P037%E6%8E%8C%E4%B8%8A%E6%96%B0%E5%8D%8E%E4%BA%8C%E6%9C%9F/!svn/ver/12578/05%E5%BC%80%E5%8F%91%E7%BC%96%E7%A0%81/051Android%E6%89%8B%E6%9C%BA%E6%BA%90%E7%A0%81/newFramework/NCIHAndroidPhone/src/com/pactera/nci/common/db/Channel.java
+END
+Area.java
+K 25
+svn:wc:ra_dav:version-url
+V 234
+/svn/P037%E6%8E%8C%E4%B8%8A%E6%96%B0%E5%8D%8E%E4%BA%8C%E6%9C%9F/!svn/ver/12787/05%E5%BC%80%E5%8F%91%E7%BC%96%E7%A0%81/051Android%E6%89%8B%E6%9C%BA%E6%BA%90%E7%A0%81/newFramework/NCIHAndroidPhone/src/com/pactera/nci/common/db/Area.java
+END
+PositionPlace.java
+K 25
+svn:wc:ra_dav:version-url
+V 242
+/svn/P037%E6%8E%8C%E4%B8%8A%E6%96%B0%E5%8D%8E%E4%BA%8C%E6%9C%9F/!svn/ver/8849/05%E5%BC%80%E5%8F%91%E7%BC%96%E7%A0%81/051Android%E6%89%8B%E6%9C%BA%E6%BA%90%E7%A0%81/newFramework/NCIHAndroidPhone/src/com/pactera/nci/common/db/PositionPlace.java
+END
+CustomerAuthBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 246
+/svn/P037%E6%8E%8C%E4%B8%8A%E6%96%B0%E5%8D%8E%E4%BA%8C%E6%9C%9F/!svn/ver/13429/05%E5%BC%80%E5%8F%91%E7%BC%96%E7%A0%81/051Android%E6%89%8B%E6%9C%BA%E6%BA%90%E7%A0%81/newFramework/NCIHAndroidPhone/src/com/pactera/nci/common/db/CustomerAuthBean.java
+END
+Content.java
+K 25
+svn:wc:ra_dav:version-url
+V 237
+/svn/P037%E6%8E%8C%E4%B8%8A%E6%96%B0%E5%8D%8E%E4%BA%8C%E6%9C%9F/!svn/ver/12578/05%E5%BC%80%E5%8F%91%E7%BC%96%E7%A0%81/051Android%E6%89%8B%E6%9C%BA%E6%BA%90%E7%A0%81/newFramework/NCIHAndroidPhone/src/com/pactera/nci/common/db/Content.java
+END
+Code.java
+K 25
+svn:wc:ra_dav:version-url
+V 234
+/svn/P037%E6%8E%8C%E4%B8%8A%E6%96%B0%E5%8D%8E%E4%BA%8C%E6%9C%9F/!svn/ver/12787/05%E5%BC%80%E5%8F%91%E7%BC%96%E7%A0%81/051Android%E6%89%8B%E6%9C%BA%E6%BA%90%E7%A0%81/newFramework/NCIHAndroidPhone/src/com/pactera/nci/common/db/Code.java
+END
+CodeType.java
+K 25
+svn:wc:ra_dav:version-url
+V 238
+/svn/P037%E6%8E%8C%E4%B8%8A%E6%96%B0%E5%8D%8E%E4%BA%8C%E6%9C%9F/!svn/ver/12578/05%E5%BC%80%E5%8F%91%E7%BC%96%E7%A0%81/051Android%E6%89%8B%E6%9C%BA%E6%BA%90%E7%A0%81/newFramework/NCIHAndroidPhone/src/com/pactera/nci/common/db/CodeType.java
+END
+DBManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 239
+/svn/P037%E6%8E%8C%E4%B8%8A%E6%96%B0%E5%8D%8E%E4%BA%8C%E6%9C%9F/!svn/ver/14866/05%E5%BC%80%E5%8F%91%E7%BC%96%E7%A0%81/051Android%E6%89%8B%E6%9C%BA%E6%BA%90%E7%A0%81/newFramework/NCIHAndroidPhone/src/com/pactera/nci/common/db/DBManager.java
+END
+Image.java
+K 25
+svn:wc:ra_dav:version-url
+V 235
+/svn/P037%E6%8E%8C%E4%B8%8A%E6%96%B0%E5%8D%8E%E4%BA%8C%E6%9C%9F/!svn/ver/14330/05%E5%BC%80%E5%8F%91%E7%BC%96%E7%A0%81/051Android%E6%89%8B%E6%9C%BA%E6%BA%90%E7%A0%81/newFramework/NCIHAndroidPhone/src/com/pactera/nci/common/db/Image.java
+END
+Region.java
+K 25
+svn:wc:ra_dav:version-url
+V 236
+/svn/P037%E6%8E%8C%E4%B8%8A%E6%96%B0%E5%8D%8E%E4%BA%8C%E6%9C%9F/!svn/ver/12578/05%E5%BC%80%E5%8F%91%E7%BC%96%E7%A0%81/051Android%E6%89%8B%E6%9C%BA%E6%BA%90%E7%A0%81/newFramework/NCIHAndroidPhone/src/com/pactera/nci/common/db/Region.java
+END
+Hospital.java
+K 25
+svn:wc:ra_dav:version-url
+V 238
+/svn/P037%E6%8E%8C%E4%B8%8A%E6%96%B0%E5%8D%8E%E4%BA%8C%E6%9C%9F/!svn/ver/12578/05%E5%BC%80%E5%8F%91%E7%BC%96%E7%A0%81/051Android%E6%89%8B%E6%9C%BA%E6%BA%90%E7%A0%81/newFramework/NCIHAndroidPhone/src/com/pactera/nci/common/db/Hospital.java
+END
+Place.java
+K 25
+svn:wc:ra_dav:version-url
+V 234
+/svn/P037%E6%8E%8C%E4%B8%8A%E6%96%B0%E5%8D%8E%E4%BA%8C%E6%9C%9F/!svn/ver/8849/05%E5%BC%80%E5%8F%91%E7%BC%96%E7%A0%81/051Android%E6%89%8B%E6%9C%BA%E6%BA%90%E7%A0%81/newFramework/NCIHAndroidPhone/src/com/pactera/nci/common/db/Place.java
+END
+Version.java
+K 25
+svn:wc:ra_dav:version-url
+V 237
+/svn/P037%E6%8E%8C%E4%B8%8A%E6%96%B0%E5%8D%8E%E4%BA%8C%E6%9C%9F/!svn/ver/12578/05%E5%BC%80%E5%8F%91%E7%BC%96%E7%A0%81/051Android%E6%89%8B%E6%9C%BA%E6%BA%90%E7%A0%81/newFramework/NCIHAndroidPhone/src/com/pactera/nci/common/db/Version.java
+END
+Msg.java
+K 25
+svn:wc:ra_dav:version-url
+V 232
+/svn/P037%E6%8E%8C%E4%B8%8A%E6%96%B0%E5%8D%8E%E4%BA%8C%E6%9C%9F/!svn/ver/8849/05%E5%BC%80%E5%8F%91%E7%BC%96%E7%A0%81/051Android%E6%89%8B%E6%9C%BA%E6%BA%90%E7%A0%81/newFramework/NCIHAndroidPhone/src/com/pactera/nci/common/db/Msg.java
+END
+Network.java
+K 25
+svn:wc:ra_dav:version-url
+V 237
+/svn/P037%E6%8E%8C%E4%B8%8A%E6%96%B0%E5%8D%8E%E4%BA%8C%E6%9C%9F/!svn/ver/12578/05%E5%BC%80%E5%8F%91%E7%BC%96%E7%A0%81/051Android%E6%89%8B%E6%9C%BA%E6%BA%90%E7%A0%81/newFramework/NCIHAndroidPhone/src/com/pactera/nci/common/db/Network.java
+END

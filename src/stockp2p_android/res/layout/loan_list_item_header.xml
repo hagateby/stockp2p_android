@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/header" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentLeft="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/product_prop_image1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/loan_certificate_1" android:contentDescription="@null" />
+    <ImageView android:id="@id/product_prop_image2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="3.0dip" android:layout_marginRight="4.0dip" android:src="@drawable/loan_level_a" android:contentDescription="@null" />
+    <TextView android:ellipsize="end" android:gravity="center_vertical" android:id="@id/plan_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="理财计划第299期" android:singleLine="true" style="@style/customStyle.list_item_title" />
+</LinearLayout>

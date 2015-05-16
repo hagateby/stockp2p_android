@@ -1,27 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- 投保人资料变更  注册 spinner-->
-    <style name="applicant_spinner">
-        <item name="android:textColor">@color/gray</item>
-        <item name="android:layout_width">0dp</item>
-        <item name="android:layout_height">40dp</item>
-        <item name="android:layout_weight">1</item>
-        <item name="android:layout_gravity">left</item>
-        <item name="android:background">@drawable/common_select</item>
-        <item name="android:paddingLeft">10dp</item>
-    </style>
-     <!-- 新版本投保人资料变更  注册 spinner-->
-    <style name="applicant_spinner_new">
-        
+     <style name="applicant_text_style">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_weight">1.5</item>
-        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_gravity">left|center</item>
         <item name="android:textColor">#666666</item>
-        <item name="android:textSize">11sp</item>
-        <item name="android:background">@drawable/common_select_new</item>
+        <item name="android:textSize">15sp</item>
         <item name="android:paddingLeft">10dp</item>
+        
     </style>
     
     <!-- 背景边距 -->
@@ -69,48 +57,7 @@
         
     </style>
     
-        <!--新版本 我的保险详情列 -->
-    <style name="applicant_style_new">
-        <item name="android:paddingLeft">30dp</item>
-        <item name="android:paddingRight">30dp</item>
-        <item name="android:gravity">center_vertical</item>
-        <item name="android:background">@drawable/common_rigister_input_bk</item>    
-    </style>
 
-    <!-- 我的保险保单列表左标签 -->
-    <style name="applicant_label_style">
-        <item name="android:layout_width">0dp</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_weight">0.5</item>
-        <item name="android:layout_gravity">center</item>
-        
-        <item name="android:textColor">#666666</item>
-        <item name="android:textSize">15sp</item>
-    </style>
-   
-    
-    <!-- 保单关联 -->
-    <style name="applicant_label_style2">
-        <item name="android:layout_width">0dp</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_weight">0.4</item>
-        <item name="android:layout_gravity">center</item>
-        <item name="android:textColor">#666666</item>
-        <item name="android:layout_marginLeft">10dp</item>
-        <item name="android:textSize">15sp</item>
-    </style>
-
-    <!-- 我的保险详情列文字  注册Editor-->
-    <style name="applicant_text_style">
-        <item name="android:layout_width">0dp</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_weight">1</item>
-        <item name="android:layout_gravity">left|center</item>
-        <item name="android:textColor">#666666</item>
-        <item name="android:textSize">15sp</item>
-        <item name="android:paddingLeft">10dp</item>
-        
-    </style>
         
     
     <!--注册ClearEditText-->
@@ -223,13 +170,13 @@
     <style name="dot_style">
         <item name="android:layout_width">5dip</item>
         <item name="android:layout_height">5dip</item>
-        <item name="android:background">@drawable/quicksrv_dot_nor</item>
+        <item name="android:background">@drawable/common_textarea_new</item>
         <item name="android:layout_marginLeft">1.5dip</item>
         <item name="android:layout_marginRight">1.5dip</item>
     </style>
 
     <!-- spinner -->
-    <!-- <style name="dialog" parent="@android:style/Theme.Dialog">
+    <!-- <style name="dialog" parent="@android:style/Theme.Diaslog">
         <item name="android:windowFrame">@null</item>
         边框
         <item name="android:windowIsFloating">true</item>
@@ -257,14 +204,7 @@
         <item name="android:textColor">@color/qa_title</item>
     </style>
 
-    <style name="QAContent">
-        <item name="android:textSize">15dip</item>
-        <item name="android:background">@drawable/problems_qa_con_x</item>
-        <item name="android:textColor">@color/black</item>
-        <item name="android:paddingLeft">10dip</item>
-        <item name="android:paddingRight">10dip</item>
-        <item name="android:paddingBottom">10dip</item>
-    </style>
+   
 
     <style name="msm_send_img">
         <item name="android:layout_alignParentRight">true</item>
@@ -288,13 +228,12 @@
 
     <!-- 注册界面上注册信息提示的TextView样式 -->
     <style name="register_textview_tip_style">
-        <item name="android:textColor">@color/red</item>
+        <item name="android:textColor">@color/dark_blue_purple</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_centerVertical">true</item>
         <item name="android:textSize">10sp</item>
     </style>
-
     <!-- 注册界面上的EditText的样式 -->
     <style name="register_edittext_style">
         <item name="android:layout_marginLeft">10dp</item>
@@ -1022,4 +961,6 @@
         <item name="android:textSize">24.0sp</item>
         <item name="android:textColor">#ffffffff</item>
     </style>
+    
+    
 </resources>
