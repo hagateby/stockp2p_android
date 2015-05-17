@@ -1,10 +1,10 @@
-package com.pactera.nci.common.service;
+package com.ktsf.common.service;
 
 import android.app.IntentService;
 import android.content.Intent;
 import android.util.Log;
 
-import com.pactera.nci.common.util.JsonToDb;
+import com.ktsf.common.util.JsonToDb;
 
 public class SyncService extends IntentService {
 

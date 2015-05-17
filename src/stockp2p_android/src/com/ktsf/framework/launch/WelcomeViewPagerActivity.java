@@ -8,8 +8,7 @@ import java.util.Map;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 
-import com.ktsf.common.data.MyApplication;
-
+import m.framework.utils.Utils;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -33,7 +32,17 @@ import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.ImageView;
 
-
+import com.baidu.android.pushservice.PushConstants;
+import com.baidu.android.pushservice.PushManager;
+import com.ktsf.common.data.Constants;
+import com.ktsf.common.data.MyApplication;
+import com.ktsf.common.db.DBManager;
+import com.ktsf.common.service.SyncService;
+import com.ktsf.common.util.CommonUtil;
+import com.ktsf.common.util.TipUitls;
+import com.ktsf.framework.Frameworkdate;
+import com.ktsf.framework.Manager;
+import com.stockp2p.R;
 
 public class WelcomeViewPagerActivity extends FragmentActivity {
 
@@ -69,11 +78,9 @@ public class WelcomeViewPagerActivity extends FragmentActivity {
 	 * 离线更新服务
 	 */
 	public static Intent syncService;
-	
-	private boolean sb2;
 
 	private MyApplication myApplication;
-	
+
 	private SQLiteDatabase db;
 
 	private String versionName;
@@ -94,6 +101,7 @@ public class WelcomeViewPagerActivity extends FragmentActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+	
 		setContentView(R.layout.framework_welcome);
 
 		init();
@@ -104,8 +112,10 @@ public class WelcomeViewPagerActivity extends FragmentActivity {
 	 */
 	private void init() {
 		myApplication = (MyApplication) this.getApplication();
+
 		SharedPreferences sPreferences = WelcomeViewPagerActivity.this
 				.getSharedPreferences("positionaddress", Context.MODE_PRIVATE);
+
 		positionStr = sPreferences.getString("regionCode", null);
 
 		if (getIntent() != null && getIntent().getExtras() != null) {
@@ -113,36 +123,33 @@ public class WelcomeViewPagerActivity extends FragmentActivity {
 		}
 
 		initHost();
-		
+
 		initDatabase();
-		
+
 		startBaiduPush();
-		
+
 		Constants.moduleList = Frameworkdate.findByParentId(db, "0", this);
 
 		if (!"setting".equals(source)) {
-			startSyncAndMusic();
+			startSync();
 		}
 
 		try {
+			// 取到版本号
 			versionName = CommonUtil.getVersionName(this);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
+		// 读取用户偏好文件
 		sp = this.getSharedPreferences("userprefs", Context.MODE_PRIVATE);
-		
+
 		hasRun = sp.getBoolean("hasRun", false);
-		
+
 		oldVersionName = sp.getString("oldVersionName", "");
-		
+
 		if ((oldVersionName.equals(versionName)) && (!"setting".equals(source))) {
 			if (positionStr == null) {
-				finish();
-				Intent intent = new Intent(WelcomeViewPagerActivity.this,
-						PositionActivity.class);
-				startActivity(intent);
-
+				initPositionActivity();
 			} else {
 				finish();
 				Manager.branch(WelcomeViewPagerActivity.this,
@@ -167,9 +174,9 @@ public class WelcomeViewPagerActivity extends FragmentActivity {
 					getSoftBitmap(R.drawable.framework_splash_4_bottom_dot));
 
 			viewDot = (ImageView) findViewById(R.id.v_dot);
-		
+
 			jump = (Button) findViewById(R.id.welcome_bt_jump);
-			
+
 			jump.setOnClickListener(new OnClickListener() {
 
 				@Override
@@ -178,13 +185,9 @@ public class WelcomeViewPagerActivity extends FragmentActivity {
 					// 跳过引导界面
 					if (!"setting".equals(source)) {
 						// 不是从设置界面跳转
+						
 						if (positionStr == null) {
-							finish();
-							Intent intent = new Intent(
-									WelcomeViewPagerActivity.this,
-									PositionActivity.class);
-							startActivity(intent);
-
+							initPositionActivity();
 						} else {
 							finish();
 							Manager.branch(WelcomeViewPagerActivity.this,
@@ -207,12 +210,7 @@ public class WelcomeViewPagerActivity extends FragmentActivity {
 					if (!"setting".equals(source)) {
 						// 不是从设置界面跳转
 						if (positionStr == null) {
-							finish();
-							Intent intent = new Intent(
-									WelcomeViewPagerActivity.this,
-									PositionActivity.class);
-							startActivity(intent);
-
+							initPositionActivity();
 						} else {
 							finish();
 							Manager.branch(WelcomeViewPagerActivity.this,
@@ -243,26 +241,32 @@ public class WelcomeViewPagerActivity extends FragmentActivity {
 		sp.edit().putBoolean("hasRun", true).commit();
 		sp.edit().putString("oldVersionName", versionName).commit();
 	}
+private void chkVersion()
+{
+	
 
-
-
+}
+	
+	
+	private void initPositionActivity()
+	{
+		/*
+	finish();
+	Intent intent = new Intent(
+			WelcomeViewPagerActivity.this,
+			PositionActivity.class);
+	startActivity(intent);
+	*/
+	}
 	/**
 	 * 初始化网络设置
 	 */
 	private void initHost() {
-		if (Constants.STATUS.equals("1")) {
+		if (Constants.ISDEBUG.equals("1")) {
 			TipUitls.Log(TAG, "WelcomeViewPagerActivity----进入内网");
-			
-			Constants.PROTOCOL = "http://";// http
-			Constants.HOST = "10.1.91.148";// 内网环境
-			Constants.PORT = 9081;// http测试
-		
-			Constants.URL = Constants.PROTOCOL+Constants.NAMESPACE + "/"
+			Constants.URL = Constants.PROTOCOL + Constants.NAMESPACE + "/"
 					+ "regressionmobileservice/ServiceEngin.do";
-			// Constants.URL = Constants.PROTOCOL + Constants.HOST + ":"
-			// + Constants.PORT + "/"
-			// + "ncihmobileservice/ServiceEngin.do";
-		} else if (Constants.STATUS.equals("2")) {
+		} else if (Constants.ISDEBUG.equals("2")) {
 			Constants.PROTOCOL = "https://";// http
 			Constants.DOMIN_NAME = "zsxh.newchinalife.com";
 			Constants.URLHTML5 = "http://" + Constants.DOMIN_NAME;
@@ -270,12 +274,10 @@ public class WelcomeViewPagerActivity extends FragmentActivity {
 			TipUitls.Log(TAG, "WelcomeViewPagerActivity----进入外网");
 			Constants.HOST = CommonUtil
 					.getProvidersName(WelcomeViewPagerActivity.this);// 生产外网环境
-			// Constants.HOST = "123.127.246.38";//生产外网环境
+
 			Constants.PORT = 443;
-//			Constants.URL = Constants.PROTOCOL + Constants.HOST + ":"
-//					+ Constants.PORT + "/"
-//					+ "ncihmobileservice/ServiceEngin.do";
-			Constants.URL = Constants.PROTOCOL+Constants.NAMESPACE + "/"
+
+			Constants.URL = Constants.PROTOCOL + Constants.NAMESPACE + "/"
 					+ "ncihmobileservice/ServiceEngin.do";
 		}
 	}
@@ -293,13 +295,7 @@ public class WelcomeViewPagerActivity extends FragmentActivity {
 	/**
 	 * 开启服务
 	 */
-	private void startSyncAndMusic() {
-		// 音乐
-		sb2 = MySetting.getSlipButton2Boolean(this);
-		musicService = new Intent(this, MusicService.class);
-		if (sb2)
-			startService(musicService);
-		TipUitls.Log(TAG, "开启音乐服务");
+	private void startSync() {
 
 		// 数据更新
 		if (positionStr != null) {
@@ -349,11 +345,7 @@ public class WelcomeViewPagerActivity extends FragmentActivity {
 			if (currentItem >= imageViews.size()) {
 				if (!"setting".equals(source)) {
 					if (positionStr == null) {
-						Intent intent = new Intent(
-								WelcomeViewPagerActivity.this,
-								PositionActivity.class);
-						startActivity(intent);
-						finish();
+						initPositionActivity();
 					} else {
 						finish();
 
@@ -390,12 +382,6 @@ public class WelcomeViewPagerActivity extends FragmentActivity {
 		 */
 		@Override
 		public void onPageSelected(int position) {
-			// currentItem = position;
-			// dots.get(oldPosition).setBackgroundResource(
-			// R.drawable.framework_splash_3_bottom_dot);
-			// dots.get(position).setBackgroundResource(
-			// R.drawable.framework_dot_foc);
-			// oldPosition = position;
 
 			try {
 				// 下方的点
@@ -703,14 +689,17 @@ public class WelcomeViewPagerActivity extends FragmentActivity {
 
 		}
 	}
+
 	/*
 	 * baidu推送
 	 */
 	private void startBaiduPush() {
 		// 开启百度推送服务
+		/*
 		PushManager.startWork(getApplicationContext(),
 				PushConstants.LOGIN_TYPE_API_KEY,
 				Utils.getMetaValue(WelcomeViewPagerActivity.this, "api_key"));
+		*/
 		System.out.println("开启百度推送服务");
 		// 开启百度推送debug模式
 		// PushSettings.enableDebugMode(WelcomeViewPagerActivity.this, true);
@@ -720,6 +709,7 @@ public class WelcomeViewPagerActivity extends FragmentActivity {
 		// System.out.println(intent.toURI());
 		// }
 	}
+
 	private class ViewHolder {
 		private ImageView imageView;
 		private ImageView imageView_bottom;

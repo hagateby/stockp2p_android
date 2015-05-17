@@ -12,16 +12,9 @@ public class Constants {
 	// webservice连接配置
 	public static int runCount = 0;
 	public static final int TIMEOUT = 10000;// setting the timeout for 10
-											// seconds
-	public static final int TIMEOUTPRESERVE = 30000;// 保全模块的超时时间
+
 	public static final String NAMESPACE = "zsxh.newchinalife.com";// the
-																					// single
-																					// endpoint
-																					// for
-																					// mobile
-																					// web
-																					// service
-																					// access
+																					// single																	// access
 	public static final String NAMESPACEWSSE = "http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd";
 	public static final String NAMESPACEWSU = "http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd";
 	public static final String NAMESPACEENV = "http://schemas.xmlsoap.org/soap/envelope/";
@@ -34,18 +27,15 @@ public class Constants {
 	public static String DOMIN_NAME = "";
 	public static String URLHTML5 = "";
 	
-	public static final String STATUS = "2"; // 1-- 开发 2--生产
+	public static final String ISDEBUG = "2"; // 1-- 开发 2--生产
 												// 具体定义在BlankActivity.java里面
 	public static String PROTOCOL;
 	public static String HOST;
 	public static int PORT;
-	// public static String HOST = "10.1.91.148";//开发内网环境
-	// public static int PORT = 9443;//内网环境端口
-	// public static final String HOST = "123.127.246.38";//生产外网环境
-	// public static final int PORT = 443;//外网环境端口
+    public static final String HOST_DEBUG = "10.1.91.148";//开发内网环境
+    public static final int PORT_DEBUG = 9443;//内网环境端口
+   
 
-	// 首页卡式保单激活地址
-	public static final String POLICYURL = "http://www.newchinalife.com/cardInput_resp.gsp";// 生产域名
 	// webview里面需要替换的图片网络地址--JasonToDb.java
 	public static final String IMGURLPATH = "file:///android_asset/";// 生产
 	// 初始的最后更新时间
