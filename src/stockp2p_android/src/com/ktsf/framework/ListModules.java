@@ -1,4 +1,4 @@
-package com.pactera.nci.framework;
+package com.ktsf.framework;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -31,12 +31,13 @@ import android.widget.TextView;
 import com.lidroid.xutils.bitmap.BitmapDisplayConfig;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.lidroid.xutils.view.annotation.event.OnItemClick;
-import com.pactera.nci.R;
-import com.pactera.nci.common.cache.UserInfoManager;
-import com.pactera.nci.common.data.Constants;
-import com.pactera.nci.common.data.MyApplication;
-import com.pactera.nci.common.util.TipUitls;
-import com.pactera.nci.components.baidupushmessagecenter.BaidupushMessageCenterActivity;
+import com.stockp2p.R;
+import com.ktsf.common.cache.UserInfoManager;
+import com.ktsf.common.data.Constants;
+import com.ktsf.common.data.MyApplication;
+import com.ktsf.common.util.TipUitls;
+//import com.ktsf.components.baidupushmessagecenter.BaidupushMessageCenterActivity;
+import com.ktsf.framework.longin.LoginActicity;
 
 @SuppressLint("ValidFragment")
 public class ListModules extends BaseFragment {
@@ -227,9 +228,11 @@ public class ListModules extends BaseFragment {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				/*
 				Intent intent = new Intent(context,
 						BaidupushMessageCenterActivity.class);
 				context.startActivity(intent);
+				*/
 			}
 		});
 	}

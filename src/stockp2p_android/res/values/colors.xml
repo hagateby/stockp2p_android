@@ -12,7 +12,7 @@
     <color name="light">#ffffffff</color>
 
     <!-- 红色 -->
-    <!-- <color name="red">#ffff0000</color> -->
+    <color name="red">#ffff0000</color> 
 
 
     <!-- 标题蓝色 -->

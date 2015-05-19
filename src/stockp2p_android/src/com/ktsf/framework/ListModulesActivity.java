@@ -1,8 +1,8 @@
-package com.pactera.nci.framework;
+package com.ktsf.framework;
 
 import android.os.Bundle;
 
-import com.pactera.nci.R;
+import com.stockp2p.R;
 
 /**
  * 所有列表模块

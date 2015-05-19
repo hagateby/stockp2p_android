@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dip"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:layout_marginTop="20dip"
+        android:orientation="horizontal"
+        android:padding="5dip" >
+
+        <TextView
+            android:id="@+id/common_dialog_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:text="提示框标题"
+            android:textColor="@color/blue_title"
+            android:textSize="22dip" />
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:layout_marginBottom="10dip"
+        android:layout_marginTop="7dip"
+        android:background="@drawable/common_dashed_line"
+        android:paddingBottom="5dip" />
+
+    <TextView
+        android:id="@+id/common_dialog_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_marginLeft="18dip"
+        android:paddingBottom="5dip"
+        android:paddingRight="5dip"
+        android:text="提示框内容"
+        android:textColor="@color/red"
+        android:textSize="19dip"
+        android:visibility="visible" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:layout_marginTop="10dip"
+        android:background="@drawable/common_dashed_line"
+        android:padding="5dip" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dip" >
+
+        <Button
+            android:id="@+id/common_dialog_btn_sure"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip"
+            android:layout_weight="1"
+            android:background="@drawable/common_btn_selector"
+            android:text="按钮一"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/common_dialog_btn_cancel"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip"
+            android:layout_weight="1"
+            android:background="@drawable/common_btn_selector"
+            android:text="按钮二"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -41,28 +41,26 @@ import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.TextView;
 import android.widget.Toast;
-import cn.sharesdk.framework.Platform;
-import cn.sharesdk.framework.ShareSDK;
-import cn.sharesdk.sina.weibo.SinaWeibo;
 
 import com.lidroid.xutils.util.LogUtils;
-import com.pactera.nci.R;
-import com.pactera.nci.common.cache.UserInfoManager;
-import com.pactera.nci.common.data.Constants;
-import com.pactera.nci.common.data.MyApplication;
-import com.pactera.nci.common.data.MySetting;
-import com.pactera.nci.common.data.ScreenObserver;
-import com.pactera.nci.common.data.ScreenObserver.observerScreenStateUpdateListener;
-import com.pactera.nci.common.data.UpdateDownloadManger;
-import com.pactera.nci.common.db.DBManager;
-import com.pactera.nci.common.db.Version;
-import com.pactera.nci.common.service.MusicService;
-import com.pactera.nci.common.service.SyncService;
-import com.pactera.nci.common.util.ExitApplication;
-import com.pactera.nci.common.util.ScreenShot;
-import com.pactera.nci.common.util.ShareUtils;
-import com.pactera.nci.common.util.TipUitls;
-import com.pactera.nci.components.set.SetActivity;
+import com.stockp2p.R;
+import com.ktsf.common.cache.UserInfoManager;
+import com.ktsf.common.data.Constants;
+import com.ktsf.common.data.MyApplication;
+import com.ktsf.common.data.MySetting;
+import com.ktsf.common.data.ScreenObserver;
+import com.ktsf.common.data.ScreenObserver.observerScreenStateUpdateListener;
+import com.ktsf.common.data.UpdateDownloadManger;
+import com.ktsf.common.db.DBManager;
+import com.ktsf.common.db.Version;
+
+import com.ktsf.common.service.SyncService;
+import com.ktsf.common.util.ExitApplication;
+import com.ktsf.common.util.ScreenShot;
+import com.ktsf.common.util.ShareUtils;
+import com.ktsf.common.util.TipUitls;
+import com.ktsf.framework.SetActivity;
+import com.ktsf.framework.longin.LoginActicity;
 
 public class BaseFragmentActivity extends FragmentActivity {
 
@@ -90,26 +88,8 @@ public class BaseFragmentActivity extends FragmentActivity {
 		public void handleMessage(android.os.Message msg) {
 			super.handleMessage(msg);
 			switch (msg.what) {
-			case Constants.MSG_SHARE_HANDLE:// 分享返回值
-				Platform plat = (Platform) msg.obj;
-				switch (msg.arg1) {
-				case 1:
-					SharedPreferences sPreferences = context
-							.getSharedPreferences("positionaddress",
-									Context.MODE_PRIVATE);
-					if (plat.getName() != SinaWeibo.NAME) {
-						Toast.makeText(getApplicationContext(), "分享成功", 0)
-								.show();
-					}
-					int shakeTime = sPreferences.getInt("shakeTime", 1);
-					shakeTime++;
-					sPreferences.edit().putInt("shakeTime", shakeTime).commit();
-					// 记录分享时间
-					Date date = new Date(System.currentTimeMillis());
-					SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-					String currentDate = sdf.format(date);
-					sPreferences.edit().putString("isToday", currentDate)
-							.commit();
+			   case Constants.MSG_SHARE_HANDLE:// 分享返回值
+				
 					break;
 				case 2:
 					Toast.makeText(getApplicationContext(), "分享出错", 0).show();
@@ -120,9 +100,9 @@ public class BaseFragmentActivity extends FragmentActivity {
 				default:
 					break;
 				}
-				break;
+			
 			}
-		};
+		
 	};
 	private String isExit2 = "true";
 
@@ -171,7 +151,7 @@ public class BaseFragmentActivity extends FragmentActivity {
 					myApplication.db, "0", context);
 		}
 
-		if ("com.pactera.nci.framework.LoginActicity".equals(context.getClass()
+		if ("com.ktsf.framework.LoginActicity".equals(context.getClass()
 				.getName().toString())) {
 			ViewStub stub = (ViewStub) context.findViewById(R.id.bottom);
 			inflateView = stub.inflate();
@@ -232,9 +212,7 @@ public class BaseFragmentActivity extends FragmentActivity {
 
 					@Override
 					public void onScreenOff() {
-						Intent musicService = new Intent(context,
-								MusicService.class);
-						stopService(musicService);
+						
 						LogUtils.e("关闭音乐服务");
 					}
 				});
@@ -289,8 +267,7 @@ public class BaseFragmentActivity extends FragmentActivity {
 		filter.addAction("syncDone");
 		context.registerReceiver(broadcastReceiver, filter);
 		if (MySetting.getSlipButton2Boolean(context)) {
-			Intent musicService = new Intent(this, MusicService.class);
-			startService(musicService);
+			
 		}
 
 	}
@@ -390,7 +367,7 @@ public class BaseFragmentActivity extends FragmentActivity {
 							@Override
 							public void onClick(View v) {
 								// TODO Auto-generated method stub
-								ShareSDK.initSDK(context);
+								//ShareSDK.initSDK(context);
 								// 分享的话术：移动新体验，参与有机会中大奖哦~：http://t.cn/8s0FjUd
 								// 中奖后分享的话术：哇塞，我中了**奖品，快来一起参加吧：http://t.cn/8s0FjUd
 								String shareurl = "http://t.cn/8s0FjUd";
@@ -409,19 +386,7 @@ public class BaseFragmentActivity extends FragmentActivity {
 												.getExternalStorageDirectory()
 												+ "/nci/xx.png", shareurl,
 										false);
-								// 直接获取view分享 速度快
-								// ShareUtils.showShare(false, null,
-								// BaseActivity.this, handler,
-								// title, content, null, shareurl, true);
-								// final Button buttonShare = (Button) context
-								// .findViewById(R.id.myacc_changepaypwd);
-								// buttonShare.setClickable(false);
-								// new Handler().postDelayed(new Runnable() {
-								// @Override
-								// public void run() {
-								// buttonShare.setClickable(true);
-								// }
-								// }, 1000);
+				
 								pop.dismiss();
 							}
 						});
@@ -448,21 +413,7 @@ public class BaseFragmentActivity extends FragmentActivity {
 						mExitTime = System.currentTimeMillis();
 
 					} else {
-						Intent musicService = new Intent(this,
-								MusicService.class);
-						stopService(musicService);
-						Intent syncService = new Intent(this, SyncService.class);
-						stopService(syncService);
-						UserInfoManager.getInstance().exitLogin();
-						ExitApplication.getInstance().exit();
-
-						// Intent intent = new Intent(Intent.ACTION_MAIN);
-						// intent.addCategory(Intent.CATEGORY_HOME);
-						// intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-						// startActivity(intent);
-						int pid = android.os.Process.myPid();
-						android.os.Process.killProcess(pid);
-						// System.exit(0);
+						
 					}
 				} else {
 					context.finish();
@@ -500,8 +451,7 @@ public class BaseFragmentActivity extends FragmentActivity {
 		if (isAppOnForeground()) {
 			LogUtils.e("");
 		} else {
-			Intent musicService = new Intent(context, MusicService.class);
-			stopService(musicService);
+			
 			LogUtils.e("关闭音乐服务");
 		}
 

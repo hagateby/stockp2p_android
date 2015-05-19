@@ -1,4 +1,4 @@
-package com.ktsf.components.position;
+package com.ktsf.framework;
 
 import java.util.ArrayList;
 import java.util.List;

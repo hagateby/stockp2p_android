@@ -1,4 +1,4 @@
-package com.ktsf.framework;
+package com.ktsf.framework.longin;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -28,7 +28,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.http.ResponseInfo;
 import com.lidroid.xutils.view.annotation.ViewInject;
-import com.ktsf.R;
+
 import com.ktsf.common.cache.UserInfoManager;
 import com.ktsf.common.data.Constants;
 import com.ktsf.common.serviceengin.Des3;
@@ -41,10 +41,13 @@ import com.ktsf.common.util.NetUtil;
 import com.ktsf.common.util.TipUitls;
 import com.ktsf.common.view.ClearEditText;
 import com.ktsf.common.view.CommonDialog;
-import com.ktsf.components.forget_password.ForgetPassWordActivity;
-import com.secneo.xinhuapay.bridge.PaySdk;
-import com.secneo.xinhuapay.bridge.SdkRequestHeader;
+import com.ktsf.framework.BaseFragmentActivity;
 
+
+//import com.secneo.xinhuapay.bridge.PaySdk;
+//import com.secneo.xinhuapay.bridge.SdkRequestHeader;
+
+import com.stockp2p.R;
 /**
  * 登录
  * 
@@ -407,7 +410,7 @@ public class LoginActicity extends BaseFragmentActivity {
 									} else if (Phone.equals(LoginWay)) {
 										userInfo.setLoginType("m");
 									}
-
+                                    /*
 									// 支付控件请求头,调用支付控件前必须先初始化 共有两次初始化,另一个在我的账户
 									SdkRequestHeader header = new SdkRequestHeader();
 									header.extSysID = "049";
@@ -430,11 +433,11 @@ public class LoginActicity extends BaseFragmentActivity {
 									} else {
 										Constants.staticFramework = framework_;
 									}
-
+                                   
 									ExitApplication.getInstance().exitLogin(
 											context);
 									Manager.branch(context, framework_);
-
+                                   */
 								} else {
 									new CommonDialog(context, 1, "确定", null,
 											null, null, "登录失败", resultMsg)

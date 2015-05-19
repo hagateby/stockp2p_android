@@ -10,7 +10,8 @@ import android.widget.Toast;
 import com.stockp2p.R;
 import com.ktsf.common.cache.UserInfoManager;
 import com.ktsf.common.util.TipUitls;
-import com.ktsf.components.webview.WebviewActivity;
+import com.ktsf.framework.WebviewActivity;
+import com.ktsf.framework.longin.LoginActicity;
 
 /**
  * 跳转管理类

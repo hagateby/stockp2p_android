@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_main"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <View
+        android:id="@+id/item_list_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/common_item_bg_line" />
+
+    <RelativeLayout
+        android:id="@+id/item_list_rl_item"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/common_item_bg_selector" >
+
+        <ImageView
+            android:id="@+id/item_list_iv_picture"
+            android:layout_width="30dip"
+            android:layout_height="30dip"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dip"
+            android:scaleType="centerInside" />
+
+        <TextView
+            android:id="@+id/item_list_tv_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dip"
+            android:layout_toRightOf="@id/item_list_iv_picture"
+            android:text="服务宝典"
+            android:textColor="@color/black"
+            android:textSize="16dip" />
+
+        <View
+            android:id="@+id/item_list_tv_arrow"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/common_item_bg_arrow" />
+
+        <TextView
+            android:id="@+id/item_list_tv_infor"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/item_list_tv_arrow"
+            android:background="@drawable/framework_listmodules_infor"
+            android:gravity="center"
+            android:text="22"
+            android:textColor="@color/white"
+            android:textSize="10dp" />
+    </RelativeLayout>
+
+</LinearLayout>

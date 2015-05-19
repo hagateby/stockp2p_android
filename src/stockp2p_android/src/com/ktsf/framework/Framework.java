@@ -10,7 +10,7 @@ import com.lidroid.xutils.db.annotation.Id;
 public class Framework implements Parcelable{
 
 	// 主键 模块的 id号
-		@Ids
+		
 		public String moduleId;
 		// 父id 上一级的主键
 		public String parentId;

@@ -1,4 +1,4 @@
-package com.pactera.nci.common.view;
+package com.ktsf.common.view;
 
 import java.util.Calendar;
 
@@ -13,7 +13,7 @@ import android.view.View;
 import android.view.View.OnTouchListener;
 import android.widget.ImageButton;
 
-import com.pactera.nci.R;
+import com.stockp2p.R;
 
 public class ScrollDatePicker extends Dialog implements OnTouchListener {
 	private ImageButton btnClose;

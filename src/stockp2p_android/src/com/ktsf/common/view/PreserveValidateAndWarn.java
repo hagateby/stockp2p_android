@@ -1,4 +1,4 @@
-package com.pactera.nci.common.view;
+package com.ktsf.common.view;
 
 import java.util.Map;
 
@@ -8,7 +8,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 
-import com.pactera.nci.components.policyinforquery.PolicyInforQueryActivity;
+//import com.ktsf.components.policyinforquery.PolicyInforQueryActivity;
 
 public class PreserveValidateAndWarn {
 	
@@ -54,11 +54,7 @@ public class PreserveValidateAndWarn {
 					return;
 				}
 				if (null!=submit) {
-					Intent intent = new Intent(context,	PolicyInforQueryActivity.class);
-	        		intent.putExtra("sourcemodule", submitType);
-	        		intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-	        		intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-					context.startActivity(intent);
+					
 					return;
 				} 
 				if (!closed) {

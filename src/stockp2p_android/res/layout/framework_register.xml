@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/common_box_bg_big_new"
+        android:orientation="vertical" >
+
+        <!-- 广告图片 -->
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/common_ad_photo" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="30dp"
+                android:background="@drawable/common_ad_photo_sign" />
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/common_rigister_horizontal_line" />
+        <!-- 用户名 -->
+
+        <LinearLayout
+            android:id="@+id/rel_1"
+            style="@style/applicant_style_new"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/tv_username"
+                style="@style/applicant_label_style"
+                android:text="用  户  名"
+                android:textColor="@color/black" />
+
+            <com.pactera.nci.common.view.ClearEditText
+                android:id="@+id/et_username"
+                style="@style/register_style_new"
+                android:hint="5-20个字母或数字"
+                android:singleLine="true"
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="3dp"
+                android:background="@drawable/common_rigister_star" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/common_rigister_horizontal_line" />
+        <!-- 登陆密码 -->
+
+        <LinearLayout
+            android:id="@+id/rel_2"
+            style="@style/applicant_style_new"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/tv_userpassword"
+                style="@style/applicant_label_style"
+                android:text="登陆密码"
+                android:textColor="@color/black" />
+
+            <com.pactera.nci.common.view.ClearEditText
+                android:id="@+id/et_userpassword"
+                style="@style/register_style_new"
+                android:hint="6至16个字符"
+                android:inputType="textPassword"
+                android:singleLine="true"
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="3dp"
+                android:background="@drawable/common_rigister_star" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/common_rigister_horizontal_line" />
+        <!-- 确认密码 -->
+
+        <LinearLayout
+            android:id="@+id/rel_3"
+            style="@style/applicant_style_new"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/tv_affirmpassword"
+                style="@style/applicant_label_style"
+                android:text="确认密码"
+                android:textColor="@color/black" />
+
+            <com.pactera.nci.common.view.ClearEditText
+                android:id="@+id/et_affirmpassword"
+                style="@style/register_style_new"
+                android:hint="6至16个字符"
+                android:inputType="textPassword"
+                android:singleLine="true"
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="3dp"
+                android:background="@drawable/common_rigister_star" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/common_rigister_horizontal_line" />
+        <!-- 所在地区 -->
+
+        <LinearLayout
+            android:id="@+id/rel_4"
+            style="@style/applicant_style_new"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/tv_area"
+                style="@style/applicant_label_style"
+                android:text="所在地区"
+                android:textColor="@color/black" />
+
+            <Spinner
+                android:id="@+id/spinner_area"
+                style="@style/applicant_spinner_new"
+                android:hint="所在地区:" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="3dp"
+                android:background="@drawable/common_rigister_star" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/common_rigister_horizontal_line" />
+        <!-- 电子邮箱 -->
+
+        <LinearLayout
+            android:id="@+id/rel_5"
+            style="@style/applicant_style_new"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/tv_email"
+                style="@style/applicant_label_style"
+                android:text="电子邮箱"
+                android:textColor="@color/black" />
+
+            <com.pactera.nci.common.view.ClearEditText
+                android:id="@+id/et_email"
+                style="@style/register_style_new"
+                android:hint="例如xx@xx.com"
+                android:singleLine="true"
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="3dp"
+                android:background="@drawable/common_rigister_star"
+                android:visibility="invisible" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/common_rigister_horizontal_line" />
+        <!-- 移动电话 -->
+
+        <LinearLayout
+            android:id="@+id/rel_6"
+            style="@style/applicant_style_new"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/tv_telphone"
+                style="@style/applicant_label_style"
+                android:text="移动电话"
+                android:textColor="@color/black" />
+
+            <com.pactera.nci.common.view.ClearEditText
+                android:id="@+id/et_telphone"
+                style="@style/register_style_new"
+                android:hint="请输入11位号码"
+                android:singleLine="true"
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="3dp"
+                android:background="@drawable/common_rigister_star" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/common_rigister_horizontal_line" />
+
+        <LinearLayout
+            android:id="@+id/rel_7"
+            style="@style/applicant_style_new"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                style="@style/applicant_label_style"
+                android:layout_gravity="center_vertical"
+                android:text="验  证  码"
+                android:textColor="@color/black" />
+
+            <LinearLayout
+                style="@style/applicant_text_style"
+                android:layout_height="40dp"
+                android:layout_weight="1.5"
+                android:background="@null"
+                android:paddingLeft="0dp" >
+
+                <com.pactera.nci.common.view.ClearEditText
+                    android:id="@+id/testDate"
+                    android:layout_width="0.0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/common_orderdetail_write_new"
+                    android:hint="4位验证码"
+                    android:paddingLeft="10dp"
+                    android:singleLine="true"
+                    android:textColor="@color/gray"
+                    android:textSize="15dp" />
+
+                <Button
+                    android:id="@+id/test"
+                    android:layout_width="0.0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="0.7"
+                    android:background="@drawable/common_btn_blue_move_new"
+                    android:text="获取手机验证码"
+                    android:textColor="@color/white"
+                    android:textSize="11dip" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="3dp"
+                android:background="@drawable/common_rigister_star" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/common_rigister_horizontal_line" />
+
+        <LinearLayout
+            style="@style/applicant_style"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="5dp" >
+
+            <Button
+                android:id="@+id/button_submit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/common_btn_selector_new"
+                android:text="提 交"
+                android:textColor="@color/white" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3" />
+
+            <Button
+                android:id="@+id/button_reSet"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/common_btn_selector_new"
+                android:text="重 置"
+                android:textColor="@color/white" />
+        </LinearLayout>
+        <!-- 是否同意 -->
+
+        <LinearLayout
+            style="@style/register_relativeLayout_style"
+            android:layout_below="@id/rel_6"
+            android:gravity="center_horizontal" >
+
+            <CheckBox
+                android:id="@+id/check_isAgree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true" />
+
+            <TextView
+                android:id="@+id/negotiate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/check_isAgree"
+                android:text="我已经查看并同意&lt;新华保险网站协议>"
+                android:textColor="@color/black"
+                android:textSize="13sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

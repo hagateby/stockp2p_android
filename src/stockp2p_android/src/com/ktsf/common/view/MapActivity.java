@@ -1,4 +1,4 @@
-package com.pactera.nci.common.view;
+package com.ktsf.common.view;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -40,13 +40,13 @@ import com.baidu.mapapi.search.MKSuggestionResult;
 import com.baidu.mapapi.search.MKTransitRouteResult;
 import com.baidu.mapapi.search.MKWalkingRouteResult;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
-import com.pactera.nci.R;
-import com.pactera.nci.common.data.Constants;
-import com.pactera.nci.common.data.Graphics;
-import com.pactera.nci.common.data.MyApplication;
-import com.pactera.nci.common.db.Hospital;
-import com.pactera.nci.common.db.Network;
-import com.pactera.nci.framework.BaseFragmentActivity;
+import com.stockp2p.R;
+import com.ktsf.common.data.Constants;
+import com.ktsf.common.data.Graphics;
+import com.ktsf.common.data.MyApplication;
+
+import com.ktsf.common.db.Network;
+import com.ktsf.framework.BaseFragmentActivity;
 
 public class MapActivity extends BaseFragmentActivity {
 
@@ -75,7 +75,7 @@ public class MapActivity extends BaseFragmentActivity {
 	private int source;
 	private int showway;
 
-	private ArrayList<Hospital> hospitalList = new ArrayList<Hospital>();
+
 
 	// 当前位置坐标
 	private double locLatitude;
@@ -131,54 +131,9 @@ public class MapActivity extends BaseFragmentActivity {
 		overlayItemList.clear();
 		overlayItemList = new ArrayList<OverlayItem>();
 
-		if (source == Constants.HOSPITAL && app.hospitalList != null) {
-			ArrayList<Hospital> hospitalList = app.hospitalList;
-			for (int i = 0; i < hospitalList.size(); i++) {
-				int latitude = (int) (Double.parseDouble(hospitalList.get(i)
-						.getLatitude()) * 1E6);
-				int longitude = (int) (Double.parseDouble(hospitalList.get(i)
-						.getLongitude()) * 1E6);
-				String snippet = hospitalList.get(i).getAddress();
-				OverlayItem item = new OverlayItem(new GeoPoint((int) latitude,
-						(int) longitude), hospitalList.get(i).getAddress(),
-						snippet);
-				item.setMarker(res);
-				overlayItemList.add(item);
-			}
-			mapController.setCenter(new GeoPoint((int) (Double
-					.parseDouble(hospitalList.get(0).getLatitude()) * 1E6),
-					(int) (Double.parseDouble(hospitalList.get(0)
-							.getLongitude()) * 1E6)));
-		} else if (source == Constants.NETWORK && app.networkList != null) {
-			ArrayList<Network> networkList = app.networkList;
-			for (int i = 0; i < networkList.size(); i++) {
-				int latitude = (int) (Double.parseDouble(networkList.get(i)
-						.getLatitude()) * 1E6);
-				int longitude = (int) (Double.parseDouble(networkList.get(i)
-						.getLongitude()) * 1E6);
-				String snippet = networkList.get(i).getAddress();
-				OverlayItem item = new OverlayItem(new GeoPoint((int) latitude,
-						(int) longitude), networkList.get(i).getAddress(),
-						snippet);
-				item.setMarker(res);
-				overlayItemList.add(item);
-			}
-			mapController
-					.setCenter(new GeoPoint(
-							(int) (Double.parseDouble(networkList.get(0)
-									.getLatitude()) * 1E6), (int) (Double
-									.parseDouble(networkList.get(0)
-											.getLongitude()) * 1E6)));
-		}
+	
 
-		Drawable marker = MapActivity.this.getResources().getDrawable(
-				R.drawable.common_mapactivity_ballon);
-		overlayTest = new OverlayTest(marker, this, mapView);
-		mapView.getOverlays().add(overlayTest);
-		for (OverlayItem item : overlayItemList) {
-			overlayTest.addItem(item);
-		}
-		mapView.refresh();
+	
 
 		// 初始化搜索模块，注册事件监听
 		mSearch = new MKSearch();
@@ -204,9 +159,7 @@ public class MapActivity extends BaseFragmentActivity {
 				mapView.getOverlays().add(routeOverlay);
 				mapView.refresh();
 				// 使用zoomToSpan()绽放地图，使路线能完全显示在地图�?
-				mapView.getController().zoomToSpan(routeOverlay.getLatSpanE6(),
-						routeOverlay.getLonSpanE6());
-				mapView.getController().animateTo(res.getStart().pt);
+				
 			}
 
 			public void onGetTransitRouteResult(MKTransitRouteResult res,
@@ -293,41 +246,7 @@ public class MapActivity extends BaseFragmentActivity {
 			}
 		});
 
-		// 直接显示路线
-		if (showway == 1) {
-			// while(app.currentLatitude == 0 || app.currentLongitude == 0) {
-			// Toast.makeText(MapActivity.this, "正在定位，请稍后！",
-			// Toast.LENGTH_SHORT).show();
-			// }
-			app.startPoint.pt = new GeoPoint((int) (app.currentLatitude * 1e6),
-					(int) (app.currentLongitude * 1e6));
-			if (source == Constants.NETWORK) {
-				app.endPoint.pt = new GeoPoint(
-						(int) (Double.parseDouble(app.networkList.get(0)
-								.getLatitude()) * 1e6),
-						(int) (Double.parseDouble(app.networkList.get(0)
-								.getLongitude()) * 1e6));
-			} else {
-				app.endPoint.pt = new GeoPoint(
-						(int) (Double.parseDouble(app.hospitalList.get(0)
-								.getLatitude()) * 1e6),
-						(int) (Double.parseDouble(app.hospitalList.get(0)
-								.getLongitude()) * 1e6));
-			}
 
-			findViewById(R.id.relativelayout1).setVisibility(View.VISIBLE);
-			MKPlanNode stNode = new MKPlanNode();
-			stNode = app.startPoint;
-			MKPlanNode enNode = new MKPlanNode();
-			enNode = app.endPoint;
-			mBtnDrive.setBackgroundDrawable(getResources().getDrawable(
-					R.drawable.common_route_car));
-			mBtnWalk.setBackgroundDrawable(getResources().getDrawable(
-					R.drawable.common_route_walk));
-			mBtnTransit.setBackgroundDrawable(getResources().getDrawable(
-					R.drawable.common_mapactivity_route_bus_active));
-			mSearch.transitSearch("北京", stNode, enNode);
-		}
 	}
 
 	@Override
@@ -392,14 +311,9 @@ public class MapActivity extends BaseFragmentActivity {
 		public void onMapMoveFinish() {
 		}
 
-		@Override
+		
 		public void onClickMapPoi(MapPoi mapPoiInfo) {
-			String title = "";
-			if (mapPoiInfo != null) {
-				title = mapPoiInfo.strText;
-				Toast.makeText(MapActivity.this, title, Toast.LENGTH_SHORT)
-						.show();
-			}
+			
 		}
 
 		@Override
@@ -412,45 +326,16 @@ public class MapActivity extends BaseFragmentActivity {
 	}
 
 	public class OverlayTest extends ItemizedOverlay<OverlayItem> {
+		public OverlayTest(Drawable arg0, MapView arg1) {
+			super(arg0, arg1);
+			// TODO Auto-generated constructor stub
+		}
+
 		private Context mContext = null;
 		PopupOverlay pop = null;
 		int popIndex;
 		Toast mToast = null;
 
-		public OverlayTest(Drawable marker, Context context, MapView mapView) {
-			super(marker, mapView);
-			this.mContext = context;
-			pop = new PopupOverlay(MapActivity.mapView,
-					new PopupClickListener() {
-
-						@Override
-						public void onClickedPopup(int index) {
-							// if (index == 0) { //选择点的详情信息
-							// } else if (index == 2) { //当前位置到选择点的路线
-							// Log.i("dianji", "dianji");
-							// pop.hidePop();
-							// app.routeSelectEnd =
-							// overlayItemList.get(popIndex).getPoint();
-							// app.routeSelectEndName =
-							// overlayItemList.get(popIndex).getSnippet();
-							// app.startPoint.pt = new
-							// GeoPoint((int)(app.currentLatitude * 1e6),
-							// (int)(app.currentLongitude * 1e6));
-							// app.endPoint.pt = app.routeSelectEnd;
-							//
-							// findViewById(R.id.relativelayout1).setVisibility(View.VISIBLE);
-							// MKPlanNode stNode = new MKPlanNode();
-							// stNode = app.startPoint;
-							// MKPlanNode enNode = new MKPlanNode();
-							// enNode = app.endPoint;
-							// mBtnDrive.setBackgroundDrawable(getResources().getDrawable(R.drawable.route_car));
-							// mBtnWalk.setBackgroundDrawable(getResources().getDrawable(R.drawable.route_walk));
-							// mBtnTransit.setBackgroundDrawable(getResources().getDrawable(R.drawable.route_bus_active));
-							// mSearch.transitSearch("北京", stNode, enNode);
-							// }
-						}
-					});
-		}
 
 		protected boolean onTap(int index) {
 			this.popIndex = index;
@@ -494,31 +379,6 @@ public class MapActivity extends BaseFragmentActivity {
 		MKPlanNode enNode = new MKPlanNode();
 		enNode = app.endPoint;
 
-		// 实际使用中请对起点终点城市进行正确的设定
-		if (mBtnDrive.equals(v)) {
-			mBtnDrive.setBackgroundDrawable(getResources().getDrawable(
-					R.drawable.common_mapactivity_route_car_active));
-			mBtnWalk.setBackgroundDrawable(getResources().getDrawable(
-					R.drawable.common_route_walk));
-			mBtnTransit.setBackgroundDrawable(getResources().getDrawable(
-					R.drawable.common_route_bus));
-			mSearch.drivingSearch("北京", stNode, "北京", enNode);
-		} else if (mBtnTransit.equals(v)) {
-			mBtnDrive.setBackgroundDrawable(getResources().getDrawable(
-					R.drawable.common_route_car));
-			mBtnWalk.setBackgroundDrawable(getResources().getDrawable(
-					R.drawable.common_route_walk));
-			mBtnTransit.setBackgroundDrawable(getResources().getDrawable(
-					R.drawable.common_mapactivity_route_bus_active));
-			mSearch.transitSearch("北京", stNode, enNode);
-		} else if (mBtnWalk.equals(v)) {
-			mBtnDrive.setBackgroundDrawable(getResources().getDrawable(
-					R.drawable.common_route_car));
-			mBtnWalk.setBackgroundDrawable(getResources().getDrawable(
-					R.drawable.common_mapactivity_route_walk_active));
-			mBtnTransit.setBackgroundDrawable(getResources().getDrawable(
-					R.drawable.common_route_bus));
-			mSearch.walkingSearch("北京", stNode, "北京", enNode);
-		}
+		
 	}
 }

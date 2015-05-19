@@ -1,4 +1,4 @@
-package com.pactera.nci.common.view;
+package com.ktsf.common.view;
 
 /*
  * Copyright 2013 Csaba Szugyiczki
@@ -29,7 +29,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.pactera.nci.R;
+import com.stockp2p.R;
 
 /**
  * 
@@ -115,7 +115,7 @@ public class CircleLayout extends ViewGroup {
 		mGestureDetector = new GestureDetector(getContext(),
 				new MyGestureListener());
 		quadrantTouched = new boolean[] { false, false, false, false, false };
-
+ /*
 		if (attrs != null) {
 			TypedArray a = getContext().obtainStyledAttributes(attrs,
 					R.styleable.Circle);
@@ -161,6 +161,8 @@ public class CircleLayout extends ViewGroup {
 			// Needed for the ViewGroup to be drawn
 			setWillNotDraw(false);
 		}
+		
+		*/
 	}
 
 	/**

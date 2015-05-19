@@ -1,4 +1,4 @@
-package com.pactera.nci.common.view;
+package com.ktsf.common.view;
 
 /*
  * Copyright 2013 Csaba Szugyiczki
@@ -21,7 +21,7 @@ import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
-import com.pactera.nci.R;
+import com.stockp2p.R;
 
 /**
  * 
@@ -83,11 +83,14 @@ public class CircleImageView extends ImageView {
 	public CircleImageView(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
 		if (attrs != null) {
+			/*
 			TypedArray a = getContext().obtainStyledAttributes(attrs,
 					R.styleable.CircleImageView);
 			
 			name = a.getString(R.styleable.CircleImageView_name);
+			*/
 		}
+		
 	}
 
 }

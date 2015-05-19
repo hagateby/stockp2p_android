@@ -11,8 +11,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import com.ktsf.sys_const.SYSTEMCONST;;
-
+import com.ktsf.sys_const.SYSTEMCONST;
+import com.stockp2p.R;
 
 
 

@@ -14,7 +14,7 @@ import android.util.Log;
 
 import com.ktsf.common.data.Constants;
 import com.ktsf.common.util.CommonUtil;
-
+import com.stockp2p.R;
 /**
  * 数据库管理类
  * 
@@ -27,7 +27,7 @@ public class DBManager {
 	// 注意这里的PACKAGE_NAME改成你的项目的包名字，如果你不用你的包名那么下面的FileOutputStream fos = new
 	// FileOutputStream(dbfile);
 	// 会抛出异常，当初本人就是在这卡了好久，因为没认真看代码
-	public static final String PACKAGE_NAME = "com.pactera.nci";
+	public static final String PACKAGE_NAME = "com.ktsf";
 	public static final String DB_PATH = "/data"
 			+ Environment.getDataDirectory().getAbsolutePath() + "/"
 			+ PACKAGE_NAME; // 在手机里存放数据库的位置

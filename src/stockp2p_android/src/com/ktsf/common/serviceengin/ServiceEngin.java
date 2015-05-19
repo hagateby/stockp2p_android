@@ -26,7 +26,7 @@ import com.ktsf.common.util.NetUtil;
 import com.ktsf.common.util.TipUitls;
 import com.ktsf.common.view.CommonDialog;
 import com.ktsf.framework.BaseFragmentActivity;
-import com.ktsf.framework.LoginActicity;
+import com.ktsf.framework.longin.LoginActicity;
 
 /**
  * 公共请求类
@@ -154,11 +154,13 @@ public class ServiceEngin {
 		TipUitls.Log("ServiceEngine", "请求URL:" + Constants.URL + "部分参数:"
 				+ servicePara);
 		String result = "";
+		/* lwh
 		if (android.os.Build.VERSION.SDK_INT > 9) {
 			StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
 					.permitAll().build();
 			StrictMode.setThreadPolicy(policy);
 		}
+		*/
 		// 参数拼接
 		RequestParams params = new RequestParams();
 		params.addBodyParameter("keyVer", "v1");

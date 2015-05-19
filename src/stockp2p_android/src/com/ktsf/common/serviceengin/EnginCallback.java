@@ -1,4 +1,4 @@
-package com.pactera.nci.common.serviceengin;
+package com.ktsf.common.serviceengin;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -14,11 +14,11 @@ import com.alibaba.fastjson.JSONObject;
 import com.lidroid.xutils.exception.HttpException;
 import com.lidroid.xutils.http.ResponseInfo;
 import com.lidroid.xutils.http.callback.RequestCallBack;
-import com.pactera.nci.common.cache.UserInfoManager;
-import com.pactera.nci.common.util.ExitApplication;
-import com.pactera.nci.common.view.CommonDialog;
-import com.pactera.nci.framework.BaseFragmentActivity;
-import com.pactera.nci.framework.LoginActicity;
+import com.ktsf.common.cache.UserInfoManager;
+import com.ktsf.common.util.ExitApplication;
+import com.ktsf.common.view.CommonDialog;
+import com.ktsf.framework.BaseFragmentActivity;
+import com.ktsf.framework.longin.LoginActicity;
 
 public class EnginCallback extends RequestCallBack {
 

@@ -34,7 +34,6 @@ import android.support.v4.app.FragmentActivity;
 import android.telephony.TelephonyManager;
 import android.widget.EditText;
 
-import com.ktsf.common.cache.SertificatonInfor;
 import com.ktsf.common.view.CommonDialog;
 
 public class CommonUtil {
@@ -822,25 +821,7 @@ public class CommonUtil {
 	 * 认证限额
 	 */
 	public static boolean isLimitMoney(Context context, double inputMoney) {
-		String txnLimitAMT = SertificatonInfor.getInstance(
-				(FragmentActivity) context, null).getTxnLimitAMT();// 认证领取限额
-		String alert = "";
-		if (5000 < inputMoney && inputMoney <= 10000) {
-			if (SertificatonInfor.getInstance((FragmentActivity) context, null)
-					.RemoteCerStatus()
-					&& !SertificatonInfor.getInstance(
-							(FragmentActivity) context, null).OtcCerStatus()) {// 远程认证true,柜面认证false
-				alert = "尊敬的客户，您的认证限额为5000，无权限申请该业务，请至柜面申请该业务或提升您的认证等级。";
-				new CommonDialog(context, 1, "确定", null, null, null, "提示",
-						alert).show();
-				return false;
-			}
-		} else if (inputMoney > 10000) {
-			alert = "尊敬的客户，您的认证限额为" + txnLimitAMT + "元，无权限申请该业务，请至柜面申请该业务。";
-			new CommonDialog(context, 1, "确定", null, null, null, "提示", alert)
-					.show();
-			return false;
-		}
+		
 		return true;
 	}
 }

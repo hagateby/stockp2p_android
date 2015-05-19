@@ -1,4 +1,4 @@
-﻿package com.pactera.nci.common.view;
+﻿package com.ktsf.common.view;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -13,7 +13,7 @@ import android.view.View;
 import android.view.View.OnTouchListener;
 import android.widget.EditText;
 
-import com.pactera.nci.R;
+import com.stockp2p.R;
 
 public class ClearEditText extends EditText implements OnTouchListener,
 		TextWatcher

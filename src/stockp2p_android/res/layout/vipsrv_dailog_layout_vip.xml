@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_exit"
+    android:layout_width="280dip"
+    android:layout_height="280dip"
+    android:background="@drawable/vipsrv_bak_tel"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingLeft="20sp"
+    android:paddingRight="20sp"
+    android:paddingTop="10sp" >
+
+    <!--
+         <TextView
+        android:id="@+id/exit_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20sp"
+        android:text="只有VIP会员才能享受VIP专项服务"
+        android:textColor="@color/whitesmoke"
+        android:textSize="20sp" />
+    -->
+
+    <ImageView
+        android:id="@+id/exit_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20sp"
+        android:textSize="20sp" 
+        android:src="@drawable/vipsrv_dailog_vip_title_bg"
+        /> 
+
+    <LinearLayout
+        android:layout_width="200sp"
+        android:layout_height="wrap_content" 
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/bt_sos_line"
+            android:layout_width="160dip"
+            android:layout_height="wrap_content"
+            android:layout_margin="5sp"
+            android:background="@drawable/vipsrv_big_btn_kefu"
+            android:focusable="true"
+            />
+        
+        <Button
+            android:id="@+id/bt_exit_ok"
+            android:layout_width="160dip"
+            android:layout_height="wrap_content"
+            android:layout_margin="5sp"
+            android:background="@drawable/vipsrv_big_btn_sos"
+            android:focusable="true"
+            />
+
+        <Button
+            android:id="@+id/bt_exit_cancle"
+            android:layout_width="160dip"
+            android:layout_height="wrap_content"
+            android:layout_margin="5sp"
+            android:background="@drawable/vipsrv_dailog_vip_cancel"
+            android:focusable="true"
+            />
+    </LinearLayout>
+
+</LinearLayout>

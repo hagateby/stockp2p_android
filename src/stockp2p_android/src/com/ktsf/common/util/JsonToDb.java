@@ -22,7 +22,7 @@ import com.ktsf.common.db.Channel;
 import com.ktsf.common.db.CodeType;
 import com.ktsf.common.db.Content;
 import com.ktsf.common.db.DBManager;
-import com.ktsf.common.db.Hospital;
+
 import com.ktsf.common.db.Image;
 import com.ktsf.common.db.Network;
 import com.ktsf.common.db.Region;
@@ -47,10 +47,7 @@ public class JsonToDb {
 	 * 内容表
 	 */
 	protected List<Content> content;
-	/**
-	 * 医院表
-	 */
-	protected List<Hospital> hospital;
+
 	/**
 	 * 图片表
 	 */
@@ -144,9 +141,6 @@ public class JsonToDb {
 						// Content表
 						content = JSONArray.parseArray(
 								object.getString("Content"), Content.class);
-						// Hospital表
-						hospital = JSONArray.parseArray(
-								object.getString("Hospital"), Hospital.class);
 						// Image表
 						image = JSONArray.parseArray(object.getString("Image"),
 								Image.class);
@@ -280,36 +274,7 @@ public class JsonToDb {
 				}
 			}
 
-			TipUitls.Log(TAG, "hospital------>" + hospital);
-			if (hospital != null) {
-				for (Hospital hospitalObject : hospital) {
-					ContentValues cv = new ContentValues();
-					cv.put("id", hospitalObject.getId());
-					cv.put("province", hospitalObject.getProvince());
-					cv.put("provinceCode", hospitalObject.getProvinceCode());
-					cv.put("city", hospitalObject.getCity());
-					cv.put("cityCode", hospitalObject.getCityCode());
-					cv.put("address", hospitalObject.getAddress());
-					cv.put("hosLevel", hospitalObject.getHosLevel());
-					cv.put("tel", hospitalObject.getTel());
-					cv.put("latitude", hospitalObject.getLatitude());
-					cv.put("longitude", hospitalObject.getLongitude());
-					cv.put("hosName", hospitalObject.getHosName());
-					cv.put("remark", hospitalObject.getRemark());
-					cv.put("authority", hospitalObject.getAuthority());
-					if (hospitalObject.getOpeFlag().equals("c")) {
-						db.delete("hospital", "id = ?",
-								new String[] { hospitalObject.getId() + "" });
-						db.insert("hospital", null, cv);
-					} else if (hospitalObject.getOpeFlag().equals("u")) {
-						db.update("hospital", cv, "id = ?",
-								new String[] { hospitalObject.getId() + "" });
-					} else if (hospitalObject.getOpeFlag().equals("d")) {
-						db.delete("hospital", "id = ?",
-								new String[] { hospitalObject.getId() + "" });
-					}
-				}
-			}
+			
 
 			TipUitls.Log(TAG, "image------>" + image);
 			if (image != null) {

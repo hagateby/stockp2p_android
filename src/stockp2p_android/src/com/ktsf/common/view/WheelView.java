@@ -17,7 +17,7 @@
  *  limitations under the License.
  */
 
-package com.pactera.nci.common.view;
+package com.ktsf.common.view;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -44,7 +44,7 @@ import android.view.View;
 import android.view.animation.Interpolator;
 import android.widget.Scroller;
 
-import com.pactera.nci.R;
+import com.stockp2p.R;
 
 
 /**

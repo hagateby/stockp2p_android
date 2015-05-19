@@ -546,4 +546,26 @@
     <string name="xyrz_certificate_type">信用认证标</string>
     <string name="yesterday">昨天</string>
     <string name="action_settings">Settings</string>
+    
+        <!-- 弹出窗口提示文字 -->
+    <string name="neterror">网络请求错误</string>
+    <string name="You_have_no_right_to_apply_for_this_change">您无权申请此变更业务</string>
+    <string name="datebase_error">数据库错误</string>
+    <string name="cancel_associate_success">取消关联成功!</string>
+    <string name="associate_success">关联成功!</string>
+    <string name="operation_failure">操作失败!</string>
+    <string name="request_failed">网络异常</string>
+    
+    
+        <string name="customDialog">自定义对话框</string>
+    <string name="customDialog1">滚轮日期选择</string>
+    <string name="systemDialog">系统对话框</string>
+    <string name="date_picker_dialog_title">系统对话框</string>
+    <string name="datepicker_dialog_title">请选择日期:</string>
+    <string name="hint1">        ☆如有疑问，请致电全国统一客服电话95567，我们竭诚为您服务</string>
+    <string name="hint2">*点击下方证件号，即可进行保单关联</string>
+    <string name="hint3">*保单生效满一个年度后，并且在公司公布分红后才可以查询到相关分红信息</string>
+     <string name="bus_button">bus</string>
+    <string name="foot_button">foot</string>
+    <string name="car_button">car</string>
 </resources>

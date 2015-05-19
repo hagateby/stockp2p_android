@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/MyCustomDialog"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/framework_more_bk"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/base_set"
+        android:layout_width="100dp"
+        android:layout_marginTop="15dp"
+        android:layout_height="40dp"
+        android:clickable="true"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/framework_config_selector" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="10dp"
+            android:text="设  置"
+            android:textColor="#BB888888"
+            android:textSize="14dp" />
+    </LinearLayout>
+    
+    <ImageView android:layout_width="90dp"
+        android:layout_height="1dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/white"/>
+
+    <LinearLayout
+        android:id="@+id/base_share"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:clickable="true"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/framework_share_selector" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="10dp"
+            android:text="分  享"
+            android:textColor="#BB888888"
+            android:textSize="14dp" />
+    </LinearLayout>
+
+</LinearLayout>

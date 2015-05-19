@@ -1,10 +1,10 @@
-package com.pactera.nci.common.view;
+package com.ktsf.common.view;
 
 import android.app.AlertDialog;
 import android.content.Context;
 import android.os.Bundle;
 
-import com.pactera.nci.R;
+import com.stockp2p.R;
 
 /**
  * iPhoneDialog

@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.support.v4.app.FragmentActivity;
 import android.widget.Toast;
 
-import com.pactera.nci.R;
+import com.stockp2p.R;
 
 public class Frameworkdate {
 

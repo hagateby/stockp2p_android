@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_ad_image_dot_item"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" >
+    <View
+        android:id="@+id/ad_dot"
+        android:layout_width="5dip"
+        android:layout_height="5dip"
+        android:layout_marginLeft="3dip"
+        android:layout_marginRight="3dip"
+        android:background="@drawable/quicksrv_dot_nor" />
+</LinearLayout>

@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_scrollview"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    style="@style/background_style" >
+    
+    
+     <LinearLayout
+            android:id="@+id/headlinear"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/common_box_bg_big"
+            android:orientation="vertical"
+            android:padding="10dp">
+            <TextView
+            android:layout_width="wrap_content"
+    	    android:layout_height="wrap_content"
+    	    android:layout_marginTop="5dp"
+    	    android:text="个人信息"
+    	    android:textColor="#FFFFFF"
+    	    android:textSize="16dp" /> 
+    	    
+
+    <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/common_title_bg" >
+
+                <TextView
+                    android:id="@+id/head"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:layout_gravity="center_vertical"
+                    android:textColor="#000000"
+                    android:text="个人信息" />
+                </LinearLayout>
+
+    <!-- 用户名 -->
+    <LinearLayout
+        
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" 
+        style="@style/applicant_style">
+
+        <TextView
+            android:id="@+id/usernameid"
+            style="@style/applicant_label_style"
+            android:textColor="#000000"
+            android:text="用户名:" />
+
+        <TextView
+            android:id="@+id/tv_username"
+            style="@style/applicant_text_style"        
+            />
+    </LinearLayout>
+    <!-- 用户名 -->
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+       style="@style/applicant_style">
+
+        <TextView
+            style="@style/applicant_label_style"
+            android:textColor="#000000"
+            android:text="昵称:" />
+
+        <TextView
+            android:id="@+id/tv_nicheng"
+            style="@style/applicant_text_style"   
+            />
+    </LinearLayout>
+    <!-- 用户名 -->
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        style="@style/applicant_style">
+
+        <TextView
+            style="@style/applicant_label_style"
+            android:textColor="#000000"
+            android:text="性别:" />
+
+        <TextView
+            android:id="@+id/tv_sex"
+            style="@style/applicant_text_style"   
+            />
+    </LinearLayout>
+    <!-- 用户名 -->
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        style="@style/applicant_style">
+
+        <TextView
+            style="@style/applicant_label_style"
+            android:textColor="#000000"
+            android:text="生日:" />
+
+        <TextView
+            android:id="@+id/tv_userBirthday"
+            style="@style/applicant_text_style"   
+            />
+    </LinearLayout>
+    <!-- 用户名 -->
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        style="@style/applicant_style" >
+
+        <TextView
+             style="@style/applicant_label_style"
+            android:textColor="#000000"
+            android:text="电子邮箱:" />
+
+        <TextView
+            android:id="@+id/tv_userEmail"
+            style="@style/applicant_text_style"   
+            />
+    </LinearLayout>
+    <!-- 用户名 -->
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        style="@style/applicant_style" >
+
+        <TextView
+             style="@style/applicant_label_style"
+            android:textColor="#000000"
+            android:text="省/直辖市:" />
+
+        <TextView
+            android:id="@+id/tv_province"
+            style="@style/applicant_text_style"   
+            />
+    </LinearLayout>
+    <!-- 用户名 -->
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        style="@style/applicant_style" >
+
+        <TextView
+             style="@style/applicant_label_style"
+            android:textColor="#000000"
+            android:text="详细地址:" />
+
+        <TextView
+            android:id="@+id/tv_address"
+            style="@style/applicant_text_style"   
+            />
+    </LinearLayout>
+    <!-- 用户名 -->
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        style="@style/applicant_style" >
+
+        <TextView
+             style="@style/applicant_label_style"
+            android:textColor="#000000"
+            android:text="邮政编码:" />
+
+        <TextView
+            android:id="@+id/tv_postalCode"
+           style="@style/applicant_text_style"   
+           />
+    </LinearLayout>
+    <!-- 用户名 -->
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        style="@style/applicant_style" >
+
+        <TextView
+            style="@style/applicant_label_style"
+            android:textColor="#000000"
+            android:text="移动电话:" />
+
+        <TextView
+            android:id="@+id/tv_movePhone"
+            style="@style/applicant_text_style"   
+             />
+    </LinearLayout>
+    <!-- 用户名 -->
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        style="@style/applicant_style" >
+
+        <TextView
+            style="@style/applicant_label_style"
+            android:textColor="#000000"
+            android:text="固定电话:" />
+
+        <TextView
+            android:id="@+id/tv_landline"
+            style="@style/applicant_text_style"   
+           />
+    </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

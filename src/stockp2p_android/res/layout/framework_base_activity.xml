@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/base_activity_ll_main"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/framework_bk"
+    android:orientation="vertical" >
+
+    <!-- 标题栏 -->
+
+    <RelativeLayout
+        android:id="@+id/base_activity_rl_titlelayout"
+        android:layout_width="fill_parent"
+        android:layout_height="45dip"
+        android:background="@drawable/framework_title_bk"
+        android:gravity="center_vertical" >
+
+        <!-- 返回/关闭 -->
+
+        <Button
+            android:id="@+id/base_activity_bt_titleback"
+            android:layout_width="45dip"
+            android:layout_height="45dip"
+            android:background="@drawable/framework_back_selector"
+            android:onClick="click"
+            android:textColor="#FFFFFF" />
+
+        <!-- 标题 -->
+
+        <TextView
+            android:id="@+id/base_activity_tv_titletxt"
+            android:layout_width="wrap_content"
+            android:layout_height="45dip"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center_vertical|center"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <!-- 更多 -->
+
+        <Button
+            android:id="@+id/base_activity_bt_base_title_more"
+            android:layout_width="45dip"
+            android:layout_height="45dip"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/framework_more_selector"
+            android:onClick="click"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+
+    <!-- 主内容框架 -->
+
+    <FrameLayout
+        android:id="@+id/tab_container"
+        android:layout_width="fill_parent"
+        android:layout_height="0.0dip"
+        android:layout_weight="10.0"
+        android:orientation="vertical" >
+    </FrameLayout>
+
+    <ViewStub
+        android:id="@+id/bottom"
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:layout="@layout/framework_bottombar" />
+
+</LinearLayout>
