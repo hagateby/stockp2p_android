@@ -23,37 +23,23 @@ public class Constants {
 	public static final String SOAP_ACTION = NAMESPACE + METHOD_NAME;
 
 	// 接口地址配置
-	public static String URL = "";
+	
 	public static String DOMIN_NAME = "";
 	public static String URLHTML5 = "";
 	
-	public static final String ISDEBUG = "2"; // 1-- 开发 2--生产
+	public static final boolean ISDEBUG =true ; // 0-- 开发 1--生产
 												// 具体定义在BlankActivity.java里面
 	public static String PROTOCOL;
 	public static String HOST;
 	public static int PORT;
-    public static final String HOST_DEBUG = "10.1.91.148";//开发内网环境
-    public static final int PORT_DEBUG = 9443;//内网环境端口
-   
+	public static String URL = "";
+	
 
 	// webview里面需要替换的图片网络地址--JasonToDb.java
 	public static final String IMGURLPATH = "file:///android_asset/";// 生产
 	// 初始的最后更新时间
 	public static final String UPDATEDATEORIGINAL = "2015-04-09 1:27:55";
 
-	// webservice地址配置 -- 废弃
-	// public static final String HOST = "192.168.180.69";//开发内网A10环境ip
-	// public static final String HOST = "10.1.41.145";//生产内网环境ip
-	// public static final String HOST = "192.168.190.5";//生产内网A10环境ip
-	// public static final String HOST = "123.127.246.38";//生产外网环境 ip1 --联通
-	// public static final String HOST = "219.143.202.143";//生产外网环境 ip2 --电信
-	// 图片下载的地址--AsyncImageLoader.java --废弃
-	// public static final String IMGURLHEADER =
-	// "http://10.1.91.148:9080/ncihweb/uploadFile/images/";//开发ip
-	// public static final String IMGURLHEADER =
-	// "https://zsxh.newchinalife.com/ncihweb/uploadFile/images/";//生产域名
-	// public static final String IMGURLHEADER =
-	// "https://123.127.246.38/ncihweb/uploadFile/images/";//生产ip
 	// 在线客服配置 --废弃
 	public static final String ONLINECUSTOMERSERVICEIP = "10.8.53.11";
 	public static final String ONLINECUSTOMERSERVICEHOSTNAME = "transituser@guopengfei-pc";

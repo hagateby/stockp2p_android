@@ -99,8 +99,7 @@ public class MyApplication extends FrontiaApplication {
 		// 捕获错误 log
 		CrashHandler crashHandler = CrashHandler.getInstance();
 		crashHandler.init(this);
-		// VMRuntime.getRuntime().setTargetHeapUtilization(HEAP_UTILIZATION);
-		// VMRuntime.getRuntime().setMinimumHeapSize(MIN_HEAP_SIZE);
+	
 	}
 
 	// 常用事件监听，用来处理日常的网络错误，授权验证错误等
@@ -110,10 +109,6 @@ public class MyApplication extends FrontiaApplication {
 		return myApplication;
 	}
 
-	
-
- 
-	
 	public static class MyGeneralListener implements MKGeneralListener {
 		@Override
 		public void onGetNetworkState(int iError) {

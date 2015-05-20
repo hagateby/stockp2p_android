@@ -27,10 +27,10 @@ public class DBManager {
 	// 注意这里的PACKAGE_NAME改成你的项目的包名字，如果你不用你的包名那么下面的FileOutputStream fos = new
 	// FileOutputStream(dbfile);
 	// 会抛出异常，当初本人就是在这卡了好久，因为没认真看代码
-	public static final String PACKAGE_NAME = "com.ktsf";
+	public static final String PACKAGE_NAME = "com.stockp2p";
 	public static final String DB_PATH = "/data"
 			+ Environment.getDataDirectory().getAbsolutePath() + "/"
-			+ PACKAGE_NAME; // 在手机里存放数据库的位置
+			+ PACKAGE_NAME ;//+"/databases"; // 在手机里存放数据库的位置
 
 	private SQLiteDatabase sQLiteDatabase;
 
