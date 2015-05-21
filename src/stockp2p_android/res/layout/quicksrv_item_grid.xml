@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/ll_main"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:gravity="center" >
+
+        
+        <ImageView
+            android:id="@+id/item_grid_iv_picture"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_centerInParent="true"
+            android:background="#888888" />
+        
+        <TextView
+            android:id="@+id/item_grid_tv_txt"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/item_grid_iv_picture"
+            android:gravity="center_horizontal"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/item_grid_iv_del"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/quicksrv_funtion_del"
+            android:visibility="visible" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:src="@drawable/quicksrv_funtion_del"
+            android:visibility="invisible" />
+    </RelativeLayout>
+
+</LinearLayout>

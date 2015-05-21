@@ -1,0 +1,20 @@
+package com.pactera.nci.components.quicksrv;
+
+import android.os.Bundle;
+
+import com.pactera.nci.R;
+import com.pactera.nci.framework.BaseFragmentActivity;
+
+public class QuicksrvActivity extends BaseFragmentActivity {
+
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+
+		thisManager.beginTransaction()
+				.replace(R.id.tab_container, new Billboards()).commit();
+
+	}
+
+}

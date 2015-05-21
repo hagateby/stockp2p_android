@@ -141,7 +141,7 @@ public class WelcomeViewPagerActivity extends FragmentActivity {
 		//检查版本
 		boolean chkversion=chkVersion();
         //判断是否要启动欢迎页面
-		if ( chkversion && (!"setting".equals(source))) {
+		if ( chkversion && ("setting".equals(source))) {
 
 				finish();
 				Manager.branch(WelcomeViewPagerActivity.this,
@@ -164,6 +164,23 @@ public class WelcomeViewPagerActivity extends FragmentActivity {
 		sp.edit().putString("oldVersionName", versionName).commit();
 	}
 
+	private void nextview()
+	{
+		
+		if (!"setting".equals(source)) {
+			// 不是从设置界面跳转
+				finish();
+				Manager.branch(WelcomeViewPagerActivity.this,
+						Constants.moduleList.get(0));					
+			if (!scheduledExecutorService.isShutdown()) {
+				scheduledExecutorService.shutdown();
+			}
+		} else {
+			// 从设置界面跳过来
+			finish();
+		}
+	}
+	
 	private void showimgview() {
 		
 		//滚动小点图片
@@ -186,21 +203,7 @@ public class WelcomeViewPagerActivity extends FragmentActivity {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				// 跳过引导界面
-				if (!"setting".equals(source)) {
-					// 不是从设置界面跳转
-
-				
-						finish();
-						Manager.branch(WelcomeViewPagerActivity.this,
-								Constants.moduleList.get(0));
-					
-					if (!scheduledExecutorService.isShutdown()) {
-						scheduledExecutorService.shutdown();
-					}
-				} else {
-					// 从设置界面跳过来
-					finish();
-				}
+				nextview();
 			}
 		});
 
@@ -208,19 +211,7 @@ public class WelcomeViewPagerActivity extends FragmentActivity {
 		jumpButton.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				// 跳过引导界面
-				if (!"setting".equals(source)) {
-	
-						finish();
-						Manager.branch(WelcomeViewPagerActivity.this,
-								Constants.moduleList.get(0));
-				
-					if (!scheduledExecutorService.isShutdown()) {
-						scheduledExecutorService.shutdown();
-					}
-				} else {
-					// 从设置界面跳过来
-					finish();
-				}
+				nextview();
 
 			}
 		});

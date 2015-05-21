@@ -42,15 +42,12 @@ public class Manager extends BaseFragment {
 		} else {
 			// type
 			if ("1".equals(framework.getModuleType())) {
-				// thisManager
-				// .beginTransaction()
-				// .replace(R.id.tab_container, new ListModules(framework))
-				// .addToBackStack("ListModules").commit();
-				// thisManager.executePendingTransactions();
+                 
 				Intent intent = new Intent(context, ListModulesActivity.class);
 				intent.putExtra("framework", framework);
 				context.startActivity(intent);
 			} else if ("2".equals(framework.getModuleType())) {
+				
 				try {
 					Intent intent = new Intent(context, toActivity(context,
 							framework));
@@ -61,7 +58,7 @@ public class Manager extends BaseFragment {
 				}
 
 			} else if ("3".equals(framework.getModuleType())) {
-
+                //webview
 				if (framework.getClickUrl() != null) {
 					context.startActivity(new Intent(context, WebviewActivity.class)
 					.putExtra("framework", framework));
@@ -99,10 +96,9 @@ public class Manager extends BaseFragment {
 	 */
 	private static Class toActivity(FragmentActivity context,
 			Framework framework) throws Exception {
-		PackageManager pm = context.getPackageManager();
-		PackageInfo info = pm.getPackageInfo(context.getPackageName(), 0);
-		Class activity = Class.forName(info.packageName + "."
-				+ framework.getPackageName());
+		//PackageManager pm = context.getPackageManager();
+		//PackageInfo info = pm.getPackageInfo(context.getPackageName(), 0);
+		Class activity = Class.forName( framework.getPackageName());
 		return activity;
 
 	}
