@@ -1,0 +1,218 @@
+package com.pactera.nci.common.cache;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import android.os.Handler;
+import android.support.v4.app.FragmentActivity;
+
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.pactera.nci.common.serviceengin.ServiceEngin;
+import com.pactera.nci.common.util.TipUitls;
+import com.pactera.nci.common.view.CommonDialog;
+
+/**
+ * 保单列表单例
+ * 
+ * @author haix
+ * 
+ */
+public class PolicyList {
+
+	static Handler handler = new Handler() {
+
+	};
+
+	private static List<PolicyList> policyList = null;
+	private static FragmentActivity context;
+
+	private static CommonDialog commonDialog;
+
+	/**
+	 * 获取保单列表
+	 * 
+	 * @param activity
+	 * @return
+	 */
+	public static List<PolicyList> getInstance(FragmentActivity activity,
+			ErrorPolicyCallBack callback) {
+		context = activity;
+		if (policyList == null) {
+			if (!UserInfoManager.getInstance().isLogin()) {
+				return null;
+			}
+
+			policyList = init(context, callback);
+
+		}
+		return policyList;
+	}
+
+	/**
+	 * 清空保单列表
+	 */
+	public static void clearPolicyList() {
+		if (policyList != null) {
+			policyList.clear();
+			policyList = null;
+		}
+
+	}
+
+	public static List<PolicyList> init(final FragmentActivity context,
+			final ErrorPolicyCallBack callback) {
+
+		Map map = new HashMap<String, String>();
+		map.put("cid", UserInfoManager.getInstance().getCid());
+		map.put("loginId", UserInfoManager.getInstance().getUserName());
+		map.put("sessionId", UserInfoManager.getInstance().getSessionId());
+		map.put("password", UserInfoManager.getInstance().getPassword());
+		String str = JSON.toJSONString(map);
+		TipUitls.Log("PolicyList", "str----->" + str);
+
+		String result = ServiceEngin.Request(context, "02_00_01_01_01_I01",
+				"alreadyPolicyQuery", str);
+		TipUitls.Log("PolicyList", "result------>" + result);
+		if (JSON.parseObject(result) != null) {
+			JSONObject jsonObject = JSON.parseObject(result);
+			String resultCode = jsonObject.getString("ResultCode");
+			String resultMsg = jsonObject.getString("ResultMsg");
+
+			if ("0".equals(resultCode)) {
+				String myAccount = jsonObject.getString("policyList");
+				if (myAccount == null || "".equals(myAccount)) {
+					callback.onFailure(10, "您还没有进行保单关联,立即跳转到保单关联");
+				} else {
+					policyList = JSON.parseArray(myAccount, PolicyList.class);
+				}
+			} else if ("99".equals(resultCode)) {
+				callback.onFailure(99, resultMsg);
+			} else {
+				callback.onFailure(8, resultMsg);
+			}
+		} 
+		return policyList;
+	}
+
+	public interface ErrorPolicyCallBack {
+		public void onFailure(int i, String resultMsg);
+	}
+
+	private String contNo; // 保单号
+	private String riskName; // 险种名称
+	private String effectDate; // 生效日期
+	private String administration; // 销售单位
+	private String cardType; // 证件类型
+	private String relation; // 投保人
+
+	/**
+	 * 保单号
+	 * 
+	 * @return
+	 */
+	public String getContNo() {
+		return contNo;
+	}
+
+	/**
+	 * 保单号
+	 * 
+	 * @param contNo
+	 */
+	public void setContNo(String contNo) {
+		this.contNo = contNo;
+	}
+
+	/**
+	 * 险种名称
+	 * 
+	 * @return
+	 */
+	public String getRiskName() {
+		return riskName;
+	}
+
+	/**
+	 * 险种名称
+	 * 
+	 * @param riskName
+	 */
+	public void setRiskName(String riskName) {
+		this.riskName = riskName;
+	}
+
+	/**
+	 * 生效日期
+	 * 
+	 * @return
+	 */
+	public String getEffectDate() {
+		return effectDate;
+	}
+
+	/**
+	 * 生效日期
+	 * 
+	 * @return
+	 */
+	public void setEffectDate(String effectDate) {
+		this.effectDate = effectDate;
+	}
+
+	/**
+	 * 销售单位
+	 * 
+	 * @return
+	 */
+	public String getAdministration() {
+		return administration;
+	}
+
+	/**
+	 * 销售单位
+	 * 
+	 * @return
+	 */
+	public void setAdministration(String administration) {
+		this.administration = administration;
+	}
+
+	/**
+	 * 证件类型
+	 * 
+	 * @return
+	 */
+	public String getCardType() {
+		return cardType;
+	}
+
+	/**
+	 * 证件类型
+	 * 
+	 * @param cardType
+	 */
+	public void setCardType(String cardType) {
+		this.cardType = cardType;
+	}
+
+	/**
+	 * 投保人
+	 * 
+	 * @return
+	 */
+	public String getRelation() {
+		return relation;
+	}
+
+	/**
+	 * 投保人
+	 * 
+	 * @return
+	 */
+	public void setRelation(String relation) {
+		this.relation = relation;
+	}
+
+}
