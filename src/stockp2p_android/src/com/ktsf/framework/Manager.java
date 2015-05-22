@@ -54,7 +54,7 @@ public class Manager extends BaseFragment {
 					intent.putExtra("framework", framework);
 					context.startActivity(intent);
 				} catch (Exception e) {
-					TipUitls.Log("Manager", e.toString());
+					TipUitls.syso("Manager", e.toString());
 				}
 
 			} else if ("3".equals(framework.getModuleType())) {
