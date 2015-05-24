@@ -151,7 +151,7 @@ public class BaseFragmentActivity extends FragmentActivity {
 					myApplication.db, "0", context);
 		}
 
-		if ("com.ktsf.framework.LoginActicity".equals(context.getClass()
+		if ("com.stockp2p.framework.LoginActicity".equals(context.getClass()
 				.getName().toString())) {
 			ViewStub stub = (ViewStub) context.findViewById(R.id.bottom);
 			inflateView = stub.inflate();

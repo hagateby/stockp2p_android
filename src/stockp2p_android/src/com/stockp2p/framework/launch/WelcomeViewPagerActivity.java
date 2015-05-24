@@ -109,8 +109,10 @@ public class WelcomeViewPagerActivity extends FragmentActivity {
 	 * 
 	 */
 	private void init() {
-		// myApplication = (MyApplication) this.getApplication();
-		myApplication = new MyApplication();
+	     
+		myApplication = (MyApplication) this.getApplication();
+		
+	     //myApplication = new MyApplication();
 
 		SharedPreferences sPreferences = WelcomeViewPagerActivity.this
 				.getSharedPreferences("positionaddress", Context.MODE_PRIVATE);

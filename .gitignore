@@ -5,3 +5,5 @@ src\stockp2p_android\.project
 src\stockp2p_android\proguard-project.txt
 src\stockp2p_android\project.properties
 *.class
+*.project
+*.properties

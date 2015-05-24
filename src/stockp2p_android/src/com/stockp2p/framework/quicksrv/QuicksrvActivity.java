@@ -12,8 +12,8 @@ public class QuicksrvActivity extends BaseFragmentActivity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 
-		thisManager.beginTransaction()
-				.replace(R.id.tab_container, new Billboards()).commit();
+		//thisManager.beginTransaction()
+		//		.replace(R.id.tab_container, new Billboards()).commit();
 
 	}
 
