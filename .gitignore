@@ -7,3 +7,4 @@ src/stockp2p_android/project.properties
 *.class
 *.project
 *.properties
+*.properties
