@@ -8,3 +8,7 @@ src/stockp2p_android/project.properties
 *.project
 *.properties
 *.properties
+*.apk
+*.dex
+*.dex
+*.apk

@@ -40,6 +40,8 @@ import com.stockp2p.common.util.CommonUtil;
 import com.stockp2p.common.util.TipUitls;
 import com.stockp2p.framework.Frameworkdate;
 import com.stockp2p.framework.Manager;
+import com.stockp2p.framework.longin.LoginActicity;
+
 
 public class WelcomeViewPagerActivity extends FragmentActivity {
 
@@ -169,6 +171,12 @@ public class WelcomeViewPagerActivity extends FragmentActivity {
 	private void nextview()
 	{
 		
+		finish();
+		Intent intent = new Intent(WelcomeViewPagerActivity.this,
+				LoginActicity.class);
+		startActivity(intent);
+		
+		/*
 		if (!"setting".equals(source)) {
 			// 不是从设置界面跳转
 				finish();
@@ -181,6 +189,7 @@ public class WelcomeViewPagerActivity extends FragmentActivity {
 			// 从设置界面跳过来
 			finish();
 		}
+	   */
 	}
 	
 	private void showimgview() {
