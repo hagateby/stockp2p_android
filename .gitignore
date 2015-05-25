@@ -1,9 +1,9 @@
-src\stockp2p_android\bin
-src\stockp2p_android\.setings
-src\stockp2p_android\.classpath
-src\stockp2p_android\.project
-src\stockp2p_android\proguard-project.txt
-src\stockp2p_android\project.properties
+src/stockp2p_android/bin/*
+src/stockp2p_android/.setings/*
+src/stockp2p_android/.classpath/*
+src/stockp2p_android/.project/*
+src/stockp2p_android/proguard-project.txt
+src/stockp2p_android/project.properties
 *.class
 *.project
 *.properties
