@@ -59,7 +59,7 @@ import com.stockp2p.common.util.ScreenShot;
 import com.stockp2p.common.util.ShareUtils;
 import com.stockp2p.common.util.TipUitls;
 import com.stockp2p.framework.SetActivity;
-import com.stockp2p.framework.longin.LoginActicity;
+import com.stockp2p.framework.login.LoginActicity;
 
 
 public class BaseFragmentActivity extends FragmentActivity {

@@ -11,7 +11,7 @@ import com.stockp2p.R;
 import com.stockp2p.common.cache.UserInfoManager;
 import com.stockp2p.common.util.TipUitls;
 import com.stockp2p.framework.WebviewActivity;
-import com.stockp2p.framework.longin.LoginActicity;
+import com.stockp2p.framework.login.LoginActicity;
 
 /**
  * 跳转管理类

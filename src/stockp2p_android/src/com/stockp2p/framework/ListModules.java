@@ -34,7 +34,7 @@ import com.stockp2p.common.cache.UserInfoManager;
 import com.stockp2p.common.data.Constants;
 import com.stockp2p.common.data.MyApplication;
 import com.stockp2p.common.util.TipUitls;
-import com.stockp2p.framework.longin.LoginActicity;
+import com.stockp2p.framework.login.LoginActicity;
 
 @SuppressLint("ValidFragment")
 public class ListModules extends BaseFragment {

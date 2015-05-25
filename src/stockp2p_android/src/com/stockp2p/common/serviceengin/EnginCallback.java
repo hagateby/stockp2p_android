@@ -18,7 +18,7 @@ import com.stockp2p.common.cache.UserInfoManager;
 import com.stockp2p.common.util.ExitApplication;
 import com.stockp2p.common.view.CommonDialog;
 import com.stockp2p.framework.BaseFragmentActivity;
-import com.stockp2p.framework.longin.LoginActicity;
+import com.stockp2p.framework.login.LoginActicity;
 
 public class EnginCallback extends RequestCallBack {
 

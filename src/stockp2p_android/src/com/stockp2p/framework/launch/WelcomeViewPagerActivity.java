@@ -40,7 +40,7 @@ import com.stockp2p.common.util.CommonUtil;
 import com.stockp2p.common.util.TipUitls;
 import com.stockp2p.framework.Frameworkdate;
 import com.stockp2p.framework.Manager;
-import com.stockp2p.framework.longin.LoginActicity;
+import com.stockp2p.framework.login.LoginActicity;
 
 
 public class WelcomeViewPagerActivity extends FragmentActivity {

@@ -43,7 +43,7 @@ import com.stockp2p.framework.BaseFragment;
 import com.stockp2p.framework.Framework;
 import com.stockp2p.framework.Manager;
 import com.stockp2p.framework.launch.WelcomeViewPagerActivity;
-import com.stockp2p.framework.longin.LoginActicity;
+import com.stockp2p.framework.login.LoginActicity;
 
 
 /**

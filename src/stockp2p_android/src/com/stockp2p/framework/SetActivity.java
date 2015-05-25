@@ -15,7 +15,7 @@ import com.stockp2p.common.util.ExitApplication;
 import com.stockp2p.framework.BaseFragmentActivity;
 import com.stockp2p.framework.ListModulesActivity;
 import com.stockp2p.framework.Manager;
-import com.stockp2p.framework.longin.LoginActicity;
+import com.stockp2p.framework.login.LoginActicity;
 
 /**
  * 设置的 {@link Activity} 载体

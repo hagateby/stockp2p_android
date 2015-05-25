@@ -1,7 +1,7 @@
 package com.stockp2p.framework.launch;
 
 import com.stockp2p.*;
-import com.stockp2p.framework.longin.LoginActicity;
+import com.stockp2p.framework.login.LoginActicity;
 
 import android.app.Activity;
 import android.content.Intent;
