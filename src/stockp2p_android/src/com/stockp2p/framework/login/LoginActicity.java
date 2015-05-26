@@ -29,11 +29,6 @@ import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.http.ResponseInfo;
 import com.lidroid.xutils.view.annotation.ViewInject;
 
-
-
-//import com.secneo.xinhuapay.bridge.PaySdk;
-//import com.secneo.xinhuapay.bridge.SdkRequestHeader;
-
 import com.stockp2p.R;
 import com.stockp2p.common.cache.UserInfoManager;
 import com.stockp2p.common.data.Constants;
@@ -48,12 +43,16 @@ import com.stockp2p.common.util.TipUitls;
 import com.stockp2p.common.view.ClearEditText;
 import com.stockp2p.common.view.CommonDialog;
 import com.stockp2p.framework.BaseFragmentActivity;
+import com.stockp2p.framework.Manager;
+
 /**
  * 登录
  * 
  * @author haix
  * 
  */
+// @ContentView(value = R.layout.framework_login)
+
 public class LoginActicity extends BaseFragmentActivity {
 
 	private static String TAG = "LoginActicity";
@@ -135,7 +134,9 @@ public class LoginActicity extends BaseFragmentActivity {
 		super.onCreate(savedInstanceState);
 		setContainerView("登录", R.layout.framework_login);
 		ViewUtils.inject(this);
+
 		init();
+
 		setListener();
 
 	}
@@ -152,7 +153,7 @@ public class LoginActicity extends BaseFragmentActivity {
 			String password = intent.getStringExtra("userPassword");
 			passwordDigest = MD5Util.MD5(password).toUpperCase();
 			// init();
-			selectedType();
+			login();
 		}
 	}
 
@@ -165,9 +166,11 @@ public class LoginActicity extends BaseFragmentActivity {
 		inputAccount.setSelection(inputPassword.getText().toString().trim()
 				.length());
 		inputAccount.setTextColor(Color.parseColor("#666666"));
-
-		mInfor.setText(Html
-				.fromHtml("<font color=red>温馨提示 : </font><font color=grey>网站、掌上新华注册用户在网站、掌上新华均可直接登录使用</font>"));
+		/*
+		 * mInfor.setText(Html .fromHtml(
+		 * "<font color=red>温馨提示 : </font><font color=grey>网站、掌上新华注册用户在网站、掌上新华均可直接登录使用</font>"
+		 * ));
+		 */
 		sp = context.getSharedPreferences("userprefs", Context.MODE_PRIVATE);
 		String loginId_account = sp.getString("loginId_account", null);
 		String loginId_phone = sp.getString("loginId_phone", null);
@@ -193,6 +196,8 @@ public class LoginActicity extends BaseFragmentActivity {
 			public void onClick(View v) {
 				if (checkAccount() && checkPassword()) {
 					getInputContent();
+
+					login();
 				}
 			}
 		});
@@ -232,68 +237,12 @@ public class LoginActicity extends BaseFragmentActivity {
 				LoginWay = UserName;
 				accountPage
 						.setBackgroundResource(R.drawable.framework_login_account_way_on);
-				// accountPage.setTextColor(Color.parseColor("#ee0e3d"));
+
 				telPage.setBackgroundResource(R.drawable.framework_login_tel_way);
-				// telPage.setTextColor(Color.parseColor("#666666"));
+
 				layoutPhone.setVisibility(View.GONE);
+
 				layoutUser.setVisibility(View.VISIBLE);
-			}
-		});
-
-		// 电话登录方式
-		telPage.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				LoginWay = Phone;
-				telPage.setBackgroundResource(R.drawable.framework_login_tel_way_on);
-				// telPage.setTextColor(Color.parseColor("#ee0e3d"));
-				accountPage
-						.setBackgroundResource(R.drawable.framework_login_account_way);
-				// accountPage.setTextColor(Color.parseColor("#666666"));
-				layoutUser.setVisibility(View.GONE);
-				layoutPhone.setVisibility(View.VISIBLE);
-			}
-		});
-
-		// 密码显示隐藏
-		eye.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-
-			@Override
-			public void onCheckedChanged(CompoundButton buttonView,
-					boolean isChecked) {
-				// TODO Auto-generated method stub
-				if (isChecked == true) {
-
-					// inputPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
-					inputPassword.setInputType(InputType.TYPE_CLASS_TEXT
-							| InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
-
-					inputPassword
-							.setTransformationMethod(HideReturnsTransformationMethod
-									.getInstance());
-					// inputPassword
-					// .setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
-
-					inputPassword.setSelection(inputPassword.getText()
-							.toString().trim().length());
-					inputPassword.setTextColor(Color.parseColor("#666666"));
-				} else {
-
-					// inputPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
-					inputPassword.setInputType(InputType.TYPE_CLASS_TEXT
-							| InputType.TYPE_TEXT_VARIATION_PASSWORD);
-
-					inputPassword
-							.setTransformationMethod(PasswordTransformationMethod
-									.getInstance());
-					// inputPassword.setInputType(InputType.TYPE_CLASS_TEXT|InputType.TYPE_TEXT_VARIATION_PASSWORD);
-
-					inputPassword.setSelection(inputPassword.getText()
-							.toString().trim().length());
-					inputPassword.setTextColor(Color.parseColor("#666666"));
-				}
 			}
 		});
 
@@ -307,13 +256,12 @@ public class LoginActicity extends BaseFragmentActivity {
 		loginId_phone = inputPhone.getText().toString().trim();
 		String password = inputPassword.getText().toString().trim();
 		passwordDigest = MD5Util.MD5(password).toUpperCase();
-		selectedType();
 	}
 
 	/**
 	 * 
 	 */
-	private void selectedType() {
+	private void login() {
 		if (UserName.equals(LoginWay)) {
 			// 点击提交后就会把用户名记录
 			sp.edit().putString("loginId_account", loginId_account).commit();
@@ -322,7 +270,8 @@ public class LoginActicity extends BaseFragmentActivity {
 			map.put("loginType", "u");
 			map.put("password", passwordDigest);
 			String mapString = JSON.toJSONString(map);
-			loginRequest(mapString);
+			// lwh loginRequest(mapString);
+			testlogin();
 
 		} else if (Phone.equals(LoginWay)) {
 			// 点击提交后就会把手机号记录
@@ -332,7 +281,8 @@ public class LoginActicity extends BaseFragmentActivity {
 			map.put("loginType", "m");
 			map.put("password", passwordDigest);
 			String mapString = JSON.toJSONString(map);
-			loginRequest(mapString);
+			// lwh loginRequest(mapString);
+			testlogin();
 		}
 
 	}
@@ -371,55 +321,7 @@ public class LoginActicity extends BaseFragmentActivity {
 									// 先清空单例再登录
 									UserInfoManager.getInstance().exitLogin();
 									// 取数据
-									UserInfoManager userInfo = UserInfoManager
-											.getInstance();
-									userInfo.setResultCode(resultCode);
-									userInfo.setResultMsg(resultMsg);
-									userInfo.setCid(user.getString("cid"));
-									userInfo.setSessionId(user
-											.getString("sessionId"));
-									userInfo.setBindingMobile(user
-											.getString("bindingMobile"));
-									userInfo.setBindingState(user
-											.getString("bindingState"));
-									userInfo.setNickName(user
-											.getString("nickName"));
-									userInfo.setPassword(passwordDigest);
-									userInfo.setSex(user.getString("sex"));
-									userInfo.setBirthday(user
-											.getString("birthday"));
-									userInfo.setEmail(user.getString("email"));
-									userInfo.setProvince(user
-											.getString("province"));
-									userInfo.setAddress(user
-											.getString("address"));
-									userInfo.setZipCode(user
-											.getString("zipCode"));
-									userInfo.setMobile(user.getString("mobile"));
-									userInfo.setTelePhone(user
-											.getString("telePhone"));
-									userInfo.setUserName(user
-											.getString("userName"));
-									userInfo.setLoginDate(user
-											.getString("loginDate"));
-									userInfo.setPolicyCount(user
-											.getString("policyCount"));
-									if (UserName.equals(LoginWay)) {
-										userInfo.setLoginType("u");
-									} else if (Phone.equals(LoginWay)) {
-										userInfo.setLoginType("m");
-									}
-                                    /*
-									// 支付控件请求头,调用支付控件前必须先初始化 共有两次初始化,另一个在我的账户
-									SdkRequestHeader header = new SdkRequestHeader();
-									header.extSysID = "049";
-									header.extSysUserName = user
-											.getString("cid");
-									header.extSysVersion = "1.0";
-									header.sessionMAC = "";// 在我的账户初始化
-									header.sessionToken = user
-											.getString("sessionId");
-									PaySdk.init(context, header);
+									setUserInfo(user, resultCode, resultMsg);
 
 									TipUitls.Log(TAG, "framework_----->"
 											+ framework_
@@ -427,16 +329,17 @@ public class LoginActicity extends BaseFragmentActivity {
 											+ Constants.staticFramework);
 									if (framework_ == null) {
 										framework_ = Constants.staticFramework;
+										
 										// 当用户被挤掉后,重新登录后,bottom 显示的位置
 
 									} else {
 										Constants.staticFramework = framework_;
 									}
-                                   
+
 									ExitApplication.getInstance().exitLogin(
 											context);
 									Manager.branch(context, framework_);
-                                   */
+
 								} else {
 									new CommonDialog(context, 1, "确定", null,
 											null, null, "登录失败", resultMsg)
@@ -477,6 +380,72 @@ public class LoginActicity extends BaseFragmentActivity {
 						}
 					}, "网络设置提示", "网络连接不可用,是否进行设置?");
 			commonDialog.show();
+		}
+
+	}
+
+	private void testlogin() {
+
+		TipUitls.Log(TAG, "framework_----->" + framework_
+				+ "staticFramework----->" + Constants.staticFramework);
+		if (framework_ == null) {
+			if (Constants.staticFramework ==null)
+			{
+			  
+			}
+			framework_ = Constants.staticFramework;
+			// 当用户被挤掉后,重新登录后,bottom 显示的位置
+
+		} else {
+			Constants.staticFramework = framework_;
+		}
+
+		ExitApplication.getInstance().exitLogin(context);
+		
+		Manager.branch(context, Constants.moduleList.get(0));
+
+	}
+	
+	
+	private void setPaySdk(JSONObject user) {
+
+		// 支付控件请求头,调用支付控件前必须先初始化 共有两次初始化,另一个在我的账户
+		/*
+		 * SdkRequestHeader header = new SdkRequestHeader(); header.extSysID =
+		 * "049"; header.extSysUserName = user .getString("cid");
+		 * header.extSysVersion = "1.0"; header.sessionMAC = "";// 在我的账户初始化
+		 * header.sessionToken = user .getString("sessionId");
+		 * PaySdk.init(context, header);
+		 */
+	}
+
+	private void setUserInfo(JSONObject user, String resultCode,
+			String resultMsg) {
+
+		UserInfoManager userInfo = UserInfoManager.getInstance();
+		userInfo.setResultCode(resultCode);
+		userInfo.setResultMsg(resultMsg);
+		userInfo.setCid(user.getString("cid"));
+		userInfo.setSessionId(user.getString("sessionId"));
+		userInfo.setBindingMobile(user.getString("bindingMobile"));
+		userInfo.setBindingState(user.getString("bindingState"));
+		userInfo.setNickName(user.getString("nickName"));
+		userInfo.setPassword(passwordDigest);
+		userInfo.setSex(user.getString("sex"));
+		userInfo.setBirthday(user.getString("birthday"));
+		userInfo.setEmail(user.getString("email"));
+		userInfo.setProvince(user.getString("province"));
+		userInfo.setAddress(user.getString("address"));
+		userInfo.setZipCode(user.getString("zipCode"));
+		userInfo.setMobile(user.getString("mobile"));
+		userInfo.setTelePhone(user.getString("telePhone"));
+		userInfo.setUserName(user.getString("userName"));
+		userInfo.setLoginDate(user.getString("loginDate"));
+		userInfo.setPolicyCount(user.getString("policyCount"));
+		if (UserName.equals(LoginWay)) {
+			userInfo.setLoginType("u");
+		} else if (Phone.equals(LoginWay)) {
+			userInfo.setLoginType("m");
 		}
 
 	}

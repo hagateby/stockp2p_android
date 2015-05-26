@@ -69,7 +69,7 @@ public class Billboards extends BaseFragment {
 	private String activityUrl;
 
 	/** 浮动按钮 **/
-
+	
 	private ArrayList<Framework> frameworks;
 
 	Handler AdHandler = new Handler() {
@@ -83,7 +83,21 @@ public class Billboards extends BaseFragment {
 				viewPager.setCurrentItem(currentItem);
 				break;
 			case 1:
-				
+				commonDialog = new CommonDialog(context, 2, "参加", "不参加",
+						new OnClickListener() {
+
+							@Override
+							public void onClick(View v) {
+								commonDialog.dismiss();
+							/*	
+								Intent intent = new Intent(getActivity(),
+										ShakeprizeActivity.class);
+								intent.putExtra("ActivityId", activityId);
+								intent.putExtra("ActivityUrl", activityUrl);
+								startActivity(intent);
+                             */
+							}
+						}, null, "提示", msg.obj.toString());
 				commonDialog.show();
 				break;
 			}
@@ -94,19 +108,35 @@ public class Billboards extends BaseFragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		thisView = inflater.inflate(R.layout.quicksrv_ad_column, null);
+		
 		WindowManager manage = context.getWindowManager();
+		
 		Display display = manage.getDefaultDisplay();
+		
 		myApplication.setScreen_width(display.getWidth());
+		
 		myApplication.setScreen_height(display.getHeight());
+		
 		if (bitmapUtils == null) {
+			
 			bitmapUtils = ((MyApplication) getActivity().getApplication())
 					.getBitmapUtils(getActivity());
 		}
-
+		if (config == null) {
+			config = new BitmapDisplayConfig();
+			
+			config.setLoadFailedDrawable(getResources().getDrawable(
+					R.drawable.defaultshowimage));
+			
+			config.setLoadingDrawable(getResources().getDrawable(
+					R.drawable.defaultshowimage));
+		}
 		// 广告栏
 		viewPager = (ViewPager) thisView.findViewById(R.id.view_pager);
+		
 		init(thisView, "首页");
-		initFloatBtn();
+		
+		//initFloatBtn();
 		return thisView;
 	}
 
@@ -126,6 +156,7 @@ public class Billboards extends BaseFragment {
 				"select  code from code where codetype ='imageDownloadUrl'",
 				null);
 		cursor.moveToFirst();
+		
 		downurl = cursor.getString(cursor.getColumnIndex("code"));
 		// 广告栏图片上的点
 		LinearLayout dot_layout = (LinearLayout) thisView
@@ -185,8 +216,6 @@ public class Billboards extends BaseFragment {
 	private void initFloatBtn() {
 		System.out.println("初始化浮动按钮……");
 		// 浮动客服按钮
-		
-		
 	}
 
 	// }
