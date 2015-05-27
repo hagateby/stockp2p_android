@@ -17,6 +17,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.lidroid.xutils.util.LogUtils;
 import com.stockp2p.common.data.Constants;
+import com.stockp2p.common.data.Framework;
 import com.stockp2p.common.data.MyApplication;
 import com.stockp2p.common.db.Channel;
 import com.stockp2p.common.db.CodeType;
@@ -27,7 +28,6 @@ import com.stockp2p.common.db.Network;
 import com.stockp2p.common.db.Region;
 import com.stockp2p.common.db.Version;
 import com.stockp2p.common.serviceengin.ServiceEngin;
-import com.stockp2p.framework.Framework;
 
 
 public class JsonToDb {

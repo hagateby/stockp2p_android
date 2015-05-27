@@ -7,18 +7,27 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.PowerManager;
+
 public class ScreenObserver {
 	private Context mContext;
+	
 	private ScreenBroadcastReceiver mScreenBroadcastReceiver;
+	
 	private observerScreenStateUpdateListener mObserverScreenStateUpdateListener;
+	
 	private static Method mReflectIsScreenOnMethod;
 
 	public ScreenObserver(Context context) {
 		mContext = context;
+		
 		mScreenBroadcastReceiver = new ScreenBroadcastReceiver();
+		
 		try {
+			
 			mReflectIsScreenOnMethod = PowerManager.class.getMethod("isScreenOn",new Class[] {});
+			
 		} catch (NoSuchMethodException nsme) {
+			
 			System.out.println("API<7不可使用使用");
 		}
 	}
@@ -28,19 +37,27 @@ public class ScreenObserver {
 		private String action = null;
 		@Override
 		public void onReceive(Context context, Intent intent) {
+			
 			action = intent.getAction();
+			//屏幕为打开
 			if (Intent.ACTION_SCREEN_ON.equals(action)) {
+			
 				mObserverScreenStateUpdateListener.onScreenOn();
+			//屏幕为关闭	
 			} else if (Intent.ACTION_SCREEN_OFF.equals(action)) {
+				
 				mObserverScreenStateUpdateListener.onScreenOff();
 			}
 		}
+		
 	}
 
 	//此为入口.
 	//监视屏幕状态
 	public void observerScreenStateUpdate(observerScreenStateUpdateListener listener) {
+		
 		mObserverScreenStateUpdateListener = listener;
+		
 		registerScreenBroadcastReceiver();
 		//该方法可以根据实际情况取舍
 		firstGetScreenState();

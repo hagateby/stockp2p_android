@@ -28,8 +28,8 @@ import com.stockp2p.common.util.ExitApplication;
 import com.stockp2p.common.util.MD5Util;
 import com.stockp2p.common.view.ClearEditText;
 import com.stockp2p.common.view.CommonDialog;
-import com.stockp2p.framework.BaseFragment;
-import com.stockp2p.framework.login.LoginActicity;
+import com.stockp2p.components.login.LoginActicity;
+import com.stockp2p.framework.baseframe.BaseFragment;
 
 public class Setting_ModifyPasswordActivity extends BaseFragment {
 

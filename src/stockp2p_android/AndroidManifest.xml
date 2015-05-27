@@ -7,8 +7,8 @@
     <uses-sdk
         android:minSdkVersion="10"
         android:targetSdkVersion="11" />
+   
     <uses-permission android:name="android.permission.RESTART_PACKAGES" />
- 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
@@ -20,7 +20,7 @@
         android:screenOrientation="portrait"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".framework.launch.WelcomeViewPagerActivity"
+            android:name="com.stockp2p.components.launch.WelcomeViewPagerActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,14 +31,14 @@
 
         <!-- 首页 -->
         <activity
-            android:name=".framework.quicksrv.QuicksrvActivity"
+            android:name="com.stockp2p.framework.quicksrv.QuicksrvActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/ThemeForBottom"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
         
         <activity
-            android:name=".components.homepage.HomePageActivity"
+            android:name="com.stockp2p.components.homepage.HomePageActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/ThemeForBottom"
@@ -55,7 +55,7 @@
     　　       
         
         <activity
-            android:name=".framework.login.LoginActicity"
+            android:name="com.stockp2p.components.login.LoginActicity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/Theme"

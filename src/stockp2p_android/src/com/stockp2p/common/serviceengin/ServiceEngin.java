@@ -25,8 +25,8 @@ import com.stockp2p.common.util.ExitApplication;
 import com.stockp2p.common.util.NetUtil;
 import com.stockp2p.common.util.TipUitls;
 import com.stockp2p.common.view.CommonDialog;
-import com.stockp2p.framework.BaseFragmentActivity;
-import com.stockp2p.framework.login.LoginActicity;
+import com.stockp2p.components.login.LoginActicity;
+import com.stockp2p.framework.baseframe.BaseFragmentActivity;
 
 /**
  * 公共请求类

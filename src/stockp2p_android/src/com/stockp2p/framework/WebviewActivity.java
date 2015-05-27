@@ -15,9 +15,9 @@ import android.webkit.WebViewClient;
 import android.widget.Button;
 
 import com.stockp2p.R;
+import com.stockp2p.common.data.Framework;
 import com.stockp2p.common.view.CommonDialog;
-import com.stockp2p.framework.BaseFragmentActivity;
-import com.stockp2p.framework.Framework;
+import com.stockp2p.framework.baseframe.BaseFragmentActivity;
 
 /**
  * 所有 Web页面  

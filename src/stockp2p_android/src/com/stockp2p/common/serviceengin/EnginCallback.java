@@ -17,8 +17,8 @@ import com.lidroid.xutils.http.callback.RequestCallBack;
 import com.stockp2p.common.cache.UserInfoManager;
 import com.stockp2p.common.util.ExitApplication;
 import com.stockp2p.common.view.CommonDialog;
-import com.stockp2p.framework.BaseFragmentActivity;
-import com.stockp2p.framework.login.LoginActicity;
+import com.stockp2p.components.login.LoginActicity;
+import com.stockp2p.framework.baseframe.BaseFragmentActivity;
 
 public class EnginCallback extends RequestCallBack {
 

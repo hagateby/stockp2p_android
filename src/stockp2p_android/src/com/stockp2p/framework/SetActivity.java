@@ -12,10 +12,10 @@ import com.stockp2p.R;
 import com.stockp2p.common.cache.UserInfoManager;
 import com.stockp2p.common.data.Constants;
 import com.stockp2p.common.util.ExitApplication;
-import com.stockp2p.framework.BaseFragmentActivity;
+import com.stockp2p.components.login.LoginActicity;
 import com.stockp2p.framework.ListModulesActivity;
-import com.stockp2p.framework.Manager;
-import com.stockp2p.framework.login.LoginActicity;
+import com.stockp2p.framework.baseframe.BaseFragmentActivity;
+import com.stockp2p.framework.baseframe.Manager;
 
 /**
  * 设置的 {@link Activity} 载体

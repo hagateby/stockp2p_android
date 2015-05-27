@@ -10,6 +10,7 @@ import android.app.Application;
 import android.content.Context;
 
 import com.stockp2p.common.data.Constants;
+import com.stockp2p.util.SYSTEMCONST;
 
 /**
  * 退出程序类
@@ -52,11 +53,11 @@ public class ExitApplication extends Application {
 
 		// 跳到登录时除了登录 activity 其它的都要 finish
 		if (activity.getClass().getName()
-				.contains("com.ktsf.framework.LoginActicity")
+				.contains(SYSTEMCONST.loginclassname)
 				&& "true".equals(isExit)) {
 			for (Activity act : activityStack) {
 				if (!act.getClass().getName()
-						.contains("com.ktsf.framework.LoginActicity")) {
+						.contains(SYSTEMCONST.loginclassname)) {
 					act.finish();
 				}
 
@@ -70,9 +71,12 @@ public class ExitApplication extends Application {
 	 * @param activity
 	 */
 	public void removeActivity(Activity activity) {
+		
 		TipUitls.Log("ExitApplication", "removeActivity---->"
 				+ activity.getClass().getName());
+		
 		activityStack.remove(activity);
+		
 		TipUitls.Log("ExitApplication",
 				"activity 当前数量---->" + activityStack.size());
 	}
@@ -81,101 +85,49 @@ public class ExitApplication extends Application {
 	 * 退出登录不跳到登录
 	 */
 	public void exitLoginSet(Context activity) {
-		for (Activity act : activityStack) {
-
-			if (act.getClass()
-					.getName()
-					.contains(
-							activity.getPackageName()
-									+ "."
-									+ Constants.moduleList.get(0)
-											.getPackageName())) {
-
-			} else if (act
-					.getClass()
-					.getName()
-					.contains(
-							activity.getPackageName()
-									+ "."
-									+ Constants.moduleList.get(1)
-											.getPackageName())) {
-
-			} else if (act
-					.getClass()
-					.getName()
-					.contains(
-							activity.getPackageName()
-									+ "."
-									+ Constants.moduleList.get(2)
-											.getPackageName())) {
-
-			} else if (act
-					.getClass()
-					.getName()
-					.contains(
-							activity.getPackageName()
-									+ "."
-									+ Constants.moduleList.get(3)
-											.getPackageName())) {
-
-			} else if (act.getClass().getName()
-					.contains(activity.getClass().getName())) {
-
-			}
-
-			else {
-				act.finish();
-			}
-		}
+		finishNoMainActivity(activityStack, activity) ;
 	}
 
-	/**
-	 * 退出登录并跳到登录/重新登录后
-	 */
-	public void exitLogin(Context activity) {
-		for (Activity act : activityStack) {
-
+	private void finishNoMainActivity( List<Activity> activityStack, Context activity)
+	{
+		String  packagename = activity.getPackageName();
+        String  packagename0= Constants.moduleList.get(0).getPackageName();
+        String  packagename1= Constants.moduleList.get(1).getPackageName();
+        String  packagename2= Constants.moduleList.get(2).getPackageName();
+        String  packagename3= Constants.moduleList.get(3).getPackageName();
+        for (Activity act : activityStack) {
 			if (act.getClass()
 					.getName()
-					.contains(
-							activity.getPackageName()
-									+ "."
-									+ Constants.moduleList.get(0)
-											.getPackageName())) {
+					.contains(packagename0)) {
 
 			} else if (act
 					.getClass()
 					.getName()
-					.contains(
-							activity.getPackageName()
-									+ "."
-									+ Constants.moduleList.get(1)
-											.getPackageName())) {
+					.contains(packagename1 )) {
 
 			} else if (act
 					.getClass()
 					.getName()
-					.contains(
-							activity.getPackageName()
-									+ "."
-									+ Constants.moduleList.get(2)
-											.getPackageName())) {
+					.contains(packagename2)) {
 
 			} else if (act
 					.getClass()
 					.getName()
-					.contains(
-							activity.getPackageName()
-									+ "."
-									+ Constants.moduleList.get(3)
-											.getPackageName())) {
+					.contains(packagename3)) {
 
 			} else {
 				TipUitls.Log("ExitApplication", "finish----->"+act.getClass().getName());
 				act.finish();
 			}
-
-		}
+        }
+	}
+	
+	
+	/**
+	 * 退出登录并跳到登录/重新登录后
+	 */
+	public void exitLogin(Context activity) {
+		finishNoMainActivity(activityStack, activity) ;
 	}
 
 	/**

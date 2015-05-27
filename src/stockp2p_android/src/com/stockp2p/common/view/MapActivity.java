@@ -45,7 +45,7 @@ import com.stockp2p.common.data.Constants;
 import com.stockp2p.common.data.Graphics;
 import com.stockp2p.common.data.MyApplication;
 import com.stockp2p.common.db.Network;
-import com.stockp2p.framework.BaseFragmentActivity;
+import com.stockp2p.framework.baseframe.BaseFragmentActivity;
 
 
 public class MapActivity extends BaseFragmentActivity {

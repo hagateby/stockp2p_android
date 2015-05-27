@@ -3,7 +3,7 @@ package com.stockp2p.framework.quicksrv;
 import android.os.Bundle;
 
 import com.stockp2p.R;
-import com.stockp2p.framework.BaseFragmentActivity;
+import com.stockp2p.framework.baseframe.BaseFragmentActivity;
 
 public class QuicksrvActivity extends BaseFragmentActivity {
 

@@ -30,7 +30,7 @@ import com.stockp2p.common.serviceengin.ServiceEngin;
 import com.stockp2p.common.util.CommonUtil;
 import com.stockp2p.common.util.TipUitls;
 import com.stockp2p.common.view.CommonDialog;
-import com.stockp2p.framework.BaseFragment;
+import com.stockp2p.framework.baseframe.BaseFragment;
 
 /**
  * 意见反馈

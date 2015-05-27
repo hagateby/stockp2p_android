@@ -26,6 +26,7 @@ import com.lidroid.xutils.http.ResponseInfo;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.stockp2p.R;
 import com.stockp2p.common.cache.UserInfoManager;
+import com.stockp2p.common.data.Framework;
 import com.stockp2p.common.data.MyApplication;
 import com.stockp2p.common.data.MySetting;
 import com.stockp2p.common.data.UpdateDownloadManger;
@@ -39,11 +40,10 @@ import com.stockp2p.common.util.TipUitls;
 import com.stockp2p.common.view.CommonDialog;
 import com.stockp2p.common.view.SlipButton;
 import com.stockp2p.common.view.SlipButtonOnChangedListener;
-import com.stockp2p.framework.BaseFragment;
-import com.stockp2p.framework.Framework;
-import com.stockp2p.framework.Manager;
-import com.stockp2p.framework.launch.WelcomeViewPagerActivity;
-import com.stockp2p.framework.login.LoginActicity;
+import com.stockp2p.components.launch.WelcomeViewPagerActivity;
+import com.stockp2p.components.login.LoginActicity;
+import com.stockp2p.framework.baseframe.BaseFragment;
+import com.stockp2p.framework.baseframe.Manager;
 
 
 /**

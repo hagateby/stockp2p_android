@@ -37,14 +37,14 @@ import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.bitmap.BitmapDisplayConfig;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.stockp2p.R;
+import com.stockp2p.common.data.Framework;
 import com.stockp2p.common.data.MyApplication;
 import com.stockp2p.common.util.FilesUtil;
 import com.stockp2p.common.view.LPPageControlView;
 import com.stockp2p.common.view.LPScrollLayout;
-import com.stockp2p.framework.BaseFragment;
-import com.stockp2p.framework.Framework;
 import com.stockp2p.framework.Frameworkdate;
-import com.stockp2p.framework.Manager;
+import com.stockp2p.framework.baseframe.BaseFragment;
+import com.stockp2p.framework.baseframe.Manager;
 
 @SuppressLint("ValidFragment")
 public class MenuColumn extends BaseFragment {

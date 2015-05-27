@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import com.stockp2p.R;
 import com.stockp2p.common.util.CommonUtil;
-import com.stockp2p.framework.BaseFragment;
+import com.stockp2p.framework.baseframe.BaseFragment;
 
 public class Setting_AboutActivity extends BaseFragment {
 	String time;

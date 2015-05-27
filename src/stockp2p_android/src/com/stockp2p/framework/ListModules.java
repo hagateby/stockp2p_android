@@ -32,9 +32,12 @@ import com.lidroid.xutils.view.annotation.event.OnItemClick;
 import com.stockp2p.R;
 import com.stockp2p.common.cache.UserInfoManager;
 import com.stockp2p.common.data.Constants;
+import com.stockp2p.common.data.Framework;
 import com.stockp2p.common.data.MyApplication;
 import com.stockp2p.common.util.TipUitls;
-import com.stockp2p.framework.login.LoginActicity;
+import com.stockp2p.components.login.LoginActicity;
+import com.stockp2p.framework.baseframe.BaseFragment;
+import com.stockp2p.framework.baseframe.Manager;
 
 @SuppressLint("ValidFragment")
 public class ListModules extends BaseFragment {

@@ -34,13 +34,13 @@ import android.widget.Toast;
 
 import com.stockp2p.R;
 import com.stockp2p.common.data.Constants;
+import com.stockp2p.common.data.Framework;
 import com.stockp2p.common.data.MyApplication;
 import com.stockp2p.common.db.DBManager;
 import com.stockp2p.common.db.PositionPlace;
 import com.stockp2p.common.service.SyncService;
-import com.stockp2p.framework.Framework;
 import com.stockp2p.framework.Frameworkdate;
-import com.stockp2p.framework.Manager;
+import com.stockp2p.framework.baseframe.Manager;
 
 public class PositionActivity extends FragmentActivity {
 

@@ -12,7 +12,7 @@ import android.widget.TextView;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.stockp2p.R;
 import com.stockp2p.common.cache.UserInfoManager;
-import com.stockp2p.framework.BaseFragment;
+import com.stockp2p.framework.baseframe.BaseFragment;
 
 public class Setting_PersonalInfoActivity extends BaseFragment {
 	// 数据

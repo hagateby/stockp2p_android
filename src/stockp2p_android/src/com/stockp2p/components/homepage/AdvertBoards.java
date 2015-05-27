@@ -35,13 +35,14 @@ import android.widget.LinearLayout;
 
 import com.lidroid.xutils.bitmap.BitmapDisplayConfig;
 import com.stockp2p.R;
+import com.stockp2p.common.data.Framework;
 import com.stockp2p.common.data.MyApplication;
 import com.stockp2p.common.util.TipUitls;
 import com.stockp2p.common.view.CommonDialog;
-import com.stockp2p.framework.BaseFragment;
-import com.stockp2p.framework.Framework;
 import com.stockp2p.framework.Frameworkdate;
-import com.stockp2p.framework.Manager;
+import com.stockp2p.framework.WebviewActivity;
+import com.stockp2p.framework.baseframe.BaseFragment;
+import com.stockp2p.framework.baseframe.Manager;
 
 
 
@@ -139,8 +140,13 @@ public class AdvertBoards extends BaseFragment {
 		// 添加菜单
 		
 		webview =  (WebView) thisView.findViewById(R.id.home_page_rl_menucontainer);
-		
-	
+		initWebView();
+		//中间动态信息
+		/*
+		thisManager.beginTransaction()
+		         .replace(R.id.home_page_rl_menucontainer,)
+				.commit();
+       */
 		
 		return thisView;
 	}
