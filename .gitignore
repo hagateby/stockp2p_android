@@ -4,10 +4,12 @@ src/stockp2p_android/.classpath/*
 src/stockp2p_android/.project/*
 src/stockp2p_android/proguard-project.txt
 src/stockp2p_android/project.properties
+src/stockp2p_android/bin/classes.dex
+src/stockp2p_android/bin/classes.dex
+src/stockp2p_android/bin/resources.ap_
+src/stockp2p_android/bin/stockp2p_android.apk
 *.class
 *.project
 *.properties
-*.properties
 *.apk
-*.dex
 *.dex
