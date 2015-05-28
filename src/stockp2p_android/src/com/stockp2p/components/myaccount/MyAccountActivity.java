@@ -20,7 +20,7 @@ import com.stockp2p.common.util.NetUtil;
 import com.stockp2p.common.view.CommonDialog;
 import com.stockp2p.components.login.LoginActicity;
 import com.stockp2p.framework.baseframe.BaseFragmentActivity;
-import com.stockp2p.framework.quicksrv.QuicksrvActivity;
+import com.stockp2p.framework.layoutmodules.chkboardmodule.QuicksrvActivity;
 
 /**
  * 我的账户

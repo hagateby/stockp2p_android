@@ -137,6 +137,10 @@ public class MyApplication extends FrontiaApplication {
 	private int screen_width;
 	private int screen_height;
 
+	public static SQLiteDatabase getdb(){
+		 return myApplication.db;	
+	}
+	
 	public int getScreen_width() {
 		return screen_width;
 	}

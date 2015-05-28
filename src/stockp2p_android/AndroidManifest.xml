@@ -31,7 +31,7 @@
 
         <!-- 首页 -->
         <activity
-            android:name="com.stockp2p.framework.quicksrv.QuicksrvActivity"
+            android:name="com.stockp2p.framework.layoutmodules.chkboardmodule.QuicksrvActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/ThemeForBottom"

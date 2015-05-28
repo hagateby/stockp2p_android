@@ -103,15 +103,4 @@ public class Manager extends BaseFragment {
 		return activity;
 
 	}
-	/*
-	private static Class toActivity(FragmentActivity context,
-			Framework framework) throws Exception {
-		PackageManager pm = context.getPackageManager();
-		PackageInfo info = pm.getPackageInfo(context.getPackageName(), 0);
-		Class activity = Class.forName( info.packageName + "."
-				+ framework.getPackageName());
-		return activity;
-
-	}
-   */
 }

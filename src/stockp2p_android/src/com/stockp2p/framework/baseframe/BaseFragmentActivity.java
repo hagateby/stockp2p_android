@@ -164,9 +164,10 @@ public class BaseFragmentActivity extends FragmentActivity {
 			for (int i = 0; i < Constants.moduleList.size(); i++) {
 				TipUitls.Log(TAG, "---moduleList-->"
 						+ Constants.moduleList.get(i).getPackageName());
-				if ((getPackageName() + "." + Constants.moduleList.get(i)
+				if (( Constants.moduleList.get(i)
 						.getPackageName()).equals(context.getClass().getName()
-						.toString())) {
+						.toString()))
+				{
 					index.add(i);
 					ViewStub stub = (ViewStub) context
 							.findViewById(R.id.bottom);

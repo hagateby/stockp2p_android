@@ -305,108 +305,6 @@ public class JsonToDb {
 			if (moduleList != null) {
 				for (Framework framework : moduleList) {
 					ContentValues cv = new ContentValues();
-//					if (framework.getIconName() == null) {
-//						TipUitls.Log(TAG, "Framework---getIconName--->"
-//								+ framework.getModuleName());
-//					} else {
-//						cv.put("iconName", framework.getIconName());
-//					}
-//					if (framework.getThumbnailName() == null) {
-//						TipUitls.Log(TAG, "Framework---getThumbnailName--->"
-//								+ framework.getModuleName());
-//					} else {
-//						cv.put("thumbnailName", framework.getThumbnailName());
-//					}
-//					if (framework.getIsVisible() == null) {
-//						TipUitls.Log(TAG, "Framework---getIsVisible--->"
-//								+ framework.getModuleName());
-//					} else {
-//						cv.put("isVisible", framework.getIsVisible());
-//					}
-//					if (framework.getClickUrl() == null) {
-//						TipUitls.Log(TAG, "Framework---getClickUrl--->"
-//								+ framework.getModuleName());
-//					} else {
-//						cv.put("clickUrl", framework.getClickUrl());
-//					}
-//					if (framework.getModuleOrderby() == null) {
-//						TipUitls.Log(TAG, "Framework---getModuleOrderby--->"
-//								+ framework.getModuleName());
-//					} else {
-//						cv.put("moduleOrderby", framework.getModuleOrderby());
-//					}
-//					if (framework.getIsVisibleOrder() == null) {
-//						TipUitls.Log(TAG, "Framework---getIsVisibleOrder--->"
-//								+ framework.getModuleName());
-//					} else {
-//						cv.put("isVisibleOrder", framework.getIsVisibleOrder());
-//					}
-//					if (framework.getModuleId() == null) {
-//						TipUitls.Log(TAG, "Framework---getModuleId--->"
-//								+ framework.getModuleName());
-//					} else {
-//						cv.put("moduleId", framework.getModuleId());
-//					}
-//					if (framework.getFixedPage() == null) {
-//						TipUitls.Log(TAG, "Framework---getFixedPage--->"
-//								+ framework.getModuleName());
-//					} else {
-//						cv.put("fixedPage", framework.getFixedPage());
-//					}
-//					if (framework.getIsLogin() == null) {
-//						TipUitls.Log(TAG, "Framework---getIsLogin--->"
-//								+ framework.getModuleName());
-//					} else {
-//						cv.put("isLogin", framework.getIsLogin());
-//					}
-//					if (framework.getIsMenuItem() == null) {
-//						TipUitls.Log(TAG, "Framework---getIsMenuItem--->"
-//								+ framework.getModuleName());
-//					} else {
-//						cv.put("isMenuItem", framework.getIsMenuItem());
-//					}
-//					if (framework.getIsAddMenuItem() == null) {
-//						TipUitls.Log(TAG, "Framework---getIsAddMenuItem--->"
-//								+ framework.getModuleName());
-//					} else {
-//						cv.put("isAddMenuItem", framework.getIsAddMenuItem());
-//					}
-//					if (framework.getPackageName() == null) {
-//						TipUitls.Log(TAG, "Framework---getPackageName--->"
-//								+ framework.getModuleName());
-//					} else {
-//						cv.put("packageName", framework.getPackageName());
-//					}
-//					if (framework.getModuleName() == null) {
-//						TipUitls.Log(TAG, "Framework---getModuleName--->"
-//								+ framework.getModuleName());
-//					} else {
-//						cv.put("moduleName", framework.getModuleName());
-//					}
-//					if (framework.getModuleType() == null) {
-//						TipUitls.Log(TAG, "Framework---getModuleType--->"
-//								+ framework.getModuleName());
-//					} else {
-//						cv.put("moduleType", framework.getModuleType());
-//					}
-//					if (framework.getParentId() == null) {
-//						TipUitls.Log(TAG, "Framework---getParentId--->"
-//								+ framework.getModuleName());
-//					} else {
-//						cv.put("parentId", framework.getParentId());
-//					}
-//					if (framework.getUpdateDate() == null) {
-//						TipUitls.Log(TAG, "Framework---getUpdateDate--->"
-//								+ framework.getModuleName());
-//					} else {
-//						cv.put("updateDate", framework.getUpdateDate());
-//					}
-//					if (framework.getOpeFlag() == null) {
-//						TipUitls.Log(TAG, "Framework---getOpeFlag--->"
-//								+ framework.getModuleName());
-//					} else {
-//					}
-
 					cv.put("iconName", framework.getIconName());
 					cv.put("thumbnailName", framework.getThumbnailName());
 					cv.put("isVisible", framework.getIsVisible());
@@ -423,7 +321,9 @@ public class JsonToDb {
 					cv.put("moduleType", framework.getModuleType());
 					cv.put("parentId", framework.getParentId());
 					cv.put("updateDate", framework.getUpdateDate());
-
+					cv.put("group_code", framework.getGroup_code());
+					cv.put("group_type", framework.getGroup_type());
+					
 					if ("c".equals(framework.getOpeFlag())) {
 						db.delete("framework", "moduleId = ?",
 								new String[] { framework.getModuleId() });

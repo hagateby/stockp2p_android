@@ -43,6 +43,7 @@ import com.stockp2p.framework.Frameworkdate;
 import com.stockp2p.framework.WebviewActivity;
 import com.stockp2p.framework.baseframe.BaseFragment;
 import com.stockp2p.framework.baseframe.Manager;
+import com.stockp2p.framework.layoutmodules.chkboardmodule.MenuColumn;
 
 
 
@@ -137,32 +138,16 @@ public class AdvertBoards extends BaseFragment {
 		
         //加载WEBVIEW 
 
-		// 添加菜单
-		
-		webview =  (WebView) thisView.findViewById(R.id.home_page_rl_menucontainer);
-		initWebView();
-		//中间动态信息
-		/*
 		thisManager.beginTransaction()
-		         .replace(R.id.home_page_rl_menucontainer,)
-				.commit();
-       */
+		.replace(R.id.home_page_rl_menucontainer, new ContentWebView())
+		.commit();
+		
+	
 		
 		return thisView;
 	}
     
-	//初始化WEBVIEW
-	public void initWebView()
-	{
-		webview.getSettings().setJavaScriptEnabled(true);  
-		
-		//webview.setScrollBarStyle(SCROLLBARS_OUTSIDE_OVERLAY);
-		
-		webview.loadUrl("http://www.baidu.com"); 
 
-		webview.requestFocus();
-		
-	}
 	
 	@Override
 	public void init(View view, String title) {
