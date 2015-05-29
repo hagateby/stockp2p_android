@@ -152,9 +152,11 @@ public class MenuColumn extends BaseFragment {
 		if (menuList == null) {
 			return;
 		}
-
+     /*lwh
 		String strs = FilesUtil.readFiles(getActivity(), "module");
+		
 		if (strs != null && !"[]".equals(strs)) {
+			
 			menuList.addAll(JSON.parseArray(strs, Framework.class));
 
 			// 退出程序后 perlist 清0了 所以要重新赋值 而且必须是
@@ -166,6 +168,7 @@ public class MenuColumn extends BaseFragment {
 			}
 
 		}
+		*/
 		menuList.addAll(Frameworkdate.findByModuleId(myApplication.db, "99",
 				context));
 
