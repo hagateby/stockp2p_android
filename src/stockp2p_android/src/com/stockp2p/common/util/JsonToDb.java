@@ -322,8 +322,7 @@ public class JsonToDb {
 					cv.put("parentId", framework.getParentId());
 					cv.put("updateDate", framework.getUpdateDate());
 					cv.put("group_code", framework.getGroup_code());
-					cv.put("group_type", framework.getGroup_type());
-					
+	
 					if ("c".equals(framework.getOpeFlag())) {
 						db.delete("framework", "moduleId = ?",
 								new String[] { framework.getModuleId() });

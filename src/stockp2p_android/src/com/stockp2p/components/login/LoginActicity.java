@@ -399,8 +399,9 @@ public class LoginActicity extends BaseFragmentActivity {
 		} else {
 			Constants.staticFramework = framework_;
 		}
-
+           
 		ExitApplication.getInstance().exitLogin(context);
+		UserInfoManager.getInstance().setResultCode("0");
 		
 		Manager.branch(context, Constants.moduleList.get(0));
 

@@ -118,7 +118,7 @@ public class ContentWebView extends BaseFragment {
 		// TODO Auto-generated method stub
 		super.onDestroy();
 		// 解决网页音乐不关闭问题
-		myWebView.loadUrl("about:blank");
+		//lwh myWebView.loadUrl("about:blank");
 	}
 
 }

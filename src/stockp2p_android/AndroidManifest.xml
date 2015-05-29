@@ -50,8 +50,13 @@
             android:screenOrientation="portrait"
             android:theme="@style/ThemeForBottom"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
-
-
+        <activity
+            android:name="com.stockp2p.framework.WebviewActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ThemeForBottom"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
+        
+       
     　　       
         
         <activity
@@ -60,7 +65,11 @@
             android:screenOrientation="portrait"
             android:theme="@style/Theme"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
-        
+        <activity
+            android:name="com.stockp2p.components.login.RegisterActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ThemeForBottom"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
         
         
     </application>

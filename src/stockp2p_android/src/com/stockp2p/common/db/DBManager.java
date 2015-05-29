@@ -15,6 +15,7 @@ import android.util.Log;
 import com.stockp2p.R;
 import com.stockp2p.common.data.Constants;
 import com.stockp2p.common.util.CommonUtil;
+import com.stockp2p.util.SYSTEMCONST;
 /**
  * 数据库管理类
  * 
@@ -23,14 +24,13 @@ import com.stockp2p.common.util.CommonUtil;
  */
 public class DBManager {
 	private final int BUFFER_SIZE = 400000;
-	public static final String DB_NAME = "xinhua_phone.db"; // 保存的数据库文件名
+
 	// 注意这里的PACKAGE_NAME改成你的项目的包名字，如果你不用你的包名那么下面的FileOutputStream fos = new
 	// FileOutputStream(dbfile);
-	// 会抛出异常，当初本人就是在这卡了好久，因为没认真看代码
-	public static final String PACKAGE_NAME = "com.stockp2p";
+	
 	public static final String DB_PATH = "/data"
 			+ Environment.getDataDirectory().getAbsolutePath() + "/"
-			+ PACKAGE_NAME ;//+"/databases"; // 在手机里存放数据库的位置
+			+ SYSTEMCONST.PACKAGE_NAME ;//+"/databases"; // 在手机里存放数据库的位置
 
 	private SQLiteDatabase sQLiteDatabase;
 
@@ -41,7 +41,7 @@ public class DBManager {
 	}
 
 	public SQLiteDatabase openDatabase() {
-		this.sQLiteDatabase = this.openDatabase(DB_PATH + "/" + DB_NAME);
+		this.sQLiteDatabase = this.openDatabase(DB_PATH + "/" + SYSTEMCONST.DB_NAME);
 		return sQLiteDatabase;
 	}
 

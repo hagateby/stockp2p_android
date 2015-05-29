@@ -62,6 +62,7 @@ import com.stockp2p.common.util.TipUitls;
 import com.stockp2p.components.login.LoginActicity;
 import com.stockp2p.framework.Frameworkdate;
 import com.stockp2p.framework.SetActivity;
+import com.stockp2p.util.pubfun;
 
 
 public class BaseFragmentActivity extends FragmentActivity {
@@ -76,7 +77,7 @@ public class BaseFragmentActivity extends FragmentActivity {
 	 * isExit != null时显示底栏 isExit 值为 true 返回退出应用 isExit 值为 false 返回上一页面
 	 */
 	protected String isExit = null;
-
+	private String isExit2 = "true";
 	/**
 	 * Bottombar状态
 	 */
@@ -86,6 +87,8 @@ public class BaseFragmentActivity extends FragmentActivity {
 	protected static final int VIPSERVICE = 3;
 	protected static final int MYINSURANCE = 4;
 
+	private View inflateView = null;
+	
 	Handler handler = new Handler() {
 		public void handleMessage(android.os.Message msg) {
 			super.handleMessage(msg);
@@ -106,7 +109,7 @@ public class BaseFragmentActivity extends FragmentActivity {
 			}
 		
 	};
-	private String isExit2 = "true";
+	
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -153,14 +156,17 @@ public class BaseFragmentActivity extends FragmentActivity {
 					myApplication.db, "0", context);
 		}
 
-		if ("com.stockp2p.framework.LoginActicity".equals(context.getClass()
-				.getName().toString())) {
+		if ( pubfun.isLogin(context.getClass().getName().toString())) {
+			
 			ViewStub stub = (ViewStub) context.findViewById(R.id.bottom);
+			
 			inflateView = stub.inflate();
+			
 			initBottombar();
 
 		} else {
 			List<Integer> index = new ArrayList<Integer>();
+			//给每一framework增加操作bottom
 			for (int i = 0; i < Constants.moduleList.size(); i++) {
 				TipUitls.Log(TAG, "---moduleList-->"
 						+ Constants.moduleList.get(i).getPackageName());
@@ -370,9 +376,6 @@ public class BaseFragmentActivity extends FragmentActivity {
 							@Override
 							public void onClick(View v) {
 								// TODO Auto-generated method stub
-								//ShareSDK.initSDK(context);
-								// 分享的话术：移动新体验，参与有机会中大奖哦~：http://t.cn/8s0FjUd
-								// 中奖后分享的话术：哇塞，我中了**奖品，快来一起参加吧：http://t.cn/8s0FjUd
 								String shareurl = "http://t.cn/8s0FjUd";
 								String title = "掌上新华";
 								String content = "移动新体验，欢迎您下载使用掌上新华。";
@@ -489,12 +492,13 @@ public class BaseFragmentActivity extends FragmentActivity {
 		return false;
 	}
 
-	private View inflateView = null;
+
 
 	/**
 	 * 底栏
 	 */
 	public void initBottombar() {
+		
 		TipUitls.Log(TAG, "initBottombar----->" + bottomBarStatus);
 		int width = 0, height = 0;
 		WindowManager.LayoutParams params = this.getWindow().getAttributes();

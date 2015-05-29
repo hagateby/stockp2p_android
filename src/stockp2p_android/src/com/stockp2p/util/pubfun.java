@@ -33,7 +33,8 @@ public class pubfun {
 		return code;
 	}
 	
-
-	
-	
+    public static boolean isLogin( String classname )
+    {
+           return SYSTEMCONST.loginclassname.equals(classname);
+    } 	
 }

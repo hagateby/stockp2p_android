@@ -98,6 +98,7 @@ public class ListModules extends BaseFragment {
 
 		Log.e("获取数据库", code);
 		
+		//加载图片
 		loadImage(bitmapUtils ,config); 
 		
 		return thisView;
@@ -250,7 +251,7 @@ public class ListModules extends BaseFragment {
 			}
 		});
 	}
-
+   //点击item 项后的动作
 	@OnItemClick(R.id.list_modules_lv_listview)
 	public void onItemClick(AdapterView<?> parent, View view, int position,
 			long id) {
@@ -260,6 +261,7 @@ public class ListModules extends BaseFragment {
 
 		} else {
 			position = position - 1;
+			//1为列表,有下一级菜单  2为详情  3为 webview 4 为打开另一个程序
 			if ("1".equals(moduleList.get(position).getModuleType())) {
 				thisManager
 						.beginTransaction()
@@ -373,17 +375,9 @@ public class ListModules extends BaseFragment {
 			} else {
 				viewHolder.itemLine.setVisibility(View.INVISIBLE);
 			}
-			if ("39".equals(moduleList.get(position).getModuleId())) {
-				System.out.println("Constants.Enum--->"+Constants.Enum);
-				if ("".equals(Constants.Enum) || Constants.Enum == null || "0".equals(Constants.Enum)) {
-					viewHolder.itemInfor.setVisibility(View.GONE);
-				}else{
-					viewHolder.itemInfor.setVisibility(View.VISIBLE);
-					viewHolder.itemInfor.setText(Constants.Enum);
-				}
-			}else{
+		
 				viewHolder.itemInfor.setVisibility(View.GONE);
-			}
+			
 			return convertView;
 		}
 	}

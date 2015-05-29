@@ -20,7 +20,7 @@ public class Framework implements Parcelable{
 		public String isMenuItem;
 		// 是否为添加列表显示的模块 0-否 1-是
 		public String isAddMenuItem;
-		// 模块类型 1为列表,有下一级菜单 2为详情 3为 webview 4为打开另一个程序
+		// 模块类型 1为列表,有下一级菜单  2为详情  3为 webview 4 为打开另一个程序
 		public String moduleType;
 		// 第三方应用包名
 		public String packageName;
@@ -46,8 +46,7 @@ public class Framework implements Parcelable{
 		public String opeFlag;
 		// 分组编码
 	    public String group_code;
-		//分组类型
-	    public String group_type;
+        //
 	    
 		public String getOpeFlag() {
 			return opeFlag;
@@ -160,12 +159,7 @@ public class Framework implements Parcelable{
 			this.group_code = group_code;
 		}
 		
-		public String getGroup_type() {
-			return group_type;
-		}
-		public void setGroup_type(String group_type) {
-			this.group_type = group_type;
-		}
+	
 		// 序列化实体
 		public static final Parcelable.Creator<Framework> CREATOR = new Creator<Framework>() {
 	
@@ -190,7 +184,7 @@ public class Framework implements Parcelable{
 				framework.moduleOrderby = source.readString();
 				framework.updateDate = source.readString();
 				framework.group_code = source.readString();
-				framework.group_type = source.readString();			
+					
 				return framework;
 			}
 	
@@ -225,7 +219,7 @@ public class Framework implements Parcelable{
 			dest.writeString(moduleOrderby);
 			dest.writeString(updateDate);
 			dest.writeString(group_code);
-			dest.writeString(group_type);
+	
 		}
 		
 //		private Framework(Parcel dest)  
