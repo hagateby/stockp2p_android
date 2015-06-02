@@ -21,6 +21,7 @@ import com.stockp2p.R;
 import com.stockp2p.common.data.Constants;
 import com.stockp2p.common.db.Content;
 import com.stockp2p.framework.baseframe.BaseFragmentActivity;
+import com.stockp2p.util.pubfun;
 
 /**
  * 应备文件查询
@@ -82,15 +83,18 @@ public class RequiredFileQueryActivity extends BaseFragmentActivity {
 						+ "/nci/claim_rights.html";
 			}
 			String htmlData = Content.findByChannelId(db, channelId).getBody();
-			writeStrToFile(url, htmlData);
+			
+			pubfun.writeStrToFile(url, htmlData);
+			
 			loadWebView(url);
+			
 		} else if ("5".equals(flag)) {
 			if (Content.findByContentId(db, Constants.NEGOTIATE) != null)
 				file_browser_wv.loadDataWithBaseURL(null, Content
 						.findByContentId(db, Constants.NEGOTIATE).getBody(),
 						"text/html", "UTF-8", null);
 		} else if ("4".equals(flag)) {
-			title_txt.setText("账户规则");
+			title_txt.setText("账户规则"); 
 			if (Content.findByContentId(db, Constants.ACCRULE) != null)
 				file_browser_wv.loadDataWithBaseURL(null, Content
 						.findByContentId(db, Constants.ACCRULE).getBody(),
@@ -99,19 +103,7 @@ public class RequiredFileQueryActivity extends BaseFragmentActivity {
 
 	}
 
-	public static void writeStrToFile(String url, String xml) {
-		try {
-			FileOutputStream fos = new FileOutputStream(new File(url));
-			Writer os = new OutputStreamWriter(fos, "UTF-8");
-			os.write(xml);
-			os.flush();
-			fos.close();
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
+
 
 	/**
 	 * 加载网页

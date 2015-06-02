@@ -44,8 +44,7 @@ import com.stockp2p.framework.WebviewActivity;
 import com.stockp2p.framework.baseframe.BaseFragment;
 import com.stockp2p.framework.baseframe.Manager;
 import com.stockp2p.framework.layoutmodules.chkboardmodule.MenuColumn;
-
-
+import com.stockp2p.util.pubfun;
 
 /**
  * 广告栏
@@ -65,13 +64,13 @@ public class AdvertBoards extends BaseFragment {
 	private AdAdapter adAdapter;// 广告adapter
 	private int oldPostion = 0;// 原先位置
 	private int currentItem;// 当前页面
-	private WebView webview ;
+	private WebView webview;
 	private ScheduledExecutorService scheduledExecutorService = Executors
 			.newSingleThreadScheduledExecutor();
 	private View thisView;
 
 	/** 浮动按钮 **/
-	
+
 	private ArrayList<Framework> frameworks;
 
 	Handler AdHandler = new Handler() {
@@ -91,13 +90,13 @@ public class AdvertBoards extends BaseFragment {
 							@Override
 							public void onClick(View v) {
 								commonDialog.dismiss();
-							/*	
-								Intent intent = new Intent(getActivity(),
-										ShakeprizeActivity.class);
-								intent.putExtra("ActivityId", activityId);
-								intent.putExtra("ActivityUrl", activityUrl);
-								startActivity(intent);
-                             */
+								/*
+								 * Intent intent = new Intent(getActivity(),
+								 * ShakeprizeActivity.class);
+								 * intent.putExtra("ActivityId", activityId);
+								 * intent.putExtra("ActivityUrl", activityUrl);
+								 * startActivity(intent);
+								 */
 							}
 						}, null, "提示", msg.obj.toString());
 				commonDialog.show();
@@ -110,91 +109,75 @@ public class AdvertBoards extends BaseFragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		thisView = inflater.inflate(R.layout.homepage_content, null);
-		
+
 		WindowManager manage = context.getWindowManager();
 		Display display = manage.getDefaultDisplay();
-		
+
 		myApplication.setScreen_width(display.getWidth());
 		myApplication.setScreen_height(display.getHeight());
-		
+
 		if (bitmapUtils == null) {
 			bitmapUtils = ((MyApplication) getActivity().getApplication())
 					.getBitmapUtils(getActivity());
 		}
 		if (config == null) {
 			config = new BitmapDisplayConfig();
-			
+
 			config.setLoadFailedDrawable(getResources().getDrawable(
 					R.drawable.defaultshowimage));
-			
+
 			config.setLoadingDrawable(getResources().getDrawable(
 					R.drawable.defaultshowimage));
 		}
-		
+
 		// 广告栏
 		viewPager = (ViewPager) thisView.findViewById(R.id.view_pager);
-		
+
 		init(thisView, "首页");
-		
-        //加载WEBVIEW 
+
+		// 加载WEBVIEW
 
 		thisManager.beginTransaction()
-		.replace(R.id.home_page_rl_menucontainer, new ContentWebView())
-		.commit();
-		
-	
-		
+				.replace(R.id.home_page_rl_menucontainer, new ContentWebView())
+				.commit();
+
 		return thisView;
 	}
-    
 
-	
 	@Override
 	public void init(View view, String title) {
 		// TODO Auto-generated method stub
 		super.init(view, title);
-		
-		//webhtml
+
+		// webhtml
 		frameworks = (ArrayList<Framework>) Frameworkdate.findByParentId(
 				myApplication.db, "999", context);
 
 		if (frameworks.size() == 0) {
 			frameworks.add(new Framework());
 		}
-		
+
 		TipUitls.Log(TAG, "frameworks----->" + frameworks.size());
 
-		//查询图片地址
-		downurl = getImageDownloadUrl();
-		
+		// 查询图片地址
+		downurl = pubfun.getimageDownloadUrl();
+
 		// 广告栏图片上的点
-		   setDot();
-        
-		 //
-		   creatadAdapter();
-		
+		setDot();
+
+		//
+		creatadAdapter();
+
 		autoScroll(); // 广告条自动、手动滚动
 		// 添加菜单
 		thisManager.beginTransaction()
 				.replace(R.id.home_page_rl_menucontainer, new MenuColumn())
 				.commit();
 	}
-	
-	//查询图片地址
-	private String getImageDownloadUrl()
-	{
-		Cursor cursor = myApplication.db.rawQuery(
-				"select  code from code where codetype ='imageDownloadUrl'",
-				null);
-		
-		cursor.moveToFirst();
-		return  cursor.getString(cursor.getColumnIndex("code"));
-	}
-	
+
 	// 广告栏图片上的点
-	private void setDot()
-	{
-		//热点
+	private void setDot() {
+		// 热点
 		LinearLayout dot_layout = (LinearLayout) thisView
 				.findViewById(R.id.dot_layout);
 		dots = new ArrayList<View>();
@@ -208,15 +191,15 @@ public class AdvertBoards extends BaseFragment {
 			}
 			dots.get(0).setBackgroundResource(R.drawable.framework_dot_foc);
 		}
-		
+
 	}
-	private void creatadAdapter()
-	{
+
+	private void creatadAdapter() {
 		adAdapter = new AdAdapter();
 		viewPager.setAdapter(adAdapter);
-		
+
 		viewPager.setOffscreenPageLimit(3);
-		
+
 		viewPager.setOnTouchListener(new OnTouchListener() {
 			@Override
 			public boolean onTouch(View v, MotionEvent event) {
@@ -245,14 +228,13 @@ public class AdvertBoards extends BaseFragment {
 			}
 		});
 	}
-	
+
 	/**
 	 * 初始化浮动客服按钮
 	 */
 	private void initFloatBtn() {
 		System.out.println("初始化浮动按钮……");
 		// 浮动客服按钮
-
 	}
 
 	// }
@@ -281,13 +263,13 @@ public class AdvertBoards extends BaseFragment {
 		// 向viewPager添加一张图片
 		@Override
 		public Object instantiateItem(ViewGroup container, final int position) {
-			
+
 			ImageView mImageView = new ImageView(context);
-			
+
 			LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
 					ViewGroup.LayoutParams.MATCH_PARENT,
 					ViewGroup.LayoutParams.MATCH_PARENT);
-			
+
 			mImageView.setLayoutParams(layoutParams);
 			mImageView.setScaleType(ImageView.ScaleType.FIT_XY);
 			mImageView.setOnClickListener(new OnClickListener() {
@@ -303,43 +285,22 @@ public class AdvertBoards extends BaseFragment {
 				}
 			});
 			// 本地广告栏图片
+
+			String iconname = frameworks.get(position).getIconName();
 			TipUitls.Log(TAG, "frameworks.get(position).getIconName()--->"
 					+ frameworks.get(position).getIconName());
-			
+
 			String uri = null;
 			// 先从assets看加载，再从内存卡中加载，最后从网络下载
-			InputStream inputStream = null;
-			try {
-				inputStream = getResources().getAssets().open(
-						frameworks.get(position).getIconName());
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			if (inputStream != null) {
 
-				// Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
-				BitmapFactory.Options opts = new BitmapFactory.Options();
-				opts.inTempStorage = new byte[100 * 1024];
-				opts.inPreferredConfig = Bitmap.Config.RGB_565;
-				opts.inPurgeable = true;
-				opts.inSampleSize = 2;
-				opts.inInputShareable = true;
-				Bitmap bitmap = BitmapFactory.decodeStream(inputStream, null,
-						opts);
-				if (bitmap != null) {
-					mImageView.setImageBitmap(bitmap);
-				}
+			Bitmap bitmap = pubfun.loadfilebyName(AdvertBoards.this, iconname);
 
+			if (bitmap != null) {
+				mImageView.setImageBitmap(bitmap);
 			} else {
-				File file = new File(Environment.getExternalStorageDirectory()
-						+ "/nci/" + frameworks.get(position).getIconName());
-				if (file.exists()) {// 如果本地存在
-					uri = Uri.fromFile(file).toString();
-				} else {// 如果本地没有,去网络加载
-					uri = downurl + frameworks.get(position).getIconName();
-					bitmapUtils.display(mImageView, uri, config);
-				}
+
+				uri = pubfun.getlocalFilebyName(iconname);
+				bitmapUtils.display(mImageView, uri, config);
 			}
 
 			container.addView(mImageView, 0);

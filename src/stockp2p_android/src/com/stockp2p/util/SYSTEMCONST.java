@@ -11,6 +11,8 @@ package com.stockp2p.util;
 	public static final String PACKAGE_NAME = "com.stockp2p";
  
 	public static final String DB_NAME = "xinhua_phone.db"; // 保存的数据库文件名
+	
+	public static String DowdURL;
  
  
  

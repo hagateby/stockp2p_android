@@ -11,6 +11,7 @@ import android.os.PowerManager;
 public class ScreenObserver {
 	private Context mContext;
 	
+	//定义广播接收
 	private ScreenBroadcastReceiver mScreenBroadcastReceiver;
 	
 	private observerScreenStateUpdateListener mObserverScreenStateUpdateListener;
@@ -23,7 +24,7 @@ public class ScreenObserver {
 		mScreenBroadcastReceiver = new ScreenBroadcastReceiver();
 		
 		try {
-			
+			//接收屏幕是否打开
 			mReflectIsScreenOnMethod = PowerManager.class.getMethod("isScreenOn",new Class[] {});
 			
 		} catch (NoSuchMethodException nsme) {
@@ -69,6 +70,11 @@ public class ScreenObserver {
 		filter.addAction(Intent.ACTION_SCREEN_ON);
 		filter.addAction(Intent.ACTION_SCREEN_OFF);
 		mContext.registerReceiver(mScreenBroadcastReceiver, filter);
+	}
+	
+	private void unregisteReceiver()
+	{
+		mContext.unregisterReceiver(mScreenBroadcastReceiver);
 	}
 	
 	//刚运行应用程序时判断屏幕状态

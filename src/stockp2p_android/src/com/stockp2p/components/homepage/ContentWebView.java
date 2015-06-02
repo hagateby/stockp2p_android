@@ -57,7 +57,7 @@ public class ContentWebView extends BaseFragment {
 	public void init(String url) {
 	
 
-//		url="http://www.newchinalife.com/jsp/phoneProductCenter/showInfo.jsp?path=/%E4%BA%A7%E5%93%81%E4%B8%AD%E5%BF%83/%E4%B8%AA%E4%BA%BA%E4%BF%9D%E9%99%A9/%E7%90%86%E8%B4%A2%E4%BF%9D%E9%99%A9/%E9%87%91%E5%BD%A9%E4%B8%80%E7%94%9F%E7%BB%88%E8%BA%AB%E5%B9%B4%E9%87%91%E4%BF%9D%E9%99%A9%E8%AE%A1%E5%88%92";
+		url="http://www.newchinalife.com/jsp/phoneProductCenter/showInfo.jsp?path=/%E4%BA%A7%E5%93%81%E4%B8%AD%E5%BF%83/%E4%B8%AA%E4%BA%BA%E4%BF%9D%E9%99%A9/%E7%90%86%E8%B4%A2%E4%BF%9D%E9%99%A9/%E9%87%91%E5%BD%A9%E4%B8%80%E7%94%9F%E7%BB%88%E8%BA%AB%E5%B9%B4%E9%87%91%E4%BF%9D%E9%99%A9%E8%AE%A1%E5%88%92";
 		if (url != null && url.length() > 0) {
 			//myWebView = (WebView) findViewById(R.id.webview);
 			
