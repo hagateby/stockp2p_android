@@ -32,9 +32,10 @@ import com.lidroid.xutils.view.annotation.ViewInject;
 import com.stockp2p.R;
 import com.stockp2p.common.cache.UserInfoManager;
 import com.stockp2p.common.data.Constants;
-import com.stockp2p.common.serviceengin.Des3;
-import com.stockp2p.common.serviceengin.EnginCallback;
-import com.stockp2p.common.serviceengin.ServiceEngin;
+import com.stockp2p.common.ifinvoke.Des3;
+import com.stockp2p.common.ifinvoke.EnginCallback;
+import com.stockp2p.common.ifinvoke.ServiceEngin;
+import com.stockp2p.common.ifinvoke.JsonInvok;
 import com.stockp2p.common.util.CommonUtil;
 import com.stockp2p.common.util.ExitApplication;
 import com.stockp2p.common.util.MD5Util;
@@ -262,36 +263,30 @@ public class LoginActicity extends BaseFragmentActivity {
 	 * 
 	 */
 	private void login() {
+		
+		Map map = new HashMap<String, String>();	
 		if (UserName.equals(LoginWay)) {
 			// 点击提交后就会把用户名记录
 			sp.edit().putString("loginId_account", loginId_account).commit();
-			Map map = new HashMap<String, String>();
-			map.put("loginId", loginId_account);
 			map.put("loginType", "u");
-			map.put("password", passwordDigest);
-			String mapString = JSON.toJSONString(map);
-			// lwh loginRequest(mapString);
-			testlogin();
 
 		} else if (Phone.equals(LoginWay)) {
 			// 点击提交后就会把手机号记录
 			sp.edit().putString("loginId_phone", loginId_phone).commit();
-			Map map = new HashMap<String, String>();
-			map.put("loginId", loginId_phone);
-			map.put("loginType", "m");
-			map.put("password", passwordDigest);
-			String mapString = JSON.toJSONString(map);
-			// lwh loginRequest(mapString);
-			testlogin();
+			map.put("loginType", "m");		  
 		}
-
+		map.put("loginId", loginId_account);		
+		map.put("password", passwordDigest);
+		String mapString = JSON.toJSONString(map);
+		 //lwh loginRequest(mapString);
+		testlogin();
 	}
 
-	private void loginRequest(String str) {
-
-		if (NetUtil.hasNetWork(context)) {
-
-			ServiceEngin.Request(context, "00_00_I01", "login", str,
+	private void loginRequest(String str) {	
+		if (NetUtil.hasNetWork(context)) {	
+					
+			JsonInvok.invoklogin(str,context,
+							
 					new EnginCallback(context) {
 
 						@Override

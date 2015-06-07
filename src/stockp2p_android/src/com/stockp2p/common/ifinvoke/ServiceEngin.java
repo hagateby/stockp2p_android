@@ -1,4 +1,4 @@
-package com.stockp2p.common.serviceengin;
+package com.stockp2p.common.ifinvoke;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -190,44 +190,6 @@ public class ServiceEngin {
 			RESULT = "请求加密失败";
 		}
 		params.addBodyParameter("para", para);
-
-		// 非xutils请求
-		// try {
-		// // 封装请求参数
-		// List<NameValuePair> pair = new ArrayList<NameValuePair>();
-		// pair.add(new BasicNameValuePair("keyVer", "v1"));
-		// pair.add(new BasicNameValuePair("appID", "1"));
-		// pair.add(new BasicNameValuePair("para", para));
-		// // 把请求参数变成请求体部分
-		// UrlEncodedFormEntity uee = new UrlEncodedFormEntity(pair, "utf-8");
-		// // 使用HttpPost对象设置发送的URL路径
-		// HttpPost post = new HttpPost(url);
-		// post.setHeader("Accept-Encoding", "identity");
-		// // 发送请求体
-		// post.setEntity(uee);
-		// // 创建一个浏览器对象，以把POST对象向服务器发送，并返回响应消息
-		// DefaultHttpClient dhc = new DefaultHttpClient();
-		// HttpResponse response = dhc.execute(post);
-		// if (response.getStatusLine().getStatusCode() == 200) {
-		// HttpEntity entity = response.getEntity();
-		// String content = EntityUtils.toString(entity, "gbk");
-		// if (content != null) {
-		// result = Des3.decode(content);
-		// }
-		// }
-		// } catch (UnsupportedEncodingException e) {
-		// // TODO Auto-generated catch block
-		// e.printStackTrace();
-		// } catch (ClientProtocolException e) {
-		// // TODO Auto-generated catch block
-		// e.printStackTrace();
-		// } catch (IOException e) {
-		// // TODO Auto-generated catch block
-		// e.printStackTrace();
-		// } catch (Exception e) {
-		// // TODO Auto-generated catch block
-		// e.printStackTrace();
-		// }
 
 		// // 请求超时
 		httputil.configTimeout(1000 * 20);

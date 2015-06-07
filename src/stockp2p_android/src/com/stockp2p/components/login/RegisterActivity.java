@@ -33,9 +33,10 @@ import com.lidroid.xutils.http.ResponseInfo;
 import com.stockp2p.R;
 import com.stockp2p.common.cache.UserInfoManager;
 import com.stockp2p.common.db.Area;
-import com.stockp2p.common.serviceengin.Des3;
-import com.stockp2p.common.serviceengin.EnginCallback;
-import com.stockp2p.common.serviceengin.ServiceEngin;
+import com.stockp2p.common.ifinvoke.Des3;
+import com.stockp2p.common.ifinvoke.EnginCallback;
+import com.stockp2p.common.ifinvoke.ServiceEngin;
+import com.stockp2p.common.ifinvoke.JsonInvok;
 import com.stockp2p.common.util.CommonUtil;
 import com.stockp2p.common.util.MD5Util;
 import com.stockp2p.common.util.TipUitls;
@@ -95,7 +96,6 @@ public class RegisterActivity extends BaseFragmentActivity {
 		setContainerView("用户注册", R.layout.framework_register);
 
 		init();
-		receiverSMS();
 		addListeners();
 
 	}
@@ -104,14 +104,13 @@ public class RegisterActivity extends BaseFragmentActivity {
 	 * 获取验证码接口
 	 */
 	private void testCM() {
-		Map map = new HashMap();
-		map.put("mobile", userTelephone);
-		String servicePara = JSON.toJSONString(map);
-		TipUitls.Log(TAG, "servicePara----->" + servicePara);
-		ServiceEngin.Request(context, "00_01_I02", "getRandom", servicePara,
-				new EnginCallback(context) {
-
-					@Override
+		
+  	        TipUitls.Log(TAG, "userTelephone----->" + userTelephone);
+			
+  	        JsonInvok.invoksendsms(		userTelephone, context,			
+  	        		new EnginCallback(context) {
+					
+  	        	@Override
 					public void onFailure(HttpException arg0, String arg1) {
 						// TODO Auto-generated method stub
 						super.onFailure(arg0, arg1);
@@ -181,46 +180,6 @@ public class RegisterActivity extends BaseFragmentActivity {
 		}
 
 	}
-
-	/**
-	 * 注册个广播,拦截95567号码的短信内容
-	 */
-	private void receiverSMS() {
-		receiver = new BroadcastReceiver() {
-
-			@Override
-			public void onReceive(Context context, Intent intent) {
-				// TODO Auto-generated method stub
-				if (!intent.getAction().equals(
-						"android.provider.Telephony.SMS_RECEIVED")) {
-					return;
-				}
-				Bundle bundle = intent.getExtras();
-				if (bundle == null) {
-					return;
-				}
-				Object[] pdus = (Object[]) bundle.get("pdus");
-				for (Object pdu : pdus) {
-					SmsMessage smsMessage = SmsMessage
-							.createFromPdu((byte[]) pdu);
-					String body = smsMessage.getMessageBody();
-					String sender = smsMessage.getOriginatingAddress();
-					if ("95567".equals(sender)) {
-						if (null != body && body.contains("您的校验码为")) {
-							testdate.setText(body.substring(6, 10));
-						}
-					}
-
-				}
-
-			}
-		};
-		IntentFilter filter = new IntentFilter();
-		filter.setPriority(1000);
-		filter.addAction("android.provider.Telephony.SMS_RECEIVED");
-		registerReceiver(receiver, filter);
-	}
-
 	private void init() {
 		et_username = (ClearEditText) findViewById(R.id.et_username);
 		et_userpassword = (ClearEditText) findViewById(R.id.et_userpassword);
@@ -378,31 +337,21 @@ public class RegisterActivity extends BaseFragmentActivity {
 
 				// 检查数据
 				if (checkUserName() != 2) {
-					// Toast.makeText(RegisterActivity.this, "用户名为必录项",
-					// 0).show();
 					return;
 				}
 				if (checkPassword() != 2) {
-					// Toast.makeText(RegisterActivity.this, "密码为必录项",
-					// 0).show();
 					return;
 				}
 				if (checkAffirmPassword() != 2) {
-					// Toast.makeText(RegisterActivity.this, "密码不一致", 0).show();
 					return;
 				}
 				if (checkEmail() != 2) {
-					// Toast.makeText(RegisterActivity.this, "邮箱为必录项",
-					// 0).show();
 					return;
 				}
 				if (checkTelphone() != 2) {
-					// Toast.makeText(RegisterActivity.this, "手机为必录项",
-					// 0).show();
 					return;
 				}
 				if (userArea != null && userArea.equals("")) {
-					// Toast.makeText(RegisterActivity.this, "请选择地区", 0).show();
 					return;
 				}
 				if (userTest.length() != 4) {
@@ -598,11 +547,6 @@ public class RegisterActivity extends BaseFragmentActivity {
 		getData();
 
 		if (userEmail.length() > 0) {
-			// int length = userEmail.length();
-			// if (length == 0) {
-			// Toast.makeText(this, "邮箱不能为空", 0).show();
-			// return 0;
-			// }
 			if (!CommonUtil.isEmail(userEmail)) {
 				Toast.makeText(this, "邮箱格式不对", 0).show();
 				return 1;

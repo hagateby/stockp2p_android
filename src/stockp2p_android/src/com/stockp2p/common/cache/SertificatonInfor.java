@@ -12,7 +12,7 @@ import android.widget.Toast;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.stockp2p.R;
-import com.stockp2p.common.serviceengin.ServiceEngin;
+import com.stockp2p.common.ifinvoke.ServiceEngin;
 import com.stockp2p.common.util.CommonUtil;
 import com.stockp2p.common.util.TipUitls;
 

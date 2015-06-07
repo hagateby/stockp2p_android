@@ -95,6 +95,7 @@ public class ExitApplication extends Application {
         String  packagename1= Constants.moduleList.get(1).getPackageName();
         String  packagename2= Constants.moduleList.get(2).getPackageName();
         String  packagename3= Constants.moduleList.get(3).getPackageName();
+        
         for (Activity act : activityStack) {
 			if (act.getClass()
 					.getName()

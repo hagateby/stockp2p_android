@@ -1,4 +1,4 @@
-package com.stockp2p.framework;
+package com.stockp2p.components.login;
 
 import java.util.HashMap;
 
@@ -21,14 +21,13 @@ import com.alibaba.fastjson.JSONObject;
 import com.lidroid.xutils.http.ResponseInfo;
 import com.stockp2p.R;
 import com.stockp2p.common.cache.UserInfoManager;
-import com.stockp2p.common.serviceengin.Des3;
-import com.stockp2p.common.serviceengin.EnginCallback;
-import com.stockp2p.common.serviceengin.ServiceEngin;
+import com.stockp2p.common.ifinvoke.Des3;
+import com.stockp2p.common.ifinvoke.EnginCallback;
+import com.stockp2p.common.ifinvoke.ServiceEngin;
 import com.stockp2p.common.util.ExitApplication;
 import com.stockp2p.common.util.MD5Util;
 import com.stockp2p.common.view.ClearEditText;
 import com.stockp2p.common.view.CommonDialog;
-import com.stockp2p.components.login.LoginActicity;
 import com.stockp2p.framework.baseframe.BaseFragment;
 
 public class Setting_ModifyPasswordActivity extends BaseFragment {

@@ -105,7 +105,6 @@ public class BaseFragmentActivity extends FragmentActivity {
 				default:
 					break;
 				}
-			
 			}
 		
 	};
@@ -143,6 +142,7 @@ public class BaseFragmentActivity extends FragmentActivity {
 
 		TipUitls.Log(TAG, "跳进的 activity---->"
 				+ context.getClass().getName().toString());
+		
 		initBottomBarStatus();
 		// 遍历打开的 activity
 		ExitApplication.getInstance().addActivity(context, isExit);
@@ -155,7 +155,7 @@ public class BaseFragmentActivity extends FragmentActivity {
 			Constants.moduleList = Frameworkdate.findByParentId(
 					myApplication.db, "0", context);
 		}
-
+        //如果是登录页面
 		if ( pubfun.isLogin(context.getClass().getName().toString())) {
 			
 			ViewStub stub = (ViewStub) context.findViewById(R.id.bottom);
@@ -165,51 +165,51 @@ public class BaseFragmentActivity extends FragmentActivity {
 			initBottombar();
 
 		} else {
-			List<Integer> index = new ArrayList<Integer>();
+			
 			//给每一framework增加操作bottom
-			for (int i = 0; i < Constants.moduleList.size(); i++) {
-				TipUitls.Log(TAG, "---moduleList-->"
-						+ Constants.moduleList.get(i).getPackageName());
-				if (( Constants.moduleList.get(i)
-						.getPackageName()).equals(context.getClass().getName()
-						.toString()))
-				{
-					index.add(i);
-					ViewStub stub = (ViewStub) context
-							.findViewById(R.id.bottom);
-					if (stub != null) {
-						inflateView = stub.inflate();
-					}
-
-				}
-			}
-
-			if (index.size() == 1) {
-				setbottomBarStatus(index.get(0) + 1);
-				initBottombar();
-			} else {
-				for (Integer num : index) {
-					if (Constants.moduleList.get(num).getModuleId()
-							.equals(framework_.getModuleId())
-							) {
-						setbottomBarStatus(num + 1);
-						initBottombar();
-					}else if ( Constants.moduleList.get(num).getModuleId()
-									.equals(framework_.getParentId())) {
-						isExit2  = "false";
-						setbottomBarStatus(num + 1);
-						initBottombar();
-					}
+			addbottomtobar();
+		}
+	}
+   private void addbottomtobar()
+   {
+	   List<Integer> index = new ArrayList<Integer>();
+		//给每一framework增加操作bottom
+		for (int i = 0; i < Constants.moduleList.size(); i++) {
+			TipUitls.Log(TAG, "---moduleList-->"
+					+ Constants.moduleList.get(i).getPackageName());
+			if (( Constants.moduleList.get(i)
+					.getPackageName()).equals(context.getClass().getName()
+					.toString()))
+			{
+				index.add(i);
+				ViewStub stub = (ViewStub) context
+						.findViewById(R.id.bottom);
+				if (stub != null) {
+					inflateView = stub.inflate();
 				}
 
 			}
-
-			index.clear();
-			index = null;
 		}
 
-	}
+		if (index.size() == 1) {
+			setbottomBarStatus(index.get(0) + 1);
+			initBottombar();
+		} else {
+			for (Integer num : index) {
+			 if ( !Constants.moduleList.get(num).getModuleId()
+								.equals(framework_.getParentId())) {
+					isExit2  = "false";
+				
+				}
+				setbottomBarStatus(num + 1);
+				initBottombar();
+			}
 
+		}
+
+		index.clear();
+		index = null;
+   }
 	private void initScreenObserver() {
 		mScreenObserver = new ScreenObserver(context);
 		mScreenObserver
@@ -501,14 +501,21 @@ public class BaseFragmentActivity extends FragmentActivity {
 		
 		TipUitls.Log(TAG, "initBottombar----->" + bottomBarStatus);
 		int width = 0, height = 0;
+		
 		WindowManager.LayoutParams params = this.getWindow().getAttributes();
+		
 		WindowManager wm = (WindowManager) context
 				.getSystemService(Context.WINDOW_SERVICE);
+		
 		Display display = wm.getDefaultDisplay();
+		
 		height = display.getHeight() / 12;
+		
 		LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
 				LayoutParams.MATCH_PARENT, height);
+		
 		inflateView.setLayoutParams(lp);
+		
 		if (MAINPAGE == bottomBarStatus) {
 			RadioButton tab_a = (RadioButton) inflateView
 					.findViewById(R.id.base_activity_rb_taba);
