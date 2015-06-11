@@ -8,61 +8,65 @@
 
     <!-- 标题栏 -->
 
-    <RelativeLayout
-        android:id="@+id/base_activity_rl_titlelayout"
-        android:layout_width="fill_parent"
-        android:layout_height="45dip"
-        android:background="@drawable/framework_title_bk"
-        android:gravity="center_vertical" >
 
-        <!-- 返回/关闭 -->
-
-        <Button
-            android:id="@+id/base_activity_bt_titleback"
-            android:layout_width="45dip"
+        <RelativeLayout
+            android:id="@+id/base_activity_rl_titlelayout"
+            android:layout_width="fill_parent"
             android:layout_height="45dip"
-            android:background="@drawable/framework_back_selector"
-            android:onClick="click"
-            android:textColor="#FFFFFF" />
+            android:background="@drawable/framework_title_bk"
+            android:gravity="center_vertical" >
 
-        <!-- 标题 -->
+            <!-- 返回/关闭 -->
 
-        <TextView
-            android:id="@+id/base_activity_tv_titletxt"
-            android:layout_width="wrap_content"
-            android:layout_height="45dip"
-            android:layout_centerInParent="true"
-            android:layout_gravity="center_vertical|center"
-            android:gravity="center"
-            android:textColor="@color/white"
-            android:textSize="20sp" />
+            <Button
+                android:id="@+id/base_activity_bt_titleback"
+                android:layout_width="45dip"
+                android:layout_height="45dip"
+                android:background="@drawable/framework_back_selector"
+                android:onClick="click"
+                android:textColor="#FFFFFF" />
 
-        <!-- 更多 -->
+            <!-- 标题 -->
 
-        <Button
-            android:id="@+id/base_activity_bt_base_title_more"
-            android:layout_width="45dip"
-            android:layout_height="45dip"
-            android:layout_alignParentRight="true"
-            android:background="@drawable/framework_more_selector"
-            android:onClick="click"
-            android:textColor="@color/white" />
-    </RelativeLayout>
+            <TextView
+                android:id="@+id/base_activity_tv_titletxt"
+                android:layout_width="wrap_content"
+                android:layout_height="45dip"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center_vertical|center"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
 
+            <!-- 更多 -->
+
+            <Button
+                android:id="@+id/base_activity_bt_base_title_more"
+                android:layout_width="45dip"
+                android:layout_height="45dip"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/framework_more_selector"
+                android:onClick="click"
+                android:textColor="@color/white" />
+        </RelativeLayout>
+   
     <!-- 主内容框架 -->
 
     <FrameLayout
         android:id="@+id/tab_container"
         android:layout_width="fill_parent"
         android:layout_height="0.0dip"
-        android:layout_weight="10.0"
+        android:layout_weight="1.0"
         android:orientation="vertical" >
     </FrameLayout>
 
-    <ViewStub
-        android:id="@+id/bottom"
-        android:layout_width="match_parent"
-        android:layout_height="50dip"
-        android:layout="@layout/framework_bottombar" />
+    <!-- 底部工具栏 -->
+
+    <FrameLayout
+        android:id="@+id/toolsbarbottom"
+        android:layout_width="fill_parent"
+        android:layout_height="50.0dip"
+        android:orientation="vertical" >
+    </FrameLayout>
 
 </LinearLayout>

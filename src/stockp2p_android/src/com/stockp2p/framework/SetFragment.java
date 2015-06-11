@@ -33,6 +33,7 @@ import com.stockp2p.common.data.UpdateDownloadManger;
 import com.stockp2p.common.db.Version;
 import com.stockp2p.common.ifinvoke.Des3;
 import com.stockp2p.common.ifinvoke.EnginCallback;
+import com.stockp2p.common.ifinvoke.JsonInvok;
 import com.stockp2p.common.ifinvoke.ServiceEngin;
 import com.stockp2p.common.util.CommonUtil;
 import com.stockp2p.common.util.ExitApplication;
@@ -43,6 +44,10 @@ import com.stockp2p.common.view.SlipButtonOnChangedListener;
 import com.stockp2p.components.launch.WelcomeViewPagerActivity;
 import com.stockp2p.components.login.LoginActicity;
 import com.stockp2p.components.login.Setting_ModifyPasswordActivity;
+import com.stockp2p.components.setting.Setting_AboutActivity;
+import com.stockp2p.components.setting.Setting_FeedbackActivity;
+import com.stockp2p.components.setting.Setting_PersonalInfoActivity;
+import com.stockp2p.components.setting.Setting_TwoDimensionCodeActivity;
 import com.stockp2p.framework.baseframe.BaseFragment;
 import com.stockp2p.framework.baseframe.Manager;
 
@@ -348,7 +353,10 @@ public class SetFragment extends BaseFragment {
 		map.put("versionType", "1");
 		String servicePara = JSON.toJSONString(map);
 		TipUitls.Log(TAG, "servicePara----->" + servicePara);
-		ServiceEngin.Request(context, "05_I01", "checkVersion", servicePara,
+		
+		
+	//	ServiceEngin.Request(context, "05_I01", "checkVersion", servicePara,
+		JsonInvok.invokCheckVersion	(servicePara,context,	
 				new EnginCallback(context) {
 
 					private CommonDialog commonDialog;

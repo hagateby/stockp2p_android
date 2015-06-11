@@ -1,4 +1,4 @@
-package com.stockp2p.util;
+package com.stockp2p.common.util;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

@@ -141,6 +141,8 @@ public class Verified extends BaseFragment implements OnClickListener {
 		map.put("idno", SertificatonInfor.getInstance(context, null).getIdNo());
 
 		String servicePara = JSON.toJSONString(map);
+		
+		
 		ServiceEngin.Request(context, bizId, serviceName, servicePara,
 				new EnginCallback(context) {
 					@Override

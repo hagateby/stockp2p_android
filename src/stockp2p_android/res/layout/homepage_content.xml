@@ -43,6 +43,8 @@
                     android:orientation="horizontal" >
                 </LinearLayout>
             </LinearLayout>
+
+         
         </RelativeLayout>
 
         <RelativeLayout
@@ -66,7 +68,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical" >
 
-      <View
+        <View
             android:id="@+id/floatBtn1"
             android:layout_width="80dp"
             android:layout_height="80dp"

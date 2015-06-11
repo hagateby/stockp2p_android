@@ -62,7 +62,7 @@ public class CommonDialog extends Dialog {
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		this.setContentView(R.layout.common_dialog);
+		this.setContentView(R.layout.common_commondialog);
 		WindowManager.LayoutParams params = this.getWindow().getAttributes();
 		WindowManager wm = (WindowManager) context
 				.getSystemService(Context.WINDOW_SERVICE);

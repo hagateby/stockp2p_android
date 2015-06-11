@@ -332,7 +332,8 @@ public class ForgetPasswordWaySelect extends BaseFragment {
 		/**
 		 * 通过业务场景编码，方法名，参数集合，对修改密码发送接口发送请求
 		 */
-		ServiceEngin.Request(context, bizId, serviceName, param,
+		//ServiceEngin.Request(context, bizId, serviceName, param,
+		JsonInvok.invokFindPwd(	param,context,
 				new EnginCallback(context) {
 
 					@Override

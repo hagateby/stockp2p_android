@@ -23,18 +23,19 @@ import android.util.Log;
 
 import com.stockp2p.common.data.Constants;
 import com.stockp2p.common.data.MyApplication;
-import com.stockp2p.common.db.Image;
+import com.stockp2p.common.db.LocalFileDesc;
 
-public class AsyncImageLoader {
+public class AsyncFileSeviceToLocal {
 
 	// private Bitmap mBitmap;
+	private static String TAG = "AsyncFileSeviceToLocal";
+	
 	private int THREAD_NUM = 5;
 	private ExecutorService executorService = Executors
 			.newFixedThreadPool(THREAD_NUM);
 
-	private final static String IMAGE_PATH = Environment
-			.getExternalStorageDirectory() + "/nci/";
-	private File nci;
+	private   String IMAGE_PATH ;
+	private File filedir;
 
 	private MyApplication myApplication;
 	private SQLiteDatabase db;
@@ -43,29 +44,42 @@ public class AsyncImageLoader {
 		public void refreshImage(Bitmap bitmap);
 	}
 
-	public AsyncImageLoader(Context context) {
-		Log.i("AsyncImageLoader", "AsyncImageLoader开始执行了……");
+	public AsyncFileSeviceToLocal(Context context) {
+		
+		TipUitls.Log(TAG,"AsyncImageLoader开始执行了……");
+        
+		IMAGE_PATH =PubFun.getStorayDirectory();
 
 		// copyAssetsImageToCard(context, "adsense2.jpg");
 		// copyAssetsImageToCard(context, "main_ad_bg.png");
 
 		myApplication = (MyApplication) context.getApplicationContext();
+		
 		db = myApplication.db;
 
-		ArrayList<Image> images = Image.findAllImage(db);
-		nci = new File(IMAGE_PATH);
-		if (!nci.exists()) {
-			nci.mkdirs();
+		ArrayList<LocalFileDesc> images = LocalFileDesc.findAllAsynFileByVervsion(db);
+		
+		filedir = new File(IMAGE_PATH);
+		
+		if (!filedir.exists()) {
+			
+			filedir.mkdirs();
 		}
+		
 		String imageName = null;
+		
 		String imageURL = null;
+		
 		for (int i = 0; (null != images) && (i < images.size()); i++) {
-			imageName = images.get(i).getImageName();
+			imageName = images.get(i).getFileName();
 			// imageURL = Constants.IMGURLHEADER+imageName;
 			File file = new File(IMAGE_PATH + imageName);
+				
 			if (!file.exists()) {
-				imageURL = images.get(i).getRemark2();
+				imageURL = images.get(i).getNetAdress();
+				
 				Log.i("打印的图片路径", "" + imageURL);
+				
 				loadBitmap(imageURL, imageName);
 			}
 		}

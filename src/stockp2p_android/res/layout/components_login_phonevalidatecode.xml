@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/common_bg"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="17.0dip"
+        android:layout_marginRight="17.0dip"
+        android:layout_marginTop="9.0dip" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@null"
+            android:src="@drawable/register_stage2" />
+
+        <TextView
+            style="@style/customStyle.DarkGreen_51"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/register_title_step2" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="17.0dip"
+        android:layout_marginRight="17.0dip"
+        android:layout_marginTop="11.0dip"
+        android:orientation="horizontal" >
+
+        <EditText
+            android:id="@id/edtValidateCode"
+            style="@style/customStyle.DarkGreen_51"
+            android:layout_width="0.0dip"
+            android:layout_height="@dimen/simple_edit_height"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1.0"
+            android:background="@drawable/round_corner_rectangle_white_background"
+            android:hint="@string/plz_input_smscode"
+            android:padding="8.0dip"
+            android:textColorHint="@color/hint_color" />
+
+        <Button
+            android:id="@id/btnRetry"
+            style="@style/customStyle.White_51"
+            android:layout_width="110.0dip"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="13.0dip"
+            android:background="@drawable/button_blue_bg_selector"
+            android:enabled="false"
+            android:gravity="center"
+            android:text="@string/retry_validate_code" />
+    </LinearLayout>
+
+    <Button
+        android:id="@id/btnValidateCode"
+        style="@style/customStyle.White_51"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/button_height"
+        android:layout_marginLeft="17.0dip"
+        android:layout_marginRight="17.0dip"
+        android:layout_marginTop="21.329987dip"
+        android:background="@drawable/button_blue_bg_selector"
+        android:gravity="center"
+        android:text="@string/next" />
+
+    <TextView
+        android:id="@id/txtTip"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="17.0dip"
+        android:layout_marginRight="17.0dip"
+        android:layout_marginTop="13.0dip"
+        android:drawableLeft="@drawable/exclamation_mark"
+        android:drawablePadding="5.0dip"
+        android:text="@string/register_tip" />
+
+</LinearLayout>

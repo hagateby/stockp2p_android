@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
 
-  
     <dimen name="bottom_tab_font_size">10.0dip</dimen>
     <dimen name="bottom_tab_padding_up">2.0dip</dimen>
     <dimen name="bottom_tab_padding_drawable">2.0dip</dimen>
@@ -15,8 +14,7 @@
     <dimen name="textview_S">16dp</dimen>
     <dimen name="textview_XS">14dp</dimen>
     <dimen name="textview_XXS">12dp</dimen>
-    
-       <dimen name="button_height">44.0dip</dimen>
+    <dimen name="button_height">44.0dip</dimen>
     <dimen name="common_item_height">43.0dip</dimen>
     <dimen name="common_top_blank_height">20.0dip</dimen>
     <dimen name="corner_size">8.0dip</dimen>
@@ -37,7 +35,9 @@
     <dimen name="indicator_corner_radius">12.0dip</dimen>
     <dimen name="indicator_internal_padding">4.0dip</dimen>
     <dimen name="indicator_right_padding">10.0dip</dimen>
-    <item type="dimen" name="invest_layout_padding_left">@dimen/detail_title_left_padding</item>
+
+    <item name="invest_layout_padding_left" type="dimen">@dimen/detail_title_left_padding</item>
+
     <dimen name="invest_money_hint_size">18.0sp</dimen>
     <dimen name="invest_money_size">24.0sp</dimen>
     <dimen name="invest_record_amount_textsize">16.0sp</dimen>
@@ -58,5 +58,5 @@
     <dimen name="titlebar_height">47.0dip</dimen>
     <dimen name="titlebar_image_text_margin">5.0dip</dimen>
     <dimen name="titlebar_left_margin">8.0dip</dimen>
-    
+
 </resources>

@@ -20,8 +20,8 @@ import android.widget.TextView;
 import com.stockp2p.R;
 import com.stockp2p.common.data.Constants;
 import com.stockp2p.common.db.Content;
+import com.stockp2p.common.util.PubFun;
 import com.stockp2p.framework.baseframe.BaseFragmentActivity;
-import com.stockp2p.util.pubfun;
 
 /**
  * 应备文件查询
@@ -84,7 +84,7 @@ public class RequiredFileQueryActivity extends BaseFragmentActivity {
 			}
 			String htmlData = Content.findByChannelId(db, channelId).getBody();
 			
-			pubfun.writeStrToFile(url, htmlData);
+			PubFun.writeStrToFile(url, htmlData);
 			
 			loadWebView(url);
 			

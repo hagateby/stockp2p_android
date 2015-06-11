@@ -38,6 +38,7 @@ import com.stockp2p.common.db.DBManager;
 import com.stockp2p.common.service.SyncService;
 import com.stockp2p.common.util.CommonUtil;
 import com.stockp2p.common.util.TipUitls;
+import com.stockp2p.common.util.PubFun;
 import com.stockp2p.components.login.LoginActicity;
 import com.stockp2p.framework.Frameworkdate;
 import com.stockp2p.framework.baseframe.Manager;
@@ -100,7 +101,7 @@ public class WelcomeViewPagerActivity extends FragmentActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		setContentView(R.layout.framework_welcome);
+		setContentView(R.layout.components_launch_welcomewiewpager);
 
 		init();
 
@@ -121,27 +122,20 @@ public class WelcomeViewPagerActivity extends FragmentActivity {
 
 		positionStr = sPreferences.getString("regionCode", null);
 
-		if (getIntent() != null && getIntent().getExtras() != null) {
-			source = getIntent().getExtras().getString("source");
-		}
+	
 
 		// 读取用户偏好文件
 		sp = this.getSharedPreferences("userprefs", Context.MODE_PRIVATE);
 
 		hasRun = sp.getBoolean("hasRun", false);
 		
-		initHost();
-
-		initDatabase();
+		initApp();
 
 		startBaiduPush();
 
 		Constants.moduleList = Frameworkdate.findByParentId(db, "0", this);
 
-		 //后台数据同步 
-			if (!"setting".equals(source)) {
-				startSync();
-			}
+
 		//检查版本
 		boolean chkversion=chkVersion();
         //判断是否要启动欢迎页面
@@ -258,36 +252,13 @@ public class WelcomeViewPagerActivity extends FragmentActivity {
 		 */
 	}
 
-	/**
-	 * 初始化网络设置
-	 */
-	private void initHost() {
-		if (Constants.ISDEBUG) {
-			TipUitls.Log(TAG, "WelcomeViewPagerActivity----进入内网");
 
-			Constants.PROTOCOL = "https://";
-			Constants.DOMIN_NAME = "zsxh.newchinalife.com";
-			Constants.URLHTML5 = "http://" + Constants.DOMIN_NAME;
-
-			Constants.URL = "";
-
-		} else {
-			TipUitls.Log(TAG, "WelcomeViewPagerActivity----进入外网");
-
-			Constants.PROTOCOL = "https://";
-			Constants.DOMIN_NAME = "zxh.newchinalife.com";
-			Constants.URLHTML5 = "http://" + Constants.DOMIN_NAME;
-
-			Constants.PORT = 443;
-
-			Constants.URL = "";
-		}
-	}
 
 	/**
 	 * 初始化数据库
 	 */
-	private void initDatabase() {
+	public  void initDatabase() {
+		
 		DBManager dBManager = new DBManager(this);
 		db = dBManager.openDatabase();
 		myApplication.db = db;
@@ -694,6 +665,28 @@ public class WelcomeViewPagerActivity extends FragmentActivity {
 		}
 	}
 
+	private void initApp()
+	{
+		
+		PubFun.initHost();
+
+		initDatabase();
+				
+		PubFun.initConstConfig();
+		
+		 //后台数据同步 
+		
+		if (getIntent() != null && getIntent().getExtras() != null) {
+			source = getIntent().getExtras().getString("source");
+		}
+			if (!"setting".equals(source)) {
+			//lwh	startSync();
+		}
+		
+		
+	}
+	
+	
 	/*
 	 * baidu推送
 	 */

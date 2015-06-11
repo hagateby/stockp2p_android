@@ -54,15 +54,17 @@ import com.stockp2p.common.data.UpdateDownloadManger;
 import com.stockp2p.common.data.ScreenObserver.observerScreenStateUpdateListener;
 import com.stockp2p.common.db.DBManager;
 import com.stockp2p.common.db.Version;
-import com.stockp2p.common.service.SyncService;
+
 import com.stockp2p.common.util.ExitApplication;
 import com.stockp2p.common.util.ScreenShot;
 import com.stockp2p.common.util.ShareUtils;
 import com.stockp2p.common.util.TipUitls;
+import com.stockp2p.common.util.PubFun;
+
 import com.stockp2p.components.login.LoginActicity;
 import com.stockp2p.framework.Frameworkdate;
 import com.stockp2p.framework.SetActivity;
-import com.stockp2p.util.pubfun;
+
 
 
 public class BaseFragmentActivity extends FragmentActivity {
@@ -143,7 +145,12 @@ public class BaseFragmentActivity extends FragmentActivity {
 		TipUitls.Log(TAG, "跳进的 activity---->"
 				+ context.getClass().getName().toString());
 		
-		initBottomBarStatus();
+		//initBottomBarStatus();		
+		thisManager.beginTransaction()
+	     // 底部工具栏
+		.replace(R.id.toolsbarbottom, new MainToolsBar())
+		.commit();
+		
 		// 遍历打开的 activity
 		ExitApplication.getInstance().addActivity(context, isExit);
 
@@ -156,11 +163,11 @@ public class BaseFragmentActivity extends FragmentActivity {
 					myApplication.db, "0", context);
 		}
         //如果是登录页面
-		if ( pubfun.isLogin(context.getClass().getName().toString())) {
+		if ( PubFun.isLogin(context.getClass().getName().toString())) {
 			
-			ViewStub stub = (ViewStub) context.findViewById(R.id.bottom);
+		//lwh	ViewStub stub = (ViewStub) context.findViewById(R.id.bottom);
 			
-			inflateView = stub.inflate();
+		//lwh	inflateView = stub.inflate();
 			
 			initBottombar();
 
@@ -182,11 +189,11 @@ public class BaseFragmentActivity extends FragmentActivity {
 					.toString()))
 			{
 				index.add(i);
-				ViewStub stub = (ViewStub) context
-						.findViewById(R.id.bottom);
-				if (stub != null) {
-					inflateView = stub.inflate();
-				}
+		//lwh		ViewStub stub = (ViewStub) context
+	//lwh					.findViewById(R.id.bottom);
+				//lwh		if (stub != null) {
+		//lwh			inflateView = stub.inflate();
+		//		}
 
 			}
 		}

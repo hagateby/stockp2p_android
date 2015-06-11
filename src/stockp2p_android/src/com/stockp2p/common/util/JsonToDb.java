@@ -23,7 +23,7 @@ import com.stockp2p.common.db.Channel;
 import com.stockp2p.common.db.CodeType;
 import com.stockp2p.common.db.Content;
 import com.stockp2p.common.db.DBManager;
-import com.stockp2p.common.db.Image;
+import com.stockp2p.common.db.LocalFileDesc;
 import com.stockp2p.common.db.Network;
 import com.stockp2p.common.db.Region;
 import com.stockp2p.common.db.Version;
@@ -51,7 +51,7 @@ public class JsonToDb {
 	/**
 	 * 图片表
 	 */
-	protected List<Image> image;
+	protected List<LocalFileDesc> image;
 	/**
 	 * 框架表
 	 */
@@ -77,20 +77,8 @@ public class JsonToDb {
 
 		MyApplication myApplication = (MyApplication) context
 				.getApplicationContext();
-		if (myApplication.db != null) {
-			db = myApplication.db;
-		} else {
-			DBManager dBManager = new DBManager(context);
-			db = dBManager.openDatabase();
-			myApplication.db = db;
-		}
-
-		// String versionName = null;
-		// try {
-		// versionName = CommonUtil.getVersionName(context);
-		// } catch (Exception e) {
-		// e.printStackTrace();
-		// }
+		
+		db =PubFun.getMyApplicationDb(myApplication,context);
 
 		TipUitls.Log(TAG,
 				"JsonToDb 更------新--------开---------始------------------->");
@@ -101,6 +89,7 @@ public class JsonToDb {
 				// 初始化两个SharedPreferences
 				sp = context.getSharedPreferences("userprefs",
 						Context.MODE_PRIVATE);
+				
 				SharedPreferences addressPreferences = context
 						.getSharedPreferences("positionaddress",
 								Context.MODE_PRIVATE);
@@ -116,12 +105,16 @@ public class JsonToDb {
 						addressPreferences.getString("regionCode", null));// 所属地区码，格式（省code--城市code--四级机构code）
 
 				String servicePara = JSON.toJSONString(map);
+				
 				TipUitls.Log(TAG, "提交的参数servicePara---->" + servicePara);
 
 				// 开始请求接口
 				String result = ServiceEngin.Request(context, "03_I01",
 						"updateData", servicePara);
+				
+				
 				TipUitls.Log("JsonToDb", "接口返回的result---->" + result);
+				
 				if (result != null && JSON.parseObject(result) != null) {
 					JSONObject object = JSON.parseObject(result);
 					String resultCode = object.getString("ResultCode");
@@ -143,7 +136,7 @@ public class JsonToDb {
 								object.getString("Content"), Content.class);
 						// Image表
 						image = JSONArray.parseArray(object.getString("Image"),
-								Image.class);
+								LocalFileDesc.class);
 						// Framework表
 						moduleList = JSONArray.parseArray(
 								object.getString("ModuleList"), Framework.class);
@@ -278,24 +271,31 @@ public class JsonToDb {
 
 			TipUitls.Log(TAG, "image------>" + image);
 			if (image != null) {
-				for (Image imageObject : image) {
+				for (LocalFileDesc imageObject : image) {
 					ContentValues cv = new ContentValues();
 					cv.put("id", imageObject.getId());
-					cv.put("imageName", imageObject.getImageName());
-					cv.put("remark1", imageObject.getRemark1());
-					cv.put("remark2", imageObject.getRemark2());
-					cv.put("remark3", imageObject.getRemark3());
-					cv.put("contentId", imageObject.getContentId());
+					cv.put("GroupCode", imageObject.getGroupCode());
+					cv.put("FileType", imageObject.getFileType());
+					cv.put("FileName", imageObject.getFileName());
+					cv.put("LocalPath", imageObject.getLocalPath());	
+					cv.put("ClickAdress", imageObject.getClickAdress());
+					cv.put("NetAdress", imageObject.getNetAdress());					
+					cv.put("AsynFlag", imageObject.getAsynFlag());
+					cv.put("FileType", imageObject.getFileType());
+					cv.put("Order", imageObject.getOrder());
+					cv.put("Remark", imageObject.getRemark());
+					cv.put("ContentId", imageObject.getContentId());
+					
 					if (imageObject.getOpeFlag().equals("c")) {
 						db.delete("image", "imageName = ?",
-								new String[] { imageObject.getImageName() });
+								new String[] { imageObject.getFileName() });
 						db.insert("image", null, cv);
 					} else if (imageObject.getOpeFlag().equals("u")) {
 						db.update("image", cv, "imageName = ?",
-								new String[] { imageObject.getImageName() });
+								new String[] { imageObject.getFileName() });
 					} else if (imageObject.getOpeFlag().equals("d")) {
 						db.delete("image", "imageName = ?",
-								new String[] { imageObject.getImageName() });
+								new String[] { imageObject.getFileName() });
 					}
 				}
 			}
@@ -393,7 +393,7 @@ public class JsonToDb {
 			TipUitls.Log(TAG,
 					"JsonToDb更----新----完-----成---------------------->");
 			syncDone(context);
-			new AsyncImageLoader(context); // 下载图片
+			new AsyncFileSeviceToLocal(context); // 下载图片
 		} catch (Exception e) {
 			e.printStackTrace();
 			db.endTransaction();

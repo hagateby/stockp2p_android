@@ -10,7 +10,6 @@ import android.app.Application;
 import android.content.Context;
 
 import com.stockp2p.common.data.Constants;
-import com.stockp2p.util.SYSTEMCONST;
 
 /**
  * 退出程序类

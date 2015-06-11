@@ -13,10 +13,13 @@ public class HomePageActivity extends BaseFragmentActivity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
         
-		//
+		/*
 		thisManager.beginTransaction()
-				.replace(R.id.tab_container, new AdvertBoards()).commit();
+				.replace(R.id.tab_container, new BannerBoards()).commit();
+		*/
 		
+		thisManager.beginTransaction()
+		      .replace(R.id.tab_container, new HomePageArticle()).commit();	
 
 	}
 

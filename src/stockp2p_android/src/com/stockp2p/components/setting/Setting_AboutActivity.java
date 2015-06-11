@@ -1,4 +1,4 @@
-package com.stockp2p.framework;
+package com.stockp2p.components.setting;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;

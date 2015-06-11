@@ -15,7 +15,7 @@ import android.util.Log;
 import com.stockp2p.R;
 import com.stockp2p.common.data.Constants;
 import com.stockp2p.common.util.CommonUtil;
-import com.stockp2p.util.SYSTEMCONST;
+import com.stockp2p.common.util.SYSTEMCONST;
 /**
  * 数据库管理类
  * 

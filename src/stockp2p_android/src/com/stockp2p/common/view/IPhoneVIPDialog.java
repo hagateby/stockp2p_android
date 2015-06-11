@@ -28,6 +28,6 @@ public class IPhoneVIPDialog extends AlertDialog {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.vipsrv_dailog_layout_vip);
+		setContentView(R.layout.common_iphonevipdialog);
 	}
 }

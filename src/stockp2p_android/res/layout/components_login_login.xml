@@ -4,14 +4,11 @@
     android:layout_height="match_parent"
     android:scrollbars="none" >
 
-    <LinearLayout
+   <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/framework_bk"
         android:orientation="vertical" >
-
-        <!-- 移动支付暂时不上线,注释掉带手机号登录功能的界面,要上线时,将下方注释取消掉,并删除line58至line79和line200 -->
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="240dp"
@@ -28,7 +25,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/framework_login_picture" />
 
-        <LinearLayout
+       <LinearLayout
             android:id="@+id/login_bt_top"
             android:layout_width="match_parent"
             android:layout_height="60dp"
@@ -38,25 +35,6 @@
             android:orientation="horizontal"
             android:visibility="visible" >
 
-            <Button
-                android:id="@+id/login_bt_user"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:background="@drawable/framework_login_account_way_on"
-                android:textColor="#ee0e3d"
-                android:textSize="20dp" />
-
-            <Button
-                android:id="@+id/login_bt_tel"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:background="@drawable/framework_login_tel_way"
-                android:textColor="#666666"
-                android:textSize="20dp" />
         </LinearLayout>
 
         <LinearLayout
@@ -67,44 +45,14 @@
             android:paddingRight="35dp"
             android:paddingTop="30dp" >
 
-            <!-- 用户名 -->
-
-            <LinearLayout
-                android:id="@+id/login_ll_accountuser"
-                android:layout_width="match_parent"
-                android:layout_height="35dp"
-                android:background="@drawable/framework_login_username2"
-                android:orientation="horizontal" >
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_vertical"
-                    android:background="@drawable/framework_login_username1" />
-
-                <com.stockp2p.common.view.ClearEditText
-                    android:id="@+id/login_et_accountuser"
-                    android:layout_width="fill_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_vertical"
-                    android:background="@null"
-                    android:cursorVisible="true"
-                    android:gravity="center_vertical"
-                    android:hint="请输入用户名"
-                    android:paddingLeft="5dp"
-                    android:singleLine="true"
-                    android:textColor="#666666"
-                    android:textColorHint="#666666"
-                    android:textSize="15dp" />
-            </LinearLayout>
+        
 
             <LinearLayout
                 android:id="@+id/login_ll_accountphone"
                 android:layout_width="match_parent"
                 android:layout_height="35dp"
                 android:background="@drawable/framework_login_username2"
-                android:orientation="horizontal"
-                android:visibility="gone" >
+                android:orientation="horizontal" >
 
                 <ImageView
                     android:layout_width="wrap_content"

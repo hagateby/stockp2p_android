@@ -12,7 +12,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import com.stockp2p.R;
-import com.stockp2p.util.SYSTEMCONST;
+import com.stockp2p.common.util.SYSTEMCONST;
 
 
 

@@ -1,4 +1,4 @@
-package com.stockp2p.framework;
+package com.stockp2p.components.setting;
 
 import java.io.File;
 import java.io.FileOutputStream;

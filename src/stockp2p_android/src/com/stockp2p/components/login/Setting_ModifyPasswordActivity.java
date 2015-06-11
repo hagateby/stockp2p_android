@@ -23,6 +23,7 @@ import com.stockp2p.R;
 import com.stockp2p.common.cache.UserInfoManager;
 import com.stockp2p.common.ifinvoke.Des3;
 import com.stockp2p.common.ifinvoke.EnginCallback;
+import com.stockp2p.common.ifinvoke.JsonInvok;
 import com.stockp2p.common.ifinvoke.ServiceEngin;
 import com.stockp2p.common.util.ExitApplication;
 import com.stockp2p.common.util.MD5Util;
@@ -51,7 +52,7 @@ public class Setting_ModifyPasswordActivity extends BaseFragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		thisView = inflater.inflate(R.layout.set_modify_password, null);
+		thisView = inflater.inflate(R.layout.components_login_modifypwd, null);
 		init(thisView, "修改密码");
 
 		return thisView;
@@ -185,8 +186,9 @@ public class Setting_ModifyPasswordActivity extends BaseFragment {
 		/**
 		 * 通过业务场景编码，方法名，参数集合，对修改密码发送接口发送请求
 		 */
-		ServiceEngin.Request(context, bizId, serviceName, param,
-				new EnginCallback(context) {
+		//ServiceEngin.Request(context, bizId, serviceName, param,
+		JsonInvok.invokregister	(param,context,	
+		         new EnginCallback(context) {
 
 					@Override
 					public void onSuccess(ResponseInfo arg0) {

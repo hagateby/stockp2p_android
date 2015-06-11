@@ -1,34 +1,24 @@
-package com.stockp2p.components.homepage;
+package com.stockp2p.framework.layoutmodules.bannermodule;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
-import android.content.Intent;
-import android.database.Cursor;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.util.Log;
-import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
-import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -37,29 +27,25 @@ import com.lidroid.xutils.bitmap.BitmapDisplayConfig;
 import com.stockp2p.R;
 import com.stockp2p.common.data.Framework;
 import com.stockp2p.common.data.MyApplication;
+import com.stockp2p.common.db.LocalFileDesc;
+import com.stockp2p.common.util.SYSTEMCONST;
 import com.stockp2p.common.util.TipUitls;
+import com.stockp2p.common.util.PubFun;
 import com.stockp2p.common.view.CommonDialog;
+
 import com.stockp2p.framework.Frameworkdate;
-import com.stockp2p.framework.WebviewActivity;
 import com.stockp2p.framework.baseframe.BaseFragment;
 import com.stockp2p.framework.baseframe.Manager;
 import com.stockp2p.framework.layoutmodules.chkboardmodule.MenuColumn;
-import com.stockp2p.util.pubfun;
 
-/**
- * 广告栏
- * 
- * @author haix
- * 
- */
-public class AdvertBoards extends BaseFragment {
-
-	private static String TAG = "AdvertBoards";
+public class BannerBoard  extends BaseFragment {
+	private static String TAG = "BannerBoard";
 	protected static boolean flag = true;
 	private BitmapDisplayConfig config;
 	private com.lidroid.xutils.BitmapUtils bitmapUtils;
 	private ViewPager viewPager;
 	private String downurl;
+	private ArrayList<LocalFileDesc> lstBannerImage;
 	private ArrayList<View> dots;// 广告栏指示点
 	private AdAdapter adAdapter;// 广告adapter
 	private int oldPostion = 0;// 原先位置
@@ -68,10 +54,10 @@ public class AdvertBoards extends BaseFragment {
 	private ScheduledExecutorService scheduledExecutorService = Executors
 			.newSingleThreadScheduledExecutor();
 	private View thisView;
+	private int imgecount; 
 
 	/** 浮动按钮 **/
 
-	private ArrayList<Framework> frameworks;
 
 	Handler AdHandler = new Handler() {
 
@@ -108,13 +94,12 @@ public class AdvertBoards extends BaseFragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		thisView = inflater.inflate(R.layout.homepage_content, null);
+		thisView = inflater.inflate(R.layout.components_homepage_content_banner, null);
 
-		WindowManager manage = context.getWindowManager();
-		Display display = manage.getDefaultDisplay();
-
-		myApplication.setScreen_width(display.getWidth());
-		myApplication.setScreen_height(display.getHeight());
+          
+		myApplication.setScreen_width(PubFun.getWindowWidth(context));
+		
+		myApplication.setScreen_height(PubFun.getWindowHeight(context));
 
 		if (bitmapUtils == null) {
 			bitmapUtils = ((MyApplication) getActivity().getApplication())
@@ -129,17 +114,15 @@ public class AdvertBoards extends BaseFragment {
 			config.setLoadingDrawable(getResources().getDrawable(
 					R.drawable.defaultshowimage));
 		}
-
+       
+		
+		 lstBannerImage = LocalFileDesc.findByContentId(myApplication.db,SYSTEMCONST.LOCALFILEDESC_GROUPCODE_BANNER);
+		
+		imgecount =lstBannerImage.size();
 		// 广告栏
-		viewPager = (ViewPager) thisView.findViewById(R.id.view_pager);
+		viewPager = (ViewPager) thisView.findViewById(R.id.homepage_view_pager);
 
 		init(thisView, "首页");
-
-		// 加载WEBVIEW
-
-		thisManager.beginTransaction()
-				.replace(R.id.home_page_rl_menucontainer, new ContentWebView())
-				.commit();
 
 		return thisView;
 	}
@@ -149,18 +132,7 @@ public class AdvertBoards extends BaseFragment {
 		// TODO Auto-generated method stub
 		super.init(view, title);
 
-		// webhtml
-		frameworks = (ArrayList<Framework>) Frameworkdate.findByParentId(
-				myApplication.db, "999", context);
-
-		if (frameworks.size() == 0) {
-			frameworks.add(new Framework());
-		}
-
-		TipUitls.Log(TAG, "frameworks----->" + frameworks.size());
-
-		// 查询图片地址
-		downurl = pubfun.getimageDownloadUrl();
+		//  pubfun.printFrames(TAG,frameworks);
 
 		// 广告栏图片上的点
 		setDot();
@@ -169,26 +141,35 @@ public class AdvertBoards extends BaseFragment {
 		creatadAdapter();
 
 		autoScroll(); // 广告条自动、手动滚动
-		// 添加菜单
+		/* lwh
 		thisManager.beginTransaction()
-				.replace(R.id.home_page_rl_menucontainer, new MenuColumn())
+				.replace(R.id.homepage_rl_menucontainer, new MenuColumn())
 				.commit();
+				
+		*/		
 	}
 
 	// 广告栏图片上的点
 	private void setDot() {
 		// 热点
 		LinearLayout dot_layout = (LinearLayout) thisView
-				.findViewById(R.id.dot_layout);
+				.findViewById(R.id.homepage_dot_layout);
+		
 		dots = new ArrayList<View>();
-		if ((frameworks.size() > 0)) {
-			for (int i = 0; (i < frameworks.size()); i++) {
+		
+		if ((lstBannerImage.size() > 0)) {
+			for (int i = 0; (i < lstBannerImage.size()); i++) {
+				
 				View ad_images_dot_item = View.inflate(getActivity(),
 						R.layout.quicksrv_ad_images_dot_item, null);
+		
 				View ad_dot = ad_images_dot_item.findViewById(R.id.ad_dot);
+				
 				dot_layout.addView(ad_images_dot_item);
+				
 				dots.add(ad_dot);
 			}
+			
 			dots.get(0).setBackgroundResource(R.drawable.framework_dot_foc);
 		}
 
@@ -196,6 +177,7 @@ public class AdvertBoards extends BaseFragment {
 
 	private void creatadAdapter() {
 		adAdapter = new AdAdapter();
+		
 		viewPager.setAdapter(adAdapter);
 
 		viewPager.setOffscreenPageLimit(3);
@@ -229,24 +211,14 @@ public class AdvertBoards extends BaseFragment {
 		});
 	}
 
-	/**
-	 * 初始化浮动客服按钮
-	 */
-	private void initFloatBtn() {
-		System.out.println("初始化浮动按钮……");
-		// 浮动客服按钮
-	}
-
-	// }
-
 	// 广告adapter
 	private final class AdAdapter extends PagerAdapter {
 		public AdAdapter() {
 		}
-
+		// 获取要滑动的控件的数量，在这里我们以滑动的广告栏为例，那么这里就应该是展示的广告图片的ImageView数量
 		@Override
 		public int getCount() {
-			return frameworks.size();
+			return imgecount;
 		}
 
 		// 判断View和Object是否是同一对象
@@ -254,13 +226,13 @@ public class AdvertBoards extends BaseFragment {
 		public boolean isViewFromObject(View view, Object object) {
 			return view == (ImageView) object;
 		}
-
+		// PagerAdapter只缓存三张要显示的图片，如果滑动的图片超出了缓存的范围，就会调用这个方法，将图片销毁
 		@Override
 		public void destroyItem(ViewGroup container, int position, Object object) {
 			((ViewPager) container).removeView((ImageView) object);
 		}
 
-		// 向viewPager添加一张图片
+		// 当要显示的图片可以进行缓存的时候，会调用这个方法进行显示图片的初始化，我们将要显示的ImageView加入到ViewGroup中，然后作为返回值返回即可
 		@Override
 		public Object instantiateItem(ViewGroup container, final int position) {
 
@@ -277,41 +249,48 @@ public class AdvertBoards extends BaseFragment {
 				@Override
 				public void onClick(View v) {
 					// TODO Auto-generated method stub
-					Log.e(TAG, "clickurl--------"
-							+ frameworks.get(position).getClickUrl());
+				
+					TipUitls.Log(TAG, "clickurl--------"
+			 				+ lstBannerImage.get(position).getClickAdress());
 
-					Manager.branch(context, frameworks.get(position));
-
+				 //	Manager.branch(context, (Framework)pubfun.toClassbyName(lstBannerImage.get(position).getRemark1()));
+                
 				}
 			});
 			// 本地广告栏图片
 
-			String iconname = frameworks.get(position).getIconName();
-			TipUitls.Log(TAG, "frameworks.get(position).getIconName()--->"
-					+ frameworks.get(position).getIconName());
-
+			String iconname = lstBannerImage.get(position).getFileName();
+			
+			TipUitls.Log(TAG, "lstBannerImage.get(position).getImageName()--->"
+					+  lstBannerImage.get(position).getFileName());
+	
 			String uri = null;
 			// 先从assets看加载，再从内存卡中加载，最后从网络下载
 
-			Bitmap bitmap = pubfun.loadfilebyName(AdvertBoards.this, iconname);
+			Bitmap bitmap = PubFun.loadfilebyName(getActivity(), iconname);
 
 			if (bitmap != null) {
 				mImageView.setImageBitmap(bitmap);
 			} else {
 
-				uri = pubfun.getlocalFilebyName(iconname);
+				uri = PubFun.getlocalFilebyName(iconname);
 				bitmapUtils.display(mImageView, uri, config);
 			}
-
+	
 			container.addView(mImageView, 0);
 			return mImageView;
+		
 		}
 	}
-
+	private void autoScroll() {
+		// 广告条滚动定时器
+		scheduledExecutorService.scheduleAtFixedRate(new AdTask(), 5, 2,
+				TimeUnit.SECONDS);
+	}
 	private final class AdTask implements Runnable {
 		public void run() {
 			if (flag) {
-				currentItem = (currentItem + 1) % frameworks.size();
+				currentItem = (currentItem + 1) % lstBannerImage.size();
 				Message msg = new Message();
 				msg.what = 0;
 				msg.getData().putLong("currentItem", currentItem);
@@ -322,10 +301,5 @@ public class AdvertBoards extends BaseFragment {
 		}
 	}
 
-	private void autoScroll() {
-		// 广告条滚动定时器
-		scheduledExecutorService.scheduleAtFixedRate(new AdTask(), 5, 2,
-				TimeUnit.SECONDS);
-	}
 
 }

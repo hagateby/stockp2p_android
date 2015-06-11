@@ -50,10 +50,14 @@ public class RegisterActivity extends BaseFragmentActivity {
 
 	private final static String TAG = "RegisterActivity";
 
-	private String userName;
-	private String userPassword;
+	private String userName; //用户名
+	
+	private String userPassword; 
+	
 	private String affirmPassword;
-	private String userArea = "";
+	
+	private String userArea = ""; 
+	
 	private String userEmail;
 	/**
 	 * 电话的 String
@@ -93,7 +97,7 @@ public class RegisterActivity extends BaseFragmentActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContainerView("用户注册", R.layout.framework_register);
+		setContainerView("用户注册", R.layout.components_login_register);
 
 		init();
 		addListeners();
@@ -257,8 +261,10 @@ public class RegisterActivity extends BaseFragmentActivity {
 		map.put("random", userTest);// 校验码
 		String servicePara = JSON.toJSONString(map);
 		TipUitls.Log(TAG, "servicePara----->" + servicePara);
-		ServiceEngin.Request(context, "00_01_I01", "userToRegister",
-				servicePara, new EnginCallback(context) {
+		
+		//ServiceEngin.Request(context, "00_01_I01", "userToRegister",
+		JsonInvok.invokregister	(servicePara,context,	
+				new EnginCallback(context) {
 
 					@Override
 					public void onFailure(HttpException arg0, String arg1) {

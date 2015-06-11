@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/base_activity_ll_main"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/framework_bk"
+    android:orientation="vertical" >
+    
+    <ViewStub
+        android:id="@+id/toolsbar_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:layout_weight="1.0"
+        android:layout="@layout/framework_bottombar" />
+
+</LinearLayout>

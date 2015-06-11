@@ -1,4 +1,4 @@
-package com.stockp2p.framework;
+package com.stockp2p.components.setting;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -26,6 +26,7 @@ import com.lidroid.xutils.http.ResponseInfo;
 import com.stockp2p.R;
 import com.stockp2p.common.ifinvoke.Des3;
 import com.stockp2p.common.ifinvoke.EnginCallback;
+import com.stockp2p.common.ifinvoke.JsonInvok;
 import com.stockp2p.common.ifinvoke.ServiceEngin;
 import com.stockp2p.common.util.CommonUtil;
 import com.stockp2p.common.util.TipUitls;
@@ -153,7 +154,9 @@ public class Setting_FeedbackActivity extends BaseFragment {
 		map.put("feedbackType", feedback_text);// 意见反馈类型
 		String servicePara = JSON.toJSONString(map);
 		TipUitls.Log(TAG, "servicePara----->" + servicePara);
-		ServiceEngin.Request(context, "04_I01", "webFeedback", servicePara,
+		
+	//	ServiceEngin.Request(context, "04_I01", "webFeedback", servicePara,
+		JsonInvok.invokWebFeedback	(servicePara,context,	
 				new EnginCallback(context) {
 
 					private CommonDialog commonDialog;

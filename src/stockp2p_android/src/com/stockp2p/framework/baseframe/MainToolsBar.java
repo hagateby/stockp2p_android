@@ -23,10 +23,10 @@ import com.stockp2p.common.cache.UserInfoManager;
 import com.stockp2p.common.data.Constants;
 import com.stockp2p.common.data.Framework;
 import com.stockp2p.common.util.TipUitls;
+import com.stockp2p.common.util.PubFun;
 import com.stockp2p.common.view.CommonDialog;
 import com.stockp2p.components.login.LoginActicity;
 import com.stockp2p.framework.Frameworkdate;
-import com.stockp2p.util.pubfun;
 
 public class MainToolsBar extends BaseFragment {
 	private static final String TAG = "MainToolsBar";
@@ -34,35 +34,36 @@ public class MainToolsBar extends BaseFragment {
 	private View inflateView = null;
 	
 	protected static int bottomBarStatus;
-	public static final int MAINPAGE = 1;
+	
+	public static final int MAINPAGE = 1; //如果在主页面
+	
 	protected static final int NCIINTRODUCTION = 2;
+	
 	protected static final int VIPSERVICE = 3;
+	
 	protected static final int MYINSURANCE = 4;
 	
 	/**
 	 * isExit != null时显示底栏 isExit 值为 true 返回退出应用 isExit 值为 false 返回上一页面
 	 */
 	protected String isExit = null;
+	
 	private String isExit2 = "true";
+	
 	protected Framework framework_;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState)  {
 		// TODO Auto-generated method stub
-		
+		/*
 		framework_ = (Framework) getIntent().getParcelableExtra(
 				"framework");
-		
-		thisView = inflater.inflate(R.layout.framework_base_activity, null);
-	
+		*/
+		thisView = inflater.inflate(R.layout.framework_basemaintoolsbar, null);
+		initBottomBarStatus();
 		
 		return thisView;
-	}
-
-	public void init(String url) {
-	
-
 	}
 
 	private void initBottomBarStatus() {
@@ -71,9 +72,9 @@ public class MainToolsBar extends BaseFragment {
 					myApplication.db, "0", context);
 		}
         //如果是登录页面
-		if ( pubfun.isLogin(context.getClass().getName().toString())) {
+		if ( PubFun.isLogin(context.getClass().getName().toString())) {
 			
-			ViewStub stub = (ViewStub) context.findViewById(R.id.bottom);
+			ViewStub stub = (ViewStub) thisView.findViewById(R.id.toolsbar_bottom);
 			
 			inflateView = stub.inflate();
 			
@@ -85,6 +86,7 @@ public class MainToolsBar extends BaseFragment {
 			addbottomtobar();
 		}
 	}
+	
    private void addbottomtobar()
    {
 	   List<Integer> index = new ArrayList<Integer>();
@@ -97,8 +99,8 @@ public class MainToolsBar extends BaseFragment {
 					.toString()))
 			{
 				index.add(i);
-				ViewStub stub = (ViewStub) context
-						.findViewById(R.id.bottom);
+				ViewStub stub = (ViewStub) thisView
+						.findViewById(R.id.toolsbar_bottom);
 				if (stub != null) {
 					inflateView = stub.inflate();
 				}
@@ -134,16 +136,15 @@ public class MainToolsBar extends BaseFragment {
 	public void initBottombar() {
 		
 		TipUitls.Log(TAG, "initBottombar----->" + bottomBarStatus);
-		int width = 0, height = 0;
-		
-		WindowManager.LayoutParams params = this.getWindow().getAttributes();
+		int  height = 0;
+
+		WindowManager.LayoutParams params = this.getActivity().getWindow().getAttributes();
 		
 		WindowManager wm = (WindowManager) context
 				.getSystemService(Context.WINDOW_SERVICE);
-		
-		Display display = wm.getDefaultDisplay();
-		
-		height = display.getHeight() / 12;
+
+		//高度的12分之一
+		height =   (int) (PubFun.getWindowHeight(context)  / 12);
 		
 		LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
 				LayoutParams.MATCH_PARENT, height);
@@ -172,9 +173,11 @@ public class MainToolsBar extends BaseFragment {
 					.findViewById(R.id.base_activity_rb_tabd);
 			tab_d.setChecked(true);
 		}
-
+      
+	//把控件加入到布局中	
 		RadioGroup group = (RadioGroup) inflateView
 				.findViewById(R.id.base_activity_rg_bottombar);
+		
 		group.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 
 			@Override
@@ -182,7 +185,7 @@ public class MainToolsBar extends BaseFragment {
 				// TODO Auto-generated method stub
 				switch (checkedId) {
 				case R.id.base_activity_rb_taba:
-					finish();
+					getActivity().finish();
 					if ("1".equals(Constants.moduleList.get(0).getIsLogin())
 							&& !UserInfoManager.getInstance().isLogin()) {
 						setbottomBarStatus(1);
@@ -190,13 +193,13 @@ public class MainToolsBar extends BaseFragment {
 								LoginActicity.class).putExtra("isExit", "true")
 								.putExtra("framework",
 										Constants.moduleList.get(0)));
-						overridePendingTransition(0, 0);
+						getActivity().overridePendingTransition(0, 0);
 					} else {
 						Manager.branch(context, Constants.moduleList.get(0));
 					}
 					break;
 				case R.id.base_activity_rb_tabb:
-					finish();
+					getActivity().finish();
 					if ("1".equals(Constants.moduleList.get(1).getIsLogin())
 							&& !UserInfoManager.getInstance().isLogin()) {
 						setbottomBarStatus(2);
@@ -204,13 +207,13 @@ public class MainToolsBar extends BaseFragment {
 								LoginActicity.class).putExtra("isExit", "true")
 								.putExtra("framework",
 										Constants.moduleList.get(1)));
-						overridePendingTransition(0, 0);
+						getActivity().overridePendingTransition(0, 0);
 					} else {
 						Manager.branch(context, Constants.moduleList.get(1));
 					}
 					break;
 				case R.id.base_activity_rb_tabc:
-					finish();
+					getActivity().finish();
 					if ("1".equals(Constants.moduleList.get(2).getIsLogin())
 							&& !UserInfoManager.getInstance().isLogin()) {
 						setbottomBarStatus(3);
@@ -218,13 +221,13 @@ public class MainToolsBar extends BaseFragment {
 								LoginActicity.class).putExtra("isExit", "true")
 								.putExtra("framework",
 										Constants.moduleList.get(2)));
-						overridePendingTransition(0, 0);
+						getActivity().overridePendingTransition(0, 0);
 					} else {
 						Manager.branch(context, Constants.moduleList.get(2));
 					}
 					break;
 				case R.id.base_activity_rb_tabd:
-					finish();
+					getActivity().finish();
 					if ("1".equals(Constants.moduleList.get(3).getIsLogin())
 							&& !UserInfoManager.getInstance().isLogin()) {
 						setbottomBarStatus(4);
@@ -232,7 +235,7 @@ public class MainToolsBar extends BaseFragment {
 								LoginActicity.class).putExtra("isExit", "true")
 								.putExtra("framework",
 										Constants.moduleList.get(3)));
-						overridePendingTransition(0, 0);
+						getActivity().overridePendingTransition(0, 0);
 					} else {
 						Manager.branch(context, Constants.moduleList.get(3));
 					}

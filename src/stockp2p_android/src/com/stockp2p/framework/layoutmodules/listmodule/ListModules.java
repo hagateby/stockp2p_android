@@ -37,11 +37,11 @@ import com.stockp2p.common.data.Constants;
 import com.stockp2p.common.data.Framework;
 import com.stockp2p.common.data.MyApplication;
 import com.stockp2p.common.util.TipUitls;
+import com.stockp2p.common.util.PubFun;
 import com.stockp2p.components.login.LoginActicity;
 import com.stockp2p.framework.Frameworkdate;
 import com.stockp2p.framework.baseframe.BaseFragment;
 import com.stockp2p.framework.baseframe.Manager;
-import com.stockp2p.util.pubfun;
 
 @SuppressLint("ValidFragment")
 public class ListModules extends BaseFragment {
@@ -94,7 +94,7 @@ public class ListModules extends BaseFragment {
 		System.out.println("onCreateView");
 		thisView = inflater.inflate(R.layout.addmenu_list_modules, null);
 		
-	    code =pubfun.getimageDownloadUrl();
+	    code =PubFun.getimageDownloadUrl();
 
 		Log.e("获取数据库", code);
 		

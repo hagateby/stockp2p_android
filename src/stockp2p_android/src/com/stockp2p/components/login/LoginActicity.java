@@ -65,11 +65,7 @@ public class LoginActicity extends BaseFragmentActivity {
 	 */
 	@ViewInject(R.id.login_ll_accountphone)
 	private LinearLayout layoutPhone;
-	/**
-	 * 用户名输入 layout
-	 */
-	@ViewInject(R.id.login_ll_accountuser)
-	private LinearLayout layoutUser;
+
 	/**
 	 * 登录按钮
 	 */
@@ -80,11 +76,7 @@ public class LoginActicity extends BaseFragmentActivity {
 	 */
 	@ViewInject(R.id.login_bt_resgister)
 	private Button resgister;
-	/**
-	 * 用户名输入
-	 */
-	@ViewInject(R.id.login_et_accountuser)
-	private ClearEditText inputAccount;
+
 	/**
 	 * 手机输入
 	 */
@@ -100,18 +92,8 @@ public class LoginActicity extends BaseFragmentActivity {
 	 */
 	@ViewInject(R.id.login_bt_forgetpassword)
 	private Button forgetPassword;
-	/**
-	 * 账户输入方式
-	 */
-	@ViewInject(R.id.login_bt_user)
-	private Button accountPage;
-	/**
-	 * 电话输入方式
-	 */
-	@ViewInject(R.id.login_bt_tel)
-	private Button telPage;
-	/**
-	 * 眼睛
+	
+	 /* 眼睛
 	 */
 	@ViewInject(R.id.login_cb_checkbox)
 	private CheckBox eye;
@@ -133,7 +115,7 @@ public class LoginActicity extends BaseFragmentActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		setContainerView("登录", R.layout.framework_login);
+		setContainerView("登录", R.layout.components_login_login);
 		ViewUtils.inject(this);
 
 		init();
@@ -162,27 +144,19 @@ public class LoginActicity extends BaseFragmentActivity {
 		// TODO Auto-generated method stub
 
 		// 帐号字体设置 要和密码设置的字体一样
-		inputAccount.setInputType(InputType.TYPE_CLASS_TEXT
+		inputPhone.setInputType(InputType.TYPE_CLASS_TEXT
 				| InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
-		inputAccount.setSelection(inputPassword.getText().toString().trim()
+		inputPhone.setSelection(inputPassword.getText().toString().trim()
 				.length());
-		inputAccount.setTextColor(Color.parseColor("#666666"));
-		/*
-		 * mInfor.setText(Html .fromHtml(
-		 * "<font color=red>温馨提示 : </font><font color=grey>网站、掌上新华注册用户在网站、掌上新华均可直接登录使用</font>"
-		 * ));
-		 */
+		inputPhone.setTextColor(Color.parseColor("#666666"));
+		
+		
 		sp = context.getSharedPreferences("userprefs", Context.MODE_PRIVATE);
 		String loginId_account = sp.getString("loginId_account", null);
 		String loginId_phone = sp.getString("loginId_phone", null);
-
-		if (loginId_account != null) {
-			inputAccount.setText(loginId_account);
-		}
-		if (loginId_phone != null) {
-			inputPhone.setText(loginId_phone);
-		}
-
+		
+		inputPhone.setText(loginId_phone);
+	
 	}
 
 	/**
@@ -223,27 +197,9 @@ public class LoginActicity extends BaseFragmentActivity {
 				// TODO Auto-generated method stub
 				Intent intent = new Intent(context,
 						ForgetPassWordActivity.class);
-				intent.putExtra("loginPass", inputAccount.getText().toString()
+				intent.putExtra("loginPass", inputPhone.getText().toString()
 						.trim());
 				startActivity(intent);
-			}
-		});
-
-		// 用户名登录方式
-		accountPage.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				LoginWay = UserName;
-				accountPage
-						.setBackgroundResource(R.drawable.framework_login_account_way_on);
-
-				telPage.setBackgroundResource(R.drawable.framework_login_tel_way);
-
-				layoutPhone.setVisibility(View.GONE);
-
-				layoutUser.setVisibility(View.VISIBLE);
 			}
 		});
 
@@ -253,7 +209,7 @@ public class LoginActicity extends BaseFragmentActivity {
 	 * 
 	 */
 	private void getInputContent() {
-		loginId_account = inputAccount.getText().toString().trim();
+	
 		loginId_phone = inputPhone.getText().toString().trim();
 		String password = inputPassword.getText().toString().trim();
 		passwordDigest = MD5Util.MD5(password).toUpperCase();
@@ -265,16 +221,11 @@ public class LoginActicity extends BaseFragmentActivity {
 	private void login() {
 		
 		Map map = new HashMap<String, String>();	
-		if (UserName.equals(LoginWay)) {
-			// 点击提交后就会把用户名记录
-			sp.edit().putString("loginId_account", loginId_account).commit();
-			map.put("loginType", "u");
 
-		} else if (Phone.equals(LoginWay)) {
 			// 点击提交后就会把手机号记录
-			sp.edit().putString("loginId_phone", loginId_phone).commit();
-			map.put("loginType", "m");		  
-		}
+		sp.edit().putString("loginId_phone", loginId_phone).commit();
+		
+		map.put("loginType", "m");		  
 		map.put("loginId", loginId_account);		
 		map.put("password", passwordDigest);
 		String mapString = JSON.toJSONString(map);
@@ -450,18 +401,7 @@ public class LoginActicity extends BaseFragmentActivity {
 	 * 检查账户格式是否正确
 	 */
 	private boolean checkAccount() {
-		if (UserName.equals(LoginWay)) {
-			String account = inputAccount.getText().toString().trim();
-			if (account == null || account.length() == 0) {
-				Toast.makeText(LoginActicity.this, "用户名不能为空", Toast.LENGTH_LONG)
-						.show();
-				return false;
-			} else if (!CommonUtil.checkUserName(account)) {
-				Toast.makeText(LoginActicity.this, "用户名输入不符合要求",
-						Toast.LENGTH_LONG).show();
-				return false;
-			}
-		} else if (Phone.equals(LoginWay)) {
+
 			String phone = inputPhone.getText().toString().trim();
 			if (phone == null || phone.length() == 0) {
 				Toast.makeText(LoginActicity.this, "手机号不能为空", Toast.LENGTH_LONG)
@@ -472,7 +412,7 @@ public class LoginActicity extends BaseFragmentActivity {
 						Toast.LENGTH_LONG).show();
 				return false;
 			}
-		}
+		
 		return true;
 
 	}

@@ -8,11 +8,11 @@ src/stockp2p_android/bin/classes.dex
 src/stockp2p_android/bin/classes.dex
 src/stockp2p_android/bin/resources.ap_
 src/stockp2p_android/bin/stockp2p_android.apk
+src/stockp2p_android/bin/resources.ap_
+src/stockp2p_android/bin/classes.dex
 *.class
 *.project
 *.properties
 *.apk
 *.dex
 src/stockp2p_android/bin/stockp2p_android.apk
-src/stockp2p_android/bin/resources.ap_
-src/stockp2p_android/bin/classes.dex

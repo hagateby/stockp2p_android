@@ -68,7 +68,7 @@ public class ScrollDatePicker extends Dialog implements OnTouchListener {
 
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		this.setContentView(R.layout.common_dialog_datepicker_scroll);
+		this.setContentView(R.layout.common_dialog_datepicker);
 		btnClose = (ImageButton) findViewById(R.id.imgbtnClose);
 		btnOk = (ImageButton) findViewById(R.id.imgbtnOk);
 		this.yearWheel = (WheelView) findViewById(R.id.year);

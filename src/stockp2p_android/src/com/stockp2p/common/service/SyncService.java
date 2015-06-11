@@ -17,9 +17,7 @@ public class SyncService extends IntentService {
 		Log.i("测试", "onCreate");
 		
 		try {
-//			new OnlineCustomerServiceLogin().init(this); //登录在线客服
-			new JsonToDb().convert(this); //在线更新数据
-			
+			new JsonToDb().convert(this); //在线更新数据			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

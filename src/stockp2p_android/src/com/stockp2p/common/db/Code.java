@@ -59,6 +59,28 @@ public class Code {
 		return idList;
 	}
 
+	public static ArrayList<String> findAllId(SQLiteDatabase db,String codetype) {
+		Cursor cursor = db.query("code", new String[] { "codetype", "code",
+				"codename", "id" }, "codetype = " + codetype, null,
+				null, null, "id asc");
+		
+		int counts = cursor.getCount();
+		if (counts == 0 || !cursor.moveToFirst()) {
+			return null;
+		}
+		ArrayList<String> idList = new ArrayList<String>();
+		for (int i = 0; i < counts; i++) {
+			
+			idList.add(cursor.getString(cursor.getColumnIndex("code")));
+			cursor.moveToNext();
+		}
+		if (cursor != null) {
+			cursor.close();
+			cursor = null;
+		}
+		return idList;
+	}
+	
 	public static ArrayList<Code> findAllBank(SQLiteDatabase db,
 			ArrayList<Code> bankList) {
 		Cursor cursor = db.query("code", new String[] { "code", "codename" },

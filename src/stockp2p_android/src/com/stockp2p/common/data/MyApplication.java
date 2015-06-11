@@ -22,7 +22,10 @@ import com.lidroid.xutils.HttpUtils;
 import com.stockp2p.common.cache.UserInfoManager;
 import com.stockp2p.common.db.Channel;
 import com.stockp2p.common.db.Content;
+import com.stockp2p.common.db.DBManager;
 import com.stockp2p.common.db.Network;
+import com.stockp2p.common.util.TipUitls;
+import com.stockp2p.common.util.PubFun;
 
 
 //import dalvik.system.VMRuntime;
@@ -99,9 +102,12 @@ public class MyApplication extends FrontiaApplication {
 		// 捕获错误 log
 		CrashHandler crashHandler = CrashHandler.getInstance();
 		crashHandler.init(this);
+		
 	
 	}
 
+
+	
 	// 常用事件监听，用来处理日常的网络错误，授权验证错误等
 	private static MyApplication myApplication = null;
 
@@ -138,6 +144,7 @@ public class MyApplication extends FrontiaApplication {
 	private int screen_height;
 
 	public static SQLiteDatabase getdb(){
+
 		 return myApplication.db;	
 	}
 	

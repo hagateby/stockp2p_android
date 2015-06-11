@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/common_bg"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="17.0dip"
+        android:layout_marginRight="17.0dip"
+        android:layout_marginTop="9.0dip" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@null"
+            android:src="@drawable/head_default" />
+
+        <TextView
+            style="@style/customStyle.DarkGreen_51"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="手机号快速注册" />
+    </RelativeLayout>
+
+    <EditText
+        android:id="@id/editMobile"
+        style="@style/customStyle.DarkGreen_51"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/simple_edit_height"
+        android:layout_marginLeft="17.0dip"
+        android:layout_marginRight="17.0dip"
+        android:layout_marginTop="11.0dip"
+        android:background="@drawable/round_corner_rectangle_white_background"
+        android:drawableLeft="@drawable/icon_mobile"
+        android:drawablePadding="10.0dip"
+        android:hint="@string/register_input_phone"
+        android:inputType="number"
+        android:maxLength="11"
+        android:padding="8.0dip"
+        android:textColorHint="@color/hint_color" />
+
+    <!-- 验证码 -->
+     <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="17.0dip"
+        android:layout_marginRight="17.0dip"
+        android:layout_marginTop="11.0dip"
+        android:orientation="horizontal" >
+
+        <EditText
+            android:id="@id/edtValidateCode"
+            style="@style/customStyle.DarkGreen_51"
+            android:layout_width="0.0dip"
+            android:layout_height="@dimen/simple_edit_height"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1.0"
+            android:background="@drawable/round_corner_rectangle_white_background"
+            android:hint="@string/plz_input_smscode"
+            android:padding="8.0dip"
+            android:textColorHint="@color/hint_color" />
+
+        <Button
+            android:id="@id/btnRetry"
+            style="@style/customStyle.White_51"
+            android:layout_width="110.0dip"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="13.0dip"
+            android:background="@drawable/button_blue_bg_selector"
+            android:enabled="false"
+            android:gravity="center"
+            android:text="@string/retry_validate_code" />
+    </LinearLayout>
+    
+    <!-- 协议 -->
+    <LinearLayout
+        android:id="@id/contract_area"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="17.0dip"
+        android:layout_marginRight="17.0dip"
+        android:layout_marginTop="17.0dip"
+        android:orientation="horizontal" >
+
+        <ToggleButton
+            android:id="@id/contract_accept_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:background="@null"
+            android:checked="true"
+            android:drawableLeft="@drawable/contract_selector"
+            android:textOff=""
+            android:textOn="" />
+
+        <TextView
+            android:id="@id/contracts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8.0dip" />
+    </LinearLayout>
+
+
+   <!-- 确认 --> 
+    <Button
+        android:id="@id/btnPhone"
+        style="@style/customStyle.White_51"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/button_height"
+        android:layout_marginLeft="17.0dip"
+        android:layout_marginRight="17.0dip"
+        android:layout_marginTop="12.0dip"
+        android:background="@drawable/button_blue_bg_selector"
+        android:gravity="center"
+        android:text="快速注册" />
+
+</LinearLayout>
