@@ -5,6 +5,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import com.stockp2p.common.db.FrameWork_Frame;
+
 
 public class Constants {
 
@@ -12,7 +14,7 @@ public class Constants {
 	public static int runCount = 0;
 	public static final int TIMEOUT = 10000;// setting the timeout for 10
 
-	public static final String NAMESPACE = "zsxh.newchinalife.com";// the
+	public static final String NAMESPACE = "stockp2p.com";// the
 																					// single																	// access
 	public static final String NAMESPACEWSSE = "http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd";
 	public static final String NAMESPACEWSU = "http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd";
@@ -105,11 +107,11 @@ public class Constants {
 	/**
 	 * 底栏要显示的模块
 	 */
-	public static List<Framework> moduleList;
+	public static List<FrameWork_Frame> moduleList;
 	/**
 	 * 记录从哪登录的 当用户被挤掉后用到
 	 */
-	public static Framework staticFramework;
+	public static FrameWork_Frame staticFramework;
 	/**
 	 * 记录是否版本更新过
 	 */

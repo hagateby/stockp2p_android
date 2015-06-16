@@ -188,7 +188,7 @@ public class RegisterActivity extends BaseFragmentActivity {
 		et_username = (ClearEditText) findViewById(R.id.et_username);
 		et_userpassword = (ClearEditText) findViewById(R.id.et_userpassword);
 		et_affirmpassword = (ClearEditText) findViewById(R.id.et_affirmpassword);
-		spinner_area = (Spinner) findViewById(R.id.spinner_area);
+		
 		et_email = (ClearEditText) findViewById(R.id.et_email);
 		et_telphone = (ClearEditText) findViewById(R.id.et_telphone);
 		check_isAgree = (CheckBox) findViewById(R.id.check_isAgree);
@@ -199,7 +199,7 @@ public class RegisterActivity extends BaseFragmentActivity {
 		testGetCode = (Button) findViewById(R.id.test);
 
 		negotiate.setText(Html
-				.fromHtml("我已经查看并同意《<font color=blue>新华保险网站协议</font>》"));
+				.fromHtml("我已经查看并同意《<font color=blue>网站协议</font>》"));
 
 		// 初始化数据
 		areaList = Area.queryArea(myApplication.db);

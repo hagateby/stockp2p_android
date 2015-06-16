@@ -19,7 +19,7 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 
 import com.stockp2p.R;
-import com.stockp2p.common.data.Framework;
+import com.stockp2p.common.db.FrameWork_Frame;
 import com.stockp2p.common.view.CommonDialog;
 import com.stockp2p.framework.baseframe.BaseFragment;
 import com.stockp2p.framework.baseframe.BaseFragmentActivity;

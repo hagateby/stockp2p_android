@@ -26,9 +26,9 @@ import com.lidroid.xutils.BitmapUtils;
 import com.lidroid.xutils.bitmap.BitmapDisplayConfig;
 import com.stockp2p.R;
 import com.stockp2p.common.data.Constants;
-import com.stockp2p.common.data.Framework;
 import com.stockp2p.common.data.MyApplication;
 import com.stockp2p.common.db.DBManager;
+import com.stockp2p.common.db.FrameWork_Frame;
 import com.stockp2p.framework.baseframe.BaseFragment;
 
 public class PubFun {
@@ -202,7 +202,7 @@ public static String getimageDownloadUrl() {
 	/*
 	 * 
 	 * */
-	public static void printFrames(String TAG,  ArrayList<Framework> frameworks)
+	public static void printFrames(String TAG,  ArrayList<FrameWork_Frame> frameworks)
 	{
 		TipUitls.Log(TAG, "frameworks----->size:"  +frameworks.size() );
 		for(int i=0 ;i < frameworks.size();i++)

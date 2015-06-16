@@ -11,19 +11,15 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-
 import android.content.Context;
 import android.content.res.AssetManager;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.os.Environment;
-import android.os.Handler;
 import android.util.Log;
-
-import com.stockp2p.common.data.Constants;
 import com.stockp2p.common.data.MyApplication;
-import com.stockp2p.common.db.LocalFileDesc;
+import com.stockp2p.common.db.FrameWork_LocalFileDesc;
+import com.stockp2p.common.db.FrameWork_LocalFileDesc_DAO;
 
 public class AsyncFileSeviceToLocal {
 
@@ -57,7 +53,7 @@ public class AsyncFileSeviceToLocal {
 		
 		db = myApplication.db;
 
-		ArrayList<LocalFileDesc> images = LocalFileDesc.findAllAsynFileByVervsion(db);
+		ArrayList<FrameWork_LocalFileDesc> images = FrameWork_LocalFileDesc_DAO.findAllAsynFileByVervsion(db);
 		
 		filedir = new File(IMAGE_PATH);
 		

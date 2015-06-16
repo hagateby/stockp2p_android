@@ -229,8 +229,9 @@ public class LoginActicity extends BaseFragmentActivity {
 		map.put("loginId", loginId_account);		
 		map.put("password", passwordDigest);
 		String mapString = JSON.toJSONString(map);
-		 //lwh loginRequest(mapString);
 		testlogin();
+		// LWH loginRequest(mapString);
+
 	}
 
 	private void loginRequest(String str) {	

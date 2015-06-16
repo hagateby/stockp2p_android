@@ -21,12 +21,12 @@ import android.widget.RadioGroup.OnCheckedChangeListener;
 import com.stockp2p.R;
 import com.stockp2p.common.cache.UserInfoManager;
 import com.stockp2p.common.data.Constants;
-import com.stockp2p.common.data.Framework;
+import com.stockp2p.common.db.FrameWork_Frame;
+import com.stockp2p.common.db.FrameWork_Frame_DAO;
 import com.stockp2p.common.util.TipUitls;
 import com.stockp2p.common.util.PubFun;
 import com.stockp2p.common.view.CommonDialog;
 import com.stockp2p.components.login.LoginActicity;
-import com.stockp2p.framework.Frameworkdate;
 
 public class MainToolsBar extends BaseFragment {
 	private static final String TAG = "MainToolsBar";
@@ -50,7 +50,7 @@ public class MainToolsBar extends BaseFragment {
 	
 	private String isExit2 = "true";
 	
-	protected Framework framework_;
+	protected FrameWork_Frame framework_;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -68,7 +68,7 @@ public class MainToolsBar extends BaseFragment {
 
 	private void initBottomBarStatus() {
 		if (Constants.moduleList == null) {
-			Constants.moduleList = Frameworkdate.findByParentId(
+			Constants.moduleList = FrameWork_Frame_DAO.findByParentId(
 					myApplication.db, "0", context);
 		}
         //如果是登录页面

@@ -46,13 +46,14 @@ import com.lidroid.xutils.util.LogUtils;
 import com.stockp2p.R;
 import com.stockp2p.common.cache.UserInfoManager;
 import com.stockp2p.common.data.Constants;
-import com.stockp2p.common.data.Framework;
 import com.stockp2p.common.data.MyApplication;
 import com.stockp2p.common.data.MySetting;
 import com.stockp2p.common.data.ScreenObserver;
 import com.stockp2p.common.data.UpdateDownloadManger;
 import com.stockp2p.common.data.ScreenObserver.observerScreenStateUpdateListener;
 import com.stockp2p.common.db.DBManager;
+import com.stockp2p.common.db.FrameWork_Frame;
+import com.stockp2p.common.db.FrameWork_Frame_DAO;
 import com.stockp2p.common.db.Version;
 
 import com.stockp2p.common.util.ExitApplication;
@@ -62,7 +63,6 @@ import com.stockp2p.common.util.TipUitls;
 import com.stockp2p.common.util.PubFun;
 
 import com.stockp2p.components.login.LoginActicity;
-import com.stockp2p.framework.Frameworkdate;
 import com.stockp2p.framework.SetActivity;
 
 
@@ -74,7 +74,7 @@ public class BaseFragmentActivity extends FragmentActivity {
 	protected MyApplication myApplication;
 	protected FragmentActivity context = this;
 	private ScreenObserver mScreenObserver;
-	protected Framework framework_;
+	protected FrameWork_Frame framework_;
 	/**
 	 * isExit != null时显示底栏 isExit 值为 true 返回退出应用 isExit 值为 false 返回上一页面
 	 */
@@ -119,9 +119,9 @@ public class BaseFragmentActivity extends FragmentActivity {
 		setContentView(R.layout.framework_base_activity);
 
 		if (getIntent() != null) {
-			if ((Framework) getIntent().getParcelableExtra("framework") != null) {
+			if ((FrameWork_Frame) getIntent().getParcelableExtra("framework") != null) {
 				// 传递进的组件
-				framework_ = (Framework) getIntent().getParcelableExtra(
+				framework_ = (FrameWork_Frame) getIntent().getParcelableExtra(
 						"framework");
 				TipUitls.Log(TAG, "要跳进的组件名---->" + framework_.getModuleName());
 			}
@@ -159,7 +159,7 @@ public class BaseFragmentActivity extends FragmentActivity {
 
 	private void initBottomBarStatus() {
 		if (Constants.moduleList == null) {
-			Constants.moduleList = Frameworkdate.findByParentId(
+			Constants.moduleList = FrameWork_Frame_DAO.findByParentId(
 					myApplication.db, "0", context);
 		}
         //如果是登录页面

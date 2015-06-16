@@ -25,15 +25,16 @@ import android.widget.LinearLayout;
 
 import com.lidroid.xutils.bitmap.BitmapDisplayConfig;
 import com.stockp2p.R;
-import com.stockp2p.common.data.Framework;
 import com.stockp2p.common.data.MyApplication;
-import com.stockp2p.common.db.LocalFileDesc;
+import com.stockp2p.common.db.FrameWork_Frame_DAO;
+import com.stockp2p.common.db.FrameWork_LocalFileDesc;
+import com.stockp2p.common.db.FrameWork_LocalFileDesc_DAO;
+import com.stockp2p.common.db.FrameWork_Frame;
 import com.stockp2p.common.util.SYSTEMCONST;
 import com.stockp2p.common.util.TipUitls;
 import com.stockp2p.common.util.PubFun;
 import com.stockp2p.common.view.CommonDialog;
 
-import com.stockp2p.framework.Frameworkdate;
 import com.stockp2p.framework.baseframe.BaseFragment;
 import com.stockp2p.framework.baseframe.Manager;
 import com.stockp2p.framework.layoutmodules.chkboardmodule.MenuColumn;
@@ -45,7 +46,7 @@ public class BannerBoard  extends BaseFragment {
 	private com.lidroid.xutils.BitmapUtils bitmapUtils;
 	private ViewPager viewPager;
 	private String downurl;
-	private ArrayList<LocalFileDesc> lstBannerImage;
+	private ArrayList<FrameWork_LocalFileDesc> lstBannerImage;
 	private ArrayList<View> dots;// 广告栏指示点
 	private AdAdapter adAdapter;// 广告adapter
 	private int oldPostion = 0;// 原先位置
@@ -116,7 +117,7 @@ public class BannerBoard  extends BaseFragment {
 		}
        
 		
-		 lstBannerImage = LocalFileDesc.findByContentId(myApplication.db,SYSTEMCONST.LOCALFILEDESC_GROUPCODE_BANNER);
+	    lstBannerImage = FrameWork_LocalFileDesc_DAO.findByFileCode(myApplication.db,SYSTEMCONST.LOCALFILEDESC_GROUPCODE_BANNER);
 		
 		imgecount =lstBannerImage.size();
 		// 广告栏

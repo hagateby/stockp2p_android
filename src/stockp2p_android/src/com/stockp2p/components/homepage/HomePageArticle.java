@@ -17,8 +17,8 @@ import android.webkit.WebView;
 
 import com.lidroid.xutils.bitmap.BitmapDisplayConfig;
 import com.stockp2p.R;
-import com.stockp2p.common.data.Framework;
 import com.stockp2p.common.data.MyApplication;
+import com.stockp2p.common.db.FrameWork_Frame;
 import com.stockp2p.common.view.CommonDialog;
 import com.stockp2p.framework.baseframe.BaseFragment;
 import com.stockp2p.framework.layoutmodules.bannermodule.BannerBoard;
@@ -36,7 +36,7 @@ public class HomePageArticle  extends BaseFragment {
 
 	/** 浮动按钮 **/
 
-	private ArrayList<Framework> frameworks;
+	private ArrayList<FrameWork_Frame> frameworks;
 
 	Handler AdHandler = new Handler() {
 

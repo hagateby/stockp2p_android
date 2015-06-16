@@ -9,7 +9,7 @@ import android.widget.Toast;
 
 import com.stockp2p.R;
 import com.stockp2p.common.cache.UserInfoManager;
-import com.stockp2p.common.data.Framework;
+import com.stockp2p.common.db.FrameWork_Frame;
 import com.stockp2p.common.util.TipUitls;
 import com.stockp2p.components.login.LoginActicity;
 import com.stockp2p.framework.ListModulesActivity;
@@ -28,7 +28,7 @@ public class Manager extends BaseFragment {
 	 * @param context
 	 * @param framework
 	 */
-	public static void branch(FragmentActivity context, Framework framework) {
+	public static void branch(FragmentActivity context, FrameWork_Frame framework) {
 
 		FragmentManager thisManager = context.getSupportFragmentManager();
 
@@ -98,7 +98,7 @@ public class Manager extends BaseFragment {
 	 */
 	
 	private static Class toActivity(FragmentActivity context,
-			Framework framework) throws Exception {
+			FrameWork_Frame framework) throws Exception {
 		Class activity = Class.forName(  framework.getPackageName());
 		return activity;
 

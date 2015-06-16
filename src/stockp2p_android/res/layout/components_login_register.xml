@@ -154,10 +154,13 @@
                 android:text="所在地区"
                 android:textColor="@color/black" />
 
-            <Spinner
-                android:id="@+id/spinner_area"
-                style="@style/applicant_spinner_new"
-                android:hint="所在地区:" />
+            <com.stockp2p.common.view.ClearEditText
+                android:id="@+id/et_email"
+                style="@style/register_style_new"
+                android:hint="例如xx@xx.com"
+                android:singleLine="true"
+                android:textColor="@color/black"
+                android:textSize="15dp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -351,7 +354,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_toRightOf="@id/check_isAgree"
-                android:text="我已经查看并同意&lt;新华保险网站协议>"
+                android:text="我已经查看并同意&lt;网站协议>"
                 android:textColor="@color/black"
                 android:textSize="13sp" />
         </LinearLayout>

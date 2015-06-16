@@ -34,11 +34,11 @@ import android.widget.LinearLayout;
 
 import com.lidroid.xutils.bitmap.BitmapDisplayConfig;
 import com.stockp2p.R;
-import com.stockp2p.common.data.Framework;
 import com.stockp2p.common.data.MyApplication;
+import com.stockp2p.common.db.FrameWork_Frame;
+import com.stockp2p.common.db.FrameWork_Frame_DAO;
 import com.stockp2p.common.util.TipUitls;
 import com.stockp2p.common.view.CommonDialog;
-import com.stockp2p.framework.Frameworkdate;
 import com.stockp2p.framework.baseframe.BaseFragment;
 import com.stockp2p.framework.baseframe.Manager;
 
@@ -70,7 +70,7 @@ public class Billboards extends BaseFragment {
 
 	/** 浮动按钮 **/
 	
-	private ArrayList<Framework> frameworks;
+	private ArrayList<FrameWork_Frame> frameworks;
 
 	Handler AdHandler = new Handler() {
 
@@ -144,11 +144,11 @@ public class Billboards extends BaseFragment {
 	public void init(View view, String title) {
 		// TODO Auto-generated method stub
 		super.init(view, title);
-		frameworks = (ArrayList<Framework>) Frameworkdate.findByParentId(
+		frameworks = (ArrayList<FrameWork_Frame>) FrameWork_Frame_DAO.findByParentId(
 				myApplication.db, "999", context);
 
 		if (frameworks.size() == 0) {
-			frameworks.add(new Framework());
+			frameworks.add(new FrameWork_Frame());
 		}
 		TipUitls.Log(TAG, "frameworks----->" + frameworks.size());
 

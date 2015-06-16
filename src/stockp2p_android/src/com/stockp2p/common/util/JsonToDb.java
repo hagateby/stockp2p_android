@@ -17,13 +17,13 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.lidroid.xutils.util.LogUtils;
 import com.stockp2p.common.data.Constants;
-import com.stockp2p.common.data.Framework;
 import com.stockp2p.common.data.MyApplication;
 import com.stockp2p.common.db.Channel;
 import com.stockp2p.common.db.CodeType;
 import com.stockp2p.common.db.Content;
 import com.stockp2p.common.db.DBManager;
-import com.stockp2p.common.db.LocalFileDesc;
+import com.stockp2p.common.db.FrameWork_LocalFileDesc;
+import com.stockp2p.common.db.FrameWork_Frame;
 import com.stockp2p.common.db.Network;
 import com.stockp2p.common.db.Region;
 import com.stockp2p.common.db.Version;
@@ -51,11 +51,11 @@ public class JsonToDb {
 	/**
 	 * 图片表
 	 */
-	protected List<LocalFileDesc> image;
+	protected List<FrameWork_LocalFileDesc> localfile;
 	/**
 	 * 框架表
 	 */
-	protected List<Framework> moduleList;
+	protected List<FrameWork_Frame> moduleList;
 	/**
 	 * 网点表
 	 */
@@ -135,11 +135,11 @@ public class JsonToDb {
 						content = JSONArray.parseArray(
 								object.getString("Content"), Content.class);
 						// Image表
-						image = JSONArray.parseArray(object.getString("Image"),
-								LocalFileDesc.class);
+						localfile = JSONArray.parseArray(object.getString("Image"),
+								FrameWork_LocalFileDesc.class);
 						// Framework表
 						moduleList = JSONArray.parseArray(
-								object.getString("ModuleList"), Framework.class);
+								object.getString("ModuleList"), FrameWork_Frame.class);
 						// Network表
 						network = JSONArray.parseArray(
 								object.getString("Network"), Network.class);
@@ -269,9 +269,9 @@ public class JsonToDb {
 
 			
 
-			TipUitls.Log(TAG, "image------>" + image);
-			if (image != null) {
-				for (LocalFileDesc imageObject : image) {
+			TipUitls.Log(TAG, "image------>" + localfile);
+			if (localfile != null) {
+				for (FrameWork_LocalFileDesc imageObject : localfile) {
 					ContentValues cv = new ContentValues();
 					cv.put("id", imageObject.getId());
 					cv.put("GroupCode", imageObject.getGroupCode());
@@ -284,7 +284,7 @@ public class JsonToDb {
 					cv.put("FileType", imageObject.getFileType());
 					cv.put("Order", imageObject.getOrder());
 					cv.put("Remark", imageObject.getRemark());
-					cv.put("ContentId", imageObject.getContentId());
+					cv.put("FileCode", imageObject.getFileCode());
 					
 					if (imageObject.getOpeFlag().equals("c")) {
 						db.delete("image", "imageName = ?",
@@ -303,7 +303,7 @@ public class JsonToDb {
 			TipUitls.Log(TAG,
 					"Framework------>" + JSON.toJSONString(moduleList));
 			if (moduleList != null) {
-				for (Framework framework : moduleList) {
+				for (FrameWork_Frame framework : moduleList) {
 					ContentValues cv = new ContentValues();
 					cv.put("iconName", framework.getIconName());
 					cv.put("thumbnailName", framework.getThumbnailName());

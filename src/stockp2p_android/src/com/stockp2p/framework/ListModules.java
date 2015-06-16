@@ -32,8 +32,9 @@ import com.lidroid.xutils.view.annotation.event.OnItemClick;
 import com.stockp2p.R;
 import com.stockp2p.common.cache.UserInfoManager;
 import com.stockp2p.common.data.Constants;
-import com.stockp2p.common.data.Framework;
 import com.stockp2p.common.data.MyApplication;
+import com.stockp2p.common.db.FrameWork_Frame;
+import com.stockp2p.common.db.FrameWork_Frame_DAO;
 import com.stockp2p.common.util.TipUitls;
 import com.stockp2p.components.login.LoginActicity;
 import com.stockp2p.framework.baseframe.BaseFragment;
@@ -46,9 +47,9 @@ public class ListModules extends BaseFragment {
 	@ViewInject(R.id.list_modules_lv_listview)
 	private ListView listview;
 	private View thisView;
-	private List<Framework> moduleList;
+	private List<FrameWork_Frame> moduleList;
 	private MyAdapter adapter;
-	private Framework framework;
+	private FrameWork_Frame framework;
 
 	private SQLiteDatabase db;
 	private String code;
@@ -79,7 +80,7 @@ public class ListModules extends BaseFragment {
 		
 	}
 	
-	public ListModules(Framework framework) {
+	public ListModules(FrameWork_Frame framework) {
 		System.out.println("ListModules(Framework framework)");
 		this.framework = framework;
 	}
@@ -125,7 +126,7 @@ public class ListModules extends BaseFragment {
 	public void init(View view, String title) {
 		// TODO Auto-generated method stub
 		super.init(view, title);
-		moduleList = Frameworkdate.findByParentId(myApplication.db,
+		moduleList = FrameWork_Frame_DAO.findByParentId(myApplication.db,
 				framework.getModuleId(), context);
 		adapter = new MyAdapter(getActivity());
 		System.out.println("listview.getHeaderViewsCount(--->"+listview.getHeaderViewsCount());

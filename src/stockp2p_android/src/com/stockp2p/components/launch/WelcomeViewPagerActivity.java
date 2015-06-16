@@ -35,12 +35,12 @@ import com.stockp2p.R;
 import com.stockp2p.common.data.Constants;
 import com.stockp2p.common.data.MyApplication;
 import com.stockp2p.common.db.DBManager;
+import com.stockp2p.common.db.FrameWork_Frame_DAO;
 import com.stockp2p.common.service.SyncService;
 import com.stockp2p.common.util.CommonUtil;
 import com.stockp2p.common.util.TipUitls;
 import com.stockp2p.common.util.PubFun;
 import com.stockp2p.components.login.LoginActicity;
-import com.stockp2p.framework.Frameworkdate;
 import com.stockp2p.framework.baseframe.Manager;
 
 
@@ -133,7 +133,7 @@ public class WelcomeViewPagerActivity extends FragmentActivity {
 
 		startBaiduPush();
 
-		Constants.moduleList = Frameworkdate.findByParentId(db, "0", this);
+		Constants.moduleList = FrameWork_Frame_DAO.findByParentId(db, "0", this);
 
 
 		//检查版本

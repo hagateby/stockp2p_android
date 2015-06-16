@@ -37,19 +37,19 @@ import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.bitmap.BitmapDisplayConfig;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.stockp2p.R;
-import com.stockp2p.common.data.Framework;
 import com.stockp2p.common.data.MyApplication;
+import com.stockp2p.common.db.FrameWork_Frame;
+import com.stockp2p.common.db.FrameWork_Frame_DAO;
 import com.stockp2p.common.util.FilesUtil;
 import com.stockp2p.common.view.LPPageControlView;
 import com.stockp2p.common.view.LPScrollLayout;
-import com.stockp2p.framework.Frameworkdate;
 import com.stockp2p.framework.baseframe.BaseFragment;
 import com.stockp2p.framework.baseframe.Manager;
 
 @SuppressLint("ValidFragment")
 public class MenuColumn extends BaseFragment {
 
-	List<Framework> menuList;
+	List<FrameWork_Frame> menuList;
 	private View thisView;
 	final static int PAGE_SIZE = 12;// 每页显示菜单总数
 	final static int NUM_LINES = 4;// 每页显示几行
@@ -58,7 +58,7 @@ public class MenuColumn extends BaseFragment {
 
 	@ViewInject(R.id.menu_column_lps_container)
 	private LPScrollLayout sLayout;
-	private Framework framework;
+	private FrameWork_Frame framework;
 	/**
 	 * 标题栏
 	 */
@@ -147,7 +147,7 @@ public class MenuColumn extends BaseFragment {
 			
 		}
 		// 加载数据
-		menuList = Frameworkdate
+		menuList = FrameWork_Frame_DAO
 				.findByFixedPage(myApplication.db, "1", context);
 		if (menuList == null) {
 			return;
@@ -169,7 +169,7 @@ public class MenuColumn extends BaseFragment {
 
 		}
 		*/
-		menuList.addAll(Frameworkdate.findByModuleId(myApplication.db, "99",
+		menuList.addAll(FrameWork_Frame_DAO.findByModuleId(myApplication.db, "99",
 				context));
 
 		// 一共要显示 pageNo 页 每页为一个 gridView
@@ -197,7 +197,7 @@ public class MenuColumn extends BaseFragment {
 					int position = arg2 + PAGE_SIZE * index;// 点击的菜单所在页面
 					if (isLongpressed == true
 							&& !"1".equals(menuList.get(position).fixedPage)) {
-						Framework framework = menuList.get(position);
+						FrameWork_Frame framework = menuList.get(position);
 						myApplication.perList.remove(JSON.toJSON(framework));
 						FilesUtil.writeFiles(getActivity(), "module",
 								JSON.toJSONString(myApplication.perList));
@@ -261,13 +261,13 @@ public class MenuColumn extends BaseFragment {
 
 	private class MenuAdapter extends BaseAdapter {
 
-		private ArrayList<Framework> modules;
+		private ArrayList<FrameWork_Frame> modules;
 		private Bitmap bitmap;
 		private InputStream is;
 
 		public MenuAdapter(int pageNo) {
 			// 每页 modules 只取PAGE_SIZE个菜单
-			modules = new ArrayList<Framework>();
+			modules = new ArrayList<FrameWork_Frame>();
 			int i = pageNo * PAGE_SIZE;
 			int iEnd = i + PAGE_SIZE;
 			while ((i < menuList.size()) && (i < iEnd)) {

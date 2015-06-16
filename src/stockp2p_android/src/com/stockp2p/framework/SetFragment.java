@@ -26,10 +26,10 @@ import com.lidroid.xutils.http.ResponseInfo;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.stockp2p.R;
 import com.stockp2p.common.cache.UserInfoManager;
-import com.stockp2p.common.data.Framework;
 import com.stockp2p.common.data.MyApplication;
 import com.stockp2p.common.data.MySetting;
 import com.stockp2p.common.data.UpdateDownloadManger;
+import com.stockp2p.common.db.FrameWork_Frame;
 import com.stockp2p.common.db.Version;
 import com.stockp2p.common.ifinvoke.Des3;
 import com.stockp2p.common.ifinvoke.EnginCallback;
@@ -95,9 +95,9 @@ public class SetFragment extends BaseFragment {
 	private MyApplication myApplication;
 	boolean login;
 	private View thisView;
-	private Framework framework;
+	private FrameWork_Frame framework;
 
-	public SetFragment(Framework framework) {
+	public SetFragment(FrameWork_Frame framework) {
 		this.framework = framework;
 	}
 
