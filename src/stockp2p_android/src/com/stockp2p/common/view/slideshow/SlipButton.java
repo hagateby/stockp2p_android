@@ -1,4 +1,4 @@
-package com.stockp2p.common.view;
+package com.stockp2p.common.view.slideshow;
 
 import android.content.Context;
 import android.graphics.Bitmap;

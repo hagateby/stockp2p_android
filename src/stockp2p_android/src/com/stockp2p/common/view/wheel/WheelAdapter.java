@@ -14,7 +14,7 @@
  *  limitations under the License.
  */
 
-package com.stockp2p.common.view;
+package com.stockp2p.common.view.wheel;
 
 public interface WheelAdapter {
 	/**

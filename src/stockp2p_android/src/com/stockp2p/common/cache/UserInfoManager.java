@@ -1,5 +1,7 @@
 package com.stockp2p.common.cache;
 
+import com.alibaba.fastjson.JSONObject;
+
 import android.support.v4.app.FragmentActivity;
 
 /**
@@ -9,24 +11,6 @@ import android.support.v4.app.FragmentActivity;
  * 
  */
 public class UserInfoManager {
-
-	private UserInfoManager() {
-
-	}
-
-	private static UserInfoManager loginManager = null;
-
-	/**
-	 * 获取登录信息
-	 * 
-	 * @return
-	 */
-	public static UserInfoManager getInstance() {
-		if (loginManager == null) {
-			loginManager = new UserInfoManager();
-		}
-		return loginManager;
-	}
 
 	private String sessionId = "";
 	private String cid = "";
@@ -49,6 +33,26 @@ public class UserInfoManager {
 	private String telePhone;// 固话
 	private String policyCount = "";// 已关联保单数量
 	private String loginDate = "";// 登录时间
+	
+	private UserInfoManager() {
+
+	}
+
+	private static UserInfoManager loginManager = null;
+
+	/**
+	 * 获取登录信息
+	 * 
+	 * @return
+	 */
+	public static UserInfoManager getInstance() {
+		if (loginManager == null) {
+			loginManager = new UserInfoManager();
+		}
+		return loginManager;
+	}
+
+	
 
 	public String getPolicyCount() {
 		return policyCount;
@@ -252,5 +256,34 @@ public class UserInfoManager {
 	public void setBindingMobile(String bindingMobile) {
 		this.bindingMobile = bindingMobile;
 	}
+	
+	
+	public static void setUserInfo(JSONObject user, String resultCode,
+			String resultMsg) {
+
+		UserInfoManager userInfo = UserInfoManager.getInstance();
+		userInfo.setResultCode(resultCode);
+		userInfo.setResultMsg(resultMsg);
+		userInfo.setCid(user.getString("cid"));
+		userInfo.setSessionId(user.getString("sessionId"));
+		userInfo.setBindingMobile(user.getString("bindingMobile"));
+		userInfo.setBindingState(user.getString("bindingState"));
+		userInfo.setNickName(user.getString("nickName"));
+		//userInfo.setPassword(passwordDigest);
+		userInfo.setSex(user.getString("sex"));
+		userInfo.setBirthday(user.getString("birthday"));
+		userInfo.setEmail(user.getString("email"));
+		userInfo.setProvince(user.getString("province"));
+		userInfo.setAddress(user.getString("address"));
+		userInfo.setZipCode(user.getString("zipCode"));
+		userInfo.setMobile(user.getString("mobile"));
+		userInfo.setTelePhone(user.getString("telePhone"));
+		userInfo.setUserName(user.getString("userName"));
+		userInfo.setLoginDate(user.getString("loginDate"));
+		userInfo.setPolicyCount(user.getString("policyCount"));
+		userInfo.setLoginType("m");
+	
+	}
+	
 
 }

@@ -25,7 +25,7 @@
             android:layout_centerInParent="true"
             android:text="手机号快速注册" />
     </RelativeLayout>
-
+  <!-- 手机号 -->
     <EditText
         android:id="@id/editMobile"
         style="@style/customStyle.DarkGreen_51"
@@ -37,12 +37,45 @@
         android:background="@drawable/round_corner_rectangle_white_background"
         android:drawableLeft="@drawable/icon_mobile"
         android:drawablePadding="10.0dip"
-        android:hint="@string/register_input_phone"
+        android:hint="请输入您的手机号码"
         android:inputType="number"
         android:maxLength="11"
         android:padding="8.0dip"
         android:textColorHint="@color/hint_color" />
-
+    <!-- 登陆密码-->  
+    <EditText
+        android:id="@id/editloginpwd"
+        style="@style/customStyle.DarkGreen_51"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/simple_edit_height"
+        android:layout_marginLeft="17.0dip"
+        android:layout_marginRight="17.0dip"
+        android:layout_marginTop="11.0dip"
+        android:background="@drawable/round_corner_rectangle_white_background"
+        android:drawableLeft="@drawable/icon_password"
+        android:drawablePadding="10.0dip"
+        android:hint="请输入您的登录密码"
+        android:inputType="number"
+        android:maxLength="11"
+        android:padding="8.0dip"
+        android:textColorHint="@color/hint_color" />
+    <!-- 重新录入登陆密码-->  
+    <EditText
+        android:id="@id/editloginpwdconfirm"
+        style="@style/customStyle.DarkGreen_51"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/simple_edit_height"
+        android:layout_marginLeft="17.0dip"
+        android:layout_marginRight="17.0dip"
+        android:layout_marginTop="11.0dip"
+        android:background="@drawable/round_corner_rectangle_white_background"
+        android:drawableLeft="@drawable/icon_password"
+        android:drawablePadding="10.0dip"
+        android:hint="请输入重新录入密码"
+        android:inputType="number"
+        android:maxLength="11"
+        android:padding="8.0dip"
+        android:textColorHint="@color/hint_color" /> 
     <!-- 验证码 -->
      <LinearLayout
         android:layout_width="fill_parent"

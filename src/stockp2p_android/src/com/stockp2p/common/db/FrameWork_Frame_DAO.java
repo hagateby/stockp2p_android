@@ -13,18 +13,18 @@ import com.stockp2p.R;
 
 public class FrameWork_Frame_DAO {
 	
-   static String[] fields =new String[] {"moduleId",
-			"parentId", "moduleName", "isMenuItem", "isAddMenuItem",
-			"moduleType", "packageName", "iconName", "imagfilecode", "thumbnailName",
-			"clickUrl", "moduleOrderby", "isVisibleOrder", "fixedPage",
-			"isVisible", "isLogin" , "group_code"} ;
+   static String[] fields =new String[] {"frameId",
+			"parentId", "frameName", "isMenuItem", "isAddMenuItem",
+			"frameType", "packageName", "iconName", "imagFileCode", "thumbnailName",
+			"clickUrl", "frameOrderby", "isVisibleOrder", "fixedPage",
+			"isVisible", "isLogin" , "groupCode","remark","layoutName","showType"} ;
 
    public static List<FrameWork_Frame> findByIsAddMenuItem(SQLiteDatabase db,
 			String isAddMenuItem, FragmentActivity context) {
 		List<FrameWork_Frame> framList = new ArrayList<FrameWork_Frame>();
 		Cursor cursor = db.query("FrameWork_Frame", fields, "isVisible =0 and isAddMenuItem ="
 				+ isAddMenuItem, null, null, null,
-				"moduleType,moduleOrderby desc");
+				"frameType,frameOrderby desc");
 		// isMenuItem=1
 		return setFrameworkdata(cursor,context);
 	}
@@ -33,7 +33,7 @@ public class FrameWork_Frame_DAO {
 			String parentId, FragmentActivity context) {
 		List<FrameWork_Frame> framList = new ArrayList<FrameWork_Frame>();
 		Cursor cursor = db.query("FrameWork_Frame", fields, "isVisible =0 and parentId" + "="
-				+ parentId, null, null, null, "moduleOrderby");
+				+ parentId, null, null, null, "frameOrderby");
 		
 		return setFrameworkdata(cursor,context);
 	}
@@ -42,7 +42,7 @@ public class FrameWork_Frame_DAO {
 			String fixedPage, FragmentActivity context) {
 		List<FrameWork_Frame> framList = new ArrayList<FrameWork_Frame>();
 		Cursor cursor = db.query("FrameWork_Frame", fields, "isVisible =0 and fixedPage" + "="
-				+ fixedPage + " and moduleId!=99", null, null, null,
+				+ fixedPage + " and frameId!=99", null, null, null,
 				"isVisibleOrder");
 	
 		 return  setFrameworkdata(cursor,context);
@@ -52,7 +52,7 @@ public class FrameWork_Frame_DAO {
 			String moduleId, FragmentActivity context) {
 		
 		Cursor cursor = db.query("FrameWork_Frame", fields, "isVisible = 0 and  moduleId" + "="
-				+ moduleId, null, null, null, "moduleOrderby");
+				+ moduleId, null, null, null, "frameOrderby");
 	
 		return  setFrameworkdata(cursor,context);
 	}
@@ -60,8 +60,8 @@ public class FrameWork_Frame_DAO {
 	public static List<FrameWork_Frame> findByGroupCode(SQLiteDatabase db,
 			String group_code, FragmentActivity context) {
 		
-		Cursor cursor = db.query("FrameWork_Frame", fields, "isVisible = 0 and  group_code" + "="
-				+ group_code, null, null, null, "moduleOrderby");
+		Cursor cursor = db.query("FrameWork_Frame", fields, "isVisible = 0 and  groupCode" + "="
+				+ group_code, null, null, null, "frameOrderby");
 	
 		return  setFrameworkdata(cursor,context);
 	}
@@ -78,18 +78,18 @@ public class FrameWork_Frame_DAO {
 		}
 		for (int i = 0; i < counts; i++) {
 			FrameWork_Frame framework = new FrameWork_Frame();
-			framework.setModuleId(cursor.getString(cursor
-					.getColumnIndex("moduleId")));
+			framework.setFrameId(cursor.getString(cursor
+					.getColumnIndex("frameId")));
 			framework.setParentId(cursor.getString(cursor
 					.getColumnIndex("parentId")));
-			framework.setModuleName(cursor.getString(cursor
-					.getColumnIndex("moduleName")));
+			framework.setFrameName(cursor.getString(cursor
+					.getColumnIndex("frameName")));
 			framework.setIsMenuItem(cursor.getString(cursor
 					.getColumnIndex("isMenuItem")));
 			framework.setIsAddMenuItem(cursor.getString(cursor
 					.getColumnIndex("isAddMenuItem")));
-			framework.setModuleType(cursor.getString(cursor
-					.getColumnIndex("moduleType")));
+			framework.setFrameType(cursor.getString(cursor
+					.getColumnIndex("frameType")));
 			framework.setPackageName(cursor.getString(cursor
 					.getColumnIndex("packageName")));
 			framework.setIconName(cursor.getString(cursor
@@ -101,7 +101,7 @@ public class FrameWork_Frame_DAO {
 			framework.setClickUrl(cursor.getString(cursor
 					.getColumnIndex("clickUrl")));
 			framework.setModuleOrderby(cursor.getString(cursor
-					.getColumnIndex("moduleOrderby")));
+					.getColumnIndex("frameOrderby")));
 			framework.setIsVisibleOrder(cursor.getString(cursor
 					.getColumnIndex("isVisibleOrder")));
 			framework.setFixedPage(cursor.getString(cursor
@@ -110,10 +110,21 @@ public class FrameWork_Frame_DAO {
 					.getColumnIndex("isVisible")));
 			framework.setIsLogin(cursor.getString(cursor
 					.getColumnIndex("isLogin")));
-			framework.setIsLogin(cursor.getString(cursor
-					.getColumnIndex("group_code")));
+			framework.setGroupCode(cursor.getString(cursor
+					.getColumnIndex("groupCode")));
 
+			framework.setImagFileCode(cursor.getString(cursor
+					.getColumnIndex("imagFileCode")));			
 			
+			framework.setRemark(cursor.getString(cursor
+					.getColumnIndex("remark")));		
+			framework.setLayoutName(cursor.getString(cursor
+					.getColumnIndex("layoutName")));	
+			framework.setShowType(cursor.getString(cursor
+					.getColumnIndex("showType")));
+			framework.setGroupCode(cursor.getString(cursor
+					.getColumnIndex("groupCode")));
+					
 			framList.add(framework);
 			cursor.moveToNext();
 		}

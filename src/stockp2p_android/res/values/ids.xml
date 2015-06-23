@@ -292,6 +292,8 @@
     <item type="id" name="edtPassWD_Confirm">false</item>
     <item type="id" name="btnRegister">false</item>
     <item type="id" name="editMobile">false</item>
+    <item type="id" name="editloginpwd">false</item>
+    <item type="id" name="editloginpwdconfirm">false</item>   
     <item type="id" name="btnPhone">false</item>
     <item type="id" name="edtValidateCode">false</item>
     <item type="id" name="btnRetry">false</item>
@@ -386,6 +388,8 @@
     <item type="id" name="logo">false</item>
     <item type="id" name="input_area">false</item>
     <item type="id" name="ciet_username">false</item>
+    <item type="id" name="et_nickename">false</item>
+
     <item type="id" name="ciet_password">false</item>
     <item type="id" name="btnLogin">false</item>
     <item type="id" name="forget_password">false</item>
@@ -522,4 +526,8 @@
     <item type="id" name="field4">false</item>
     <item type="id" name="user_salary_plan_extra_line">false</item>
     <item type="id" name="web_view">false</item>
+    <item name="id_stickynavlayout_topview" type="id"/>
+    <item name="id_stickynavlayout_viewpager" type="id"/>
+    <item name="id_stickynavlayout_indicator" type="id"/>
+    <item name="id_stickynavlayout_innerscrollview" type="id"/>
 </resources>

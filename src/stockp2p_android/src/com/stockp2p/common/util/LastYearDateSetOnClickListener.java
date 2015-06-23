@@ -3,7 +3,7 @@ package com.stockp2p.common.util;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-import com.stockp2p.common.view.ScrollDatePicker;
+import com.stockp2p.common.view.scrolldatepicker.ScrollDatePicker;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;

@@ -119,7 +119,7 @@ public class ListModules extends BaseFragment {
 	public void onResume() {
 		// TODO Auto-generated method stub
 		super.onResume();
-		init(thisView, framework.getModuleName());
+		init(thisView, framework.getFrameName());
 	}
 
 	@Override
@@ -127,7 +127,7 @@ public class ListModules extends BaseFragment {
 		// TODO Auto-generated method stub
 		super.init(view, title);
 		moduleList = FrameWork_Frame_DAO.findByParentId(myApplication.db,
-				framework.getModuleId(), context);
+				framework.getFrameId(), context);
 		adapter = new MyAdapter(getActivity());
 		System.out.println("listview.getHeaderViewsCount(--->"+listview.getHeaderViewsCount());
 		if (listview.getHeaderViewsCount() == 0) {
@@ -168,17 +168,17 @@ public class ListModules extends BaseFragment {
 		// 推送信息的数量 默认不显示
 		infor = (TextView) headView.findViewById(R.id.list_modules_tv_infor);
 
-		if ("4".equals(framework.getModuleId())) {
+		if ("4".equals(framework.getFrameId())) {
 			// 在我的保险中
 			if (!UserInfoManager.getInstance().isLogin()) {
 				// 登录前
 				picture.setVisibility(View.VISIBLE);
 				pictureLayout.setVisibility(View.GONE);
 				layoutBackground.setBackgroundResource(R.drawable.framework_bk);
-				if ("2".equals(framework.getModuleId())
+				if ("2".equals(framework.getFrameId())
 						|| "2".equals(framework.getParentId())) {
 					picture.setBackgroundResource(R.drawable.common_picture1);
-				} else if ("4".equals(framework.getModuleId())
+				} else if ("4".equals(framework.getFrameId())
 						|| "4".equals(framework.getParentId())) {
 					picture.setBackgroundResource(R.drawable.common_picture2);
 				}
@@ -197,10 +197,10 @@ public class ListModules extends BaseFragment {
 			loginButton.setVisibility(View.GONE);
 			pictureLayout.setVisibility(View.GONE);
 			layoutBackground.setBackgroundResource(R.drawable.framework_bk);
-			if ("2".equals(framework.getModuleId())
+			if ("2".equals(framework.getFrameId())
 					|| "2".equals(framework.getParentId())) {
 				picture.setBackgroundResource(R.drawable.common_picture1);
-			} else if ("4".equals(framework.getModuleId())
+			} else if ("4".equals(framework.getFrameId())
 					|| "4".equals(framework.getParentId())) {
 				picture.setBackgroundResource(R.drawable.common_picture2);
 			}
@@ -247,7 +247,7 @@ public class ListModules extends BaseFragment {
 
 		} else {
 			position = position - 1;
-			if ("1".equals(moduleList.get(position).getModuleType())) {
+			if ("1".equals(moduleList.get(position).getFrameType())) {
 				thisManager
 						.beginTransaction()
 						.replace(R.id.tab_container,
@@ -340,13 +340,13 @@ public class ListModules extends BaseFragment {
 			}
 			is = null;
 
-			viewHolder.itemTxt.setText(moduleList.get(position).moduleName);
+			viewHolder.itemTxt.setText(moduleList.get(position).frameName);
 			if (position == 0) {
 				viewHolder.itemLine.setVisibility(View.GONE);
 			} else {
 				viewHolder.itemLine.setVisibility(View.INVISIBLE);
 			}
-			if ("39".equals(moduleList.get(position).getModuleId())) {
+			if ("39".equals(moduleList.get(position).getFrameId())) {
 				System.out.println("Constants.Enum--->"+Constants.Enum);
 				if ("".equals(Constants.Enum) || Constants.Enum == null || "0".equals(Constants.Enum)) {
 					viewHolder.itemInfor.setVisibility(View.GONE);

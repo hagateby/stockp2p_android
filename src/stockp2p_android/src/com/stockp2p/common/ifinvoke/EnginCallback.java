@@ -15,9 +15,11 @@ import com.lidroid.xutils.exception.HttpException;
 import com.lidroid.xutils.http.ResponseInfo;
 import com.lidroid.xutils.http.callback.RequestCallBack;
 import com.stockp2p.common.cache.UserInfoManager;
-import com.stockp2p.common.util.ExitApplication;
+import com.stockp2p.common.util.PubFun;
+import com.stockp2p.common.util.SYSTEMCONST;
 import com.stockp2p.common.view.CommonDialog;
 import com.stockp2p.components.login.LoginActicity;
+import com.stockp2p.framework.ExitApplication;
 import com.stockp2p.framework.baseframe.BaseFragmentActivity;
 
 public class EnginCallback extends RequestCallBack {
@@ -47,12 +49,9 @@ public class EnginCallback extends RequestCallBack {
 
 		// TODO Auto-generated method stub
 		String result = "";
-		try {
-			result = Des3.decode(arg0.result.toString());
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	
+		result =PubFun.getEncryptString(arg0.result.toString());
+		
 		JSONObject obj = JSON.parseObject(result);
 		if (obj.get("ResultCode") != null
 				&& obj.get("ResultCode").toString().equals("99")) {// 请求成功

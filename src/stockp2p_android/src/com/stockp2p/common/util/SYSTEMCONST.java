@@ -14,5 +14,7 @@ public class SYSTEMCONST {
 
 	public static int LOCALFILEDESC_GROUPCODE_BANNER=1;
 	
+	public static boolean EncryptFlag =false; 
+	
 	
 }

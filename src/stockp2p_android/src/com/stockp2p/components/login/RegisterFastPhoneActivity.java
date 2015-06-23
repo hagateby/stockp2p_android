@@ -18,6 +18,7 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -56,6 +57,11 @@ public class RegisterFastPhoneActivity extends BaseFragmentActivity {
 	private CheckBox check_isAgree;
 
 	private ClearEditText et_telphone;
+	
+	private EditText et_userpassword;
+	
+	private EditText et_affirmpassword;
+	
 	private ClearEditText testdate;
 	/**
 	 * 协议
@@ -78,7 +84,7 @@ public class RegisterFastPhoneActivity extends BaseFragmentActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContainerView("快速注册", R.layout.components_login_register_phone);
+		setContainerView("修改密码", R.layout.components_login_register_phone);
 		init();
 		addListeners();
 	}
@@ -167,7 +173,11 @@ public class RegisterFastPhoneActivity extends BaseFragmentActivity {
 	private void init() {
 
 		et_telphone = (ClearEditText) findViewById(R.id.et_telphone);
-
+		
+		et_userpassword = (ClearEditText) findViewById(R.id.editloginpwd);
+		
+		et_affirmpassword = (ClearEditText) findViewById(R.id.editloginpwdconfirm);
+		
 		check_isAgree = (CheckBox) findViewById(R.id.check_isAgree);
 
 		submit = (Button) findViewById(R.id.button_submit);
@@ -178,7 +188,7 @@ public class RegisterFastPhoneActivity extends BaseFragmentActivity {
 
 		testdate = (ClearEditText) findViewById(R.id.testDate);
 
-		testGetCode = (Button) findViewById(R.id.test);
+	//	testGetCode = (Button) findViewById(R.id.test);
 
 		negotiate.setText(Html
 				.fromHtml("我已经查看并同意《<font color=blue>网站协议</font>》"));
@@ -287,8 +297,47 @@ public class RegisterFastPhoneActivity extends BaseFragmentActivity {
 
 	}
 
+	/**
+	 * 检验密码
+	 * 
+	 * @return
+	 */
+	private int checkPassword() {
+		getData();
+		int length = et_userpassword.length();
+		if (length == 0) {
+			Toast.makeText(this, "密码不能为空", 0).show();
+			return 0;
+		} else {
+			if (!CommonUtil.checkPassword(et_userpassword.toString())) {
+				Toast.makeText(this, "密码格式错误，密码长度为6至16个字符", 0).show();
+				return 1;
+			}
+		}
+		return 2;
+	}
+
+	/**
+	 * 确认用户密码是否正确
+	 */
+	private int checkAffirmPassword() {
+		getData();
+		int length = et_affirmpassword.length();
+		if (length == 0) {
+			Toast.makeText(this, "确认密码不能为空", 0).show();
+			return 0;
+		} else {
+			if (!et_affirmpassword.equals(et_userpassword)) {
+				Toast.makeText(this, "密码不一致", 0).show();
+				return 1;
+			}
+		}
+		return 2;
+	}
 	private int check1, check2, check3, check4, check5;
 
+	
+	
 	/**
 	 * 点击事件
 	 */
@@ -308,6 +357,12 @@ public class RegisterFastPhoneActivity extends BaseFragmentActivity {
 				if (userTest.length() != 4) {
 					Toast.makeText(RegisterFastPhoneActivity.this, "请输入正确验证码",
 							0).show();
+					return;
+				}
+				if (checkPassword() != 2) {
+					return;
+				}
+				if (checkAffirmPassword() != 2) {
 					return;
 				}
 				if (!isAgree) {
@@ -360,7 +415,7 @@ public class RegisterFastPhoneActivity extends BaseFragmentActivity {
 
 			}
 		});
-
+	
 		// 协议
 		negotiate.setOnClickListener(new OnClickListener() {
 
@@ -375,7 +430,7 @@ public class RegisterFastPhoneActivity extends BaseFragmentActivity {
 				 */
 			}
 		});
-
+      
 	}
 
 	private int checkTelphone() {

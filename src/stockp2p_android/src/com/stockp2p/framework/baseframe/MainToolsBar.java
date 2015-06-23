@@ -113,7 +113,7 @@ public class MainToolsBar extends BaseFragment {
 			initBottombar();
 		} else {
 			for (Integer num : index) {
-			 if ( !Constants.moduleList.get(num).getModuleId()
+			 if ( !Constants.moduleList.get(num).getFrameId()
 								.equals(framework_.getParentId())) {
 					isExit2  = "false";
 				

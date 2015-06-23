@@ -43,12 +43,12 @@ public class Manager extends BaseFragment {
 
 		} else {
 			// type
-			if ("1".equals(framework.getModuleType())) {
+			if ("1".equals(framework.getFrameType())) {
                  
 				Intent intent = new Intent(context, ListModulesActivity.class);
 				intent.putExtra("framework", framework);
 				context.startActivity(intent);
-			} else if ("2".equals(framework.getModuleType())) {
+			} else if ("2".equals(framework.getFrameType())) {
 				
 				try {
 					Intent intent = new Intent(context, toActivity(context,
@@ -59,14 +59,14 @@ public class Manager extends BaseFragment {
 					TipUitls.syso("Manager", e.toString());
 				}
 
-			} else if ("3".equals(framework.getModuleType())) {
+			} else if ("3".equals(framework.getFrameType())) {
                 //webview
 				if (framework.getClickUrl() != null) {
 					context.startActivity(new Intent(context, WebviewActivity.class)
 					.putExtra("framework", framework));
 				}
 				
-			} else if ("4".equals(framework.getModuleType())) {
+			} else if ("4".equals(framework.getFrameType())) {
 
 				PackageManager packageManager = context.getPackageManager();
 				Intent intent = new Intent();
@@ -78,7 +78,7 @@ public class Manager extends BaseFragment {
 				}
 				context.startActivity(intent);
 
-			} else if ("0".equals(framework.getModuleType())) {
+			} else if ("0".equals(framework.getFrameType())) {
 				try {
 					Intent intent = new Intent(context, toActivity(context,
 							framework));

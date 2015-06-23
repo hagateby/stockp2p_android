@@ -11,7 +11,6 @@ import android.widget.Button;
 import com.stockp2p.R;
 import com.stockp2p.common.cache.UserInfoManager;
 import com.stockp2p.common.data.Constants;
-import com.stockp2p.common.util.ExitApplication;
 import com.stockp2p.components.login.LoginActicity;
 import com.stockp2p.framework.ListModulesActivity;
 import com.stockp2p.framework.baseframe.BaseFragmentActivity;

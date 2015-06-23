@@ -56,13 +56,13 @@ import com.stockp2p.common.db.FrameWork_Frame;
 import com.stockp2p.common.db.FrameWork_Frame_DAO;
 import com.stockp2p.common.db.Version;
 
-import com.stockp2p.common.util.ExitApplication;
 import com.stockp2p.common.util.ScreenShot;
 import com.stockp2p.common.util.ShareUtils;
 import com.stockp2p.common.util.TipUitls;
 import com.stockp2p.common.util.PubFun;
 
 import com.stockp2p.components.login.LoginActicity;
+import com.stockp2p.framework.ExitApplication;
 import com.stockp2p.framework.SetActivity;
 
 
@@ -123,7 +123,7 @@ public class BaseFragmentActivity extends FragmentActivity {
 				// 传递进的组件
 				framework_ = (FrameWork_Frame) getIntent().getParcelableExtra(
 						"framework");
-				TipUitls.Log(TAG, "要跳进的组件名---->" + framework_.getModuleName());
+				TipUitls.Log(TAG, "要跳进的组件名---->" + framework_.getFrameName());
 			}
 			if (getIntent().getStringExtra("isExit") != null) {
 				// isExit !=null 为跳到登录
@@ -203,7 +203,7 @@ public class BaseFragmentActivity extends FragmentActivity {
 			initBottombar();
 		} else {
 			for (Integer num : index) {
-			 if ( !Constants.moduleList.get(num).getModuleId()
+			 if ( !Constants.moduleList.get(num).getFrameId()
 								.equals(framework_.getParentId())) {
 					isExit2  = "false";
 				

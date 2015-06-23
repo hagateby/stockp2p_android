@@ -15,10 +15,10 @@ import com.stockp2p.R;
 import com.stockp2p.common.cache.SertificatonInfor;
 import com.stockp2p.common.cache.SertificatonInfor.ErrorCallBack;
 import com.stockp2p.common.cache.UserInfoManager;
-import com.stockp2p.common.util.ExitApplication;
 import com.stockp2p.common.util.NetUtil;
 import com.stockp2p.common.view.CommonDialog;
 import com.stockp2p.components.login.LoginActicity;
+import com.stockp2p.framework.ExitApplication;
 import com.stockp2p.framework.baseframe.BaseFragmentActivity;
 import com.stockp2p.framework.layoutmodules.chkboardmodule.QuicksrvActivity;
 

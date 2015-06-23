@@ -1,4 +1,4 @@
-package com.stockp2p.common.util;
+package com.stockp2p.framework;
 
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -10,6 +10,8 @@ import android.app.Application;
 import android.content.Context;
 
 import com.stockp2p.common.data.Constants;
+import com.stockp2p.common.util.SYSTEMCONST;
+import com.stockp2p.common.util.TipUitls;
 
 /**
  * 退出程序类

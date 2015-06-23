@@ -185,7 +185,7 @@ public class RegisterActivity extends BaseFragmentActivity {
 
 	}
 	private void init() {
-		et_username = (ClearEditText) findViewById(R.id.et_username);
+		et_username = (ClearEditText) findViewById(R.id.et_nickename);
 		et_userpassword = (ClearEditText) findViewById(R.id.et_userpassword);
 		et_affirmpassword = (ClearEditText) findViewById(R.id.et_affirmpassword);
 		
@@ -196,7 +196,7 @@ public class RegisterActivity extends BaseFragmentActivity {
 		reSet = (Button) findViewById(R.id.button_reSet);
 		negotiate = (TextView) findViewById(R.id.negotiate);
 		testdate = (ClearEditText) findViewById(R.id.testDate);
-		testGetCode = (Button) findViewById(R.id.test);
+
 
 		negotiate.setText(Html
 				.fromHtml("我已经查看并同意《<font color=blue>网站协议</font>》"));

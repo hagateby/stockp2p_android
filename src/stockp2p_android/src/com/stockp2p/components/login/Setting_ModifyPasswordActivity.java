@@ -25,10 +25,10 @@ import com.stockp2p.common.ifinvoke.Des3;
 import com.stockp2p.common.ifinvoke.EnginCallback;
 import com.stockp2p.common.ifinvoke.JsonInvok;
 import com.stockp2p.common.ifinvoke.ServiceEngin;
-import com.stockp2p.common.util.ExitApplication;
 import com.stockp2p.common.util.MD5Util;
 import com.stockp2p.common.view.ClearEditText;
 import com.stockp2p.common.view.CommonDialog;
+import com.stockp2p.framework.ExitApplication;
 import com.stockp2p.framework.baseframe.BaseFragment;
 
 public class Setting_ModifyPasswordActivity extends BaseFragment {

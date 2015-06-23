@@ -145,7 +145,7 @@ public class NewPasswordSubmit extends BaseFragment {
 		map.put("loginId", userName);
 		map.put("password", newPw);// 新密码
 		map.put("mobilephone", tel);// 手机号
-		//map.put("random", telCode);// 验证码
+		map.put("random", telCode);// 验证码
 
 		/**
 		 * bizId 业务场景编码 serviceName 方法名 param 参数集合

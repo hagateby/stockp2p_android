@@ -1,6 +1,6 @@
 package com.stockp2p.common.ifinvoke;
 
-public class EnginBean {
+public class ServiceMsgHead {
 
 	private String serviceName; // 服务名称
 	private String servicePara; // 服务参数

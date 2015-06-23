@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <attr name="functionName" format="reference|string" />
     <attr name="functionIcon" format="reference" />
     <attr name="hint" format="reference|string" />
@@ -86,4 +87,9 @@
     <attr name="lineWidth" format="dimension" />
     <attr name="circleColor" format="color" />
     <attr name="lineColor" format="color" />
+    <attr name="item_count" format="integer"></attr>
+    <declare-styleable name="BannerPagerIndicatorView">
+        <attr name="item_count" />
+    </declare-styleable>
+
 </resources>

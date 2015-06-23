@@ -16,7 +16,7 @@ public class FrameWork_LocalFileDesc {
 	private int id;
 	private String FileCode;// 所属文章Id
 	private String GroupCode;// 分组号
-	private String FileType;// 文件类型
+	private String FileType;// 文件类型   0 在R文件中的文  1 image文件  2 其它文件
 	private String FileName;// 文件名称
 	private String LocalPath;// 文件在本地的路径名
 	private String ClickAdress;// 点击跳转路径

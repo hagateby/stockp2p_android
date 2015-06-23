@@ -46,18 +46,6 @@ import com.stockp2p.framework.baseframe.BaseFragment;
 @SuppressLint("ValidFragment")
 public class ForgetPasswordWaySelect extends BaseFragment {
 	private final static String TAG = " ForgetPasswordWaySelect";
-
-	/**
-	 * 输入注册的用户名
-	 */
-	@ViewInject(R.id.forget_password_edit_username)
-	private ClearEditText forgetUserName;
-	/**
-	 * group
-	 */
-	@ViewInject(R.id.forget_password_rg_radiogroup)
-	private RadioGroup radiogroup;
-
 	private final String TEL_WAY = "0";
 	private final String EMAIL_WAY = "1";
 	/**
@@ -137,75 +125,23 @@ public class ForgetPasswordWaySelect extends BaseFragment {
 
 	private void addListeners() {
 		// TODO Auto-generated method stub
-		// 方式
-		radiogroup.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-
-			@Override
-			public void onCheckedChanged(RadioGroup group, int checkedId) {
-				// TODO Auto-generated method stub
-				// 手机方式
-				if (checkedId == R.id.forget_password_rb_telway) {
-					layout.setVisibility(View.VISIBLE);
-					wayEdit.setHint("注册时的手机号码");
-					Way = TEL_WAY;
-				}
-				// mail方式
-				else if (checkedId == R.id.forget_password_rb_emailway) {
-					layout.setVisibility(View.GONE);
-					wayEdit.setHint("注册时的邮箱");
-					Way = EMAIL_WAY;
-				}
-
-			}
-		});
-
-		// 获取验证码
-		getCode.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				userName = forgetUserName.getText().toString().trim();
-				String wayContent = wayEdit.getText().toString().trim();
-				telRequest(wayContent);
-			}
-		});
-
 		// 确定
 		next.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
-
-				if (TEL_WAY.equals(Way)) {
+				// TODO Auto-generated method stub	
 					telWay();
-				} else if (EMAIL_WAY.equals(Way)) {
-					emailWay();
-				}
 			}
 
 		});
 
 	}
 
-	private void emailWay() {
-		userName = forgetUserName.getText().toString().trim();
-		String wayContent = wayEdit.getText().toString().trim();
-		if ("".equals(userName) || !CommonUtil.checkUserName(userName)) {
-			Toast.makeText(context, "用户名不正确", 0).show();
-			return;
-		} else if ("".equals(wayContent) || !CommonUtil.isEmail(wayContent)) {
-			Toast.makeText(context, "请输入正确的邮箱", Toast.LENGTH_SHORT).show();
-		} else {
-			String emailContent = wayContent;
-			telContent = "";
-			request(telContent, emailContent);
-		}
-	}
+
 
 	private void telWay() {
-		userName = forgetUserName.getText().toString().trim();
+	
 		String wayContent = wayEdit.getText().toString().trim();
 		if ("".equals(userName) || !CommonUtil.checkUserName(userName)) {
 			Toast.makeText(context, "用户名不正确", 0).show();

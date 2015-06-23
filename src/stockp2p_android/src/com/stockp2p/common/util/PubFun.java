@@ -7,7 +7,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -29,6 +32,7 @@ import com.stockp2p.common.data.Constants;
 import com.stockp2p.common.data.MyApplication;
 import com.stockp2p.common.db.DBManager;
 import com.stockp2p.common.db.FrameWork_Frame;
+import com.stockp2p.common.ifinvoke.Des3;
 import com.stockp2p.framework.baseframe.BaseFragment;
 
 public class PubFun {
@@ -44,7 +48,7 @@ public static String getimageDownloadUrl() {
 
 		db = MyApplication.getdb();
 
-		Cursor c = db.rawQuery("select * from code where codetype=?",
+		Cursor c = db.rawQuery("select * from FrameWork_Code where codetype=?",
 				new String[] { "imageDownloadUrl" });
 		if (c.moveToFirst()) {
 			code = c.getString(c.getColumnIndex("code"));
@@ -154,17 +158,18 @@ public static String getimageDownloadUrl() {
 		if (Constants.ISDEBUG) {
 			TipUitls.Log(TAG, "WelcomeViewPagerActivity----进入内网");
 
-			Constants.PROTOCOL = "https://";
-			Constants.DOMIN_NAME = "zsxh.newchinalife.com";
+			Constants.PROTOCOL = "http://";
+			Constants.DOMIN_NAME = "www.bigpot.cn";
 			Constants.URLHTML5 = "http://" + Constants.DOMIN_NAME;
 
-			Constants.URL = "";
-
+			Constants.URL = "http://10.8.24.43:8080/tprtmt/ajax/test_jsonTestAction.action";
+          
+	
 		} else {
 			TipUitls.Log(TAG,"WelcomeViewPagerActivity----进入外网");
 
 			Constants.PROTOCOL = "https://";
-			Constants.DOMIN_NAME = "zxh.newchinalife.com";
+			Constants.DOMIN_NAME = "www.bigpot.cn";
 			Constants.URLHTML5 = "http://" + Constants.DOMIN_NAME;
 
 			Constants.PORT = 443;
@@ -186,7 +191,9 @@ public static String getimageDownloadUrl() {
 				R.drawable.defaultshowimage));
 	
 	}
-	
+	/*
+	 * 初始化数据库
+	 * */
 	public static  SQLiteDatabase getMyApplicationDb(MyApplication  myApplication , Context context)
 	{
 		
@@ -200,7 +207,7 @@ public static String getimageDownloadUrl() {
 	
 
 	/*
-	 * 
+	 * 打印frame的清单
 	 * */
 	public static void printFrames(String TAG,  ArrayList<FrameWork_Frame> frameworks)
 	{
@@ -215,7 +222,7 @@ public static String getimageDownloadUrl() {
 	}
 	
 	/**
-	 * activity
+	 * 根据类名转换成类对象
 	 */
 	
 	public static Class toClassbyName(String classname)  {
@@ -230,5 +237,60 @@ public static String getimageDownloadUrl() {
 		return activity;
 
 	}
+	
+	/*
+	 * 根据系统设置对字符串进行解密
+	 * */	
+	public static String getEncryptString(String str){
+		
+	  String result =new String();	
+	if (SYSTEMCONST.EncryptFlag ==true) {
+		try {
+			result = Des3.decode(str);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		}else {
+			result =str;
+		}
+	  
+	return result;
+	}
+	
+	/*
+	 * 根据系统设置对字符串进行加密
+	 * */
+	public static String setEncryptString(String str){
+		
+		  String result =new String();	
+		if (SYSTEMCONST.EncryptFlag ==true) {
+			try {
+				result = Des3.encode(str);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} 
+			}else {
+				result =str;
+			}
+		  
+		return result;
+		}
+	
+	
+	// 前一年当天日期
+		public static final String LASTYEARCURRENTDATE = new SimpleDateFormat(
+				"yyyy-MM-dd").format(lastDate()).toString();
+
+		private static Date lastDate() {
+			Calendar calendar = Calendar.getInstance();
+			calendar.add(Calendar.YEAR, -1);
+			return calendar.getTime();
+		}
+
+		// 当天日期
+		public static final String CURRENTDATE = new SimpleDateFormat("yyyy-MM-dd")
+				.format(new Date()).toString();
 	
 }

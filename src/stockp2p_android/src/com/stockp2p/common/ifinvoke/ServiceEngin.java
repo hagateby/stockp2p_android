@@ -1,7 +1,12 @@
 package com.stockp2p.common.ifinvoke;
 
 import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 import android.content.ComponentName;
 import android.content.Context;
@@ -15,17 +20,22 @@ import android.view.View.OnClickListener;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.lidroid.xutils.HttpUtils;
+import com.lidroid.xutils.exception.HttpException;
 import com.lidroid.xutils.http.RequestParams;
+import com.lidroid.xutils.http.ResponseInfo;
 import com.lidroid.xutils.http.ResponseStream;
+import com.lidroid.xutils.http.callback.RequestCallBack;
 import com.lidroid.xutils.http.client.HttpRequest;
 import com.stockp2p.common.cache.UserInfoManager;
 import com.stockp2p.common.data.Constants;
 import com.stockp2p.common.util.CommonUtil;
-import com.stockp2p.common.util.ExitApplication;
 import com.stockp2p.common.util.NetUtil;
+import com.stockp2p.common.util.PubFun;
+import com.stockp2p.common.util.SYSTEMCONST;
 import com.stockp2p.common.util.TipUitls;
 import com.stockp2p.common.view.CommonDialog;
 import com.stockp2p.components.login.LoginActicity;
+import com.stockp2p.framework.ExitApplication;
 import com.stockp2p.framework.baseframe.BaseFragmentActivity;
 
 /**
@@ -36,6 +46,7 @@ import com.stockp2p.framework.baseframe.BaseFragmentActivity;
  */
 public class ServiceEngin {
 
+	private static String TAG = "ServiceEngin";
 	private static HttpUtils httputil = new HttpUtils();
 	// private static String LOCAL_HOST = Constants.PROTOCOL + Constants.HOST
 	// + ":" + Constants.PORT + "/";
@@ -64,39 +75,15 @@ public class ServiceEngin {
 	 * @param callback
 	 *            重写的EngineCallBack回调函数
 	 */
+
 	public static void Request(final Context context, String bizId,
 			String serviceName, String servicePara, EnginCallback callback) {
 		if (NetUtil.hasNetWork(context)) {
 			TipUitls.Log("ServiceEngine", "请求URL:" + Constants.URL + "部分参数:"
 					+ servicePara);
-			// 参数拼接
-			RequestParams params = new RequestParams();
-			params.addBodyParameter("keyVer", "v1");
-			params.addBodyParameter("appID", "1");
-			EnginBean eb = new EnginBean();
-			eb.setBizId(bizId);
-			String deviceId = ((TelephonyManager) context
-					.getSystemService(Context.TELEPHONY_SERVICE)).getDeviceId();
-			eb.setDeviceId(deviceId);
-			eb.setClientOS("1");
-			eb.setClientVer(CommonUtil.getClientVer());//
-			try {
-				eb.setAppVer(CommonUtil.getVersionName(context));
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			eb.setServiceName(serviceName);
-			eb.setServicePara(servicePara);
-			String para = JSON.toJSON(eb) + "";
-			try {
-				para = Des3.encode(para);
-			} catch (Exception e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-				RESULT = "请求加密失败";
-			}
-			params.addBodyParameter("para", para);
+
+			RequestParams params = serviceParatojSON(context, bizId,
+					serviceName, servicePara);
 			// 请求超时
 			httputil.configTimeout(1000 * 20);
 			// 发送请求
@@ -154,42 +141,14 @@ public class ServiceEngin {
 		TipUitls.Log("ServiceEngine", "请求URL:" + Constants.URL + "部分参数:"
 				+ servicePara);
 		String result = "";
-		/* lwh
-		if (android.os.Build.VERSION.SDK_INT > 9) {
-			StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
-					.permitAll().build();
-			StrictMode.setThreadPolicy(policy);
-		}
-		*/
-		// 参数拼接
-		RequestParams params = new RequestParams();
-		params.addBodyParameter("keyVer", "v1");
-		params.addBodyParameter("appID", "1");
-		EnginBean eb = new EnginBean();
-		eb.setBizId(bizId);
-		String deviceId = ((TelephonyManager) context
-				.getSystemService(Context.TELEPHONY_SERVICE)).getDeviceId();
-		// eb.setDeviceId(deviceId);
-		eb.setDeviceId(deviceId);
-		eb.setClientOS("1");
-		eb.setClientVer(CommonUtil.getClientVer());//
-		try {
-			eb.setAppVer(CommonUtil.getVersionName(context));
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		eb.setServiceName(serviceName);
-		eb.setServicePara(servicePara);
-		String para = JSON.toJSON(eb) + "";
-		try {
-			para = Des3.encode(para);
-		} catch (Exception e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-			RESULT = "请求加密失败";
-		}
-		params.addBodyParameter("para", para);
+		/*
+		 * lwh if (android.os.Build.VERSION.SDK_INT > 9) {
+		 * StrictMode.ThreadPolicy policy = new
+		 * StrictMode.ThreadPolicy.Builder() .permitAll().build();
+		 * StrictMode.setThreadPolicy(policy); }
+		 */
+		RequestParams params = serviceParatojSON(context, bizId, serviceName,
+				servicePara);
 
 		// // 请求超时
 		httputil.configTimeout(1000 * 20);
@@ -203,7 +162,7 @@ public class ServiceEngin {
 				result += line;
 			}
 			in.close();
-			result = Des3.decode(result);
+			// lwh result = Des3.decode(result);
 			JSONObject jo = JSONObject.parseObject(result);
 			if (jo.getString("resultCode") != null
 					&& jo.getString("resultCode").equals("99")) {
@@ -227,4 +186,37 @@ public class ServiceEngin {
 		// 发送请求
 		return result;
 	}
+
+	public static RequestParams serviceParatojSON(final Context context,
+			String bizId, String serviceName, String servicePara) {
+
+		RequestParams params = new RequestParams();
+		params.addBodyParameter("keyVer", "v1");
+		params.addBodyParameter("appID", "1");
+		ServiceMsgHead eb = new ServiceMsgHead();
+		eb.setBizId(bizId);
+		String deviceId = ((TelephonyManager) context
+				.getSystemService(Context.TELEPHONY_SERVICE)).getDeviceId();
+		// eb.setDeviceId(deviceId);
+		eb.setDeviceId(deviceId);
+		eb.setClientOS("1");
+		eb.setClientVer(CommonUtil.getClientVer());//
+		try {
+			eb.setAppVer(CommonUtil.getVersionName(context));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		eb.setServiceName(serviceName);
+		eb.setServicePara(servicePara);
+		String para = JSON.toJSON(eb) + "";
+	
+		para =PubFun.setEncryptString(para);
+		
+		TipUitls.Log(TAG, "para:" + para);
+		params.addBodyParameter("para", para);
+
+		return params;
+	}
+
 }

@@ -1,4 +1,4 @@
-package com.stockp2p.common.view;
+package com.stockp2p.common.view.scrolldatepicker;
 
 import java.util.Calendar;
 
@@ -14,6 +14,8 @@ import android.view.View.OnTouchListener;
 import android.widget.ImageButton;
 
 import com.stockp2p.R;
+import com.stockp2p.common.view.wheel.OnWheelChangedListener;
+import com.stockp2p.common.view.wheel.WheelView;
 
 public class ScrollDatePicker extends Dialog implements OnTouchListener {
 	private ImageButton btnClose;

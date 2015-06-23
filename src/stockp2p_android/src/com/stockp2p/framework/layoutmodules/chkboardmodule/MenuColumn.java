@@ -207,7 +207,7 @@ public class MenuColumn extends BaseFragment {
 						// framework = menuList.get(position);
 						// 在跳转到添加菜单时 finish 和去动画处理 否则会不刷新
 
-						if ("99".equals(menuList.get(position).getModuleId())) {
+						if ("99".equals(menuList.get(position).getFrameId())) {
 							if (isLongpressed != true) {
 								context.finish();
 								context.overridePendingTransition(0, 0);
@@ -364,7 +364,7 @@ public class MenuColumn extends BaseFragment {
 			is = null;
 
 			// 图标下文字暂时不用,xml 中设为 gone
-			viewHolder.itemTxt.setText(modules.get(position).moduleName);
+			viewHolder.itemTxt.setText(modules.get(position).frameName);
 			// 是否显示叉
 			if (isLongpressed == true
 					&& !"1".equals(modules.get(position).fixedPage)) {

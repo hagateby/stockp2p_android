@@ -1,4 +1,4 @@
-package com.stockp2p.common.view;
+package com.stockp2p.common.view.slideshow;
 
 
 import java.util.ArrayList;  
@@ -29,8 +29,6 @@ import com.lidroid.xutils.bitmap.BitmapDisplayConfig;
 import com.stockp2p.R;  
 import com.stockp2p.common.data.MyApplication;
 
- 
- 
 /** 
 * ViewPager实现的轮播图广告自定义视图，如京东首页的广告轮播图效果； 
 * 既支持自动轮播页面也支持手势滑动切换页面 

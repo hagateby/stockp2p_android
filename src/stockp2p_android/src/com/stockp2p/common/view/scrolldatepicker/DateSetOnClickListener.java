@@ -1,9 +1,8 @@
-package com.stockp2p.common.util;
+package com.stockp2p.common.view.scrolldatepicker;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-import com.stockp2p.common.view.ScrollDatePicker;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;

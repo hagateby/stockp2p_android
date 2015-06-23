@@ -146,108 +146,16 @@ public class Constants {
 	/**
 	 * 保单列表 登录用户可以做的保全项目
 	 */
-	public final static String Policyholder = "投保人";
-	public final static String Insured = "被保人";
-	public final static String PolicyholderWithInsured = "既是投保人又是被保险人";
-
-	public final static String ApplicationTelChange = "投保人电话变更";
-	public final static String AccountInforQuery = "账户信息查询";
-	public final static String AccumulatedInterestReceive = "累计生息部分领取";
-	public final static String AnnuityReceive = "年金满期金领取";
-	public final static String ApplicantInforChange = "投保人资料变更";
-	public final static String BonusInforQuery = "分红信息查询";
-	public final static String InsurerInforChange = "被保险人资料变更";
-	public final static String PayInforQuery = "交费信息查询";
-	public final static String PolicyInforQuery = "保单信息查询";
-	public final static String PolicyLoanCredit = "贷款续贷";
-	public final static String PolicyLoanRepayment = "贷款清偿";
-	public final static String PolicyPledgeLoans = "保单质押贷款";
-	public final static String PolicyReinstatement = "保单复效";
-	public final static String PolicySurrender = "整单退保";
-	public final static String Receivechange = "领取形式变更";
-	public final static String ReceiveInforQuery = "生存/满期领取查询";
-	public final static String Renewalpayment = "续期缴费";
-	public final static String RenewalpaymentInforChange = "续期交费信息变更";
-	public final static String UniversalInsuranceReceive = "万能险领取";
-	public final static String PolicyLossActivity = "保单挂失";
-	public final static String WayChangeActivity = "领取方式变更";
-	public final static String PolicyTransferActivity = "保单迁移";
-	public final static String MainRisksRenewalActivity = "主险续保";
-	public final static String DateChangeActivity = "领取日期变更";
-	public final static String AgeChangeActivity = "领取年龄变更";
-	public final static String AccessoryRiskNotRenewalActivity = "附加险满期不续保";
-	public final static String AccessoryRiskLowCoverageRenewalActivity = "附加险满期低保额续保";
-
-	// =====支付平台用到的参数对应的值==================================///
-	// ========================== 商品类型地址 ==========================//
-	// / -> 年金／满期金领取
-	public final static String AnnuityReceiveProductType = "101";
-	// / -> 累计生息领取
-	public final static String AccumulatedInterestReceiveProductType = "102";
-	// / -> 万能险领取
-	public final static String UniversalInsuranceReceiveProductType = "103";
-	// / -> 保单复效
-	public final static String PolicyReinstatementProductType = "204";
-	// / -> 保单退保
-	public final static String PolicySurrenderProductType = "105";
-	// / -> 保单质押贷款
-	public final static String PolicePledgeLoanProductType = "106";
-	// / -> 贷款续贷（收费时）
-	public final static String LoanCreditReceiveProductType = "207";
-	// / -> 贷款续贷（付费时）
-	public final static String LoanCreditPayProductType = "107";
-	// / -> 贷款清偿
-	public final static String LoanPaymentProductType = "208";
-	// / -> 续期交费
-	public final static String RenewalPayProductType = "209";
-	// / -> 电话号码变更
-	public final static String ApplicationTelChangeProductType = "010";
-	// / -> 远程认证
-	public final static String RemoteauthenticationProductType = "011";
-	// / -> 交易密码设置
-	public final static String PasswordConfigProductType = "012";
 
 	// ========================== 交易类型地址 ==========================//
 	// / -> 年金／满期金领取
-	public final static String AnnuityReceiveTxnType = "C01";
-	// / -> 累计生息领取
-	public final static String AccumulatedInterestReceiveTxnType = "C01";
-	// / -> 万能险领取
-	public final static String UniversalInsuranceReceiveTxnType = "C01";
-	// / -> 保单复效
-	public final static String PolicyReinstatementTxnType = "D01";
-	// / -> 保单退保
-	public final static String PolicySurrenderTxnType = "C01";
-	// / -> 保单质押贷款
-	public final static String PolicePledgeLoanTxnType = "C01";
-	// / -> 贷款续贷（收费时）
-	public final static String LoanCreditReceiveTxnType = "D01";
-	// / -> 贷款续贷（付费时）
-	public final static String LoanCreditPayTxnType = "C01";
-	// / -> 贷款清偿
-	public final static String LoanPaymentTxnType = "D01";
-	// / -> 续期交费
-	public final static String RenewalPayTxnType = "D01";
-	// / -> 电话号码变更
-	public final static String ApplicationTelChangeTxnType = "OMM";
+	
 	// / -> 远程认证
 	public final static String RemoteauthenticationTxnType = "OSR";
 	// / -> 交易密码设置
 	public final static String PasswordConfigTxnType = "OVP";
 
-	// 前一年当天日期
-	public static final String LASTYEARCURRENTDATE = new SimpleDateFormat(
-			"yyyy-MM-dd").format(lastDate()).toString();
-
-	private static Date lastDate() {
-		Calendar calendar = Calendar.getInstance();
-		calendar.add(Calendar.YEAR, -1);
-		return calendar.getTime();
-	}
-
-	// 当天日期
-	public static final String CURRENTDATE = new SimpleDateFormat("yyyy-MM-dd")
-			.format(new Date()).toString();
+	
 
 	/**
 	 * 分享处理

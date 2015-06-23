@@ -311,28 +311,28 @@ public class JsonToDb {
 					cv.put("clickUrl", framework.getClickUrl());
 					cv.put("moduleOrderby", framework.getModuleOrderby());
 					cv.put("isVisibleOrder", framework.getIsVisibleOrder());
-					cv.put("moduleId", framework.getModuleId());
+					cv.put("moduleId", framework.getFrameId());
 					cv.put("fixedPage", framework.getFixedPage());
 					cv.put("isLogin", framework.getIsLogin());
 					cv.put("isMenuItem", framework.getIsMenuItem());
 					cv.put("isAddMenuItem", framework.getIsAddMenuItem());
 					cv.put("packageName", framework.getPackageName());
-					cv.put("moduleName", framework.getModuleName());
-					cv.put("moduleType", framework.getModuleType());
+					cv.put("moduleName", framework.getFrameName());
+					cv.put("moduleType", framework.getFrameType());
 					cv.put("parentId", framework.getParentId());
 					cv.put("updateDate", framework.getUpdateDate());
-					cv.put("group_code", framework.getGroup_code());
+					cv.put("group_code", framework.getGroupCode());
 	
 					if ("c".equals(framework.getOpeFlag())) {
 						db.delete("framework", "moduleId = ?",
-								new String[] { framework.getModuleId() });
+								new String[] { framework.getFrameId() });
 						db.insert("framework", null, cv);
 					} else if ("u".equals(framework.getOpeFlag())) {
 						db.update("framework", cv, "moduleId = ?",
-								new String[] { framework.getModuleId() });
+								new String[] { framework.getFrameId() });
 					} else if ("d".equals(framework.getOpeFlag())) {
 						db.delete("framework", "moduleId = ?",
-								new String[] { framework.getModuleId() });
+								new String[] { framework.getFrameId() });
 					}
 				}
 			}

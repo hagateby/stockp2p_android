@@ -12,23 +12,23 @@ public class FrameWork_Frame implements Parcelable{
 
 	// 主键 模块的 id号
 		
-		public String moduleId;
+		public String frameId;
+	
 		// 父id 上一级的主键
 		public String parentId;
 		// 模块名称
-		public String moduleName;
+		public String frameName;
 		// 添加列表点击后是不是显示下一级 0-显示 1-不显示
 		public String isMenuItem;
 		// 是否为添加列表显示的模块 0-否 1-是
 		public String isAddMenuItem;
 		// 模块类型 1为列表,有下一级菜单  2为详情  3为 webview 4 为打开另一个程序
-		public String moduleType;
+		public String frameType;
 		// 第三方应用包名
 		public String packageName;
 		// 图标名称
 		public String iconName;
-		// 图片在file的代码
-		public String imagFileCode;
+
 		// 小图标名称
 		public String thumbnailName;
 		// webview点击链接
@@ -36,7 +36,7 @@ public class FrameWork_Frame implements Parcelable{
 		// 是否显示
 		public String isVisible;
 		// 模块后台规定的顺序
-		public String moduleOrderby;
+		public String frameOrderby;
 		// 首页主菜单排序字段 由后台维护
 		public String isVisibleOrder;
 		// 是否为首页主菜单固定菜单-后台维护
@@ -48,126 +48,240 @@ public class FrameWork_Frame implements Parcelable{
 		// /模块状态 u:update ,c:create,d:delete
 		public String opeFlag;
 		// 分组编码
-	    public String group_code;
-        //
+	    public String groupCode;     
 	    
-	    
-		public String getImagFileCode() {
-			return imagFileCode;
+		// 图片在file的代码
+		public String imagFileCode;	    
+	    // 显示类型
+	    public String remark;	    
+	    //布局ID的名称
+	    public String  layoutName;
+	    // 显示类型
+	    public String showType;    
+	      
+		public String getFrameId() {
+			return frameId;
 		}
-		public void setImagFileCode(String imagFileCode) {
-			this.imagFileCode = imagFileCode;
+
+
+		public void setFrameId(String frameId) {
+			this.frameId = frameId;
 		}
-		public String getOpeFlag() {
-			return opeFlag;
-		}
-		public void setOpeFlag(String opeFlag) {
-			this.opeFlag = opeFlag;
-		}
-		public String getModuleId() {
-			return moduleId;
-		}
-		public void setModuleId(String moduleId) {
-			this.moduleId = moduleId;
-		}
+
+
 		public String getParentId() {
 			return parentId;
 		}
+
+
 		public void setParentId(String parentId) {
 			this.parentId = parentId;
 		}
-		public String getModuleName() {
-			return moduleName;
+
+
+		public String getFrameName() {
+			return frameName;
 		}
-		public void setModuleName(String moduleName) {
-			this.moduleName = moduleName;
+
+
+		public void setFrameName(String frameName) {
+			this.frameName = frameName;
 		}
+
+
 		public String getIsMenuItem() {
 			return isMenuItem;
 		}
+
+
 		public void setIsMenuItem(String isMenuItem) {
 			this.isMenuItem = isMenuItem;
 		}
+
+
 		public String getIsAddMenuItem() {
 			return isAddMenuItem;
 		}
+
+
 		public void setIsAddMenuItem(String isAddMenuItem) {
 			this.isAddMenuItem = isAddMenuItem;
 		}
-		public String getModuleType() {
-			return moduleType;
+
+
+		public String getFrameType() {
+			return frameType;
 		}
-		public void setModuleType(String moduleType) {
-			this.moduleType = moduleType;
+
+
+		public void setFrameType(String frameType) {
+			this.frameType = frameType;
 		}
+
+
 		public String getPackageName() {
 			return packageName;
 		}
+
+
 		public void setPackageName(String packageName) {
 			this.packageName = packageName;
 		}
+
+
 		public String getIconName() {
 			return iconName;
 		}
+
+
 		public void setIconName(String iconName) {
 			this.iconName = iconName;
 		}
+
+
+		public String getImagFileCode() {
+			return imagFileCode;
+		}
+
+
+		public void setImagFileCode(String imagFileCode) {
+			this.imagFileCode = imagFileCode;
+		}
+
+
 		public String getThumbnailName() {
 			return thumbnailName;
 		}
+
+
 		public void setThumbnailName(String thumbnailName) {
 			this.thumbnailName = thumbnailName;
 		}
+
+
 		public String getClickUrl() {
 			return clickUrl;
 		}
+
+
 		public void setClickUrl(String clickUrl) {
 			this.clickUrl = clickUrl;
 		}
+
+
 		public String getIsVisible() {
 			return isVisible;
 		}
+
+
 		public void setIsVisible(String isVisible) {
 			this.isVisible = isVisible;
 		}
+
+
 		public String getModuleOrderby() {
-			return moduleOrderby;
+			return frameOrderby;
 		}
+
+
 		public void setModuleOrderby(String moduleOrderby) {
-			this.moduleOrderby = moduleOrderby;
+			this.frameOrderby = moduleOrderby;
 		}
+
+
 		public String getIsVisibleOrder() {
 			return isVisibleOrder;
 		}
+
+
 		public void setIsVisibleOrder(String isVisibleOrder) {
 			this.isVisibleOrder = isVisibleOrder;
 		}
+
+
 		public String getFixedPage() {
 			return fixedPage;
 		}
+
+
 		public void setFixedPage(String fixedPage) {
 			this.fixedPage = fixedPage;
 		}
+
+
 		public String getIsLogin() {
 			return isLogin;
 		}
+
+
 		public void setIsLogin(String isLogin) {
 			this.isLogin = isLogin;
 		}
+
+
 		public String getUpdateDate() {
 			return updateDate;
 		}
+
+
 		public void setUpdateDate(String updateDate) {
 			this.updateDate = updateDate;
 		}
-		
+
+
+		public String getOpeFlag() {
+			return opeFlag;
+		}
+
+
+		public void setOpeFlag(String opeFlag) {
+			this.opeFlag = opeFlag;
+		}
+
+
+		public String getGroupCode() {
+			return groupCode;
+		}
+
+
+		public void setGroupCode(String groupCode) {
+			this.groupCode = groupCode;
+		}
+
+
+		public String getRemark() {
+			return remark;
+		}
+
+
+		public void setRemark(String remark) {
+			this.remark = remark;
+		}
+
+
+		public String getLayoutName() {
+			return layoutName;
+		}
+
+
+		public void setLayoutName(String layoutName) {
+			this.layoutName = layoutName;
+		}
+
+
+		public String getShowType() {
+			return showType;
+		}
+
+
+		public void setShowType(String showType) {
+			this.showType = showType;
+		}
+
+		public static Parcelable.Creator<FrameWork_Frame> getCreator() {
+			return CREATOR;
+		}
 	
-		public String getGroup_code() {
-			return group_code;
-		}
-		public void setGroup_code(String group_code) {
-			this.group_code = group_code;
-		}
 		
 		@Override
 		public int describeContents() {
@@ -178,12 +292,12 @@ public class FrameWork_Frame implements Parcelable{
 
 		@Override
 		public void writeToParcel(Parcel dest, int flags ) {
-			dest.writeString(moduleId);
+			dest.writeString(frameId);
 			dest.writeString(parentId);
-			dest.writeString(moduleName);
+			dest.writeString(frameName);
 			dest.writeString(isMenuItem);
 			dest.writeString(isAddMenuItem);
-			dest.writeString(moduleType);
+			dest.writeString(frameType);
 			dest.writeString(packageName);
 			dest.writeString(iconName);
 			dest.writeString(thumbnailName);
@@ -192,9 +306,9 @@ public class FrameWork_Frame implements Parcelable{
 			dest.writeString(isVisibleOrder);
 			dest.writeString(fixedPage);
 			dest.writeString(isLogin);
-			dest.writeString(moduleOrderby);
+			dest.writeString(frameOrderby);
 			dest.writeString(updateDate);
-			dest.writeString(group_code);
+			dest.writeString(groupCode);
 
 		}
 //
@@ -206,12 +320,12 @@ public class FrameWork_Frame implements Parcelable{
 			public FrameWork_Frame createFromParcel(Parcel source) {
 				// 读和写的顺序要一样
 				FrameWork_Frame framework = new FrameWork_Frame();
-				framework.moduleId = source.readString();
+				framework.frameId = source.readString();
 				framework.parentId = source.readString();
-				framework.moduleName = source.readString();
+				framework.frameName = source.readString();
 				framework.isMenuItem = source.readString();
 				framework.isAddMenuItem = source.readString();
-				framework.moduleType = source.readString();
+				framework.frameType = source.readString();
 				framework.packageName = source.readString();
 				framework.iconName = source.readString();
 				framework.thumbnailName = source.readString();
@@ -220,9 +334,9 @@ public class FrameWork_Frame implements Parcelable{
 				framework.isVisibleOrder = source.readString();
 				framework.fixedPage = source.readString();
 				framework.isLogin = source.readString();
-				framework.moduleOrderby = source.readString();
+				framework.frameOrderby = source.readString();
 				framework.updateDate = source.readString();
-				framework.group_code = source.readString();
+				framework.groupCode = source.readString();
 					
 				return framework;
 			}

@@ -1,4 +1,4 @@
-package com.stockp2p.common.view;
+package com.stockp2p.common.view.circleimage;
 
 /*
  * Copyright 2013 Csaba Szugyiczki

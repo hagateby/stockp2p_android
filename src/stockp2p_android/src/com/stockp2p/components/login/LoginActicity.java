@@ -26,6 +26,7 @@ import android.widget.Toast;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.lidroid.xutils.ViewUtils;
+import com.lidroid.xutils.http.RequestParams;
 import com.lidroid.xutils.http.ResponseInfo;
 import com.lidroid.xutils.view.annotation.ViewInject;
 
@@ -34,15 +35,16 @@ import com.stockp2p.common.cache.UserInfoManager;
 import com.stockp2p.common.data.Constants;
 import com.stockp2p.common.ifinvoke.Des3;
 import com.stockp2p.common.ifinvoke.EnginCallback;
+import com.stockp2p.common.ifinvoke.HttpPostUtils;
 import com.stockp2p.common.ifinvoke.ServiceEngin;
 import com.stockp2p.common.ifinvoke.JsonInvok;
 import com.stockp2p.common.util.CommonUtil;
-import com.stockp2p.common.util.ExitApplication;
 import com.stockp2p.common.util.MD5Util;
 import com.stockp2p.common.util.NetUtil;
 import com.stockp2p.common.util.TipUitls;
 import com.stockp2p.common.view.ClearEditText;
 import com.stockp2p.common.view.CommonDialog;
+import com.stockp2p.framework.ExitApplication;
 import com.stockp2p.framework.baseframe.BaseFragmentActivity;
 import com.stockp2p.framework.baseframe.Manager;
 
@@ -229,10 +231,10 @@ public class LoginActicity extends BaseFragmentActivity {
 		map.put("loginId", loginId_account);		
 		map.put("password", passwordDigest);
 		String mapString = JSON.toJSONString(map);
-		testlogin();
-		// LWH loginRequest(mapString);
-
+		//testlogin();
+	   loginRequest(mapString);
 	}
+	
 
 	private void loginRequest(String str) {	
 		if (NetUtil.hasNetWork(context)) {	
@@ -247,40 +249,42 @@ public class LoginActicity extends BaseFragmentActivity {
 							super.onSuccess(arg0);
 							String result = null;
 							try {
-								result = Des3.decode(arg0.result.toString());
+							  //lwh	result = Des3.decode(arg0.result.toString());
 							} catch (Exception e) {
 								// TODO Auto-generated catch block
 								e.printStackTrace();
 							}
+							result =arg0.result.toString();
+							
 							TipUitls.Log(TAG, "result---->" + result);
 							if (result != null
 									&& JSONObject.parseObject(result) != null) {
 								JSONObject jsonObject = JSONObject
-										.parseObject(result);
-								JSONObject user = (JSONObject) jsonObject
-										.get("User");
+										.parseObject(result);								
 								String resultMsg = (String) jsonObject
-										.get("ResultMsg");
+										.get("resultMsg");
 								String resultCode = (String) jsonObject
-										.get("ResultCode");
-
+										.get("resultCode");
+								//JSONObject user = (JSONObject) jsonObject
+								//		.get("User");
 								if ("0".equals(resultCode)) {
 									// 先清空单例再登录
 									UserInfoManager.getInstance().exitLogin();
 									// 取数据
-									setUserInfo(user, resultCode, resultMsg);
-
+									UserInfoManager.setUserInfo(jsonObject, resultCode, resultMsg);
+        
 									TipUitls.Log(TAG, "framework_----->"
 											+ framework_
 											+ "staticFramework----->"
 											+ Constants.staticFramework);
 									if (framework_ == null) {
-										framework_ = Constants.staticFramework;
-										
+										framework_ = Constants.staticFramework;										
 										// 当用户被挤掉后,重新登录后,bottom 显示的位置
-
+										
 									} else {
-										Constants.staticFramework = framework_;
+										//Constants.staticFramework = framework_;
+										//进入主页面
+										framework_= Constants.moduleList.get(0);								
 									}
 
 									ExitApplication.getInstance().exitLogin(
@@ -333,6 +337,7 @@ public class LoginActicity extends BaseFragmentActivity {
 
 	private void testlogin() {
 
+		
 		TipUitls.Log(TAG, "framework_----->" + framework_
 				+ "staticFramework----->" + Constants.staticFramework);
 		if (framework_ == null) {
@@ -367,36 +372,7 @@ public class LoginActicity extends BaseFragmentActivity {
 		 */
 	}
 
-	private void setUserInfo(JSONObject user, String resultCode,
-			String resultMsg) {
-
-		UserInfoManager userInfo = UserInfoManager.getInstance();
-		userInfo.setResultCode(resultCode);
-		userInfo.setResultMsg(resultMsg);
-		userInfo.setCid(user.getString("cid"));
-		userInfo.setSessionId(user.getString("sessionId"));
-		userInfo.setBindingMobile(user.getString("bindingMobile"));
-		userInfo.setBindingState(user.getString("bindingState"));
-		userInfo.setNickName(user.getString("nickName"));
-		userInfo.setPassword(passwordDigest);
-		userInfo.setSex(user.getString("sex"));
-		userInfo.setBirthday(user.getString("birthday"));
-		userInfo.setEmail(user.getString("email"));
-		userInfo.setProvince(user.getString("province"));
-		userInfo.setAddress(user.getString("address"));
-		userInfo.setZipCode(user.getString("zipCode"));
-		userInfo.setMobile(user.getString("mobile"));
-		userInfo.setTelePhone(user.getString("telePhone"));
-		userInfo.setUserName(user.getString("userName"));
-		userInfo.setLoginDate(user.getString("loginDate"));
-		userInfo.setPolicyCount(user.getString("policyCount"));
-		if (UserName.equals(LoginWay)) {
-			userInfo.setLoginType("u");
-		} else if (Phone.equals(LoginWay)) {
-			userInfo.setLoginType("m");
-		}
-
-	}
+	
 
 	/**
 	 * 检查账户格式是否正确

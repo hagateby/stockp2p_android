@@ -1,4 +1,4 @@
-package com.stockp2p.common.view;
+package com.stockp2p.common.view.scrolldatepicker;
 
 public interface OnViewChangeListener {
 	public void OnViewChange(int view);
